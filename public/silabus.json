@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Pertemuan 1: HTML",
+    "file": "/materi/pertemuan-1.md"
+  },
+  {
+    "id": 2,
+    "title": "Pertemuan 2: CSS",
+    "file": "/materi/pertemuan-2.md"
+  },
+  {
+    "id": 3,
+    "title": "Pertemuan 3: JavaScipt Dasar",
+    "file": "/materi/pertemuan-3-part1.md"
+  },
+  {
+    "id": 4,
+    "title": "Pertemuan 3: JavaScipt DOM",
+    "file": "/materi/pertemuan-3-part2.md"
+  },
+  {
+    "id": 5,
+    "title": "Pertemuan 4 - SQL : Pengenalan dan Dasar-Dasar DDL (Data Definition Language)",
+    "file": "/materi/pertemuan-4-m1.md"
+  },
+  {
+    "id": 6,
+    "title": "Pertemuan 4 - SQL : Data Manipulation Language (DML) dan Constraints",
+    "file": "/materi/pertemuan-4-m2.md"
+  },
+  {
+    "id": 7,
+    "title": "Pertemuan 4 - SQL : Pengambilan Data Dasar & Agregasi (DQL)",
+    "file": "/materi/pertemuan-4-m3.md"
+  },
+  {
+    "id": 8,
+    "title": "Pertemuan 4 - SQL : Penggabungan Tabel (JOIN) dan Subqueries",
+    "file": "/materi/pertemuan-4-m4.md"
+  },
+  {
+    "id": 9,
+    "title": "Pertemuan 4 - SQL : Fungsi Bawaan (Built-in Functions) dan Logika Kondisional",
+    "file": "/materi/pertemuan-4-m5.md"
+  },
+  {
+    "id": 10,
+    "title": "Pertemuan 4 - SQL : Analitik (Window Functions, CTE, dan Views)",
+    "file": "/materi/pertemuan-4-m6.md"
+  },
+  {
+    "id": 11,
+    "title": "Pertemuan 4 - SQL : Transaksi, Indexing, dan Keamanan Database",
+    "file": "/materi/pertemuan-4-m7.md"
+  },
+  {
+    "id": 12,
+    "title": "Pertemuan 5 - Konsep Backend & Pembuatan API sederhana dengan Node.js dan Express",
+    "file": "/materi/pertemuan-5.md"
+  }
+]

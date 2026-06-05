@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Andrian M.D.",
+    "subtitle": "PURWA",
+    "image": "/purwa.webp",
+    "tag": "DIVISI SOFTWARE",
+    "stats": [
+      { "label": "SIGMA", "value": 90 },
+      { "label": "Sabaran", "value": 90 }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "M. Ghani",
+    "subtitle": "Ghani",
+    "image": "/ghani.png",
+    "tag": "DIVISI SOFTWARE",
+    "stats": [
+      { "label": "Comms", "value": 90 },
+      { "label": "Rel", "value": 85 }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Ibnu Rasyid Assidiq",
+    "subtitle": "Ibnu",
+    "image": "/ibnu.webp",
+    "tag": "DIVISI SOFTWARE",
+    "stats": [
+      { "label": "Comms", "value": 90 },
+      { "label": "Rel", "value": 85 }
+    ]
+  }
+]
