@@ -1,3 +1,5 @@
+# PANDUAN LMS divisi SOFTWARE
+
 # 📋 Golden Rules (Sistem Halaman & Daftar Isi)
 Karena web kita membaca Markdown untuk membuat halaman secara dinamis, aturan nomor satu ini wajib diikuti:
 
