@@ -63,5 +63,10 @@
     "id": 13,
     "title": "Pertemuan 5 - Build Simple Project Backend dengan Node.js dan Express",
     "file": "/materi/pertemuan-5.part2.md"
+  },
+  {
+    "id": 14,
+    "title": "Pertemuan 6 - Frontend",
+    "file": "/materi/pertemuan-6.md"
   }
 ]

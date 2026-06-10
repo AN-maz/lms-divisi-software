@@ -1,7 +1,6 @@
-## Tutorial: Membangun REST API Inventory dari Nol
+# Tutorial: Membangun REST API Inventory dari Nol
 
-> **Target pembaca:** Pemula yang baru mulai belajar backend web development.  
-> **Yang akan dibangun:** REST API sederhana untuk manajemen produk (Inventory API) menggunakan Node.js, Express.js, dan MySQL.
+Pada modul ini kalian bakal cobain gimana bikin backend simple dan sederhana dengan menggunakan framework express
 
 ---
 
@@ -22,7 +21,7 @@
 
 # 1. Persiapan: Install Node.js
 
-Node.js adalah **runtime environment** yang memungkinkan JavaScript dijalankan di luar browser — yaitu langsung di komputer kamu (server-side). Tanpa Node.js, kamu tidak bisa menjalankan kode backend JavaScript sama sekali.
+Node.js adalah **runtime environment** yang memungkinkan JavaScript dijalankan di luar browser — yaitu langsung di komputer kalian (server-side). Tanpa Node.js, kalian tidak bisa menjalankan kode backend JavaScript sama sekali.
 
 ### Cara Install Node.js
 
@@ -51,7 +50,7 @@ v10.2.4
 ```
 
 > **Apa itu npm?**  
-> npm (Node Package Manager) adalah tools yang otomatis ikut terinstall bersama Node.js. Fungsinya untuk mengunduh dan mengelola library/paket yang dibutuhkan oleh project kamu. Bayangkan npm seperti "toko aplikasi" untuk kode Node.js.
+> npm (Node Package Manager) adalah tools yang otomatis ikut terinstall bersama Node.js. Fungsinya untuk mengunduh dan mengelola library/paket yang dibutuhkan oleh project kalian. Bayangkan npm seperti "google play store" untuk kode Node.js.
 
 ---
 
@@ -61,7 +60,7 @@ Sekarang kita buat folder untuk menyimpan semua file project.
 
 ## Langkah-langkah
 
-Buat folder project (bebas aku di directory mana) 
+Buat folder project (bebas mau di directory yg mana) 
 
 untuk nama foldernya bebas, tapi sy namainnya `latihan`
 
@@ -71,7 +70,7 @@ Kemudian buka folder tersebut di Vscode
 
 # 3. Inisialisasi Project Node.js
 
-Setiap project Node.js membutuhkan file bernama `package.json`. File ini adalah "identitas" project kamu — berisi nama project, versi, daftar library yang digunakan, dan perintah-perintah yang bisa dijalankan.
+Setiap project Node.js membutuhkan file bernama `package.json`. File ini adalah "identitas" project kalian — berisi nama project, versi, daftar library yang digunakan, dan perintah-perintah yang bisa dijalankan.
 
 buka terminal di vscode 
 
@@ -120,7 +119,7 @@ Perintah ini menginstall tiga paket sekaligus. Berikut penjelasan masing-masing:
 ## `express`
 Express adalah **web framework** untuk Node.js. Fungsinya untuk mempermudah pembuatan server dan routing (menentukan URL mana memanggil fungsi apa).
 
-Tanpa Express, kamu harus menulis ratusan baris kode hanya untuk membuat server sederhana. Dengan Express, cukup beberapa baris:
+Tanpa Express, kalian harus menulis ratusan baris kode hanya untuk membuat server sederhana. Dengan Express, cukup beberapa baris:
 
 ```js
 const express = require('express');
@@ -129,14 +128,14 @@ app.listen(3000);
 ```
 
 ### `mysql2`
-Library ini digunakan untuk **menghubungkan aplikasi Node.js ke database MySQL**. Dengan mysql2, kamu bisa mengirim query SQL (SELECT, INSERT, UPDATE, DELETE) dari dalam kode JavaScript.
+Library ini digunakan untuk **menghubungkan aplikasi Node.js ke database MySQL**. Dengan mysql2, kalian bisa mengirim query SQL (SELECT, INSERT, UPDATE, DELETE) dari dalam kode JavaScript.
 
 Tanpa library ini, Node.js tidak tahu cara "berbicara" dengan MySQL.
 
 ## `dotenv`
 Library ini digunakan untuk **membaca file `.env`** — yaitu file yang menyimpan konfigurasi rahasia seperti password database, port server, dll.
 
-Kenapa tidak ditulis langsung di kode? Karena kalau kamu upload kode ke GitHub atau kirim ke orang lain, password database kamu bisa terbaca semua orang. Dengan `.env`, file konfigurasi sensitif bisa dikecualikan dari upload.
+Kenapa tidak ditulis langsung di kode? Karena kalau kalian upload kode ke GitHub atau kirim ke orang lain, password database kalian bisa terbaca semua orang. Dengan `.env`, file konfigurasi sensitif bisa dikecualikan dari upload.
 
 ---
 
@@ -148,10 +147,10 @@ Kenapa tidak ditulis langsung di kode? Karena kalau kamu upload kode ke GitHub a
 npm install --save-dev nodemon
 ```
 
-Flag `--save-dev` artinya paket ini **hanya digunakan saat development** (saat kamu sedang coding), bukan di production (saat aplikasi sudah live/digunakan user).
+Flag `--save-dev` artinya paket ini **hanya digunakan saat development** (saat kalian sedang coding), bukan di production (saat aplikasi sudah live/digunakan user).
 
 ## `nodemon`
-Saat kamu mengubah kode lalu menyimpannya, server Node.js biasanya perlu direstart secara manual (CTRL+C lalu jalankan ulang). Nodemon **otomatis merestart server** setiap kali ada perubahan file yang disimpan.
+Saat kalian mengubah kode lalu menyimpannya, server Node.js biasanya perlu direstart secara manual (CTRL+C lalu jalankan ulang). Nodemon **otomatis merestart server** setiap kali ada perubahan file yang disimpan.
 
 Ini sangat menghemat waktu saat proses pengembangan.
 
@@ -180,9 +179,9 @@ Setelah semua terinstall, buka file `package.json` — isinya akan berubah menja
 }
 ```
 
-Kamu juga akan melihat folder baru bernama `node_modules/` — di sinilah semua kode dari library yang kamu install disimpan. **Jangan diubah isinya secara manual.**
+kalian juga akan melihat folder baru bernama `node_modules/` — di sinilah semua kode dari library yang kalian install disimpan. **Jangan diubah isinya secara manual.**
 
-> **Catatan:** Folder `node_modules` tidak perlu di-upload ke GitHub atau dikirim ke orang lain. Siapapun yang dapat file project kamu cukup jalankan `npm install` untuk mengunduh semua dependensi secara otomatis berdasarkan daftar di `package.json`.
+> **Catatan:** Folder `node_modules` tidak perlu di-upload ke GitHub atau dikirim ke orang lain. Siapapun yang dapat file project kalian cukup jalankan `npm install` untuk mengunduh semua dependensi secara otomatis berdasarkan daftar di `package.json`.
 
 ---
 
@@ -300,10 +299,10 @@ Penjelasan tiap baris:
 - `PORT=3000` — port yang digunakan server untuk berjalan
 - `DB_HOST=localhost` — alamat server database (karena di komputer lokal, pakai `localhost`)
 - `DB_USER=root` — username MySQL (default XAMPP adalah `root`)
-- `DB_PASSWORD=` — password MySQL (default XAMPP kosong, isi sesuai password kamu)
+- `DB_PASSWORD=` — password MySQL (default XAMPP kosong, isi sesuai password kalian)
 - `DB_NAME=inventory_db` — nama database yang tadi dibuat
 
-> **Penting:** Jika kamu menggunakan Git, tambahkan `.env` ke file `.gitignore` agar tidak ikut terupload. Buat file `.gitignore` dan isi dengan satu baris: `.env`
+> **Penting:** Jika kalian menggunakan Git, tambahkan `.env` ke file `.gitignore` agar tidak ikut terupload. Buat file `.gitignore` dan isi dengan satu baris: `.env`
 
 ---
 
@@ -842,4 +841,4 @@ Verifikasi dengan GET kembali ke `/api/products/9` — seharusnya sudah `404 Not
 
 ---
 
-*Tutorial selesai. Selamat — kamu baru saja membangun REST API pertamamu!*
+*Tutorial selesai. Selamat — kalian baru saja membangun REST API pertamamu!*
