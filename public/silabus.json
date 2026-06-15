@@ -66,7 +66,12 @@
   },
   {
     "id": 14,
-    "title": "Pertemuan 6 - Frontend",
+    "title": "Pertemuan 6 - Konsep Frontend & pembuatan simple project dengan vite dan tailwind css",
     "file": "/materi/pertemuan-6.md"
+  },
+  {
+    "id": 15,
+    "title": "Pertemuan 7 - Konsep Frontend : Fetch API: Dari Nol ke Production-Ready",
+    "file": "/materi/pertemuan7.md"
   }
 ]

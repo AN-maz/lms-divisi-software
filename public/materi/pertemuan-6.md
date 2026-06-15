@@ -576,67 +576,19 @@ async function getSemuaProduk() {
 
 # 5. Project: UI Inventory dengan Vite + Tailwind
 
-Sekarang kita terapkan semua yang sudah dipelajari ke dalam project nyata. Kita akan membuat UI untuk Inventory API yang sudah dibuat sebelumnya.
 
-**Fitur yang akan dibuat:**
-- Tampilkan daftar produk dalam tabel
-- Form tambah produk baru
-- Tombol edit & hapus per baris
+## Langkah 1: Setup Project
 
-> **Sebelum mulai:** Pastikan backend Inventory API sudah berjalan di `http://localhost:3000` dengan menjalankan `npm run dev` di folder project backend.
+| Perintah | Fungsi |
+| :--- | :--- |
+| `npm create vite@latest inventory-frontend -- --template vanilla` | Buat project Vite baru dengan template JavaScript murni |
+| `cd inventory-frontend ` | Masuk folder |
+| `code .` | untuk masuk langsung ke vscode | 
+| `npm install -D tailwindcss @tailwindcss/vite` | Install Tailwind CSS & plugin Vite-nya |
 
----
-
-## Langkah 1: Buat Project Vite + Install Tailwind CSS
-
-Buka terminal **baru** (jangan yang sudah dipakai untuk backend), lalu jalankan:
-
-```bash
-npm create vite@latest inventory-frontend -- --template vanilla
-```
-
-Penjelasan:
-- `npm create vite@latest` — perintah untuk membuat project Vite baru
-- `inventory-frontend` — nama folder project yang akan dibuat
-- `--template vanilla` — gunakan template JavaScript murni (tanpa framework seperti Vue/React)
-
-Masuk ke folder project dan install dependensi Vite:
-
-```bash
-cd inventory-frontend
-npm install
-```
-
-### Install Tailwind CSS
-
-Tailwind CSS adalah **utility-first CSS framework** — artinya kamu tidak menulis CSS sendiri, melainkan langsung memakai class-class siap pakai yang disediakan Tailwind langsung di dalam HTML.
-
-Contoh perbandingan:
-
-```html
-<!-- Tanpa Tailwind — perlu tulis CSS terpisah -->
-<button class="btn-simpan">Simpan</button>
-
-<!-- Dengan Tailwind — style langsung di class HTML -->
-<button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Simpan</button>
-```
-
-Install Tailwind dan plugin Vite-nya:
-
-```bash
-npm install -D tailwindcss @tailwindcss/vite
-```
-
-Penjelasan:
-- `tailwindcss` — library Tailwind CSS itu sendiri
-- `@tailwindcss/vite` — plugin resmi Tailwind untuk integrasi dengan Vite
-- `-D` — install sebagai devDependency (hanya dibutuhkan saat development/build, tidak dibawa ke production)
-
-### Konfigurasi Vite agar mengenali Tailwind
-
-Buka file `vite.config.js` di root folder project, lalu isi dengan:
-
+### Konfigurasi di kodingan
 ```js
+// vite.config.js — aktifkan plugin Tailwind (kalo ga ada filenya bisa buat manual)
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -647,478 +599,225 @@ export default defineConfig({
 })
 ```
 
-### Aktifkan Tailwind di CSS
-
-Buka file `src/style.css`, **hapus semua isinya**, lalu ganti dengan satu baris ini:
-
 ```css
+/* src/index.css — aktifkan Tailwind */
 @import "tailwindcss";
 ```
-
-Baris ini memberitahu Tailwind untuk meng-inject semua utility class-nya ke dalam file CSS yang dihasilkan saat build.
-
-Jalankan dev server:
-
-```bash
-npm run dev
-```
-
-Buka browser dan akses **http://localhost:5173** — akan muncul halaman default Vite.
+> kalian bisa kunjungi langsung dokumentasi 
+> `https://tailwindcss.com/docs/installation/using-vite`
 
 ---
 
-## Langkah 2: Bersihkan File Bawaan Vite
+## Langkah 2: Stuktur folder
 
-Project Vite baru berisi file-file contoh yang tidak kita butuhkan. Kita bersihkan dulu.
 
-**Hapus file-file ini:**
-- `public/vite.svg`
-- `src/counter.js`
-- `javascript.svg`
+```text
 
-**Ganti isi `index.html`** dengan struktur berikut:
+inventory-frontend/
+├── public/                 # Aset statis asli (favicon, robot.txt, dll)
+├── src/
+│   ├── api/                # Semua urusan komunikasi dengan backend
+│   │   └── productApi.js
+│   ├── components/         # Komponen UI yang reusable (Form, Tabel, Notifikasi)
+│   │   ├── productForm.js
+│   │   ├── productTable.js
+│   │   └── notification.js
+│   ├── utils/              # Fungsi pembantu (formatter harga, tanggal, dll)
+│   │   └── formatter.js
+│   ├── config/             # Konfigurasi global (Environment Variables, Base URL)
+│   │   └── constants.js
+│   ├── style.css           # Styling global (Tailwind / CSS biasa)
+│   └── main.js             # Entry point utama (Inisialisasi aplikasi)
+├── index.html              # File HTML utama (Letakkan di root untuk Vite)
+├── vite.config.js          # Konfigurasi Vite
+└── package.json
 
-```html
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory App</title>
-    <link rel="stylesheet" href="/src/style.css" />
-  </head>
-  <body class="bg-gray-100 min-h-screen p-6">
-    <div id="app" class="max-w-4xl mx-auto">
-
-      <h1 class="text-2xl font-bold text-gray-800 mb-6">📦 Inventory Produk</h1>
-
-      <!-- Form Tambah / Edit Produk -->
-      <div class="bg-white rounded-lg shadow p-6 mb-6">
-        <h2 id="form-title" class="text-lg font-semibold text-gray-600 mb-4">Tambah Produk</h2>
-        <input type="hidden" id="product-id" />
-        <input type="text" id="input-name" placeholder="Nama Produk"
-          class="block w-full border border-gray-300 rounded px-3 py-2 mb-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <input type="number" id="input-price" placeholder="Harga"
-          class="block w-full border border-gray-300 rounded px-3 py-2 mb-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <input type="number" id="input-category" placeholder="ID Kategori"
-          class="block w-full border border-gray-300 rounded px-3 py-2 mb-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <div class="flex gap-2">
-          <button id="btn-submit"
-            class="bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-4 py-2 rounded">
-            Simpan
-          </button>
-          <button id="btn-cancel"
-            class="hidden bg-gray-400 hover:bg-gray-500 text-white text-sm font-medium px-4 py-2 rounded">
-            Batal
-          </button>
-        </div>
-      </div>
-
-      <!-- Notifikasi -->
-      <div id="notifikasi" class="hidden px-4 py-3 rounded mb-4 text-sm"></div>
-
-      <!-- Tabel Produk -->
-      <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="text-lg font-semibold text-gray-600 mb-4">Daftar Produk</h2>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm text-left">
-            <thead class="bg-gray-50 text-gray-500 font-semibold">
-              <tr>
-                <th class="px-4 py-3">ID</th>
-                <th class="px-4 py-3">Nama Produk</th>
-                <th class="px-4 py-3">Harga</th>
-                <th class="px-4 py-3">Kategori</th>
-                <th class="px-4 py-3">Aksi</th>
-              </tr>
-            </thead>
-            <tbody id="tabel-body">
-              <!-- Data akan diisi oleh JavaScript -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-    </div>
-
-    <script type="module" src="/src/main.js"></script>
-  </body>
-</html>
 ```
+## Langkah 3: kode program 
+isi kodingannya: `https://github.com/AN-maz/documentation-progress/tree/main/vite/inventory-frontend`
 
-> **Catatan kelas Tailwind yang dipakai di atas:**
-> - `bg-gray-100`, `bg-white` — warna background
-> - `max-w-4xl mx-auto` — lebar maksimum + tengah horizontal
-> - `rounded-lg shadow` — sudut melengkung + bayangan
-> - `p-6`, `px-4 py-3`, `mb-4` — padding dan margin
-> - `text-sm`, `font-semibold`, `text-gray-600` — ukuran & warna teks
-> - `hidden` — menyembunyikan elemen (setara `display: none`)
-> - `hover:bg-green-600` — warna berubah saat mouse di atasnya
-> - `focus:ring-2 focus:ring-blue-400` — efek glow biru saat input diklik
+> untuk hal teknis penjelasan kode program ga akan dijelasin detail ya. Kalian bisa pelajari sendiri dengan bantuan AI sebagai coding assistant
 
----
+## Langkah 4: Perbaharui kode Backend
 
-## Langkah 3: Tulis JavaScript Utama
+### Mengatasi CORS
 
-Ganti isi `src/main.js` dengan kode berikut. Baca setiap komentar dengan seksama — semua bagian penting sudah dijelaskan:
+| Keterangan | Detail |
+| :--- | :--- |
+| **Masalah** | Browser memblokir request dari port 5173 ke port 3000 karena dianggap *cross-origin* |
+| **Solusi** | Install & aktifkan library `cors` di project **backend** |
+| **Perintah** | `npm install cors` (di folder backend) |
 
-```js
-// ==========================================
-// KONFIGURASI
-// ==========================================
-
-// Base URL backend — sesuaikan jika port berbeda
-const BASE_URL = 'http://localhost:3000/api/products';
-
-
-// ==========================================
-// FUNGSI FETCH (Komunikasi dengan Backend)
-// ==========================================
-
-// GET: Ambil semua produk dari backend
-async function getSemuaProduk() {
-  const response = await fetch(BASE_URL);
-  if (!response.ok) throw new Error('Gagal mengambil data produk');
-  const data = await response.json();
-  return data.data; // Ambil array produk dari dalam { success, data }
-}
-
-// POST: Kirim data produk baru ke backend
-async function tambahProduk(produk) {
-  const response = await fetch(BASE_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(produk),
-  });
-  if (!response.ok) throw new Error('Gagal menambah produk');
-  return await response.json();
-}
-
-// PUT: Update produk berdasarkan ID
-async function updateProduk(id, produk) {
-  const response = await fetch(`${BASE_URL}/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(produk),
-  });
-  if (!response.ok) throw new Error('Gagal mengupdate produk');
-  return await response.json();
-}
-
-// DELETE: Hapus produk berdasarkan ID
-async function hapusProduk(id) {
-  const response = await fetch(`${BASE_URL}/${id}`, {
-    method: 'DELETE',
-  });
-  if (!response.ok) throw new Error('Gagal menghapus produk');
-  return await response.json();
-}
-
-
-// ==========================================
-// FUNGSI UI (Mengubah Tampilan)
-// ==========================================
-
-// Tampilkan notifikasi sementara di atas tabel
-function tampilkanNotifikasi(pesan, tipe = 'sukses') {
-  const el = document.getElementById('notifikasi');
-  el.textContent = pesan;
-
-  // Reset class dulu, lalu tambahkan class sesuai tipe
-  el.className = 'px-4 py-3 rounded mb-4 text-sm block';
-  if (tipe === 'sukses') {
-    el.classList.add('bg-green-100', 'text-green-800', 'border', 'border-green-300');
-  } else {
-    el.classList.add('bg-red-100', 'text-red-800', 'border', 'border-red-300');
-  }
-
-  // Sembunyikan otomatis setelah 3 detik
-  setTimeout(() => {
-    el.classList.add('hidden');
-  }, 3000);
-}
-
-// Render semua produk ke dalam tabel HTML
-function renderTabel(produkList) {
-  const tbody = document.getElementById('tabel-body');
-
-  // Kalau tidak ada data, tampilkan pesan
-  if (produkList.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-6 text-center text-gray-400">Belum ada produk</td></tr>';
-    return;
-  }
-
-  // Buat baris tabel untuk setiap produk
-  // .map() mengubah setiap objek produk menjadi string HTML <tr>
-  // .join('') menggabungkan semua string menjadi satu
-  tbody.innerHTML = produkList.map(produk => `
-    <tr class="border-t border-gray-100 hover:bg-gray-50">
-      <td class="px-4 py-3 text-gray-500">${produk.id}</td>
-      <td class="px-4 py-3 font-medium text-gray-800">${produk.name}</td>
-      <td class="px-4 py-3 text-gray-600">Rp ${Number(produk.price).toLocaleString('id-ID')}</td>
-      <td class="px-4 py-3">
-        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full">${produk.category_name}</span>
-      </td>
-      <td class="px-4 py-3 flex gap-2">
-        <button class="btn-edit bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded"
-          data-id="${produk.id}" data-name="${produk.name}" data-price="${produk.price}" data-category="${produk.category_id}">
-          Edit
-        </button>
-        <button class="btn-hapus bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded"
-          data-id="${produk.id}">
-          Hapus
-        </button>
-      </td>
-    </tr>
-  `).join('');
-
-  // Pasang event listener ke semua tombol Edit yang baru dibuat
-  document.querySelectorAll('.btn-edit').forEach(btn => {
-    btn.addEventListener('click', handleKlikEdit);
-  });
-
-  // Pasang event listener ke semua tombol Hapus yang baru dibuat
-  document.querySelectorAll('.btn-hapus').forEach(btn => {
-    btn.addEventListener('click', handleKlikHapus);
-  });
-}
-
-// Isi form dengan data produk yang akan diedit
-function isiFormUntukEdit(id, name, price, categoryId) {
-  document.getElementById('form-title').textContent = 'Edit Produk';
-  document.getElementById('product-id').value = id;
-  document.getElementById('input-name').value = name;
-  document.getElementById('input-price').value = price;
-  document.getElementById('input-category').value = categoryId;
-
-  // Tampilkan tombol Batal saat mode edit
-  document.getElementById('btn-cancel').classList.remove('hidden');
-
-  // Scroll ke atas agar form terlihat
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Reset form ke kondisi awal (mode tambah)
-function resetForm() {
-  document.getElementById('form-title').textContent = 'Tambah Produk';
-  document.getElementById('product-id').value = '';
-  document.getElementById('input-name').value = '';
-  document.getElementById('input-price').value = '';
-  document.getElementById('input-category').value = '';
-  document.getElementById('btn-cancel').classList.add('hidden');
-}
-
-// Muat ulang data dari backend dan render ke tabel
-async function muatUlangData() {
-  try {
-    const produkList = await getSemuaProduk();
-    renderTabel(produkList);
-  } catch (error) {
-    tampilkanNotifikasi('Gagal memuat data: ' + error.message, 'gagal');
-  }
-}
-
-
-// ==========================================
-// EVENT HANDLERS (Merespons Aksi User)
-// ==========================================
-
-// Handler: Tombol Edit diklik
-function handleKlikEdit(event) {
-  const btn = event.target;
-
-  // Ambil data dari atribut data-* pada tombol
-  const id = btn.dataset.id;
-  const name = btn.dataset.name;
-  const price = btn.dataset.price;
-  const categoryId = btn.dataset.category;
-
-  isiFormUntukEdit(id, name, price, categoryId);
-}
-
-// Handler: Tombol Hapus diklik
-async function handleKlikHapus(event) {
-  const id = event.target.dataset.id;
-
-  // Minta konfirmasi sebelum menghapus
-  const konfirmasi = confirm(`Yakin ingin menghapus produk dengan ID ${id}?`);
-  if (!konfirmasi) return; // Batalkan kalau user klik "Cancel"
-
-  try {
-    await hapusProduk(id);
-    tampilkanNotifikasi('Produk berhasil dihapus!');
-    await muatUlangData(); // Refresh tabel setelah hapus
-  } catch (error) {
-    tampilkanNotifikasi('Gagal menghapus: ' + error.message, 'gagal');
-  }
-}
-
-// Handler: Tombol Simpan diklik (untuk tambah ATAU edit)
-async function handleSubmit() {
-  const id = document.getElementById('product-id').value;
-  const name = document.getElementById('input-name').value.trim();
-  const price = document.getElementById('input-price').value;
-  const categoryId = document.getElementById('input-category').value;
-
-  // Validasi: semua field harus diisi
-  if (!name || !price || !categoryId) {
-    tampilkanNotifikasi('Semua field harus diisi!', 'gagal');
-    return;
-  }
-
-  const dataProduk = {
-    name: name,
-    price: Number(price),
-    category_id: Number(categoryId),
-  };
-
-  try {
-    if (id) {
-      // Kalau ada ID → mode edit → gunakan PUT
-      await updateProduk(id, dataProduk);
-      tampilkanNotifikasi('Produk berhasil diupdate!');
-    } else {
-      // Kalau tidak ada ID → mode tambah → gunakan POST
-      await tambahProduk(dataProduk);
-      tampilkanNotifikasi('Produk berhasil ditambahkan!');
-    }
-
-    resetForm();
-    await muatUlangData(); // Refresh tabel setelah simpan
-
-  } catch (error) {
-    tampilkanNotifikasi('Gagal menyimpan: ' + error.message, 'gagal');
-  }
-}
-
-// Handler: Tombol Batal diklik
-function handleBatal() {
-  resetForm();
-}
-
-
-// ==========================================
-// INISIALISASI
-// ==========================================
-
-// Pasang event listener ke tombol-tombol utama
-document.getElementById('btn-submit').addEventListener('click', handleSubmit);
-document.getElementById('btn-cancel').addEventListener('click', handleBatal);
-
-// Muat data pertama kali saat halaman dibuka
-muatUlangData();
-```
-
----
-
-## Langkah 4: Mengatasi CORS
-
-Ketika frontend (port 5173) mencoba mengakses backend (port 3000), browser akan memblokir request tersebut karena berbeda port. Ini disebut **CORS (Cross-Origin Resource Sharing)**.
-
-Untuk mengizinkannya, kita perlu menambahkan konfigurasi CORS di **project backend**.
-
-Masuk ke folder backend, install library cors:
-
-```bash
-npm install cors
-```
-
-Lalu buka file `src/app.js` di project backend, tambahkan konfigurasi cors:
-
-```js
+```javascript
+// src/app.js (di backend)
 const express = require('express');
-const cors = require('cors');                          // Tambahkan ini
-const productRoutes = require('./routes/product.route');
+const cors = require('cors');            // ← tambahkan ini
 
 const app = express();
 
-app.use(cors());                                       // Tambahkan ini (sebelum routes)
+app.use(cors());                         // ← tambahkan ini (sebelum routes)
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Selamat datang di API Inventory!');
-});
-
 app.use('/api/products', productRoutes);
-
-module.exports = app;
 ```
 
-Restart server backend, lalu coba lagi dari frontend.
+> 💡 **CORS** adalah aturan keamanan browser: JS di halaman A tidak boleh sembarangan mengambil data dari server B yang berbeda domain/port. `cors()` memberi izin eksplisit dari server.
 
-> **Apa itu CORS?**  
-> Browser punya aturan keamanan: JavaScript di halaman A tidak boleh sembarangan mengambil data dari server B yang berbeda domain/port. CORS adalah mekanisme yang memungkinkan server memberikan izin secara eksplisit: "Boleh kok, request dari sana aku terima."
+### Perbaharui kode `product.service.js`
+
+```js
+const db = require("../../config/database");
+
+const productService = {
+  getProducts: async () => {
+    const query = `
+      SELECT p.id, p.name, p.price, c.id AS category_id, c.name AS category_name
+      FROM products p
+      INNER JOIN categories c ON p.category_id = c.id
+    `; 
+
+    const [rows] = await db.query(query);
+    return rows;
+  },
+
+  createProduct: async (productData) => {
+    const { name, price, category_name } = productData;
+    
+    let categoryId;
+    
+    const [existingCat] = await db.query("SELECT id FROM categories WHERE name = ?", [category_name]);
+    
+    if (existingCat.length > 0) {
+      categoryId = existingCat[0].id;
+    } else {
+
+      const [newCat] = await db.query("INSERT INTO categories (name) VALUES (?)", [category_name]);
+      categoryId = newCat.insertId;
+    }
+
+    const query = "INSERT INTO products (name, price, category_id) VALUES (?, ?, ?)";
+    const [result] = await db.query(query, [name, price, categoryId]);
+    
+    return { id: result.insertId, name, price, category_name };
+  },
+
+  updateProduct: async (id, productData) => {
+    const { name, price, category_name } = productData;
+
+    let categoryId;
+    const [existingCat] = await db.query("SELECT id FROM categories WHERE name = ?", [category_name]);
+    
+    if (existingCat.length > 0) {
+      categoryId = existingCat[0].id;
+    } else {
+      const [newCat] = await db.query("INSERT INTO categories (name) VALUES (?)", [category_name]);
+      categoryId = newCat.insertId;
+    }
+
+    const query = "UPDATE products SET name = ?, price = ?, category_id = ? WHERE id = ?";
+    const [result] = await db.query(query, [name, price, categoryId, id]);
+    
+    return result.affectedRows;
+  },
+
+  deleteProduct: async (id) => {
+    const query = "DELETE FROM products WHERE id = ?";
+    const [result] = await db.query(query, [id]);
+    return result.affectedRows;
+  },
+
+  getProductById: async (id) => {
+    const query = `
+      SELECT p.id, p.name, p.price, c.name AS category_name
+      FROM products p
+      INNER JOIN categories c ON p.category_id = c.id
+      WHERE p.id = ?
+    `;
+    const [rows] = await db.query(query, [id]);
+    return rows[0];
+  },
+};
+
+module.exports = productService;
+```
+
+> Bisa langsung ditimpa saja
+
+untuk detail lebih lanjut kalian bisa kunjungi project backend nya di github: `https://github.com/AN-maz/documentation-progress/tree/main/RESTful-express/latihan`
 
 ---
 
-## Langkah 5: Jalankan dan Test
+## jangan lupa `.env`
 
-Pastikan dua terminal berjalan bersamaan:
+di link github itu ga ada file `.env` karena memang file itu berisi informasi rahasia terkait data project kita. Disana ada username, password, port untuk menghubungkan database kalian. Karena tujuan sekrang belajar temen-temen bisa buat file `.env`. Kalo yang udh ada berarti bisa skip tahap ini ya.
 
-**Terminal 1 — Backend:**
-```bash
-cd latihan
-npm run dev
-## Server berjalan di http://localhost:3000
+isi file `.env` dengan:
+```text
+PORT=3000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
 ```
 
-**Terminal 2 — Frontend:**
-```bash
-cd inventory-frontend
-npm run dev
-## Dev server berjalan di http://localhost:5173
+kemudian donwload depedensi `.env`
+buka terminal dan ketik `npm install dotenv`
+
+lalu panggil di file `config/database.js`
+
+```js
+const mysql = require('mysql2/promise');
+require("dotenv").config();
+
+const db = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: "inventory_db",
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
+
+// kodingan sisnya ....
+
 ```
 
-Buka browser di **http://localhost:5173** dan coba semua fitur:
+---
+
+## Langkah 5: Jalankan & Test
+
+| Terminal | Perintah | URL |
+| :--- | :--- | :--- |
+| **Terminal 1 — Backend** | `npm run dev` (di folder `backend`) | `http://localhost:3000` |
+| **Terminal 2 — Frontend** | `npm run dev` (di folder `inventory-frontend`) | `http://localhost:5173` |
+| **database mySql** | aktifkan juga untuk databasenya | xampp/laragon  | 
 
 | Fitur | Cara Test |
-|-------|-----------|
+| :--- | :--- |
 | Lihat daftar produk | Tabel otomatis terisi saat halaman dibuka |
 | Tambah produk | Isi form → klik Simpan |
-| Edit produk | Klik tombol Edit → ubah data di form → klik Simpan |
+| Edit produk | Klik tombol Edit → ubah data → klik Simpan |
 | Hapus produk | Klik tombol Hapus → konfirmasi |
 
 ---
 
-## Alur Kerja Lengkap (Ringkasan)
 
-```
-User membuka http://localhost:5173
-         ↓
-Browser memuat index.html, main.js
-Tailwind CSS di-generate otomatis oleh Vite
-         ↓
-main.js dijalankan → muatUlangData() dipanggil
-         ↓
-fetch GET http://localhost:3000/api/products
-         ↓
-Backend query ke MySQL → kirim balik JSON
-         ↓
-JavaScript terima JSON → renderTabel() → DOM diupdate
-         ↓
-Tabel produk muncul di halaman
+## Alur Kerja Lengkap
 
---- Saat user klik Tambah ---
-
-User isi form → klik Simpan
-         ↓
-handleSubmit() dipanggil
-         ↓
-fetch POST http://localhost:3000/api/products (+ body JSON)
-         ↓
-Backend INSERT ke MySQL → kirim balik response sukses
-         ↓
-Notifikasi muncul → muatUlangData() → tabel refresh
-```
+| 1. Buka Browser | 2. JS Jalankan Fetch | 3. Backend Query DB | 4. Render Tabel | 5. User Aksi |
+| :--- | :--- | :--- | :--- | :--- |
+| User buka `localhost:5173`, browser muat HTML & JS. | `muatUlangData()` dipanggil → fetch GET ke `localhost:3000`. | Backend query MySQL → kirim balik data JSON. | JS terima JSON → `renderTabel()` → DOM diupdate, tabel muncul. | Klik Tambah/Edit/Hapus → fetch POST/PUT/DELETE → tabel refresh. |
 
 ---
 
 ## Penutup
 
-Di materi ini kita sudah mempelajari:
+| Konsep | Yang Sudah Dipelajari |
+| :--- | :--- |
+| **Frontend & Browser** | Perbedaan frontend-backend, alur kerja browser, HTML/CSS/JS |
+| **Vite** | Fungsi build tool, dev server, auto-reload, HMR |
+| **Tailwind CSS** | Utility-first, perbandingan dengan CSS biasa & Bootstrap, pola class umum |
+| **Fetch API** | Async/await, GET/POST/PUT/DELETE, error handling |
+| **Project** | UI Inventory lengkap terhubung ke REST API |
 
-- Perbedaan frontend dan backend, serta cara kerja browser
-- Fungsi Vite sebagai build tool dan dev server
-- Cara menggunakan Fetch API dengan `async/await` untuk GET, POST, PUT, DELETE
-- Cara membuat UI lengkap yang terhubung ke REST API
-
-Konsep yang paling penting untuk diingat: **frontend dan backend adalah dua program terpisah yang berkomunikasi lewat HTTP**. Frontend tidak tahu (dan tidak perlu tahu) bagaimana backend menyimpan data — yang penting backend mengembalikan JSON yang sesuai.
+> 💡 **Konsep terpenting:** Frontend dan backend adalah dua program terpisah yang berkomunikasi lewat HTTP. Frontend tidak perlu tahu bagaimana backend menyimpan data — yang penting backend mengembalikan JSON yang sesuai.
