@@ -21,7 +21,10 @@ const MateriPage = () => {
     fetch('/silabus.json')
       .then(res => res.json())
       .then(data => {
-        const currentMateri = data.find(m => m.id === parseInt(id));
+        // const currentMateri = data.find(m => m.id === parseInt(id));
+
+        const allModules = data.flatMap(group => group.modules);
+        const currentMateri = allModules.find(m => m.id === parseInt(id));
         if (currentMateri) {
           setMateriTitle(currentMateri.title);
           return fetch(currentMateri.file);
