@@ -1,77 +1,126 @@
 [
   {
-    "id": 1,
-    "title": "Pertemuan 1: HTML",
-    "file": "/materi/pertemuan-1.md"
+    "pertemuan": 1,
+    "title": "Pertemuan 1: Fondasi Web (HTML)",
+    "description": "Pengenalan struktur dasar dan kerangka utama dalam pembuatan halaman website.",
+    "modules": [
+      {
+        "id": 1,
+        "title": "Dasar-Dasar HTML",
+        "file": "/materi/pertemuan-1.md"
+      }
+    ]
   },
   {
-    "id": 2,
-    "title": "Pertemuan 2: CSS",
-    "file": "/materi/pertemuan-2.md"
+    "pertemuan": 2,
+    "title": "Pertemuan 2: Styling Web (CSS)",
+    "description": "Mempelajari cara mempercantik tampilan website menggunakan Cascading Style Sheets.",
+    "modules": [
+      {
+        "id": 2,
+        "title": "Konsep Dasar CSS",
+        "file": "/materi/pertemuan-2.md"
+      }
+    ]
   },
   {
-    "id": 3,
-    "title": "Pertemuan 3: JavaScipt Dasar",
-    "file": "/materi/pertemuan-3-part1.md"
+    "pertemuan": 3,
+    "title": "Pertemuan 3: JavaScript Programming",
+    "description": "Mempelajari logika pemrograman dan memanipulasi struktur halaman web menggunakan DOM.",
+    "modules": [
+      {
+        "id": 3,
+        "title": "JavaScript Dasar",
+        "file": "/materi/pertemuan-3-part1.md"
+      },
+      {
+        "id": 4,
+        "title": "JavaScript DOM",
+        "file": "/materi/pertemuan-3-part2.md"
+      }
+    ]
   },
   {
-    "id": 4,
-    "title": "Pertemuan 3: JavaScipt DOM",
-    "file": "/materi/pertemuan-3-part2.md"
+    "pertemuan": 4,
+    "title": "Pertemuan 4: Database & Native SQL",
+    "description": "Pendalaman bahasa query terstruktur (SQL) untuk mengelola database relasional secara native tanpa ORM.",
+    "modules": [
+      {
+        "id": 5,
+        "title": "Pengenalan dan Dasar-Dasar DDL",
+        "file": "/materi/pertemuan-4-m1.md"
+      },
+      {
+        "id": 6,
+        "title": "Data Manipulation Language (DML) & Constraints",
+        "file": "/materi/pertemuan-4-m2.md"
+      },
+      {
+        "id": 7,
+        "title": "Pengambilan Data Dasar & Agregasi (DQL)",
+        "file": "/materi/pertemuan-4-m3.md"
+      },
+      {
+        "id": 8,
+        "title": "Penggabungan Tabel (JOIN) dan Subqueries",
+        "file": "/materi/pertemuan-4-m4.md"
+      },
+      {
+        "id": 9,
+        "title": "Fungsi Bawaan (Built-in) dan Logika Kondisional",
+        "file": "/materi/pertemuan-4-m5.md"
+      },
+      {
+        "id": 10,
+        "title": "Analitik (Window Functions, CTE, dan Views)",
+        "file": "/materi/pertemuan-4-m6.md"
+      },
+      {
+        "id": 11,
+        "title": "Transaksi, Indexing, dan Keamanan Database",
+        "file": "/materi/pertemuan-4-m7.md"
+      }
+    ]
   },
   {
-    "id": 5,
-    "title": "Pertemuan 4 - SQL : Pengenalan dan Dasar-Dasar DDL (Data Definition Language)",
-    "file": "/materi/pertemuan-4-m1.md"
+    "pertemuan": 5,
+    "title": "Pertemuan 5: Backend Development",
+    "description": "Membangun layanan server dan RESTful API menggunakan lingkungan Node.js dan Express.",
+    "modules": [
+      {
+        "id": 12,
+        "title": "Konsep Backend & Pembuatan API Sederhana",
+        "file": "/materi/pertemuan-5.md"
+      },
+      {
+        "id": 13,
+        "title": "Build Simple Project Backend",
+        "file": "/materi/pertemuan-5.part2.md"
+      }
+    ]
   },
   {
-    "id": 6,
-    "title": "Pertemuan 4 - SQL : Data Manipulation Language (DML) dan Constraints",
-    "file": "/materi/pertemuan-4-m2.md"
+    "pertemuan": 6,
+    "title": "Pertemuan 6: Frontend Development",
+    "description": "Membangun antarmuka modern dan responsif memanfaatkan React, Vite, dan ekosistem Tailwind CSS.",
+    "modules": [
+      {
+        "id": 14,
+        "title": "Konsep Frontend & Project Vite + Tailwind",
+        "file": "/materi/pertemuan-6.md"
+      }
+    ]
   },
   {
-    "id": 7,
-    "title": "Pertemuan 4 - SQL : Pengambilan Data Dasar & Agregasi (DQL)",
-    "file": "/materi/pertemuan-4-m3.md"
-  },
-  {
-    "id": 8,
-    "title": "Pertemuan 4 - SQL : Penggabungan Tabel (JOIN) dan Subqueries",
-    "file": "/materi/pertemuan-4-m4.md"
-  },
-  {
-    "id": 9,
-    "title": "Pertemuan 4 - SQL : Fungsi Bawaan (Built-in Functions) dan Logika Kondisional",
-    "file": "/materi/pertemuan-4-m5.md"
-  },
-  {
-    "id": 10,
-    "title": "Pertemuan 4 - SQL : Analitik (Window Functions, CTE, dan Views)",
-    "file": "/materi/pertemuan-4-m6.md"
-  },
-  {
-    "id": 11,
-    "title": "Pertemuan 4 - SQL : Transaksi, Indexing, dan Keamanan Database",
-    "file": "/materi/pertemuan-4-m7.md"
-  },
-  {
-    "id": 12,
-    "title": "Pertemuan 5 - Konsep Backend & Pembuatan API sederhana dengan Node.js dan Express",
-    "file": "/materi/pertemuan-5.md"
-  },
-  {
-    "id": 13,
-    "title": "Pertemuan 5 - Build Simple Project Backend dengan Node.js dan Express",
-    "file": "/materi/pertemuan-5.part2.md"
-  },
-  {
-    "id": 14,
-    "title": "Pertemuan 6 - Konsep Frontend & pembuatan simple project dengan vite dan tailwind css",
-    "file": "/materi/pertemuan-6.md"
-  },
-  {
-    "id": 15,
-    "title": "Pertemuan 7 - Konsep Frontend : Fetch API: Dari Nol ke Production-Ready",
-    "file": "/materi/pertemuan7.md"
+    "pertemuan": 7,
+    "title": "Pertemuan 7: Integrasi Sistem",
+    "description": "Menghubungkan aplikasi frontend client-side dengan layanan backend melalui Fetch API.",
+    "modules": [
+      {
+        "id": 15,
+        "title": "Fetch API: Dari Nol ke Production-Ready",
+        "file": "/materi/pertemuan7.md"
+      }
+    ]
   }
 ]
