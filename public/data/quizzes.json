@@ -1,0 +1,4450 @@
+{
+    "1": [
+        {
+            "id": 1,
+            "question": "Apa perbedaan utama antara domain name dan IP address?",
+            "options": [
+                "Domain name adalah alamat numerik, IP address adalah nama yang mudah diingat",
+                "Domain name adalah nama yang mudah diingat (seperti google.com), IP address adalah alamat numerik yang digunakan komputer untuk menemukan server",
+                "Domain name dan IP address adalah hal yang sama persis",
+                "IP address hanya digunakan untuk website berbayar"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Fungsi DNS (Domain Name System) adalah...",
+            "options": [
+                "Menyimpan file HTML di server",
+                "Mengamankan koneksi antara browser dan server",
+                "Menerjemahkan domain name menjadi IP address",
+                "Mengatur kecepatan loading website"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 3,
+            "question": "Komponen frontend mana yang bertugas sebagai 'kerangka' atau struktur halaman web?",
+            "options": [
+                "CSS",
+                "JavaScript",
+                "HTML",
+                "Backend"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 4,
+            "question": "Urutan yang benar dari proses HTTP request-response adalah...",
+            "options": [
+                "Server kirim HTML → Browser render → User ketik URL",
+                "User ketik URL → Server kirim HTML → Browser render",
+                "Browser render → User ketik URL → Server kirim HTML",
+                "DNS cari IP → User ketik URL → Server kirim HTML"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 5,
+            "question": "Apa yang dimaksud dengan 'hosting'?",
+            "options": [
+                "Nama domain yang digunakan website",
+                "Protokol komunikasi antara browser dan server",
+                "Tempat penyimpanan file web agar bisa diakses 24/7 melalui internet",
+                "Aplikasi untuk membaca file HTML"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 6,
+            "question": "Apa yang terjadi jika kamu lupa menulis `<!DOCTYPE html>` di awal file HTML?",
+            "options": [
+                "File tidak bisa disimpan",
+                "Browser mungkin merender halaman dalam mode yang tidak konsisten (quirks mode)",
+                "Halaman tidak akan tampil sama sekali",
+                "CSS tidak bisa dihubungkan ke file HTML"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 7,
+            "question": "Konten di dalam tag `<head>` digunakan untuk...",
+            "options": [
+                "Menampilkan judul besar di halaman",
+                "Menyimpan metadata seperti judul tab, link CSS, dan meta tags — tidak ditampilkan di halaman",
+                "Menampilkan navigasi utama website",
+                "Menyimpan konten utama yang dilihat pengguna"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 8,
+            "question": "Meta tag mana yang harus ditambahkan agar website tampil responsif di HP?",
+            "options": [
+                "<meta charset=\"UTF-8\">",
+                "<meta name=\"description\" content=\"...\">",
+                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+                "<meta name=\"author\" content=\"...\">"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 9,
+            "question": "Apa perbedaan antara tag `<b>` dan `<strong>`?",
+            "options": [
+                "Tidak ada perbedaan, keduanya menghasilkan teks tebal",
+                "`<b>` hanya untuk styling visual (tebal), sedangkan `<strong>` memiliki makna semantik bahwa teks tersebut penting",
+                "`<strong>` hanya untuk heading, `<b>` untuk paragraf biasa",
+                "`<b>` adalah versi terbaru dari `<strong>`"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 10,
+            "question": "HTML entity yang benar untuk menampilkan simbol `<` di halaman adalah...",
+            "options": [
+                "&less;",
+                "&lt;",
+                "&langle;",
+                "\\<"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 11,
+            "question": "Apa perbedaan antara `<i>` dan `<em>`?",
+            "options": [
+                "`<i>` adalah italic semantik (penekanan), `<em>` hanya styling visual",
+                "`<i>` hanya untuk styling visual (misal nama ilmiah), `<em>` memiliki makna penekanan yang semantik",
+                "Keduanya identik dan dapat digunakan secara bergantian",
+                "`<em>` hanya bisa digunakan di dalam heading"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 12,
+            "question": "Perbedaan utama antara `id` dan `class` attribute adalah...",
+            "options": [
+                "ID bisa digunakan berkali-kali, class hanya sekali per halaman",
+                "ID harus unik (hanya satu per halaman), class bisa digunakan pada banyak elemen sekaligus",
+                "ID hanya untuk JavaScript, class hanya untuk CSS",
+                "Tidak ada perbedaan, keduanya fungsinya sama"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 13,
+            "question": "Kapan kamu menggunakan `<span>` dibanding `<div>`?",
+            "options": [
+                "Ketika ingin membuat container yang mengambil satu baris penuh (block)",
+                "Ketika ingin mengelompokkan elemen secara inline tanpa membuat baris baru",
+                "`<span>` selalu lebih disarankan daripada `<div>`",
+                "Ketika ingin menambahkan border pada konten"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 14,
+            "question": "Tag HTML yang digunakan untuk header kolom tabel adalah...",
+            "options": [
+                "<td>",
+                "<tr>",
+                "<th>",
+                "<thead>"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 15,
+            "question": "Attribute `colspan` pada tabel digunakan untuk...",
+            "options": [
+                "Menggabungkan beberapa baris secara vertikal",
+                "Menambah warna pada sel tabel",
+                "Menggabungkan beberapa kolom secara horizontal",
+                "Mengatur lebar kolom tabel"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 16,
+            "question": "Kapan sebaiknya menggunakan `<ol>` dibanding `<ul>`?",
+            "options": [
+                "Ketika daftar berisi lebih dari 5 item",
+                "Ketika urutan item sangat penting, seperti langkah-langkah atau peringkat",
+                "`<ol>` selalu digunakan untuk navigasi website",
+                "Ketika item menggunakan bullet point"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 17,
+            "question": "Tag `<dl>` digunakan untuk...",
+            "options": [
+                "Membuat daftar bernomor (ordered list)",
+                "Membuat daftar dengan bullet (unordered list)",
+                "Membuat daftar istilah beserta definisinya (definition list)",
+                "Membuat daftar di dalam tabel"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 18,
+            "question": "Attribute mana yang WAJIB ada pada tag `<img>`?",
+            "options": [
+                "width dan height",
+                "src dan alt",
+                "id dan class",
+                "title dan style"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 19,
+            "question": "Perbedaan `<img>` biasa dengan `<figure>` + `<img>` adalah...",
+            "options": [
+                "Tidak ada perbedaan, keduanya menampilkan gambar yang sama",
+                "`<figure>` membuat gambar lebih besar secara otomatis",
+                "`<figure>` bersifat semantik dan memungkinkan penambahan `<figcaption>` sebagai keterangan gambar",
+                "`<img>` di dalam `<figure>` tidak bisa diberi atribut alt"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 20,
+            "question": "Attribute `controls` pada tag `<audio>` dan `<video>` berfungsi untuk...",
+            "options": [
+                "Membuat media berjalan otomatis saat halaman dibuka",
+                "Menampilkan kontrol player (play, pause, volume) kepada pengguna",
+                "Mengulang media dari awal setelah selesai",
+                "Menyembunyikan player dari pengguna"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 21,
+            "question": "Attribute `for` pada `<label>` harus cocok dengan attribute apa pada `<input>`?",
+            "options": [
+                "name",
+                "type",
+                "id",
+                "class"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 22,
+            "question": "Perbedaan antara `<input type=\"radio\">` dan `<input type=\"checkbox\">` adalah...",
+            "options": [
+                "Radio untuk teks, checkbox untuk angka",
+                "Radio hanya boleh dipilih satu (mutually exclusive dalam satu group), checkbox bisa dipilih banyak sekaligus",
+                "Checkbox lebih modern dan menggantikan radio",
+                "Tidak ada perbedaan fungsional"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 23,
+            "question": "Validasi form di HTML (seperti `required`, `type=\"email\"`) bersifat...",
+            "options": [
+                "Cukup dan tidak perlu validasi tambahan di backend",
+                "Hanya untuk tampilan, tidak benar-benar memvalidasi data",
+                "Frontend validation yang bisa di-bypass, sehingga validasi di backend tetap wajib dilakukan",
+                "Lebih aman dari validasi JavaScript"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 24,
+            "question": "Semantic layout tag `<main>` digunakan untuk...",
+            "options": [
+                "Bagian navigasi halaman",
+                "Konten utama halaman — hanya boleh ada satu per halaman",
+                "Bagian bawah (footer) halaman",
+                "Header dan judul halaman"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 25,
+            "question": "Kapan sebaiknya menggunakan `<article>` dibanding `<section>`?",
+            "options": [
+                "`<article>` untuk bagian yang bisa berdiri sendiri (seperti blog post, produk), `<section>` untuk pengelompokan tematik yang merupakan bagian dari halaman",
+                "`<section>` selalu lebih diutamakan daripada `<article>`",
+                "Keduanya identik dan bisa digunakan bergantian",
+                "`<article>` hanya untuk berita, `<section>` untuk semua jenis konten"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 26,
+            "question": "Mengapa menggunakan semantic tags (`<header>`, `<nav>`, `<main>`, dst.) lebih baik daripada hanya menggunakan `<div>`?",
+            "options": [
+                "Semantic tags membuat halaman lebih cepat loading",
+                "Semantic tags membantu SEO dan aksesibilitas karena search engine dan screen reader memahami struktur konten lebih baik",
+                "Semantic tags hanya tersedia di HTML5 dan membuat kode lebih pendek",
+                "Semantic tags secara otomatis menambahkan styling ke elemen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 27,
+            "question": "Di antara tiga cara memasukkan CSS (inline, internal, external), mana yang paling direkomendasikan dan mengapa?",
+            "options": [
+                "Inline, karena styling langsung pada elemen dan tidak perlu file tambahan",
+                "Internal, karena semua styling berada dalam satu file HTML",
+                "External, karena file CSS terpisah bisa digunakan ulang di banyak halaman dan HTML tetap bersih",
+                "Semua cara sama baiknya tergantung preferensi"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 28,
+            "question": "Di mana sebaiknya tag `<script>` diletakkan dalam dokumen HTML dan mengapa?",
+            "options": [
+                "Di dalam `<head>`, agar JavaScript dimuat pertama sebelum konten",
+                "Di awal `<body>`, agar script tersedia sebelum elemen apapun",
+                "Di akhir `</body>`, agar DOM sudah selesai dimuat sebelum JavaScript dijalankan",
+                "Tidak ada aturan khusus, bisa di mana saja"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "2": [
+        {
+            "id": 1,
+            "question": "Manakah struktur CSS yang benar?",
+            "options": [
+                "h1 { color: blue }",
+                "h1: { color = blue; }",
+                "h1 { color: blue; }",
+                "h1 >> color: blue;"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 2,
+            "question": "Pada anatomy CSS, apa yang dimaksud dengan 'declaration'?",
+            "options": [
+                "Nama elemen yang menjadi target styling",
+                "Kombinasi selector dan rule set dalam kurung kurawal",
+                "Pasangan property dan value dalam satu instruksi styling",
+                "Nama file CSS yang di-link ke HTML"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 3,
+            "question": "CSS adalah singkatan dari...",
+            "options": [
+                "Computer Style Sheets",
+                "Cascading Style Sheets",
+                "Creative Styling System",
+                "Cascading Styling Script"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 4,
+            "question": "Selector mana yang digunakan untuk menarget SEMUA elemen di halaman?",
+            "options": [
+                "all { }",
+                "body { }",
+                "every { }",
+                "* { }"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 5,
+            "question": "Bagaimana cara menulis class selector untuk class bernama 'highlight'?",
+            "options": [
+                "#highlight { }",
+                ".highlight { }",
+                "@highlight { }",
+                "highlight { }"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 6,
+            "question": "Perbedaan utama antara class selector dan ID selector adalah...",
+            "options": [
+                "Class selector lebih kuat (specificity lebih tinggi) dari ID selector",
+                "ID selector bisa digunakan berkali-kali, class selector hanya sekali",
+                "Class selector bisa digunakan pada banyak elemen, ID selector harus unik (hanya satu elemen)",
+                "Tidak ada perbedaan, keduanya fungsinya sama"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 7,
+            "question": "Attribute selector `a[href^=\"https\"]` artinya...",
+            "options": [
+                "Semua link yang href-nya mengandung 'https' di mana saja",
+                "Semua link yang href-nya diakhiri 'https'",
+                "Semua link yang href-nya dimulai dengan 'https'",
+                "Semua link yang href-nya persis sama dengan 'https'"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 8,
+            "question": "Apa yang dilakukan descendant combinator (spasi) pada selector `div p`?",
+            "options": [
+                "Menarget `<p>` yang langsung menjadi child dari `<div>` saja",
+                "Menarget semua `<p>` yang berada di dalam `<div>` (termasuk nested)",
+                "Menarget `<p>` yang berada tepat setelah `<div>`",
+                "Menarget `<div>` dan `<p>` sekaligus"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 9,
+            "question": "Perbedaan antara descendant combinator (spasi) `div p` dan child combinator `div > p` adalah...",
+            "options": [
+                "Tidak ada perbedaan, keduanya sama",
+                "`div p` menarget semua `<p>` di dalam `<div>` (termasuk nested), `div > p` hanya menarget `<p>` yang langsung jadi child",
+                "`div > p` menarget semua `<p>` di dalam `<div>`, `div p` hanya langsung child",
+                "`div p` hanya untuk block element, `div > p` untuk inline"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 10,
+            "question": "Format warna HEX yang benar adalah...",
+            "options": [
+                "hex(255, 0, 0)",
+                "hsl(0, 100%, 50%)",
+                "#ff0000",
+                "rgb(ff, 00, 00)"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 11,
+            "question": "Apa keunggulan format warna RGBA dibanding RGB?",
+            "options": [
+                "RGBA bisa menampilkan lebih banyak warna",
+                "RGBA mendukung nilai transparansi (alpha channel 0-1)",
+                "RGBA lebih cepat di-render browser",
+                "RGBA adalah format terbaru yang menggantikan RGB"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 12,
+            "question": "Pada format HSL, komponen 'Hue' mewakili...",
+            "options": [
+                "Tingkat kecerahan warna (0-100%)",
+                "Tingkat saturasi/intensitas warna (0-100%)",
+                "Sudut warna pada color wheel (0-360 derajat)",
+                "Tingkat transparansi warna (0-1)"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 13,
+            "question": "Property CSS apa yang mengatur jenis font?",
+            "options": [
+                "font-type",
+                "font-style",
+                "font-family",
+                "font-name"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 14,
+            "question": "Apa perbedaan antara satuan `em` dan `rem` untuk font-size?",
+            "options": [
+                "Tidak ada perbedaan, keduanya sama",
+                "`em` relatif terhadap ukuran font parent, `rem` relatif terhadap ukuran font root (html)",
+                "`rem` relatif terhadap ukuran font parent, `em` relatif terhadap root",
+                "`em` hanya untuk heading, `rem` hanya untuk paragraf"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 15,
+            "question": "Property `line-height: 1.6` artinya...",
+            "options": [
+                "Tinggi baris 1.6px",
+                "Tinggi baris 1.6% dari parent",
+                "Tinggi baris 1.6 kali dari ukuran font yang digunakan",
+                "Spasi antar huruf sebesar 1.6"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 16,
+            "question": "Property `text-transform: uppercase` akan...",
+            "options": [
+                "Mengubah semua teks menjadi huruf kecil",
+                "Mengubah huruf pertama setiap kata menjadi besar",
+                "Mengubah semua teks menjadi huruf kapital",
+                "Menghapus semua transformasi teks"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 17,
+            "question": "Dalam Box Model CSS, urutan layer dari dalam ke luar adalah...",
+            "options": [
+                "margin → border → padding → content",
+                "content → padding → border → margin",
+                "content → border → padding → margin",
+                "padding → content → border → margin"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 18,
+            "question": "Apa perbedaan antara `padding` dan `margin`?",
+            "options": [
+                "Padding adalah spasi di luar elemen, margin adalah spasi di dalam elemen",
+                "Padding adalah spasi di dalam elemen (antara content dan border), margin adalah spasi di luar elemen",
+                "Keduanya sama, hanya berbeda nama",
+                "Padding hanya untuk elemen block, margin hanya untuk inline"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 19,
+            "question": "Jika sebuah elemen memiliki `box-sizing: content-box`, width 300px, padding 20px, dan border 5px, berapakah total lebar yang ditempati?",
+            "options": [
+                "300px",
+                "320px",
+                "350px",
+                "370px"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 20,
+            "question": "Keuntungan menggunakan `box-sizing: border-box` adalah...",
+            "options": [
+                "Membuat semua elemen memiliki border secara otomatis",
+                "Menghilangkan kebutuhan menggunakan padding",
+                "Width dan height yang diset sudah termasuk padding dan border, sehingga ukuran total lebih mudah diprediksi",
+                "Membuat layout lebih responsif di mobile"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 21,
+            "question": "Shorthand `padding: 10px 20px` artinya...",
+            "options": [
+                "Top/Bottom 20px, Left/Right 10px",
+                "Top/Bottom 10px, Left/Right 20px",
+                "Semua sisi 10px, kecuali bottom 20px",
+                "Top 10px, Right 20px, Bottom 10px, Left 20px"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 22,
+            "question": "Perbedaan antara `display: none` dan `visibility: hidden` adalah...",
+            "options": [
+                "Tidak ada perbedaan, keduanya membuat elemen tidak terlihat",
+                "`display: none` elemen tidak tampil dan tidak mengambil ruang, `visibility: hidden` elemen tidak tampil tapi masih mengambil ruang",
+                "`visibility: hidden` menghapus elemen dari DOM, `display: none` hanya menyembunyikan",
+                "`display: none` hanya untuk mobile, `visibility: hidden` untuk desktop"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 23,
+            "question": "Kapan sebaiknya menggunakan `display: inline-block`?",
+            "options": [
+                "Ketika ingin elemen mengambil seluruh lebar baris",
+                "Ketika ingin elemen tetap inline (di samping elemen lain) tetapi bisa diberi width dan height",
+                "Ketika ingin menyembunyikan elemen",
+                "Ketika ingin membuat elemen menjadi flex container"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 24,
+            "question": "Pada `position: absolute`, elemen akan diposisikan relatif terhadap...",
+            "options": [
+                "Selalu relatif terhadap `<body>`",
+                "Parent terdekat yang memiliki `position` bukan `static`",
+                "Posisi normal elemen tersebut dalam document flow",
+                "Viewport (jendela browser)"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 25,
+            "question": "Apa yang membuat `position: fixed` berbeda dari `position: absolute`?",
+            "options": [
+                "Fixed lebih presisi dalam penempatan elemen",
+                "Fixed membuat elemen tetap di posisi viewport meskipun di-scroll, absolute tidak",
+                "Fixed hanya bekerja di dalam parent yang punya position: relative",
+                "Tidak ada perbedaan, keduanya sama"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 26,
+            "question": "Syarat agar `z-index` bekerja pada sebuah elemen adalah...",
+            "options": [
+                "Elemen harus memiliki background color",
+                "Elemen harus memiliki `position` selain `static`",
+                "Elemen harus berada di dalam flex container",
+                "Elemen harus memiliki ukuran (width dan height)"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 27,
+            "question": "Nilai `background-size: cover` artinya...",
+            "options": [
+                "Gambar ditampilkan penuh tanpa dipotong, dengan kemungkinan ada ruang kosong",
+                "Gambar di-stretch untuk memenuhi seluruh area, bisa terdistorsi",
+                "Gambar di-scale untuk memenuhi seluruh area container, bisa terpotong",
+                "Gambar ditampilkan dalam ukuran aslinya"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 28,
+            "question": "Apa perbedaan antara `background-size: cover` dan `background-size: contain`?",
+            "options": [
+                "Tidak ada perbedaan visual",
+                "`cover` memenuhi seluruh area (bisa crop), `contain` menampilkan seluruh gambar (bisa ada ruang kosong)",
+                "`contain` memenuhi seluruh area (bisa crop), `cover` menampilkan seluruh gambar",
+                "`cover` hanya untuk foto, `contain` untuk icon"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 29,
+            "question": "Syntax CSS yang benar untuk membuat linear gradient dari biru ke merah (kiri ke kanan) adalah...",
+            "options": [
+                "background: gradient(blue, red);",
+                "background: linear-gradient(to right, blue, red);",
+                "background-gradient: linear(blue, red, right);",
+                "background: linear(to right, blue, red);"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 30,
+            "question": "Property `border-radius: 50%` pada elemen dengan lebar dan tinggi sama akan menghasilkan...",
+            "options": [
+                "Elemen dengan semua sudut sedikit membulat",
+                "Elemen berbentuk oval/ellipse",
+                "Elemen berbentuk lingkaran sempurna",
+                "Elemen tanpa border"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 31,
+            "question": "Pada `box-shadow: 0 2px 4px rgba(0,0,0,0.1)`, nilai `4px` mewakili...",
+            "options": [
+                "Offset horizontal shadow",
+                "Offset vertikal shadow",
+                "Blur radius shadow",
+                "Spread radius shadow"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 32,
+            "question": "Untuk membuat Flexbox layout, property apa yang harus ditambahkan pada container?",
+            "options": [
+                "flex: true",
+                "display: flex",
+                "layout: flex",
+                "flex-container: enabled"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 33,
+            "question": "Property `justify-content: space-between` pada flex container akan...",
+            "options": [
+                "Menempatkan semua item di tengah",
+                "Menyebarkan item dengan jarak yang sama di antara item (item pertama di kiri, terakhir di kanan)",
+                "Menyebarkan item dengan jarak sama di sekitar setiap item",
+                "Menyelaraskan item di sumbu vertikal"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 34,
+            "question": "Apa perbedaan antara `justify-content` dan `align-items` pada Flexbox?",
+            "options": [
+                "Tidak ada perbedaan, keduanya mengatur alignment yang sama",
+                "`justify-content` mengatur alignment pada main axis, `align-items` pada cross axis",
+                "`align-items` mengatur alignment pada main axis, `justify-content` pada cross axis",
+                "`justify-content` hanya untuk horizontal, `align-items` hanya untuk vertikal (selalu)"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 35,
+            "question": "Property `flex: 1` pada flex item artinya...",
+            "options": [
+                "Item hanya mengambil 1px ruang",
+                "Item tidak akan grow atau shrink",
+                "Item akan grow dan mengisi available space secara proporsional",
+                "Item berada di posisi pertama"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 36,
+            "question": "Perbedaan utama antara Flexbox dan CSS Grid adalah...",
+            "options": [
+                "Flexbox lebih modern dan menggantikan Grid sepenuhnya",
+                "Flexbox adalah sistem layout 1D (row ATAU column), Grid adalah sistem 2D (row DAN column)",
+                "Grid hanya untuk tabel, Flexbox untuk semua layout",
+                "Tidak ada perbedaan signifikan"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 37,
+            "question": "CSS Grid `grid-template-columns: repeat(3, 1fr)` artinya...",
+            "options": [
+                "3 kolom dengan lebar tetap 1px masing-masing",
+                "3 kolom yang membagi ruang yang tersedia secara merata",
+                "Kolom pertama 3x lebih lebar dari kolom lainnya",
+                "Kolom yang berulang setiap 3 item"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 38,
+            "question": "`grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))` digunakan untuk...",
+            "options": [
+                "Membuat grid dengan tepat 200 kolom",
+                "Membuat kolom yang selalu berukuran 200px",
+                "Membuat grid yang otomatis menyesuaikan jumlah kolom berdasarkan lebar container (responsive)",
+                "Mengulang kolom sebanyak 200 kali"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 39,
+            "question": "Property `grid-column: span 2` pada grid item artinya...",
+            "options": [
+                "Item berada di kolom ke-2",
+                "Item memulai dari kolom ke-2",
+                "Item menempati 2 kolom sekaligus",
+                "Item memiliki lebar 2 kali kolom lainnya secara otomatis"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 40,
+            "question": "Apa yang dimaksud dengan 'mobile-first' approach dalam responsive design?",
+            "options": [
+                "Website hanya dibuat untuk mobile, tidak ada versi desktop",
+                "Styling dimulai dari tampilan mobile sebagai base, kemudian ditambahkan styles untuk layar lebih besar menggunakan `min-width` media queries",
+                "Website loading lebih cepat di mobile dibanding desktop",
+                "Menggunakan `max-width` media queries untuk mengatur tampilan"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 41,
+            "question": "Meta tag `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">` berfungsi untuk...",
+            "options": [
+                "Mengatur ukuran font di perangkat mobile",
+                "Memberitahu browser menggunakan lebar device sebagai viewport dan tidak melakukan zoom default",
+                "Menghilangkan scrollbar di mobile",
+                "Mengaktifkan mode gelap di mobile"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 42,
+            "question": "Media query `@media (min-width: 768px)` akan diterapkan ketika...",
+            "options": [
+                "Lebar layar kurang dari 768px (mobile)",
+                "Lebar layar tepat 768px",
+                "Lebar layar 768px atau lebih (tablet ke atas)",
+                "Tinggi layar minimal 768px"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 43,
+            "question": "Pseudo-class `:nth-child(even)` digunakan untuk...",
+            "options": [
+                "Menarget elemen pertama dari setiap tipe",
+                "Menarget semua elemen dengan nomor urut ganjil",
+                "Menarget semua elemen dengan nomor urut genap (2, 4, 6, ...)",
+                "Menarget elemen terakhir dari parent"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 44,
+            "question": "Apa kegunaan pseudo-class `:focus`?",
+            "options": [
+                "Menarget elemen yang sedang di-hover mouse",
+                "Menarget elemen yang sedang aktif/dipilih (misal input yang sedang diketik)",
+                "Menarget elemen pertama dalam parent",
+                "Menarget elemen yang sudah dikunjungi (link)"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 45,
+            "question": "Perbedaan antara pseudo-class dan pseudo-element adalah...",
+            "options": [
+                "Pseudo-class ditulis dengan `::`, pseudo-element dengan `:`",
+                "Tidak ada perbedaan, hanya penulisan yang berbeda",
+                "Pseudo-class menarget state/kondisi elemen (`:`), pseudo-element menarget bagian tertentu atau membuat elemen virtual (`::`) ",
+                "Pseudo-element hanya bisa digunakan pada elemen block"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 46,
+            "question": "Pseudo-element `::before` digunakan untuk...",
+            "options": [
+                "Menarget elemen sebelum elemen yang dipilih di DOM",
+                "Menyisipkan konten virtual sebelum content sebenarnya dari elemen yang dipilih",
+                "Menarget child pertama dari elemen",
+                "Memberikan style sebelum hover state diterapkan"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 47,
+            "question": "Pada CSS transitions, `transition: background-color 0.3s ease` artinya...",
+            "options": [
+                "Background color berubah instan setelah 0.3 detik",
+                "Background color berubah secara smooth dalam 0.3 detik dengan timing 'ease'",
+                "Transition hanya terjadi pada event ease",
+                "Background color berubah 0.3 kali per detik"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 48,
+            "question": "Apa perbedaan antara CSS transitions dan CSS animations?",
+            "options": [
+                "Transitions lebih modern dari animations",
+                "Transitions hanya bisa smooth change antara 2 state (biasanya dipicu event), animations bisa memiliki banyak keyframe dan bisa berjalan otomatis",
+                "Animations lebih sederhana dari transitions",
+                "Tidak ada perbedaan fungsional"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 49,
+            "question": "Pada keyframe animation, `animation-iteration-count: infinite` artinya...",
+            "options": [
+                "Animation berjalan selama tak terbatas waktu lalu berhenti",
+                "Animation berulang terus-menerus tanpa henti",
+                "Animation memiliki jumlah frame yang tidak terbatas",
+                "Animation hanya berjalan sekali"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 50,
+            "question": "CSS Variables dideklarasikan dengan format...",
+            "options": [
+                "$nama-variable: nilai;",
+                "@nama-variable: nilai;",
+                "--nama-variable: nilai;",
+                "var(nama-variable): nilai;"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 51,
+            "question": "Mengapa CSS variables sebaiknya dideklarasikan di `:root`?",
+            "options": [
+                "Karena `:root` adalah satu-satunya tempat yang valid untuk deklarasi variable",
+                "Agar variable bisa diakses secara global di seluruh dokumen",
+                "Karena `:root` memiliki specificity tertinggi",
+                "Karena browser hanya membaca variable dari `:root`"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 52,
+            "question": "Cara menggunakan CSS variable `--primary-color` pada property `color` adalah...",
+            "options": [
+                "color: $primary-color;",
+                "color: --primary-color;",
+                "color: @primary-color;",
+                "color: var(--primary-color);"
+            ],
+            "correctAnswer": 3
+        }
+    ],
+    "3": [
+        {
+            "id": 1,
+            "question": "Berapa lama waktu yang diberikan kepada Brendan Eich untuk menciptakan versi awal JavaScript pada tahun 1995?",
+            "options": [
+                "1 bulan",
+                "10 hari",
+                "1 tahun",
+                "6 bulan"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Sebelum akhirnya dinamakan JavaScript, bahasa ini memiliki urutan nama awal yaitu...",
+            "options": [
+                "Java -> JScript -> JavaScript",
+                "ECMAScript -> LiveScript -> JavaScript",
+                "Mocha -> LiveScript -> JavaScript",
+                "JScript -> Mocha -> JavaScript"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 3,
+            "question": "Apa nama standar resmi dari JavaScript yang dibuat oleh ECMA International untuk mengatasi 'Browser War' pada tahun 1997?",
+            "options": [
+                "ECMAScript",
+                "JScript",
+                "NetscapeScript",
+                "Node.js"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 4,
+            "question": "Teknologi apa yang diperkenalkan oleh Ryan Dahl pada tahun 2009 sehingga JavaScript bisa digunakan di luar browser (seperti di Server dan Backend)?",
+            "options": [
+                "React",
+                "Internet Explorer",
+                "ES6",
+                "Node.js"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 5,
+            "question": "Tag HTML apa yang paling tepat digunakan untuk menyisipkan dan menghubungkan file 'script.js' ke dalam file HTML?",
+            "codeSnippet": "",
+            "language": "html",
+            "options": [
+                "<link rel=\"stylesheet\" href=\"script.js\">",
+                "<script src=\"script.js\"></script>",
+                "<js href=\"script.js\"></js>",
+                "<script href=\"script.js\"></script>"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 6,
+            "question": "Kata kunci apa yang diperkenalkan pada ES6 untuk mendeklarasikan variabel yang nilainya TETAP dan tidak boleh diubah?",
+            "options": [
+                "let",
+                "const",
+                "var",
+                "static"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 7,
+            "question": "Manakah dari penulisan nama variabel berikut yang menerapkan gaya penulisan 'camelCase'?",
+            "options": [
+                "const namaSaya;",
+                "const NAMASAYA;",
+                "const nama_saya;",
+                "const NamaSaya;"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 8,
+            "question": "Tipe data primitif apa yang digunakan untuk merepresentasikan nilai logika yang hanya berisi 'true' atau 'false'?",
+            "options": [
+                "String",
+                "Null",
+                "Boolean",
+                "Undefined"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 9,
+            "question": "Apa sebutan tipe data untuk variabel di JavaScript yang sudah dibuat atau dideklarasikan, tetapi belum diberikan nilai sama sekali?",
+            "options": [
+                "Undefined",
+                "Null",
+                "NaN",
+                "Object"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 10,
+            "question": "Apa fungsi dari operator modulus (%) di dalam JavaScript?",
+            "options": [
+                "Melakukan perhitungan persentase",
+                "Melakukan pembagian bilangan bulat",
+                "Melakukan operasi perpangkatan",
+                "Menghitung sisa bagi dari suatu pembagian"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 11,
+            "question": "Operator perbandingan manakah yang sangat direkomendasikan karena mengecek kesamaan nilai SEKALIGUS kesamaan tipe datanya?",
+            "options": [
+                "==",
+                "!=",
+                "===",
+                ">="
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 12,
+            "question": "Operator logika manakah yang akan menghasilkan nilai 'true' HANYA JIKA SEMUA kondisi yang digabungkan bernilai benar?",
+            "options": [
+                "&& (AND)",
+                "|| (OR)",
+                "! (NOT)",
+                "== (EQUAL)"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 13,
+            "question": "Berdasarkan kode operator ternary berikut, apa hasil teks yang akan tersimpan di dalam variabel 'kategoriUmur'?",
+            "codeSnippet": "let umur = 15;\nlet kategoriUmur = (umur >= 18) ? \"Dewasa\" : \"Anak-anak\";",
+            "language": "javascript",
+            "options": [
+                "Dewasa",
+                "Anak-anak",
+                "15",
+                "Undefined"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 14,
+            "question": "Kata kunci apa yang digunakan di dalam struktur pengondisian 'switch' untuk menghentikan pengecekan berlanjut ke case berikutnya jika suatu kondisi sudah terpenuhi?",
+            "options": [
+                "stop",
+                "return",
+                "break",
+                "continue"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 15,
+            "question": "Struktur dasar dari perulangan 'for' terdiri dari tiga bagian utama di dalam kurungnya. Urutan yang benar adalah...",
+            "options": [
+                "kondisi; inisialisasi; perubahan",
+                "inisialisasi; kondisi; perubahan",
+                "perubahan; kondisi; inisialisasi",
+                "inisialisasi; perubahan; kondisi"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 16,
+            "question": "Apa perbedaan paling mendasar antara perulangan 'while' dan 'do...while'?",
+            "options": [
+                "'while' berjalan lebih cepat daripada 'do...while'.",
+                "'do...while' pasti menjalankan blok kode minimal satu kali di awal sebelum mengecek kondisi.",
+                "'while' digunakan untuk array, sedangkan 'do...while' digunakan untuk object.",
+                "'do...while' tidak membutuhkan kondisi untuk berhenti."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 17,
+            "question": "Perulangan khusus apa yang digunakan untuk mengambil nilai (value) dari dalam daftar struktur data Array secara ringkas?",
+            "options": [
+                "for...in",
+                "while...of",
+                "for...of",
+                "do...in"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 18,
+            "question": "Jika sebuah perulangan mengeksekusi perintah 'continue', apa yang akan terjadi pada alur program?",
+            "options": [
+                "Melewati sisa kode pada iterasi saat ini dan langsung melompat ke urutan/iterasi berikutnya.",
+                "Menghentikan paksa seluruh proses perulangan saat itu juga.",
+                "Menghapus variabel iterator yang sedang digunakan.",
+                "Membuat perulangan berjalan selamanya (infinite loop)."
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 19,
+            "question": "Apa fungsi dari kata kunci 'return' di dalam sebuah fungsi (function)?",
+            "options": [
+                "Mendeklarasikan sebuah fungsi agar bisa dipanggil nanti.",
+                "Menampilkan hasil langsung ke dalam console browser.",
+                "Mengulangi kembali proses fungsi dari awal.",
+                "Menghentikan proses fungsi dan mengirimkan hasil/nilai keluar dari fungsi tersebut."
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 20,
+            "question": "Variabel penampung yang ditulis di dalam tanda kurung SAAT sebuah fungsi PERTAMA KALI DIBUAT disebut sebagai...",
+            "options": [
+                "Argumen",
+                "Parameter",
+                "Return value",
+                "Property"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 21,
+            "question": "Manakah sintaks penulisan 'Arrow Function' modern yang paling tepat untuk menjumlahkan dua angka?",
+            "options": [
+                "const tambah = (a, b) => a + b;",
+                "const tambah => (a, b) { return a + b };",
+                "function tambah(a, b) => { return a + b; }",
+                "let tambah = a, b => a + b;"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 22,
+            "question": "Berdasarkan kode fungsi dengan Default Parameter berikut, apa angka yang akan dikembalikan oleh fungsi tersebut?",
+            "codeSnippet": "function hitungPangkat(angka, nilaiPangkat = 2) {\n  return angka ** nilaiPangkat;\n}\n\nhitungPangkat(5);",
+            "language": "javascript",
+            "options": [
+                "5",
+                "7",
+                "25",
+                "NaN"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 23,
+            "question": "Built-in method array apa yang digunakan untuk menambahkan elemen baru ke bagian paling AKHIR dari sebuah array?",
+            "options": [
+                ".pop()",
+                ".push()",
+                ".shift()",
+                ".unshift()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 24,
+            "question": "Berdasarkan manipulasi array berikut, apa isi dari array 'daftarDivisi' di akhir program?",
+            "codeSnippet": "let daftarDivisi = [\"Hardware\", \"Software\"];\ndaftarDivisi.shift();",
+            "language": "javascript",
+            "options": [
+                "[\"Software\"]",
+                "[\"Hardware\"]",
+                "[\"Hardware\", \"Software\", \"shift\"]",
+                "[] (Array Kosong)"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 25,
+            "question": "Jika sebuah Object memiliki properti dengan kunci yang mengandung spasi (misalnya: \"tahun berdiri\"), bagaimana cara mengakses nilainya yang valid?",
+            "options": [
+                "Menggunakan Dot Notation: object.tahun berdiri",
+                "Menggunakan Index: object[1]",
+                "Menggunakan Dash Notation: object.tahun-berdiri",
+                "Menggunakan Bracket Notation: object[\"tahun berdiri\"]"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 26,
+            "question": "Kata kunci apa yang digunakan dalam JavaScript untuk membuang atau menghapus sebuah properti secara permanen dari dalam Object?",
+            "options": [
+                "remove",
+                "delete",
+                "clear",
+                "pop"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 27,
+            "question": "Berdasarkan struktur Array of Objects berikut, bagaimana cara mencetak kata 'Purwa'?",
+            "codeSnippet": "const daftarPengurus = [\n  { id: 1, nama: \"Sulastian\", jabatan: \"Ketua\" },\n  { id: 2, nama: \"Purwa\", jabatan: \"Rakyat Software\" }\n];",
+            "language": "javascript",
+            "options": [
+                "daftarPengurus[1].nama",
+                "daftarPengurus[2].nama",
+                "daftarPengurus.nama[1]",
+                "daftarPengurus.Purwa"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 28,
+            "question": "Kepanjangan dari DOM dalam pengembangan web dengan JavaScript adalah...",
+            "options": [
+                "Data Object Mode",
+                "Document Orientation Map",
+                "Document Object Model",
+                "Dynamic Output Method"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 29,
+            "question": "Perintah DOM apa yang digunakan untuk memerintahkan JavaScript agar mencari dan menangkap elemen HTML berdasarkan atribut ID-nya?",
+            "options": [
+                "document.querySelectorId()",
+                "document.getElementById()",
+                "document.findId()",
+                "document.searchId()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 30,
+            "question": "Setelah sebuah elemen DOM ditangkap (misalnya ke dalam variabel 'kotakOutput'), properti apa yang digunakan untuk menyisipkan teks atau tag HTML baru ke dalamnya?",
+            "options": [
+                ".insertText",
+                ".innerHTML",
+                ".textContent",
+                ".appendHTML"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "4": [
+        {
+            "id": 1,
+            "question": "Apa kepanjangan dari DOM dalam bahasa JavaScript?",
+            "options": [
+                "Data Object Mode",
+                "Document Object Model",
+                "Document Orientation Map",
+                "Dynamic Output Method"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Apa fungsi utama dari DOM pada pengembangan halaman web?",
+            "options": [
+                "Sebagai bahasa pemrograman server pengganti Node.js",
+                "Untuk mendesain tampilan web menggunakan kode CSS",
+                "Sebagai jembatan penghubung antara struktur HTML dan logika JavaScript",
+                "Untuk mengubah file HTML menjadi database"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 3,
+            "question": "Ketika browser membaca file HTML, struktur tersebut diubah menjadi susunan objek. Susunan ini biasa disebut sebagai...",
+            "options": [
+                "Relational Database",
+                "Tree Structure (Pohon Dokumen)",
+                "Array 3 Dimensi",
+                "Flat File Object"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 4,
+            "question": "Objek apa yang bertindak sebagai pintu masuk (akar) utama ke seluruh halaman HTML di dalam JavaScript DOM?",
+            "options": [
+                "document",
+                "window",
+                "body",
+                "element"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 5,
+            "question": "Method DOM manakah yang bekerja paling cepat dan khusus digunakan untuk mencari satu elemen berdasarkan ID uniknya?",
+            "options": [
+                "querySelector()",
+                "querySelectorAll()",
+                "getElementsByClassName()",
+                "getElementById()"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 6,
+            "question": "Jika kita ingin memilih elemen pertama yang cocok menggunakan format selector CSS modern (seperti '.deskripsi' atau 'div > p'), method apa yang harus dipakai?",
+            "options": [
+                "getElementById()",
+                "getElementsByTagName()",
+                "querySelector()",
+                "querySelectorAll()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 7,
+            "question": "Apa hasil yang dikembalikan oleh method 'querySelectorAll(\"li\")'?",
+            "options": [
+                "Hanya elemen <li> yang pertama kali ditemukan",
+                "Semua elemen <li> yang ada di halaman dalam bentuk daftar koleksi",
+                "Sebuah string teks yang berisi tulisan \"li\"",
+                "Elemen <li> terakhir di halaman"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 8,
+            "question": "Apa kekurangan utama dari menggunakan 'innerHTML' jika dibandingkan dengan 'textContent' saat menangani input dari user?",
+            "options": [
+                "Lebih rawan terkena serangan XSS (Cross Site Scripting)",
+                "Tidak bisa menambahkan elemen baru",
+                "Kecepatannya sangat lambat",
+                "Hanya bisa membaca teks biasa"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 9,
+            "question": "Properti DOM apa yang paling aman digunakan jika kita HANYA ingin mengubah atau membaca teks biasa di dalam elemen (tanpa merender tag HTML)?",
+            "options": [
+                "outerHTML",
+                "innerHTML",
+                "textContent",
+                "value"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 10,
+            "question": "Method apa yang digunakan untuk menyisipkan atau mengubah nilai dari sebuah atribut elemen HTML (contoh: menambahkan 'src' pada tag <img>)?",
+            "options": [
+                "getAttribute()",
+                "setAttribute()",
+                "removeAttribute()",
+                "changeAttribute()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 11,
+            "question": "Bagaimana cara penulisan properti CSS 'background-color' yang benar apabila dimanipulasi langsung dari dalam file JavaScript?",
+            "options": [
+                "background-color",
+                "Background-Color",
+                "background_color",
+                "backgroundColor"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 12,
+            "question": "Manakah cara yang dianggap sebagai *best practice* atau lebih efisien saat ingin mengubah banyak style/tampilan pada sebuah elemen sekaligus?",
+            "options": [
+                "Mengubah properti elemen.style satu per satu",
+                "Menghapus elemen lama dan membuat ulang elemen baru dengan style baru",
+                "Membuat class di CSS, lalu menambahkan class tersebut ke elemen menggunakan classList",
+                "Menulis tag <style> langsung menggunakan innerHTML"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 13,
+            "question": "Method apa pada 'classList' yang secara cerdas akan MENAMBAH class jika elemen tersebut belum memilikinya, atau MENGHAPUS class jika sudah ada?",
+            "options": [
+                "contains()",
+                "add()",
+                "remove()",
+                "toggle()"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 14,
+            "question": "Method 'classList.contains(\"active\")' pada JavaScript digunakan untuk...",
+            "options": [
+                "Mengecek dan menghasilkan nilai true/false apakah elemen memiliki class \"active\"",
+                "Menambahkan class \"active\" ke elemen tersebut",
+                "Menghapus semua class kecuali class \"active\"",
+                "Mengganti class saat ini dengan class \"active\""
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 15,
+            "question": "Method DOM apa yang bertugas untuk menciptakan elemen HTML baru ke dalam memori JavaScript sebelum ditampilkan ke halaman?",
+            "options": [
+                "document.makeElement()",
+                "document.createElement()",
+                "document.newElement()",
+                "document.buildElement()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 16,
+            "question": "Setelah elemen baru diciptakan, method apa yang kita gunakan untuk menyisipkannya ke posisi PALING AKHIR di dalam elemen induk?",
+            "options": [
+                "appendChild()",
+                "prepend()",
+                "insertBefore()",
+                "addLast()"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 17,
+            "question": "Method apa yang harus kita gunakan jika ingin elemen HTML yang baru dibuat disisipkan pada posisi PALING AWAL dari elemen induknya?",
+            "options": [
+                "appendChild()",
+                "firstInsert()",
+                "prepend()",
+                "insertTop()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 18,
+            "question": "Untuk membuang atau menghapus secara permanen sebuah elemen HTML dari tampilan halaman web, method apa yang dipanggil?",
+            "options": [
+                "delete()",
+                "remove()",
+                "clear()",
+                "destroy()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 19,
+            "question": "Di dalam materi DOM Events, event 'mouseenter' akan terpicu pada saat...",
+            "options": [
+                "User mengklik elemen secara ganda (double click)",
+                "User mulai mengetik pada keyboard",
+                "User mensubmit sebuah formulir",
+                "Cursor mouse bergerak masuk ke area sebuah elemen"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 20,
+            "question": "Cara paling modern dan sangat direkomendasikan untuk menugaskan aksi terhadap sebuah event (misalnya saat tombol diklik) adalah menggunakan...",
+            "options": [
+                "Atribut onclick langsung di dalam file HTML",
+                "addEventListener()",
+                "Menulis fungsi biasa di akhir file script",
+                "Method setAttribute()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 21,
+            "question": "Ketika membuat aplikasi interaktif dan kita ingin merespon/mendeteksi ketikan user di dalam kolom teks secara *real-time*, event apa yang paling cocok?",
+            "options": [
+                "click",
+                "submit",
+                "input",
+                "load"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 22,
+            "question": "Pada sebuah event listener, biasanya terdapat parameter 'e' atau 'event'. Apa fungsi utama dari objek Event tersebut?",
+            "options": [
+                "Berisi fungsi matematika tambahan bawaan JavaScript",
+                "Menyimpan informasi spesifik dan detail mengenai kejadian event tersebut",
+                "Merupakan referensi untuk mematikan browser",
+                "Untuk menjalankan fungsi secara berulang-ulang"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 23,
+            "question": "Properti Event Object manakah yang secara spesifik menunjuk ke 'elemen HTML yang menjadi target terjadinya aksi' (misalnya, tombol spesifik mana yang barusan diklik)?",
+            "options": [
+                "e.type",
+                "e.key",
+                "e.value",
+                "e.target"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 24,
+            "question": "Ketika kita men-submit sebuah tag <form>, browser memiliki kebiasaan default otomatis me-reload halaman. Method Event Object apa yang bisa mencegah hal ini?",
+            "options": [
+                "e.stopPropagation()",
+                "e.stopReload()",
+                "e.preventDefault()",
+                "e.cancelAction()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 25,
+            "question": "Menurut panduan *Best Practice* JavaScript DOM, mengapa kita disarankan menyimpan referensi tangkapan elemen HTML ke dalam variabel bertipe 'const'?",
+            "options": [
+                "Karena lokasi referensi elemen tersebut di halaman tidak perlu kita ubah-ubah penunjuknya",
+                "Karena elemen tersebut nilainya dienkripsi oleh browser",
+                "Agar teks di dalam elemen tersebut tidak dapat diedit sama sekali",
+                "Karena var dan let sudah dihapus dari sistem HTML"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 26,
+            "question": "Berdasarkan pedoman penulisan *Best Practice* efisiensi DOM, apa kebiasaan yang HARUS DIHINDARI?",
+            "options": [
+                "Menangkap/mencari elemen (DOM Selection) berulang kali di dalam fungsi yang sama",
+                "Menggunakan querySelector() alih-alih getElementsByClassName()",
+                "Menangkap semua elemen yang dibutuhkan cukup satu kali di bagian awal file JavaScript",
+                "Menggunakan classList untuk mengganti style"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 27,
+            "question": "Berdasarkan kode di bawah ini, aksi apa yang dilakukan pada elemen UI List (Daftar)?",
+            "codeSnippet": "const daftar = document.getElementById(\"daftar\");\nconst item = document.createElement(\"li\");\nitem.textContent = \"Tugas Baru\";\ndaftar.appendChild(item);",
+            "language": "javascript",
+            "options": [
+                "Menghapus \"Tugas Baru\" dari daftar",
+                "Membuat elemen list <li> dan menyisipkannya ke posisi paling akhir dari id 'daftar'",
+                "Mengganti seluruh daftar menjadi tulisan \"Tugas Baru\"",
+                "Membuat daftar baru dari awal"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 28,
+            "question": "Ketika kita menjalankan perintah 'judul.textContent = \"Hello World\"' pada file JavaScript, apa yang sesungguhnya berubah?",
+            "options": [
+                "Tampilan HTML pada layar browser pengguna saja",
+                "Kode sumber di file HTML yang ada di dalam server hosting ikut berubah permanen",
+                "File index.html di dalam komputer kita akan otomatis tersimpan ulang",
+                "Nama tag HTML <h1> berubah menjadi teks"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 29,
+            "question": "Berdasarkan kode mendengarkan event keyboard ini, apa fungsi properti 'e.key'?",
+            "codeSnippet": "document.addEventListener(\"keydown\", function(e) {\n  console.log(e.key);\n});",
+            "language": "javascript",
+            "options": [
+                "Mendapatkan koordinat persis letak kursor mouse",
+                "Mengetahui tag HTML apa yang sedang di-highlight",
+                "Menginformasikan secara spesifik tombol keyboard huruf/simbol apa yang baru saja ditekan",
+                "Mendapatkan jumlah karakter di halaman"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 30,
+            "question": "Berdasarkan materi, method lama ini masih dapat digunakan untuk memilih elemen berdasarkan nama class dan akan me-return kumpulan elemen. Method apakah ini?",
+            "options": [
+                "getElementById()",
+                "querySelector()",
+                "querySelectorAll()",
+                "getElementsByClassName()"
+            ],
+            "correctAnswer": 3
+        }
+    ],
+    "5": [
+        {
+            "id": 1,
+            "question": "Apa kepanjangan dari SQL?",
+            "options": [
+                "Standard Query Logic",
+                "Structured Query Language",
+                "Simple Query Language",
+                "System Query Language"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Salah satu alasan utama menggunakan SQL dibandingkan dengan spreadsheet (seperti Excel) adalah...",
+            "options": [
+                "Hanya bisa digunakan oleh Data Scientist",
+                "Mampu menangani dan mencari jutaan baris data dalam hitungan detik",
+                "Memiliki tampilan grafis yang lebih berwarna",
+                "Tidak membutuhkan sistem penyimpanan data"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 3,
+            "question": "Perintah apa yang diketikkan di dalam terminal (CLI) untuk masuk dan login ke dalam MySQL menggunakan user admin bawaan?",
+            "options": [
+                "mysql login root",
+                "mysql -admin",
+                "mysql -u root",
+                "mysql -root"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 4,
+            "question": "Jika menggunakan XAMPP dan ingin mengelola database MySQL menggunakan antarmuka visual (GUI Mode), fitur bawaan apa yang disediakan saat menekan tombol 'Admin'?",
+            "options": [
+                "TablePlus",
+                "DBeaver",
+                "SQL Fiddle",
+                "phpMyAdmin"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 5,
+            "question": "Manakah pernyataan di bawah ini yang merupakan karakteristik utama dari database RDBMS (seperti MySQL)?",
+            "options": [
+                "Menggunakan format dokumen (seperti JSON)",
+                "Memiliki struktur tabel berelasi (baris dan kolom) dengan skema yang kaku",
+                "Sangat dinamis dan fleksibel tanpa aturan tipe data",
+                "Dikhususkan untuk menyimpan data tidak terstruktur dalam jumlah masif"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 6,
+            "question": "Tipe data apa yang paling tepat untuk menyimpan nominal uang atau harga barang agar mendapat hasil yang sangat presisi (tidak ada pembulatan yang salah)?",
+            "options": [
+                "FLOAT",
+                "DECIMAL",
+                "INT",
+                "VARCHAR"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 7,
+            "question": "Jika Anda ingin menyimpan data teks dengan panjang karakter yang SELALU TETAP (misalnya kode negara 'ID' atau jenis kelamin 'L'/'P'), tipe data apa yang paling optimal?",
+            "options": [
+                "CHAR",
+                "VARCHAR",
+                "TEXT",
+                "BOOLEAN"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 8,
+            "question": "Tipe data BOOLEAN di dalam SQL digunakan untuk menyimpan nilai logika berupa...",
+            "options": [
+                "Hanya teks 'YES' dan 'NO'",
+                "Angka mulai dari 1 sampai 10",
+                "TRUE (1) dan FALSE (0)",
+                "Teks dengan panjang maksimal 1 karakter"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 9,
+            "question": "Data Definition Language (DDL) adalah sekumpulan perintah SQL yang fokus utamanya digunakan untuk...",
+            "options": [
+                "Menambah dan mengedit baris data satu per satu",
+                "Mendefinisikan struktur atau kerangka dari database dan tabel",
+                "Mengatur hak akses dan keamanan user",
+                "Menghitung total nilai dari sebuah kolom"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 10,
+            "question": "Perintah DDL dasar apa yang digunakan untuk membuat database baru?",
+            "options": [
+                "MAKE DATABASE",
+                "INSERT DATABASE",
+                "CREATE DATABASE",
+                "BUILD DATABASE"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 11,
+            "question": "Setelah sebuah database berhasil dibuat, perintah apa yang WAJIB dijalankan agar kita bisa masuk dan mulai membuat tabel di dalam database tersebut?",
+            "options": [
+                "SELECT nama_database;",
+                "OPEN nama_database;",
+                "ENTER nama_database;",
+                "USE nama_database;"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 12,
+            "question": "Constraint apa yang wajib digunakan untuk memastikan sebuah kolom berfungsi sebagai penanda unik utama untuk setiap baris data di dalam tabel?",
+            "options": [
+                "NOT NULL",
+                "PRIMARY KEY",
+                "UNIQUE",
+                "DEFAULT"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 13,
+            "question": "Pada sintaks 'email VARCHAR(100) UNIQUE NOT NULL', apa fungsi dari constraint 'UNIQUE'?",
+            "options": [
+                "Memastikan kolom email harus diisi (tidak boleh kosong)",
+                "Memberikan nilai awal otomatis jika dikosongkan",
+                "Memastikan nilai email tidak boleh ada yang duplikat/kembar di dalam tabel",
+                "Membuat kolom email menjadi Primary Key sekunder"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 14,
+            "question": "Jika kita ingin ID pada tabel bertambah angkanya sendiri secara berurutan (1, 2, 3...) setiap kali ada data baru, constraint apa yang ditambahkan?",
+            "options": [
+                "AUTO_INCREMENT",
+                "ADD_AUTO",
+                "DEFAULT_INCREMENT",
+                "PRIMARY_ADD"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 15,
+            "question": "Perintah DDL apa yang paling tepat jika kita ingin MENAMBAHKAN kolom baru bernama 'phone_number' ke dalam tabel 'users' yang sudah ada?",
+            "options": [
+                "UPDATE TABLE users ADD phone_number VARCHAR(15);",
+                "ALTER TABLE users ADD COLUMN phone_number VARCHAR(15);",
+                "MODIFY TABLE users INSERT phone_number VARCHAR(15);",
+                "CREATE COLUMN phone_number ON users;"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 16,
+            "question": "Berdasarkan query `ALTER TABLE users RENAME COLUMN phone_number TO phone;`, apa yang sedang dilakukan oleh perintah tersebut?",
+            "options": [
+                "Menghapus kolom phone_number",
+                "Mengganti tipe data kolom phone_number",
+                "Mengganti nama kolom dari 'phone_number' menjadi 'phone'",
+                "Menambahkan kolom baru bernama phone"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 17,
+            "question": "Untuk mengubah TIPE DATA dari sebuah kolom yang sudah jadi (misalnya dari TEXT menjadi VARCHAR(255)), perintah apa yang digunakan?",
+            "options": [
+                "ALTER TABLE ... MODIFY COLUMN ...",
+                "ALTER TABLE ... CHANGE DATA ...",
+                "UPDATE TABLE ... SET TYPE ...",
+                "REPLACE COLUMN ... WITH ..."
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 18,
+            "question": "Apa perbedaan paling fatal antara perintah `DROP TABLE` dan `TRUNCATE TABLE`?",
+            "options": [
+                "DROP hanya menghapus data, TRUNCATE menghapus kerangka tabel",
+                "DROP menghapus tabel beserta seluruh datanya secara permanen, TRUNCATE hanya mengosongkan isi datanya saja (struktur tabel tetap aman)",
+                "DROP digunakan untuk database, TRUNCATE digunakan untuk tabel",
+                "Tidak ada perbedaan, keduanya melakukan hal yang persis sama"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 19,
+            "question": "Jika kita ingin otomatis mencatat waktu saat sebuah baris data baru ditambahkan ke tabel, constraint apa yang diletakkan pada kolom 'created_at'?",
+            "options": [
+                "DEFAULT NOW()",
+                "SET CURRENT_TIME",
+                "AUTO_TIMESTAMP",
+                "DEFAULT CURRENT_TIMESTAMP"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 20,
+            "question": "Manakah perintah yang benar untuk menghapus sebuah kolom (misal: 'tanggal_lahir') dari tabel 'siswa'?",
+            "options": [
+                "ALTER TABLE siswa REMOVE COLUMN tanggal_lahir;",
+                "ALTER TABLE siswa DELETE COLUMN tanggal_lahir;",
+                "ALTER TABLE siswa DROP COLUMN tanggal_lahir;",
+                "ALTER TABLE siswa TRUNCATE COLUMN tanggal_lahir;"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "6": [
+        {
+            "id": 1,
+            "question": "Apa fungsi dan tujuan utama dari penerapan Data Constraints pada sebuah tabel database?",
+            "options": [
+                "Untuk mempercepat proses pencarian data",
+                "Menjaga keakuratan, konsistensi data, dan mencegah masuknya data yang tidak valid",
+                "Menghubungkan aplikasi web dengan database",
+                "Mengubah tipe data kolom secara otomatis"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Constraint apa yang wajib digunakan untuk memastikan bahwa suatu kolom tidak boleh dibiarkan kosong oleh pengguna saat memasukkan data?",
+            "options": [
+                "UNIQUE",
+                "DEFAULT",
+                "NOT NULL",
+                "CHECK"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 3,
+            "question": "Constraint 'PRIMARY KEY' pada dasarnya adalah kombinasi langsung dari dua buah constraint dasar. Dua constraint tersebut adalah...",
+            "options": [
+                "NOT NULL dan CHECK",
+                "UNIQUE dan DEFAULT",
+                "NOT NULL dan UNIQUE",
+                "CHECK dan UNIQUE"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 4,
+            "question": "Berdasarkan sintaks pembuatan tabel berikut, apa fungsi dari constraint yang diletakkan pada kolom umur?",
+            "codeSnippet": "umur INT CHECK (umur >= 13)",
+            "language": "sql",
+            "options": [
+                "Memberikan nilai bawaan angka 13 jika kolom tidak diisi",
+                "Memastikan bahwa setiap nilai umur yang dimasukkan harus berbeda",
+                "Mencegah nilai umur dimasukkan jika kurang dari 13 tahun",
+                "Menjadikan kolom umur sebagai Primary Key"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 5,
+            "question": "Jika kita ingin sebuah kolom 'status_aktif' otomatis terisi dengan nilai 'TRUE' saat pengguna lupa atau tidak mengisi data tersebut, constraint apa yang digunakan?",
+            "options": [
+                "DEFAULT TRUE",
+                "CHECK TRUE",
+                "SET TRUE",
+                "NOT NULL TRUE"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 6,
+            "question": "Kolom pada suatu tabel yang secara khusus merujuk ke PRIMARY KEY di tabel lain guna membentuk relasi disebut sebagai...",
+            "options": [
+                "Parent Key",
+                "Foreign Key",
+                "Secondary Key",
+                "Relation Key"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 7,
+            "question": "Salah satu tujuan utama menggunakan Foreign Key adalah mencegah terjadinya 'orphan records' atau data yatim piatu. Apa maksud dari orphan records tersebut?",
+            "options": [
+                "Data yang kolom Primary Key-nya kosong",
+                "Data anak (child) yang berelasi dengan data induk (parent) yang sudah tidak ada/terhapus",
+                "Data yang memiliki duplikasi di tabel lain",
+                "Data yang tidak memiliki aturan tipe data"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 8,
+            "question": "Saat mengatur relasi antar tabel, apa efek yang terjadi jika kita menggunakan opsi 'ON DELETE CASCADE' pada Foreign Key?",
+            "options": [
+                "Mencegah penghapusan data induk jika ada data anak yang terkait",
+                "Mengubah nilai Foreign Key menjadi NULL di tabel anak jika data induk dihapus",
+                "Data di tabel anak akan ikut terhapus secara otomatis jika data di tabel induk dihapus",
+                "Akan memunculkan pesan error Foreign Key Constraint"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 9,
+            "question": "Sebaliknya, opsi Foreign Key apa yang harus kita atur jika kita ingin SECARA TEGAS MENCEGAH penghapusan data di tabel induk selama masih ada data di tabel anak yang berelasi?",
+            "options": [
+                "CASCADE",
+                "SET NULL",
+                "RESTRICT",
+                "IGNORE"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 10,
+            "question": "Perbedaan mendasar antara DDL (Data Definition Language) dan DML (Data Manipulation Language) adalah...",
+            "options": [
+                "DML mengurus pembuatan struktur kerangka tabel, DDL mengurus isi data di dalamnya",
+                "DDL mengurus pembuatan struktur kerangka tabel, DML mengurus isi data di dalamnya",
+                "DDL digunakan oleh administrator, DML digunakan oleh user biasa",
+                "DDL dan DML adalah hal yang sama"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 11,
+            "question": "Di bawah ini, manakah yang merupakan TIGA perintah utama dari kelompok Data Manipulation Language (DML)?",
+            "options": [
+                "CREATE, ALTER, DROP",
+                "SELECT, INSERT, CREATE",
+                "INSERT, UPDATE, DELETE",
+                "GRANT, REVOKE, TRUNCATE"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 12,
+            "question": "Perintah SQL apa yang digunakan untuk menambahkan sebuah data baris (record) baru ke dalam tabel?",
+            "options": [
+                "ADD INTO",
+                "CREATE DATA",
+                "UPDATE INTO",
+                "INSERT INTO"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 13,
+            "question": "Berdasarkan materi DML, bagaimana cara melakukan 'Bulk Insert' (memasukkan banyak baris data sekaligus) dengan cara yang paling efisien?",
+            "options": [
+                "Menuliskan perintah INSERT INTO secara berulang-ulang di baris yang berbeda",
+                "Menggunakan satu perintah INSERT INTO dan menyusun banyak kelompok data di dalam klausa VALUES yang dipisahkan koma",
+                "Menggunakan perulangan (loop) di dalam SQL",
+                "Menggunakan perintah UPDATE secara masal"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 14,
+            "question": "Peringatan keras saat menggunakan perintah UPDATE: Apa yang akan terjadi jika Anda mengeksekusi query UPDATE dan lupa menggunakan klausa 'WHERE'?",
+            "options": [
+                "Query akan gagal dijalankan dan memunculkan pesan error keamanan",
+                "Hanya data pada baris pertama yang akan berubah",
+                "Tabel tersebut akan terhapus secara permanen",
+                "Seluruh data pada tabel tersebut akan ikut berubah nilainya tanpa pandang bulu"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 15,
+            "question": "Manakah sintaks UPDATE yang paling tepat untuk mengubah nama mahasiswa menjadi 'Purwa' secara spesifik HANYA untuk mahasiswa dengan nim '24A002'?",
+            "options": [
+                "UPDATE nama = 'Purwa' FROM mahasiswa WHERE nim = '24A002';",
+                "UPDATE mahasiswa SET nama = 'Purwa' WHERE nim = '24A002';",
+                "MODIFY mahasiswa SET nama = 'Purwa' WHERE nim = '24A002';",
+                "ALTER TABLE mahasiswa UPDATE nama = 'Purwa' WHERE nim = '24A002';"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 16,
+            "question": "Bagaimana cara mengubah lebih dari satu kolom sekaligus di dalam perintah UPDATE?",
+            "codeSnippet": "UPDATE mahasiswa\nSET nama = 'Purwa' [...] prodi_id = 2\nWHERE nim = '24A002';",
+            "language": "sql",
+            "options": [
+                "Menggunakan kata kunci AND (SET nama = 'Purwa' AND prodi_id = 2)",
+                "Menggunakan dua klausa SET yang berbeda (SET nama = 'Purwa' SET prodi_id = 2)",
+                "Memisahkan setiap kolom yang diubah dengan tanda koma (SET nama = 'Purwa', prodi_id = 2)",
+                "Menggunakan klausa ADD (SET nama = 'Purwa' ADD prodi_id = 2)"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 17,
+            "question": "Manakah sintaks DELETE yang tepat untuk membuang sebuah baris data spesifik?",
+            "options": [
+                "DELETE mahasiswa WHERE nim = '24552011001';",
+                "DELETE FROM mahasiswa WHERE nim = '24552011001';",
+                "REMOVE FROM mahasiswa WHERE nim = '24552011001';",
+                "DROP FROM mahasiswa WHERE nim = '24552011001';"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 18,
+            "question": "Sama halnya dengan UPDATE, perintah DELETE tanpa klausa WHERE sangat berbahaya karena...",
+            "options": [
+                "Menghapus database beserta isi tabelnya",
+                "Menghapus seluruh baris data di dalam tabel tersebut sampai kosong",
+                "Menyebabkan sistem crash",
+                "Menghapus Primary Key dari struktur tabel"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 19,
+            "question": "Pada latihan perancangan database LMS sederhana, tabel apa yang bertindak sebagai tabel relasi untuk menjembatani relasi Many-to-Many antara tabel 'mahasiswa' dan 'mata_kuliah'?",
+            "options": [
+                "Tabel mahasiswa_mk",
+                "Tabel program_studi",
+                "Tabel krs",
+                "Tabel distribusi"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 20,
+            "question": "Pada sistem aplikasi MBG, mengapa kita tidak bisa menghapus penerima_manfaat sembarangan jika mereka sudah pernah menerima makanan (mempunyai histori pada distribusi_makanan)?",
+            "options": [
+                "Karena admin harus mengganti status verifikasinya dulu menjadi FALSE",
+                "Karena ada Primary Key Constraint Error",
+                "Karena memicu Foreign Key Constraint Error (kecuali diatur opsi CASCADE saat pembuatan tabel relasinya)",
+                "Karena tipe data VARCHAR tidak mendukung penghapusan"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "7": [
+        {
+            "id": 1,
+            "question": "Pada tahapan pengambilan data, DQL adalah singkatan dari...",
+            "options": [
+                "Data Quality Logic",
+                "Data Query Language",
+                "Document Query List",
+                "Database Query Level"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Perintah SQL apa yang paling mendasar dan paling sering digunakan untuk mengambil atau membaca data dari dalam tabel?",
+            "options": [
+                "FETCH",
+                "GET",
+                "SELECT",
+                "PULL"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 3,
+            "question": "Berdasarkan materi, mengapa lebih disarankan mengambil kolom secara spesifik (misal: SELECT nama, email) dibandingkan menggunakan 'SELECT *'?",
+            "options": [
+                "Lebih efisien untuk performa database saat memproses data",
+                "Agar data tidak mudah diretas",
+                "SELECT * sudah tidak didukung di SQL modern",
+                "Karena SELECT * hanya bisa mengambil 10 baris data"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 4,
+            "question": "Kata kunci apa yang digunakan untuk membuat nama samaran (Alias) agar judul kolom pada hasil query lebih enak dibaca tanpa mengubah nama asli di database?",
+            "options": [
+                "LIKE",
+                "AS",
+                "IN",
+                "TO"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 5,
+            "question": "Jika kita tidak ingin menampilkan semua data, klausa apa yang dikombinasikan dengan perintah SELECT untuk menyaring baris data berdasarkan kondisi spesifik?",
+            "options": [
+                "LIMIT",
+                "ORDER BY",
+                "HAVING",
+                "WHERE"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 6,
+            "question": "Operator logika manakah yang mengharuskan KEDUA belah kondisi bernilai benar (TRUE) agar data tersebut bisa ditampilkan di hasil pencarian?",
+            "options": [
+                "AND",
+                "OR",
+                "NOT",
+                "IN"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 7,
+            "question": "Jika kita ingin mencari produk yang kategorinya 'Elektronik', 'Fashion', atau 'Makanan', operator apa yang paling efisien digunakan sebagai pengganti operator 'OR' yang berulang-ulang?",
+            "options": [
+                "LIKE",
+                "BETWEEN",
+                "IN",
+                "AND"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 8,
+            "question": "Untuk mencari data pelanggan yang memiliki rentang umur antara 20 sampai 30 tahun secara inklusif, operator apa yang paling tepat?",
+            "options": [
+                "IN",
+                "BETWEEN",
+                "LIKE",
+                "MAX"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 9,
+            "question": "Pada klausa pencarian teks 'LIKE', karakter wildcard apa yang digunakan untuk mewakili panjang teks berapapun (termasuk nol karakter)?",
+            "options": [
+                "%",
+                "_",
+                "*",
+                "?"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 10,
+            "question": "Jika ingin mencari kata menggunakan klausa 'LIKE' di mana kita hanya tidak tahu TEPAT SATU huruf saja (misal mencari nama 'Purwa' tapi huruf 'P' tidak diketahui), wildcard apa yang dipakai?",
+            "options": [
+                "%",
+                "-",
+                "*",
+                "_ (Underscore)"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 11,
+            "question": "Bagaimana cara penulisan kondisi WHERE yang benar jika kita ingin mencari pengguna yang nomor teleponnya masih kosong/belum diisi di database?",
+            "options": [
+                "WHERE nomor_telepon = NULL",
+                "WHERE nomor_telepon == NULL",
+                "WHERE nomor_telepon IS NULL",
+                "WHERE nomor_telepon IN NULL"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 12,
+            "question": "Klausa apa yang digunakan dalam query SQL untuk mengurutkan data hasil pencarian?",
+            "options": [
+                "SORT BY",
+                "ORDER BY",
+                "GROUP BY",
+                "FILTER BY"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 13,
+            "question": "Saat menggunakan ORDER BY, pengurutan bawaan (default) akan dilakukan dari nilai terkecil ke terbesar (A-Z). Format ini disebut juga dengan...",
+            "options": [
+                "ASC (Ascending)",
+                "DESC (Descending)",
+                "MIN",
+                "TOP"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 14,
+            "question": "Fungsi utama dari perintah LIMIT di dalam query SQL adalah untuk...",
+            "options": [
+                "Membatasi ukuran teks yang bisa masuk ke tabel",
+                "Membatasi jumlah maksimal baris data yang ingin ditampilkan pada hasil query",
+                "Membatasi hak akses pengguna database",
+                "Menghentikan query yang memakan waktu terlalu lama"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 15,
+            "question": "Saat membuat fitur Pagination (Pindah Halaman), klausa apa yang digabungkan dengan LIMIT untuk menginstruksikan database agar 'melewati' atau men-skip sejumlah baris tertentu di awal?",
+            "options": [
+                "SKIP",
+                "NEXT",
+                "OFFSET",
+                "PASS"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 16,
+            "question": "Dari daftar fungsi agregasi di bawah ini, manakah yang digunakan secara khusus untuk menjumlahkan total keseluruhan nilai numerik dari sebuah kolom?",
+            "options": [
+                "COUNT()",
+                "SUM()",
+                "AVG()",
+                "MAX()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 17,
+            "question": "Fungsi agregasi AVG() di dalam SQL digunakan untuk mendapatkan hasil berupa...",
+            "options": [
+                "Jumlah baris (total data)",
+                "Nilai terbesar",
+                "Nilai rata-rata dari sekumpulan data",
+                "Nilai paling sering muncul (Modus)"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 18,
+            "question": "Klausa apa yang digunakan untuk mengelompokkan baris yang memiliki nilai identik (sama) ke dalam satu baris ringkasan (misalnya mencari rata-rata harga PER kategori)?",
+            "options": [
+                "GROUP BY",
+                "ORDER BY",
+                "COLLECT BY",
+                "SUMMARIZE"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 19,
+            "question": "Apa fungsi utama dari klausa HAVING di dalam SQL?",
+            "options": [
+                "Menggantikan fungsi JOIN",
+                "Mengurutkan data sebelum dikelompokkan",
+                "Menampilkan data yang mengandung klausa WHERE",
+                "Menyaring hasil dari fungsi agregasi (menyaring data setelah dikelompokkan dengan GROUP BY)"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 20,
+            "question": "Manakah pernyataan yang PALING TEPAT mengenai perbedaan antara WHERE dan HAVING?",
+            "options": [
+                "HAVING hanya bisa digunakan untuk teks, WHERE hanya untuk angka",
+                "WHERE menyaring data sebelum dikelompokkan, HAVING menyaring data setelah dikelompokkan",
+                "WHERE digunakan bersama LIMIT, HAVING digunakan bersama OFFSET",
+                "Keduanya adalah perintah yang sama persis dan bisa ditukar posisinya kapan saja"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "8": [
+        {
+            "id": 1,
+            "question": "Dalam arsitektur database relasional, praktik memecah data ke dalam banyak tabel untuk menghindari duplikasi disebut dengan proses...",
+            "options": [
+                "Agregasi",
+                "Normalisasi",
+                "Derived Table",
+                "Pagination"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Apa fungsi utama dari klausa JOIN di dalam SQL?",
+            "options": [
+                "Menghapus data ganda di dalam satu tabel",
+                "Mengelompokkan data berdasarkan fungsi agregasi",
+                "Menggabungkan baris dari dua tabel atau lebih berdasarkan kolom yang saling berelasi",
+                "Membuat backup (cadangan) data dari sebuah tabel"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 3,
+            "question": "Klausa apa yang digunakan dalam sintaks JOIN untuk menentukan kondisi titik temu (misalnya menyamakan Foreign Key dan Primary Key)?",
+            "options": [
+                "WHERE",
+                "ON",
+                "IN",
+                "HAVING"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 4,
+            "question": "Jenis JOIN manakah yang HANYA akan menampilkan data jika terdapat kecocokan nilai di KEDUA tabel yang digabungkan?",
+            "options": [
+                "INNER JOIN",
+                "LEFT JOIN",
+                "RIGHT JOIN",
+                "FULL OUTER JOIN"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 5,
+            "question": "Jika Anda hanya menuliskan perintah 'JOIN' tanpa spesifikasi awalan apapun di dalam SQL, bagaimana mesin database akan memprosesnya secara default?",
+            "options": [
+                "Akan memunculkan pesan error sintaks",
+                "Akan diproses sebagai LEFT JOIN",
+                "Akan diproses sebagai FULL OUTER JOIN",
+                "Akan diproses sebagai INNER JOIN"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 6,
+            "question": "Pada operasi LEFT JOIN, apa yang terjadi pada data dari tabel kiri (FROM) yang TIDAK MEMILIKI kecocokan relasi di tabel kanan?",
+            "options": [
+                "Data tersebut akan diabaikan dan tidak ditampilkan",
+                "Data dari tabel kiri tetap ditampilkan, dan nilai untuk kolom dari tabel kanan akan diisi dengan NULL",
+                "Data akan dihapus secara otomatis dari database",
+                "Akan menghasilkan error Constraint Violation"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 7,
+            "question": "Berdasarkan sintaks `FROM mahasiswa m LEFT JOIN program_studi p`, huruf 'm' dan 'p' berfungsi sebagai...",
+            "options": [
+                "Tipe data baru",
+                "Fungsi agregasi",
+                "Alias tabel untuk mempersingkat penulisan query",
+                "Subqueries"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 8,
+            "question": "Jika Anda ingin menampilkan SELURUH data jurusan (tabel kanan), termasuk jurusan yang saat ini belum memiliki satupun mahasiswa (tabel kiri), jenis JOIN apa yang paling tepat digunakan?",
+            "options": [
+                "INNER JOIN",
+                "LEFT JOIN",
+                "RIGHT JOIN",
+                "CROSS JOIN"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 9,
+            "question": "Jenis penggabungan yang menampilkan semua data dari kedua belah tabel, baik yang memiliki kecocokan maupun yang tidak (gabungan penuh), disebut...",
+            "options": [
+                "INNER JOIN",
+                "FULL OUTER JOIN",
+                "UNION JOIN",
+                "DERIVED JOIN"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 10,
+            "question": "DBMS manakah yang secara bawaan (default) tidak mendukung perintah FULL OUTER JOIN secara langsung, sehingga harus diakali menggunakan kombinasi LEFT JOIN, UNION, dan RIGHT JOIN?",
+            "options": [
+                "PostgreSQL",
+                "SQL Server",
+                "Oracle",
+                "MySQL"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 11,
+            "question": "Apa pengertian yang paling tepat mengenai Subquery (Nested Query) dalam SQL?",
+            "options": [
+                "Query SQL yang digunakan khusus untuk menghapus tabel",
+                "Sebuah query yang disisipkan atau diletakkan di dalam instruksi query SQL lainnya",
+                "Query yang gagal dieksekusi",
+                "Proses penggabungan dua tabel menjadi satu tabel baru"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 12,
+            "question": "Pada studi kasus mencari 'produk yang harganya di atas rata-rata semua produk', di manakah posisi penempatan Subquery yang paling tepat?",
+            "options": [
+                "Di dalam klausa FROM",
+                "Di dalam klausa SELECT",
+                "Di dalam klausa WHERE",
+                "Di dalam klausa ORDER BY"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 13,
+            "question": "Saat sebuah Subquery diletakkan di dalam klausa WHERE untuk memfilter data, bagian manakah yang akan dieksekusi terlebih dahulu oleh sistem database?",
+            "options": [
+                "Query utama (Outer query) dieksekusi terlebih dahulu",
+                "Subquery (Query bagian dalam) dieksekusi terlebih dahulu",
+                "Keduanya dieksekusi secara bersamaan",
+                "Tergantung pada klausa ORDER BY"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 14,
+            "question": "Apa sebutan khusus untuk Subquery yang diletakkan di dalam klausa FROM, di mana hasil dari query tersebut diperlakukan layaknya sebuah tabel?",
+            "options": [
+                "Derived Table (Tabel Sementara)",
+                "Primary Table",
+                "Joined Table",
+                "Alias Table"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 15,
+            "question": "Bagaimana cara membuat sebuah kolom hasil perhitungan agregasi tambahan (misal: 'jumlah_mahasiswa') agar bersandingan dengan tabel master 'program_studi' TANPA menggunakan klausa JOIN sama sekali?",
+            "options": [
+                "Menggunakan Subquery di dalam klausa SELECT",
+                "Menggunakan klausa HAVING",
+                "Menggunakan perintah UNION",
+                "Menggunakan klausa LIMIT"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 16,
+            "question": "Berdasarkan materi Tugas Mandiri, operator SQL apa yang sering dipasangkan dengan Subquery pada klausa WHERE jika Subquery tersebut memunculkan hasil LEBIH DARI SATU baris nilai?",
+            "options": [
+                "=",
+                "IN",
+                "LIKE",
+                "BETWEEN"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 17,
+            "question": "Jika sebuah skema E-Commerce memiliki 3 tabel berelasi (users, products, orders), berapa kali Anda harus memanggil klausa JOIN di dalam satu blok query untuk bisa menampilkan 'Nama Pelanggan' bersandingan dengan 'Nama Produk'?",
+            "options": [
+                "1 kali",
+                "2 kali",
+                "3 kali",
+                "Tidak perlu menggunakan JOIN"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 18,
+            "question": "Pendekatan query apa yang paling tepat untuk mecari 'pengguna yang belum pernah berbelanja sama sekali'?",
+            "options": [
+                "Menggunakan INNER JOIN dengan kondisi WHERE jumlah_beli = 0",
+                "Menggunakan FULL OUTER JOIN",
+                "Menggunakan LEFT JOIN (dari tabel users ke orders) dan menambahkan filter WHERE id_order IS NULL",
+                "Menggunakan Subquery di dalam klausa FROM"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 19,
+            "question": "Dalam menjelaskan konsep penggabungan tabel (JOIN), bentuk representasi visual atau logika himpunan apa yang paling sering digunakan untuk memudahkan pemahaman?",
+            "options": [
+                "Flowchart",
+                "Diagram Batang",
+                "Diagram Venn",
+                "Use Case Diagram"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 20,
+            "question": "Berdasarkan sintaks berikut, metode DQL apa saja yang diterapkan di dalamnya?",
+            "codeSnippet": "SELECT k.nama, d.nama_dept\nFROM karyawan k\nJOIN departemen d ON k.dept_id = d.id;",
+            "language": "sql",
+            "options": [
+                "FULL OUTER JOIN dan Subquery",
+                "INNER JOIN dan Alias Tabel",
+                "LEFT JOIN dan GROUP BY",
+                "Derived Table dan RIGHT JOIN"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "9": [
+        {
+            "id": 1,
+            "question": "Fungsi bawaan SQL apa yang digunakan untuk menggabungkan dua atau lebih string (teks) menjadi satu kesatuan teks utuh?",
+            "options": [
+                "JOIN()",
+                "MERGE()",
+                "CONCAT()",
+                "COMBINE()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 2,
+            "question": "Jika Anda ingin mengubah format teks pada kolom 'email' agar selalu ditampilkan dengan huruf kecil semua, fungsi apa yang harus digunakan?",
+            "options": [
+                "SMALL()",
+                "LOWER()",
+                "DOWN()",
+                "MIN()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 3,
+            "question": "Berdasarkan sintaks `SUBSTRING(nama_bulan, 1, 4)`, apa hasil yang akan dikembalikan jika data di dalam kolom `nama_bulan` berisi teks 'Agustus'?",
+            "options": [
+                "tus",
+                "stus",
+                "Agus",
+                "Agust"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 4,
+            "question": "Untuk menyaring data pelanggan yang nama lengkapnya melebihi 20 karakter, fungsi teks apa yang digunakan untuk menghitung jumlah karakter tersebut?",
+            "options": [
+                "LENGTH()",
+                "COUNT()",
+                "SIZE()",
+                "CHAR_SUM()"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 5,
+            "question": "Fungsi angka (Numeric Function) manakah yang bertugas membulatkan angka desimal ke nilai bulat yang paling terdekat?",
+            "options": [
+                "FLOOR()",
+                "ROUND()",
+                "CEIL()",
+                "TRUNCATE()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 6,
+            "question": "Jika sebuah barang memiliki harga 15000.10, fungsi bawaan apa yang akan memaksanya dibulatkan ke ATAS menjadi 15001?",
+            "options": [
+                "CEIL()",
+                "TOP()",
+                "ROUND()",
+                "UP()"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 7,
+            "question": "Berkebalikan dengan pembulatan ke atas, fungsi apa yang selalu memaksa pembulatan angka desimal ke arah BAWAH?",
+            "options": [
+                "BOTTOM()",
+                "DOWN()",
+                "FLOOR()",
+                "MIN()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 8,
+            "question": "Berapakah hasil yang akan dikembalikan oleh eksekusi fungsi `ABS(-15000)`?",
+            "options": [
+                "-15000",
+                "15000",
+                "0",
+                "NULL"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 9,
+            "question": "Fungsi apa yang umum digunakan di berbagai DBMS (seperti MySQL dan PostgreSQL) untuk mengambil tanggal sekaligus waktu saat ini pada sistem?",
+            "options": [
+                "TODAY()",
+                "CURRENT_TIME()",
+                "NOW()",
+                "DATE()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 10,
+            "question": "Berdasarkan standar SQL atau PostgreSQL, bagaimana sintaks yang benar untuk mengambil secara spesifik komponen 'Tahun' dari kolom 'tanggal_order'?",
+            "options": [
+                "GET(YEAR FROM tanggal_order)",
+                "EXTRACT(YEAR FROM tanggal_order)",
+                "PULL(YEAR IN tanggal_order)",
+                "SUBSTRING(tanggal_order, YEAR)"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 11,
+            "question": "Di MySQL, jika kita ingin menghitung selisih jumlah hari di antara 'tanggal_kirim' dan 'tanggal_order', fungsi apa yang digunakan?",
+            "options": [
+                "DIFFDATE()",
+                "DATE_MINUS()",
+                "DATEDIFF()",
+                "DAYS_BETWEEN()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 12,
+            "question": "Struktur logika kondisional apa di dalam SQL yang cara kerjanya setara dengan percabangan 'if-else' pada bahasa pemrograman biasa?",
+            "options": [
+                "IF ... ELSE ...",
+                "SWITCH ... CASE ...",
+                "CHOOSE ... WHEN ...",
+                "CASE ... WHEN ... THEN ... ELSE ... END"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 13,
+            "question": "Setiap blok logika kondisional CASE WHEN di dalam SQL selalu harus ditutup atau diakhiri dengan kata kunci apa?",
+            "options": [
+                "STOP",
+                "FINISH",
+                "END",
+                "CLOSE"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 14,
+            "question": "Berdasarkan sintaks `CASE WHEN stok > 50 THEN 'Aman' ELSE 'Habis' END`, output apa yang akan dicetak jika nilai stok persis di angka 50?",
+            "options": [
+                "Aman",
+                "Habis",
+                "Error",
+                "NULL"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 15,
+            "question": "Apa fungsi utama dari perintah COALESCE() dalam SQL?",
+            "options": [
+                "Menggabungkan dua tabel tanpa menggunakan primary key",
+                "Menyatukan dua kolom teks (sama seperti CONCAT)",
+                "Mengambil/mengembalikan argumen nilai pertama yang TIDAK bernilai NULL",
+                "Menghapus nilai NULL dari sebuah database"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 16,
+            "question": "Jika sebuah kolom `nomor_telepon` mungkin berisi data kosong (NULL) dan Anda ingin menampilkannya sebagai teks 'Belum Ada Nomor' pada hasil query, sintaks manakah yang paling tepat?",
+            "options": [
+                "COALESCE(nomor_telepon, 'Belum Ada Nomor')",
+                "NULLIF(nomor_telepon, 'Belum Ada Nomor')",
+                "IFNULL('Belum Ada Nomor', nomor_telepon)",
+                "REPLACE(nomor_telepon, NULL, 'Belum Ada Nomor')"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 17,
+            "question": "Kondisi apa yang membuat fungsi `NULLIF(nilai1, nilai2)` mengembalikan hasil berupa NULL?",
+            "options": [
+                "Jika kedua nilai tersebut berbeda",
+                "Jika nilai1 lebih besar dari nilai2",
+                "Jika salah satu nilai sudah berupa NULL",
+                "Jika nilai1 persis sama dengan nilai2"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 18,
+            "question": "Fungsi `NULLIF()` paling populer dimanfaatkan di skenario operasional database untuk menghindari error fatal berupa...",
+            "options": [
+                "Error tipe data yang tidak cocok",
+                "Error pembagian sebuah angka dengan nol (division by zero)",
+                "Error limitasi memori saat JOIN",
+                "Error primary key ganda"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 19,
+            "question": "Secara umum, fungsi teks (String Functions) seperti CONCAT, UPPER, dan LOWER ditujukan untuk memanipulasi kolom dengan tipe data...",
+            "options": [
+                "INT dan DECIMAL",
+                "DATE dan TIMESTAMP",
+                "VARCHAR dan TEXT",
+                "BOOLEAN"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 20,
+            "question": "Selain menggunakan sintaks SQL standar (EXTRACT), jika Anda menggunakan MySQL, fungsi apa yang bisa dipanggil secara langsung untuk mendapatkan nilai bulan dari sebuah tanggal?",
+            "options": [
+                "GET_MONTH()",
+                "MONTH()",
+                "MM()",
+                "MONTH_OF()"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "10": [
+        {
+            "id": 1,
+            "question": "Jika penggunaan Subquery yang bersarang (query di dalam query) dirasa membuat kode SQL menjadi sangat panjang dan sulit dibaca, fitur apa yang menjadi solusi terbaik untuk menyederhanakannya?",
+            "options": [
+                "Database Views",
+                "Common Table Expressions (CTE)",
+                "Window Functions",
+                "JOIN Statement"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Klausa (kata kunci) apa yang digunakan pada SQL untuk mendefinisikan dan membuat sebuah Common Table Expression (CTE)?",
+            "options": [
+                "WITH",
+                "CREATE",
+                "DECLARE",
+                "SET"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 3,
+            "question": "Salah satu keuntungan utama menggunakan CTE adalah cara kerjanya yang bisa dianalogikan mirip dengan konsep dasar pemrograman, yaitu...",
+            "options": [
+                "Mirip dengan perulangan (looping) for/while",
+                "Mirip dengan struktur if-else",
+                "Mirip dengan pembuatan variabel sementara untuk menyimpan data",
+                "Mirip dengan pembuatan class dan object (OOP)"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 4,
+            "question": "Bagaimana cara mendefinisikan lebih dari satu CTE sekaligus dalam satu blok eksekusi query?",
+            "options": [
+                "Menggunakan kata kunci WITH berulang kali (WITH CTE_Satu, WITH CTE_Dua)",
+                "Memisahkan setiap nama CTE dan query-nya menggunakan tanda koma setelah kata kunci WITH",
+                "Menggunakan klausa UNION di antara deklarasi CTE",
+                "Hanya bisa membuat satu CTE per satu file SQL"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 5,
+            "question": "Perbedaan paling fundamental antara fungsi agregasi biasa (seperti SUM dan AVG dengan GROUP BY) dibandingkan dengan Window Functions adalah...",
+            "options": [
+                "Window Functions hanya bisa memproses data angka/numerik",
+                "Window Functions menggabungkan hasil menjadi satu baris kesimpulan",
+                "Window Functions mempertahankan baris data asli dan tidak menggabungkannya menjadi satu baris ringkasan",
+                "Window Functions berjalan lebih lambat dari agregasi biasa"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 6,
+            "question": "Kata kunci (klausa) wajib apa yang menjadi penanda utama bahwa sebuah fungsi sedang berjalan sebagai Window Function?",
+            "options": [
+                "WINDOW()",
+                "GROUP()",
+                "OVER()",
+                "PARTITION()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 7,
+            "question": "Ranking function manakah yang akan selalu menghasilkan nomor urut yang unik dan berurutan secara ketat (1, 2, 3, 4...), meskipun ada nilai data yang sama/seri?",
+            "options": [
+                "RANK()",
+                "DENSE_RANK()",
+                "ROW_NUMBER()",
+                "SERIAL()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 8,
+            "question": "Jika terdapat dua orang karyawan yang memiliki gaji tertinggi yang sama persis (keduanya juara 1), bagaimana fungsi `RANK()` akan memberikan peringkat untuk karyawan di urutan selanjutnya?",
+            "options": [
+                "1, 1, 2",
+                "1, 1, 3",
+                "1, 2, 3",
+                "1, 2, 2"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 9,
+            "question": "Kebalikan dari `RANK()`, jika Anda menggunakan `DENSE_RANK()` dan ada nilai yang sama (misal juara 1 ada dua orang), peringkat berapakah yang diberikan pada orang selanjutnya?",
+            "options": [
+                "Peringkat 2 (1, 1, 2)",
+                "Peringkat 3 (1, 1, 3)",
+                "Peringkat 0",
+                "Otomatis membatalkan query"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 10,
+            "question": "Untuk membandingkan data penjualan bulan ini dengan data penjualan pada baris periode 'sebelumnya' (bulan lalu), Window Function apa yang paling tepat digunakan?",
+            "options": [
+                "LEAD()",
+                "LAG()",
+                "PREVIOUS()",
+                "BACK()"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 11,
+            "question": "Fungsi `LEAD()` di dalam Window Functions SQL berguna untuk...",
+            "options": [
+                "Mengambil data dari baris sesudahnya/berikutnya",
+                "Mengambil rata-rata dari seluruh baris",
+                "Mengambil data dari baris paling atas (juara 1)",
+                "Menghapus data duplikat"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 12,
+            "question": "Apa definisi dari Database View dalam SQL?",
+            "options": [
+                "Tabel virtual yang berisi data cadangan (backup)",
+                "Antarmuka grafis (GUI) untuk mengelola database",
+                "Tabel virtual yang datanya berasal dari hasil eksekusi sebuah query",
+                "Kumpulan variabel sementara di dalam RAM"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 13,
+            "question": "Bagaimana sintaks dasar untuk menyimpan sebuah query kompleks menjadi tabel virtual (View)?",
+            "options": [
+                "MAKE VIEW nama_view AS ...",
+                "CREATE VIEW nama_view AS ...",
+                "BUILD VIEW nama_view FROM ...",
+                "INSERT INTO VIEW nama_view AS ..."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 14,
+            "question": "Setelah sebuah View berhasil dibuat (misal: 'Laporan_Penjualan'), bagaimana cara kita menggunakan atau memanggil View tersebut?",
+            "options": [
+                "EXECUTE Laporan_Penjualan;",
+                "CALL VIEW Laporan_Penjualan;",
+                "SELECT * FROM Laporan_Penjualan;",
+                "RUN Laporan_Penjualan;"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 15,
+            "question": "Salah satu keuntungan utama menggunakan Database View adalah dari segi 'Keamanan' (Security). Maksudnya adalah...",
+            "options": [
+                "View otomatis mengenkripsi password pelanggan",
+                "Pengguna hanya dapat melihat data spesifik yang diizinkan lewat View tanpa perlu diberikan akses langsung ke tabel aslinya",
+                "View mencegah database terkena serangan virus",
+                "View memblokir semua perintah DELETE"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 16,
+            "question": "Maksud dari keuntungan 'Reusability' pada penggunaan Database View adalah...",
+            "options": [
+                "Tabel bisa digunakan di bahasa pemrograman lain",
+                "Tidak perlu menulis ulang query JOIN yang panjang berkali-kali, cukup panggil nama View-nya saja",
+                "Data yang sudah dihapus bisa didaur ulang",
+                "Mempercepat proses load data di dalam server"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 17,
+            "question": "Di dalam sintaks Window Function `OVER(PARTITION BY departemen ORDER BY gaji DESC)`, apa fungsi utama dari sub-klausa `PARTITION BY`?",
+            "options": [
+                "Memisahkan data menjadi tabel-tabel kecil yang permanen",
+                "Menghapus departemen yang tidak memiliki karyawan",
+                "Membagi dan mengelompokkan ruang lingkup perhitungan Window Function berdasarkan departemen tertentu",
+                "Membuat partisi harddisk baru untuk menyimpan data gaji"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 18,
+            "question": "Berdasarkan latihan penggabungan CTE dan Window Function untuk mencari top 3 karyawan bergaji tertinggi per departemen, di manakah filter pembatas `WHERE ranking <= 3` harus diletakkan?",
+            "options": [
+                "Di dalam kurung pendeklarasian CTE",
+                "Di query utama (luar CTE) saat melakukan SELECT terhadap CTE tersebut",
+                "Di dalam klausa OVER()",
+                "Di dalam klausa PARTITION BY"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 19,
+            "question": "Pada tugas mandiri Analitik LMS, apa instruksi utama untuk menyelesaikan 'Tantangan Sulit' tanpa menggunakan klausa GROUP BY?",
+            "options": [
+                "Memanfaatkan klausa OVER(PARTITION BY user_id) dikombinasikan dengan fungsi MAX()",
+                "Menggunakan perintah FULL OUTER JOIN",
+                "Menggunakan DENSE_RANK() dan LIMIT 1",
+                "Menulis tiga Subquery di dalam SELECT"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 20,
+            "question": "Mengapa materi CTE, Window Functions, dan Views disebut sangat penting hingga sering dijadikan syarat tes teknis untuk posisi Backend Developer atau Data Analyst?",
+            "options": [
+                "Karena query dasar seperti SELECT sudah dihapus dari standar industri",
+                "Karena ketiga fitur ini adalah materi paling mudah dalam SQL",
+                "Karena kemampuannya menangani analisis data yang kompleks, perankingan, dan abstraksi kode menjadi efisien di tingkat mahir (Advanced)",
+                "Karena ketiga perintah tersebut wajib digunakan sebelum membuat tabel apapun"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "11": [
+        {
+            "id": 1,
+            "question": "Konsep dasar yang mengatur agar sebuah transaksi database berjalan dengan aman, konsisten, dan handal dikenal dengan singkatan...",
+            "options": [
+                "ACID",
+                "CRUD",
+                "SOLID",
+                "JSON"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 2,
+            "question": "Huruf 'A' pada prinsip ACID merupakan singkatan dari Atomicity. Apa makna dari prinsip tersebut dalam sebuah transaksi database?",
+            "options": [
+                "Data akan tersimpan secara otomatis",
+                "Semua proses dalam transaksi harus berhasil sepenuhnya, atau semuanya dibatalkan sekaligus",
+                "Data tidak bisa diubah lagi setelah dimasukkan",
+                "Transaksi berjalan secara terisolasi dari transaksi lain"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 3,
+            "question": "Prinsip ACID yang memastikan bahwa transaksi yang berjalan secara bersamaan (paralel) tidak akan saling tumpang tindih atau mengganggu satu sama lain adalah...",
+            "options": [
+                "Atomicity",
+                "Consistency",
+                "Isolation",
+                "Durability"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 4,
+            "question": "Perintah kelompok TCL (Transaction Control Language) apa yang digunakan untuk mengawali sebuah blok transaksi di MySQL?",
+            "options": [
+                "START TRANSACTION;",
+                "BEGIN TRANSACTION;",
+                "OPEN TRANSACTION;",
+                "INIT TRANSACTION;"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 5,
+            "question": "Jika terjadi error atau kegagalan (misalnya server mati di tengah proses transaksi), perintah apa yang harus dieksekusi agar seluruh perubahan yang belum selesai dibatalkan?",
+            "options": [
+                "UNDO",
+                "REVERT",
+                "CANCEL",
+                "ROLLBACK"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 6,
+            "question": "Sebaliknya, jika seluruh query dalam blok transaksi berhasil dieksekusi tanpa error, perintah apa yang dipanggil untuk menyimpan perubahan tersebut ke database secara permanen?",
+            "options": [
+                "SAVE",
+                "COMMIT",
+                "PUSH",
+                "FINISH"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 7,
+            "question": "Dalam implementasi backend modern (seperti menggunakan Node.js atau Kotlin), blok perintah transaksi (commit dan rollback) biasanya dibungkus ke dalam struktur logika penanganan error berupa...",
+            "options": [
+                "if...else",
+                "switch...case",
+                "try...catch",
+                "for...loop"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 8,
+            "question": "Ketika tabel database sudah memiliki jutaan baris data, sistem secara default akan mencari data dengan membacanya satu per satu dari atas ke bawah. Proses pencarian default yang lambat ini disebut dengan istilah...",
+            "options": [
+                "Index Scan",
+                "Full Table Scan",
+                "Sequential Search",
+                "Deep Query"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 9,
+            "question": "Teknik optimasi apa yang paling tepat diterapkan untuk mempercepat waktu eksekusi query SELECT pada kolom yang sering dicari dalam sebuah tabel besar?",
+            "options": [
+                "Mengubah tipe data kolom",
+                "Membuat Index",
+                "Menghapus Primary Key",
+                "Menggunakan perintah COMMIT"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 10,
+            "question": "Cara kerja Index pada database relasional sangat mirip dan sering dianalogikan seperti hal apa di kehidupan nyata?",
+            "options": [
+                "Rak pada perpustakaan",
+                "Daftar isi / indeks pada sebuah buku",
+                "Mesin fotokopi",
+                "Kalkulator ilmiah"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 11,
+            "question": "Sintaks manakah yang paling tepat untuk membuat index pada kolom 'email' di dalam tabel 'users'?",
+            "options": [
+                "ADD INDEX idx_user_email TO users (email);",
+                "CREATE INDEX idx_user_email ON users (email);",
+                "MAKE INDEX idx_user_email FOR users (email);",
+                "INSERT INDEX idx_user_email IN users (email);"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 12,
+            "question": "Jika Anda membuat sebuah index yang mencakup lebih dari satu kolom sekaligus (misalnya pada kolom 'status_pesanan' dan 'tanggal_order'), index jenis tersebut dinamakan...",
+            "options": [
+                "Multiple Index",
+                "Double Index",
+                "Composite Index",
+                "Complex Index"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 13,
+            "question": "Walaupun sangat terbukti mampu mempercepat query SELECT, membuat index pada terlalu banyak kolom memiliki kelemahan utama, yaitu...",
+            "options": [
+                "Membuat query SELECT justru menjadi lambat",
+                "Memperlambat proses modifikasi data seperti INSERT, UPDATE, dan DELETE",
+                "Mengubah tipe data dari kolom secara otomatis",
+                "Sering menyebabkan error pada transaksi database"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 14,
+            "question": "Selain berdampak pada performa manipulasi (DML) data, hal lain yang menjadi kelemahan atau konsekuensi dari penggunaan Indexing adalah...",
+            "options": [
+                "Menghapus data lama secara otomatis ketika penuh",
+                "Memakan kapasitas penyimpanan (storage) tambahan di database",
+                "Membuat koneksi server menjadi mudah terputus",
+                "Mengubah struktur dasar tabel secara permanen"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 15,
+            "question": "Sesuai panduan 'Best Practice', Anda disarankan untuk membuat index HANYA pada kolom yang sangat sering dieksekusi di dalam klausa berikut ini, KECUALI...",
+            "options": [
+                "Klausa WHERE",
+                "Klausa JOIN",
+                "Klausa ORDER BY",
+                "Klausa SELECT (pemilihan nama kolom biasa)"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 16,
+            "question": "Prinsip dasar keamanan di mana sebuah entitas atau aplikasi hanya boleh diberikan hak akses seminimal mungkin sesuai dengan yang benar-benar diperlukannya saja disebut dengan prinsip...",
+            "options": [
+                "Maximum Security",
+                "Least Privilege",
+                "Zero Trust",
+                "Admin Only"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 17,
+            "question": "Perintah kelompok DCL (Data Control Language) manakah yang digunakan untuk MEMBERIKAN izin hak akses spesifik kepada sebuah user?",
+            "options": [
+                "ALLOW",
+                "PERMIT",
+                "GRANT",
+                "GIVE"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 18,
+            "question": "Sintaks manakah yang paling tepat untuk MENCABUT (menghapus) hak akses operasi DELETE dari user bernama 'app_backend'?",
+            "options": [
+                "REMOVE DELETE ON lms_db.* TO 'app_backend'@'localhost';",
+                "REVOKE DELETE ON lms_db.* FROM 'app_backend'@'localhost';",
+                "DELETE ACCESS ON lms_db.* FOR 'app_backend'@'localhost';",
+                "DENY DELETE ON lms_db.* FROM 'app_backend'@'localhost';"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 19,
+            "question": "Setelah Administrator melakukan perubahan hak akses user (menggunakan GRANT atau REVOKE), perintah apa yang umumnya dieksekusi agar perubahan tersebut segera direfresh dan diterapkan oleh sistem?",
+            "options": [
+                "APPLY CHANGES;",
+                "FLUSH PRIVILEGES;",
+                "REFRESH DATABASE;",
+                "UPDATE ACCESS;"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 20,
+            "question": "Berdasarkan pedoman keamanan database backend modern, mengapa Anda sangat dilarang menghubungkan aplikasi langsung menggunakan user 'root'?",
+            "options": [
+                "Karena user 'root' terlalu lambat saat dipanggil oleh aplikasi backend",
+                "Karena user 'root' tidak memiliki kemampuan untuk melakukan transaksi COMMIT dan ROLLBACK",
+                "Karena user 'root' memiliki privilege akses tak terbatas yang akan berakibat sangat fatal apabila aplikasi mengalami celah kebocoran peretasan",
+                "Karena nama 'root' tidak dikenali oleh framework modern seperti Node.js"
+            ],
+            "correctAnswer": 2
+        }
+    ],
+    "12": [
+        {
+            "id": 1,
+            "question": "Model arsitektur jaringan yang digunakan untuk memungkinkan perangkat saling bertukar data, di mana ada pihak peminta dan pihak penyedia informasi, disebut...",
+            "options": [
+                "Peer-to-Peer (P2P)",
+                "Client-Server",
+                "Microservices",
+                "Centralized Processing"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Dalam analogi restoran untuk model Client-Server, pelanggan yang memesan makanan diibaratkan sebagai apa?",
+            "options": [
+                "API",
+                "Server",
+                "Client",
+                "Database"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 3,
+            "question": "Manakah di bawah ini yang BUKAN merupakan contoh dari sebuah Client?",
+            "options": [
+                "Browser web seperti Google Chrome",
+                "Smartphone atau aplikasi mobile",
+                "Cloud database penyimpan data",
+                "Program yang berjalan di laptop pengguna"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 4,
+            "question": "Dalam alur komunikasi Client-Server, tahapan di mana server mengirimkan hasil pemrosesan kembali kepada client disebut...",
+            "options": [
+                "Request",
+                "Response",
+                "Render UI",
+                "Fetching"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 5,
+            "question": "Model Client-Server sering disebut sebagai pendekatan terpusat (centralized approach) karena...",
+            "options": [
+                "Semua perangkat memiliki kontrol yang sama",
+                "Server menjadi pusat pengelolaan data dan sumber kebenaran (Single Source of Truth)",
+                "Internet berpusat pada satu satelit utama",
+                "Client mengontrol aliran data utama"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 6,
+            "question": "Apa perbedaan utama model Client-Server dengan model Peer-to-Peer (P2P)?",
+            "options": [
+                "P2P memiliki banyak server pusat, Client-Server hanya satu",
+                "Client-Server bisa berjalan tanpa internet, P2P butuh internet",
+                "Pada P2P tidak ada server pusat, setiap perangkat bisa menjadi client sekaligus server",
+                "P2P lebih mudah dikelola dibandingkan Client-Server"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 7,
+            "question": "Protokol aturan komunikasi yang paling umum digunakan agar data dapat dikirim dan diterima melalui internet antara client dan server adalah...",
+            "options": [
+                "FTP",
+                "SMTP",
+                "HTTP",
+                "JSON"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 8,
+            "question": "Apa fungsi utama dari API (Application Programming Interface)?",
+            "options": [
+                "Menggantikan peran server secara keseluruhan",
+                "Sebagai bahasa pemrograman pembuat website",
+                "Sebagai kontrak atau jembatan komunikasi antara dua aplikasi/sistem",
+                "Menyimpan data pengguna di dalam database"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 9,
+            "question": "Dalam analogi restoran, jika pelanggan adalah client dan dapur adalah server, maka API diibaratkan sebagai apa?",
+            "options": [
+                "Bahan masakan",
+                "Menu restoran",
+                "Piring dan gelas",
+                "Kasir restoran"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 10,
+            "question": "Alamat tujuan spesifik yang dipanggil oleh client untuk mengakses sumber daya tertentu dari sebuah API disebut dengan...",
+            "options": [
+                "Method",
+                "Parameter",
+                "Endpoint",
+                "Token"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 11,
+            "question": "HTTP Method manakah yang standar digunakan untuk MENAMBAHKAN data baru ke server?",
+            "options": [
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 12,
+            "question": "Apa yang terjadi jika client tidak mengirimkan 'Required Parameter' saat melakukan permintaan ke API?",
+            "options": [
+                "Server akan tetap memproses permintaan menggunakan data default",
+                "Server akan menolak permintaan tersebut",
+                "Server akan mengirimkan peringatan tetapi proses berlanjut",
+                "Client akan diblokir selamanya"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 13,
+            "question": "Proses pembatasan jumlah request yang boleh dilakukan dalam periode waktu tertentu (misal: 100 request/jam) untuk mencegah spam pada API dinamakan...",
+            "options": [
+                "Authentication",
+                "Authorization",
+                "Rate Limiting",
+                "Data Validation"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 14,
+            "question": "Format data apa yang paling umum dan standar digunakan sebagai format 'Response API' saat ini?",
+            "options": [
+                "XML",
+                "HTML",
+                "JSON",
+                "CSV"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 15,
+            "question": "Kepanjangan dari JSON adalah...",
+            "options": [
+                "JavaScript Object Notation",
+                "Java Standard Output Network",
+                "JavaScript Online Network",
+                "Java Syntax Object Native"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 16,
+            "question": "Mengapa format JSON sangat populer dalam pertukaran data internet?",
+            "options": [
+                "Karena hanya bisa dibaca oleh bahasa JavaScript",
+                "Karena ukurannya ringan, mudah dibaca manusia, dan mudah diproses oleh komputer",
+                "Karena dapat mengeksekusi kode program secara otomatis",
+                "Karena sangat aman dari serangan hacker"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 17,
+            "question": "Dalam struktur dasar JSON, data selalu direpresentasikan dalam bentuk pasangan...",
+            "options": [
+                "Index : Array",
+                "Parent : Child",
+                "Key : Value",
+                "Name : Property"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 18,
+            "question": "Simbol kurung apa yang digunakan untuk mendefinisikan sebuah 'Array' (menyimpan banyak data dalam satu variabel) di dalam JSON?",
+            "options": [
+                "Kurung biasa ()",
+                "Kurung kurawal {}",
+                "Kurung sudut <>",
+                "Kurung siku []"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 19,
+            "question": "Tipe data manakah yang TIDAK didukung atau TIDAK BISA disimpan di dalam format JSON?",
+            "options": [
+                "String",
+                "Boolean",
+                "Null",
+                "Function"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 20,
+            "question": "Apa perbedaan utama dalam penulisan antara Object JavaScript asli dengan format JSON?",
+            "options": [
+                "Di JSON, nama Key wajib menggunakan tanda kutip ganda (\"\")",
+                "Object JavaScript tidak boleh bersarang (nested), sedangkan JSON boleh",
+                "JSON harus diakhiri dengan titik koma (;)",
+                "JSON hanya mendukung tipe data angka (Number)"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 21,
+            "question": "Sebelum Node.js diciptakan, kode bahasa pemrograman JavaScript hanya bisa dieksekusi di lingkungan mana?",
+            "options": [
+                "Di dalam sistem operasi Linux",
+                "Di dalam text editor",
+                "Di dalam browser web",
+                "Di dalam database server"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 22,
+            "question": "Apa pengertian yang paling tepat mengenai Node.js?",
+            "options": [
+                "Sebuah framework frontend untuk membangun UI",
+                "Bahasa pemrograman baru pengganti JavaScript",
+                "Runtime environment yang memungkinkan JavaScript berjalan di luar browser (di server/komputer)",
+                "Aplikasi database terpusat"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 23,
+            "question": "Mesin utama (engine) yang digunakan oleh Node.js untuk membaca dan menjalankan kode JavaScript dengan cepat adalah...",
+            "options": [
+                "V8 Engine buatan Google",
+                "SpiderMonkey buatan Mozilla",
+                "Chakra buatan Microsoft",
+                "WebKit buatan Apple"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 24,
+            "question": "Dalam ekosistem pemrograman, modul siap pakai yang dibuat oleh developer lain untuk menyelesaikan tugas tertentu (misal mengelola database atau mengirim email) disebut sebagai...",
+            "options": [
+                "API",
+                "Package",
+                "JSON Object",
+                "Runtime"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 25,
+            "question": "Package Manager bawaan paling populer di ekosistem Node.js, yang otomatis terpasang saat kita menginstal Node.js, adalah...",
+            "options": [
+                "Yarn",
+                "Bower",
+                "NPM (Node Package Manager)",
+                "Composer"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 26,
+            "question": "Ketika Anda menjalankan perintah `npm install express`, di folder manakah NPM akan menyimpan file-file package Express tersebut beserta seluruh dependensinya?",
+            "options": [
+                "bin/",
+                "package.json",
+                "src_modules/",
+                "node_modules/"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 27,
+            "question": "Saat project Node.js pertama kali diinisialisasi menggunakan perintah `npm init`, NPM akan membuatkan satu file khusus yang berfungsi sebagai identitas project dan pencatat daftar package yang digunakan. File tersebut bernama...",
+            "options": [
+                "index.js",
+                "node_modules.json",
+                "package.json",
+                "config.json"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 28,
+            "question": "Dalam analogi smartphone, jika Node.js diibaratkan sebagai sistem operasi Android, maka NPM diibaratkan sebagai apa?",
+            "options": [
+                "Baterai smartphone",
+                "Play Store (Toko Aplikasi)",
+                "Kamera smartphone",
+                "Aplikasi WhatsApp"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 29,
+            "question": "Selain NPM, nama package manager modern alternatif lainnya yang juga populer digunakan dalam ekosistem Node.js adalah...",
+            "options": [
+                "Pip dan Gem",
+                "Apt dan Yum",
+                "Yarn dan pnpm",
+                "Brew dan Chocolaty"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 30,
+            "question": "Apa itu Express.js?",
+            "options": [
+                "Database NoSQL berbasis dokumen",
+                "Framework frontend untuk membuat tampilan website",
+                "Framework backend untuk Node.js yang mempermudah pembuatan Web Server dan REST API",
+                "Browser terbaru khusus untuk JavaScript"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 31,
+            "question": "Mengapa developer lebih memilih menggunakan Express.js daripada modul HTTP bawaan murni dari Node.js untuk membuat server?",
+            "options": [
+                "Karena Node.js bawaan tidak aman dan mudah diretas",
+                "Karena Express menyederhanakan penanganan route, validasi, dan middleware sehingga kode tidak rumit",
+                "Karena Express berjalan di dalam browser",
+                "Karena Express menghapus kebutuhan akan database"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 32,
+            "question": "Bagaimana perintah dasar di terminal untuk menginstal framework Express.js ke dalam project Node.js?",
+            "options": [
+                "node install express",
+                "npm get express",
+                "npm install express",
+                "download express.js"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 33,
+            "question": "Pada penulisan dasar Express.js, baris kode manakah yang berfungsi untuk menginisialisasi objek utama pembuat server?",
+            "options": [
+                "const app = new Server();",
+                "const app = express();",
+                "const server = require('app');",
+                "const app = express.start();"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 34,
+            "question": "Alamat spesifik yang didefinisikan di server untuk dapat diakses oleh client (contohnya: app.get('/about', ...)) disebut sebagai...",
+            "options": [
+                "Package",
+                "Route",
+                "Index",
+                "Module"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 35,
+            "question": "Method atau fungsi apa pada Express.js yang bertugas memerintahkan server agar 'mendengarkan' permintaan masuk pada port tertentu (misal: port 3000)?",
+            "options": [
+                "app.start(3000)",
+                "app.listen(3000)",
+                "app.run(3000)",
+                "app.port(3000)"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 36,
+            "question": "Di dalam fungsi penanganan route pada Express `(req, res) => {}`, argumen 'req' merujuk pada objek Request. Objek ini berisi...",
+            "options": [
+                "Informasi tentang memori sisa dari server",
+                "Fungsi untuk membalas pesan ke pengguna",
+                "Informasi dan data parameter yang dikirimkan oleh client kepada server",
+                "Kode HTML yang akan dirender"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 37,
+            "question": "Dalam Express.js, jika Anda ingin merespons permintaan client dengan mengembalikan data bertipe JSON, method pada objek Response yang paling tepat digunakan adalah...",
+            "options": [
+                "res.sendJSON()",
+                "res.render()",
+                "res.end()",
+                "res.json()"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 38,
+            "question": "Berdasarkan rute ini: `app.get('/user', ...)` — Kapan kode di dalam blok fungsi tersebut akan dijalankan?",
+            "options": [
+                "Setiap kali server Node.js baru dinyalakan",
+                "Ketika pengguna mengetik perintah apa pun di terminal",
+                "Ketika client/browser melakukan request dengan metode GET ke endpoint '/user'",
+                "Ketika data pengguna dihapus dari database"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 39,
+            "question": "Jika analogi Node.js adalah 'mesin mobil', maka Express.js dalam pembuatan backend bisa diibaratkan sebagai apa?",
+            "options": [
+                "Bahan bakar bensin",
+                "Pengemudi mobil",
+                "Jalan raya tempat mobil berjalan",
+                "Body dan setir yang merangkai mesin menjadi mobil yang mudah dan siap dikendalikan"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 40,
+            "question": "Berdasarkan alur yang terjadi saat browser mengakses API Express, apa langkah yang terjadi tepat SETELAH Express Server menemukan rute (misal: `/user`) yang cocok?",
+            "options": [
+                "Express akan merestart server otomatis",
+                "Handler Route akan dipanggil untuk memproses permintaan dan mengirim balik balasan (misal melalui res.json)",
+                "Express akan langsung membuka database tanpa persetujuan",
+                "Express akan menghapus log request tersebut"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "14": [
+        {
+            "id": 1,
+            "question": "Perbedaan utama terkait tempat berjalannya proses antara Frontend dan Backend pada aplikasi web adalah...",
+            "options": [
+                "Frontend berjalan di database, backend berjalan di internet",
+                "Frontend berjalan di browser (komputer user), backend berjalan di server",
+                "Frontend berjalan di server, backend berjalan di browser",
+                "Keduanya berjalan di server yang sama"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 2,
+            "question": "Jika diibaratkan sebagai anatomi tubuh manusia, bahasa HTML pada frontend berfungsi sebagai...",
+            "options": [
+                "Otak (logika)",
+                "Tulang (kerangka/struktur)",
+                "Kulit (desain/tampilan)",
+                "Darah (data)"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 3,
+            "question": "Bahasa utama pada frontend yang bertanggung jawab untuk mengatur interaktivitas dan komunikasi dengan backend adalah...",
+            "options": [
+                "HTML",
+                "Node.js",
+                "JavaScript",
+                "CSS"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 4,
+            "question": "Apa yang membedakan Frontend dari Backend terkait interaksi langsung dengan pengguna?",
+            "options": [
+                "Frontend adalah bagian yang dilihat dan berinteraksi langsung dengan user, sedangkan backend tidak",
+                "Frontend tidak memiliki antarmuka pengguna",
+                "Hanya backend yang merespon klik mouse pengguna",
+                "Tidak ada perbedaan, keduanya dilihat oleh pengguna"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 5,
+            "question": "Saat user membuka sebuah website, di manakah file HTML, CSS, dan JavaScript dieksekusi dan dijalankan?",
+            "options": [
+                "Di dalam database",
+                "Di server penyedia hosting",
+                "Di dalam file system lokal tanpa aplikasi",
+                "Di dalam browser pada komputer user"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 6,
+            "question": "Mengapa kita tidak disarankan menggunakan file HTML biasa (membuka langsung di browser) untuk project web modern skala besar?",
+            "options": [
+                "Karena browser tidak bisa membaca file HTML",
+                "Karena file HTML biasa tidak mendukung tag <h1>",
+                "Karena tidak ada auto-reload, fitur import/export terbatas, dan tidak ada optimasi file",
+                "Karena HTML biasa berbayar"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 7,
+            "question": "Apa fungsi utama dari sebuah Build Tool dalam ekosistem frontend modern?",
+            "options": [
+                "Sebagai bahasa pemrograman pengganti JavaScript",
+                "Menyediakan dev server, memproses kode (seperti minify), dan mengizinkan import/export secara bebas",
+                "Menulis kode CSS secara otomatis",
+                "Membuat database MySQL tanpa server"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 8,
+            "question": "Apa arti dari nama 'Vite' yang diambil dari bahasa Prancis?",
+            "options": [
+                "Modern",
+                "Kuat",
+                "Cepat",
+                "Aman"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 9,
+            "question": "Fitur unggulan pada Vite yang memungkinkan perubahan kode langsung terlihat di browser tanpa perlu melakukan full reload (refresh total) disebut...",
+            "options": [
+                "Hot Module Replacement (HMR)",
+                "Fast Compile Protocol (FCP)",
+                "Auto Browser Synchronizer",
+                "Dynamic Reloading"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 10,
+            "question": "Framework CSS apa yang menggunakan pendekatan 'utility-first', di mana pengembang menempelkan class-class kecil spesifik secara langsung ke elemen HTML?",
+            "options": [
+                "Bootstrap",
+                "Bulma",
+                "Tailwind CSS",
+                "Sass"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 11,
+            "question": "Apa arti dari class Tailwind `px-4 py-2`?",
+            "options": [
+                "Margin horizontal 4rem, padding vertikal 2rem",
+                "Padding horizontal 1rem, padding vertikal 0.5rem",
+                "Posisi X 4 pixel, posisi Y 2 pixel",
+                "Padding atas 4px, margin bawah 2px"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 12,
+            "question": "Salah satu masalah besar pada CSS biasa di project skala besar yang berhasil diatasi oleh Tailwind CSS adalah...",
+            "options": [
+                "CSS biasa tidak mendukung pewarnaan hex",
+                "Ukuran file CSS akan terus bertambah besar dan berantakan seiring bertambahnya fitur",
+                "CSS biasa tidak bisa digabungkan dengan JavaScript",
+                "CSS biasa hanya bisa digunakan untuk teks"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 13,
+            "question": "Bagaimana Tailwind CSS menjaga ukuran file CSS production tetap sangat kecil (sering di bawah 10KB)?",
+            "options": [
+                "Dengan menghapus semua warna dari halaman",
+                "Dengan mengubah CSS menjadi format gambar",
+                "Hanya menyertakan (membuild) class utility yang benar-benar diketikkan/dipakai di dalam file HTML",
+                "Dengan membatasi jumlah baris HTML menjadi 100 baris"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 14,
+            "question": "Dalam Tailwind CSS, format penulisan class untuk mengubah warna background menjadi abu-abu dengan intensitas 500 adalah...",
+            "options": [
+                "bg:gray-500",
+                "background-gray-500",
+                "bg-gray-500",
+                "color-gray-500"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 15,
+            "question": "Untuk memberikan efek ketika mouse menyorot sebuah tombol (hover) agar background berubah menjadi hijau, penulisan pseudo-class Tailwind yang benar adalah...",
+            "options": [
+                "hover:bg-green-500",
+                "bg-green-500:hover",
+                "onhover-bg-green-500",
+                "hover-green"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 16,
+            "question": "Class apa yang digunakan pada Tailwind CSS untuk menyembunyikan sebuah elemen (setara dengan `display: none`)?",
+            "options": [
+                "invisible",
+                "hide",
+                "none",
+                "hidden"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 17,
+            "question": "Fitur bawaan pada browser modern yang digunakan untuk mengirim HTTP request dari JavaScript ke backend disebut...",
+            "options": [
+                "Thunder Client",
+                "REST Engine",
+                "Fetch API",
+                "HTTP Requestor"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 18,
+            "question": "Mengapa proses komunikasi (request) dari Fetch API ke server harus berjalan secara 'Asynchronous'?",
+            "options": [
+                "Agar browser tidak freeze (hang) selama menunggu response dari server yang memakan waktu",
+                "Agar data yang dikirim otomatis terenkripsi",
+                "Karena backend hanya menerima data asynchronous",
+                "Agar server bisa mengirimkan virus ke browser"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 19,
+            "question": "Konsep di mana kode JavaScript dijalankan satu per satu, dan baris berikutnya akan berhenti menahan eksekusi sampai baris sebelumnya selesai disebut...",
+            "options": [
+                "Asynchronous",
+                "Synchronous",
+                "Parallel",
+                "Multithreading"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 20,
+            "question": "Sintaks modern pada JavaScript yang memungkinkan kita menulis kode asynchronous agar terlihat lebih rapi seperti kode synchronous adalah...",
+            "options": [
+                "try/catch",
+                "if/else",
+                "async/await",
+                "then/catch"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 21,
+            "question": "Apa syarat utama agar kita bisa menggunakan kata kunci `await` di depan sebuah operasi Fetch?",
+            "options": [
+                "Operasi tersebut harus berada di dalam file eksternal",
+                "Operasi tersebut harus ditandai dengan sintaks .then()",
+                "Operasi tersebut harus dibungkus di dalam fungsi yang menggunakan kata kunci `async`",
+                "Operasi tersebut harus memiliki parameter id"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 22,
+            "question": "Setelah mendapatkan object `response` dari Fetch API, method apa yang harus dipanggil secara asynchronous untuk mengambil dan mem-parsing body-nya menjadi data JavaScript?",
+            "options": [
+                "response.json()",
+                "response.parse()",
+                "response.body()",
+                "response.data()"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 23,
+            "question": "Method HTTP apa yang secara bawaan (default) akan digunakan oleh Fetch API jika kita tidak menetapkan parameter method secara spesifik?",
+            "options": [
+                "POST",
+                "GET",
+                "PUT",
+                "DELETE"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 24,
+            "question": "Saat mengirim data baru (POST) berupa format JSON ke backend menggunakan Fetch, properti 'headers' apa yang wajib kita deklarasikan agar server mengenali formatnya?",
+            "options": [
+                "'Format-Type': 'json'",
+                "'Data-Type': 'application/json'",
+                "'Content-Type': 'application/json'",
+                "'Accept': 'application/json'"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 25,
+            "question": "Sebelum disisipkan ke dalam opsi `body` pada request Fetch (POST/PUT), sebuah object JavaScript wajib diubah terlebih dahulu menjadi format string JSON menggunakan perintah...",
+            "options": [
+                "JSON.parse()",
+                "JSON.toString()",
+                "JSON.stringify()",
+                "String(JSON)"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 26,
+            "question": "Pada Fetch API, metode HTTP apa saja yang umumnya TIDAK memerlukan pengiriman `body` data?",
+            "options": [
+                "POST dan PUT",
+                "GET dan DELETE",
+                "PATCH dan POST",
+                "GET dan PUT"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 27,
+            "question": "Kelemahan Fetch API terkait penanganan error adalah ia TIDAK akan otomatis melempar (throw) error jika terjadi HTTP error seperti 404 atau 500. Fetch hanya otomatis throw error apabila terjadi...",
+            "options": [
+                "Salah password",
+                "File JSON kosong",
+                "Network error (koneksi terputus/server mati)",
+                "Salah ketik nama fungsi"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 28,
+            "question": "Bagaimana cara paling tepat yang direkomendasikan untuk mendeteksi secara manual apakah sebuah HTTP Request menggunakan Fetch berhasil (status code 200-299)?",
+            "options": [
+                "Mengecek apakah `response.ok` bernilai true",
+                "Mengecek panjang `response.length`",
+                "Mengecek pesan `response.message`",
+                "Mengecek `response.success`"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 29,
+            "question": "Apa perintah terminal yang benar untuk membuat sebuah proyek Vite baru dengan nama 'inventory-frontend' menggunakan template JavaScript murni (Vanilla)?",
+            "options": [
+                "npm install vite inventory-frontend vanilla",
+                "npm create vite@latest inventory-frontend -- --template vanilla",
+                "npm init vanilla-vite inventory-frontend",
+                "vite create inventory-frontend -vanilla"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 30,
+            "question": "Di dalam struktur standar project Vite, di manakah letak file utama `index.html` seharusnya berada?",
+            "options": [
+                "Di dalam folder /public",
+                "Di dalam folder /src",
+                "Di root folder (paling luar) sejajar dengan package.json",
+                "Di dalam folder /node_modules"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 31,
+            "question": "Browser memiliki mekanisme keamanan yang memblokir permintaan dari domain/port yang berbeda (contoh: dari port 5173 meminta ke port 3000). Aturan keamanan ini dikenal dengan istilah...",
+            "options": [
+                "SQL Injection",
+                "CORS (Cross-Origin Resource Sharing)",
+                "DDoS Prevention",
+                "XSS (Cross-Site Scripting)"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 32,
+            "question": "Untuk mengatasi blokir CORS pada project backend berbasis Express, solusi paling umum adalah...",
+            "options": [
+                "Mematikan antivirus pada komputer user",
+                "Menghapus Fetch API dan menggunakan form HTML biasa",
+                "Menginstal dan menggunakan middleware library `cors` pada kode backend",
+                "Menyatukan folder frontend dan backend"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 33,
+            "question": "Mengapa file konfigurasi rahasia seperti `.env` tidak boleh disertakan dan harus diabaikan saat mengunggah (push) kode ke GitHub?",
+            "options": [
+                "Karena ukurannya terlalu besar",
+                "Karena berisi informasi rahasia dan sensitif seperti username, password, dan kredensial database",
+                "Karena GitHub tidak mendukung ekstensi file .env",
+                "Karena akan merusak sistem operasi server"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 34,
+            "question": "Library bawaan NPM apa yang perlu diinstal untuk membaca dan memuat variabel lingkungan dari file `.env` ke dalam kode Node.js?",
+            "options": [
+                "env-reader",
+                "config-env",
+                "dotenv",
+                "node-env"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 35,
+            "question": "Di dalam arsitektur sistem, jika frontend memerlukan data produk terbaru untuk ditampilkan ke tabel, pihak manakah yang bertugas melakukan query (mencari) data tersebut langsung ke dalam database MySQL?",
+            "options": [
+                "Vite",
+                "Frontend (Browser)",
+                "Tailwind CSS",
+                "Backend (Server Node.js)"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 36,
+            "question": "Setelah data produk berhasil didapatkan dari Backend, siapakah yang bertanggung jawab untuk menyusun (me-render) elemen DOM agar data tersebut terlihat sebagai tabel pada layar pengguna?",
+            "options": [
+                "Database MySQL",
+                "Backend Server",
+                "Frontend (JavaScript di Browser)",
+                "File .env"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 37,
+            "question": "Pada class ukuran teks di Tailwind CSS, class apa yang digunakan untuk mengatur ukuran teks menjadi sangat kecil?",
+            "options": [
+                "text-small",
+                "text-xs",
+                "text-mini",
+                "text-sm"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 38,
+            "question": "Kode `response.status === 404` pada hasil Fetch API menandakan pesan error yang berarti...",
+            "options": [
+                "Internal Server Error",
+                "Bad Request",
+                "Not Found (Endpoint/URL tidak ditemukan)",
+                "Unauthorized"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 39,
+            "question": "Pada konfigurasi Vite untuk menggunakan Tailwind CSS, nama plugin yang perlu di-import pada file `vite.config.js` adalah...",
+            "options": [
+                "@tailwindcss/vite",
+                "tailwind-vite-plugin",
+                "vite-plugin-tailwind",
+                "tailwind-compiler"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 40,
+            "question": "Ketika Anda mengetikkan perintah `npm run dev` pada proyek Vite, apa yang akan terjadi?",
+            "options": [
+                "Proyek akan di-build menjadi file statis untuk production",
+                "Vite akan menyalakan Development Server lokal (biasanya di port 5173) yang memantau perubahan file",
+                "Vite akan menghapus folder node_modules",
+                "Vite akan otomatis membuatkan database baru"
+            ],
+            "correctAnswer": 1
+        }
+    ],
+    "15": [
+        {
+            "id": 1,
+            "question": "Prasyarat versi Node.js minimal berapakah yang direkomendasikan agar bisa menggunakan `fetch()` secara bawaan (built-in) tanpa perlu menginstal package eksternal?",
+            "options": [
+                "Node.js 12+",
+                "Node.js 14+",
+                "Node.js 16+",
+                "Node.js 18+"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 2,
+            "question": "Untuk mengaktifkan fitur ECMAScript Modules (ESM) agar file JavaScript di Node.js bisa menggunakan sintaks `import/export`, konfigurasi apa yang wajib ditambahkan ke dalam file `package.json`?",
+            "options": [
+                "\"module\": \"true\"",
+                "\"type\": \"module\"",
+                "\"export\": \"esm\"",
+                "\"import\": \"enabled\""
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 3,
+            "question": "Berdasarkan 'Mental Model' Fetch API, fakta paling krusial yang wajib dipahami adalah...",
+            "options": [
+                "Fetch akan otomatis mengulang request jika internet mati",
+                "Fetch selalu mengembalikan data bertipe JSON secara langsung",
+                "Fetch tidak akan gagal (throw/reject) meskipun mendapatkan respon HTTP error seperti 404 atau 500",
+                "Fetch akan langsung melempar error jika data tidak ditemukan (404)"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 4,
+            "question": "Fetch() HANYA akan melempar error (reject/throw) pada kondisi-kondisi di bawah ini, KECUALI...",
+            "options": [
+                "Koneksi internet terputus (Network Error)",
+                "Request diblokir oleh server karena masalah CORS",
+                "Server merespons dengan HTTP Status 500 (Internal Server Error)",
+                "Request sengaja dibatalkan via AbortController"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 5,
+            "question": "Properti apa pada objek response dari `fetch()` yang digunakan untuk mengecek dengan praktis apakah HTTP status berada di rentang berhasil (200–299)?",
+            "options": [
+                "res.success",
+                "res.ok",
+                "res.valid",
+                "res.done"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 6,
+            "question": "Bagaimana cara yang aman dan benar saat kita perlu membaca isi data (body) dari response `fetch()`?",
+            "options": [
+                "Memanggil `await res.json()` berkali-kali untuk memastikan datanya tidak hilang",
+                "Menyimpannya ke dalam database terlebih dahulu sebelum dibaca",
+                "Membacanya hanya SATU KALI karena response body tidak bisa dibaca berulang (stream habis)",
+                "Selalu memanggil `res.text()` lalu di-parse manual menggunakan eval()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 7,
+            "question": "Jika sebuah API mengembalikan file gambar alih-alih data teks/JSON, method response manakah yang harus dipanggil?",
+            "options": [
+                "await res.image()",
+                "await res.buffer()",
+                "await res.blob()",
+                "await res.file()"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 8,
+            "question": "Di dalam kode wrapper `getJson`, pengecekan keamanan tambahan dilakukan dengan melihat tipe konten dari server menggunakan sintaks...",
+            "options": [
+                "res.headers.get(\"content-type\")",
+                "res.type",
+                "res.content",
+                "res.body.type"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 9,
+            "question": "Mengapa menyambungkan Query Parameters secara manual menggunakan operasi string (contoh: `url + \"?limit=\" + n`) sangat tidak disarankan?",
+            "options": [
+                "Karena string pada JavaScript memiliki batas maksimal karakter",
+                "Karena tidak aman, rentan format yang salah, dan karakter khusus tidak ter-encode otomatis",
+                "Karena fetch() tidak bisa menerima tipe data string murni",
+                "Karena metode itu akan memperlambat koneksi internet"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 10,
+            "question": "Class atau Objek JavaScript bawaan apa yang direkomendasikan untuk membangun URL dengan Query Parameters secara aman dan otomatis?",
+            "options": [
+                "URLBuilder",
+                "URL dan URL.searchParams",
+                "QueryString API",
+                "HttpParams"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 11,
+            "question": "Pada fungsi helper `buildUrl(base, query)`, sintaks `Object.entries(query)` digunakan untuk...",
+            "options": [
+                "Menghapus parameter yang tidak diinginkan",
+                "Mengubah objek query parameters menjadi format JSON string",
+                "Mengekstrak setiap pasangan key-value dari objek parameter agar bisa di-looping",
+                "Memvalidasi tipe data yang dimasukkan"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 12,
+            "question": "Di dalam looping pembentukan URL parameter (`buildUrl`), apa tujuan dari pengecekan `if (v === undefined || v === null) continue;`?",
+            "options": [
+                "Menghentikan fungsi jika ada variabel yang kosong",
+                "Membuang atau melewati parameter yang kosong agar tidak ikut terbawa ke dalam susunan URL",
+                "Mengubah nilai null menjadi angka 0",
+                "Membuat program menjadi asynchronous"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 13,
+            "question": "Saat melakukan HTTP POST dan mengirimkan data JSON, properti apa yang mutlak harus ditambahkan pada opsi `headers` pada fetch?",
+            "options": [
+                "\"auth-token\": \"application/json\"",
+                "\"content-type\": \"text/html\"",
+                "\"content-type\": \"application/json\"",
+                "\"data-type\": \"json\""
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 14,
+            "question": "Fungsi/method bawaan JavaScript apa yang wajib digunakan untuk mengubah objek JS yang akan dikirim (payload) menjadi string JSON agar bisa dipasang di properti `body` fetch?",
+            "options": [
+                "JSON.parse()",
+                "String()",
+                "JSON.toString()",
+                "JSON.stringify()"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 15,
+            "question": "Bagaimana penanganan khusus yang harus dilakukan jika server API mengembalikan status kode HTTP 204 (No Content) setelah operasi POST/PUT/DELETE?",
+            "options": [
+                "Segera mengulang kembali request tersebut",
+                "Melempar error karena berarti data gagal disimpan",
+                "Me-return nilai null tanpa memanggil `res.json()`, karena body responnya memang kosong",
+                "Menunggu selama beberapa detik lalu memanggil `res.text()`"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 16,
+            "question": "Berapa lama waktu timeout bawaan (default) yang diimplementasikan di dalam fungsi standar `fetch()` pada JavaScript?",
+            "options": [
+                "30 detik",
+                "60 detik",
+                "2 menit",
+                "Fetch tidak memiliki batasan timeout bawaan"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 17,
+            "question": "Karena fetch() tidak bisa batal sendiri jika koneksi lambat, objek JavaScript apa yang digunakan secara resmi untuk menambahkan fitur 'Tombol Batal' / Timeout pada fetch?",
+            "options": [
+                "TimeoutController",
+                "FetchManager",
+                "AbortController",
+                "CancelToken"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 18,
+            "question": "Agar proses fetch() bisa mengenali instruksi pembatalan, properti apa yang dihubungkan/ditempelkan dari Controller ke opsi fetch?",
+            "options": [
+                "controller.stop",
+                "controller.abort",
+                "controller.signal",
+                "controller.timeout"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 19,
+            "question": "Pada blok kode implementasi timeout khusus (`fetchWithTimeout`), mengapa fungsi `clearTimeout(t)` harus diletakkan secara paksa di blok `finally`?",
+            "options": [
+                "Untuk memastikan timer pembatalan selalu dibersihkan dari memori komputer, terlepas dari fetch tersebut akhirnya sukses ataupun gagal",
+                "Untuk memanggil ulang proses fetch dari awal",
+                "Untuk menghapus cache pada browser",
+                "Untuk menghindari peringatan (warning) linter dari VS Code"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 20,
+            "question": "Jika fungsi `fetch()` dibatalkan menggunakan instruksi timeout, jenis tipe Error apa yang akan dilemparkan (throw) dan ditangkap oleh blok catch?",
+            "options": [
+                "\"TimeoutError\"",
+                "\"NetworkError\"",
+                "\"AbortError\"",
+                "\"TypeError\""
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 21,
+            "question": "Sedangkan jika fungsi `fetch()` gagal di tengah jalan akibat DNS tidak terjangkau atau perangkat sedang tidak ada kuota (offline), jenis Error bawaan apa yang muncul?",
+            "options": [
+                "\"TimeoutError\"",
+                "\"TypeError\"",
+                "\"AbortError\"",
+                "\"ReferenceError\""
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 22,
+            "question": "Dalam konteks pemrograman aplikasi yang tangguh, melakukan 'Retry Selektif' otomatis sangat diperbolehkan untuk kondisi berikut, KECUALI...",
+            "options": [
+                "Status HTTP 502 Bad Gateway",
+                "Network Error (Koneksi putus sesaat)",
+                "Status HTTP 503 Service Unavailable",
+                "Status HTTP 400 Bad Request"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 23,
+            "question": "Mengapa error yang bersumber dari client (seperti status 400, 401, atau 404) TIDAK BOLEH atau tidak disarankan untuk di-retry secara otomatis?",
+            "options": [
+                "Karena jika di-retry, browser akan crash (membeku)",
+                "Karena status 4xx menandakan kesalahan pada payload/request pengguna, di-retry ratusan kali pun hasilnya akan tetap gagal",
+                "Karena akan langsung memicu error CORS",
+                "Karena status 4xx sangat membebani tagihan bandwidth server"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 24,
+            "question": "Apa nama pola algoritma penundaan jeda waktu standar industri, yang diterapkan agar waktu tunggu retry makin lama makin panjang (misal: 200ms -> 400ms -> 800ms)?",
+            "options": [
+                "Linear Progression",
+                "Fibonacci Timeout",
+                "Exponential Backoff",
+                "Recursive Delay"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 25,
+            "question": "Tujuan utama menerapkan jeda waktu yang semakin merenggang saat melakukan retry berulang kali pada server yang down adalah...",
+            "options": [
+                "Menghemat penggunaan baterai pada perangkat pengguna",
+                "Mencegah server yang sedang kesulitan atau sibuk agar tidak 'dibombardir' spam request yang akan membuatnya semakin jatuh",
+                "Agar animasi loading di UI tampil lebih estetik",
+                "Untuk mengeksekusi kode lainnya di background"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 26,
+            "question": "Pada fungsi utilitas pembungkus seperti `getJson`, parameter desktrukturisasi `{ signal } = {}` ditulis di akhir tanda kurung. Apa fungsi dari penugasan `= {}` tersebut?",
+            "options": [
+                "Mengubah hasil return menjadi bentuk array",
+                "Memaksa pemanggil fungsi untuk selalu memasukkan objek AbortController",
+                "Mengantisipasi error program dengan memberikan nilai objek kosong default apabila pemanggil fungsi tidak menyertakan konfigurasi opsi apa pun",
+                "Menghapus parameter signal yang tidak terpakai"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 27,
+            "question": "Pada skenario fitur Autocomplete / Search API yang dipanggil terus-menerus setiap kali pengguna mengetik satu huruf, apa risiko utama jika request-request lama yang tertinggal tidak dibatalkan?",
+            "options": [
+                "Memori database akan langsung terisi penuh (Storage Full)",
+                "Terjadi Race Condition, di mana response dari request lama datang belakangan dan menimpa/merusak hasil dari kata kunci terbaru yang sedang ditampilkan",
+                "Fitur fetch akan ter-disable permanen oleh browser",
+                "IP pengguna akan diblokir langsung oleh penyedia ISP"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 28,
+            "question": "Bagaimana cara paling efektif menangani kondisi request Search yang beruntun sebagaimana dijelaskan di atas?",
+            "options": [
+                "Menurunkan kecepatan mengetik pengguna di sisi UI",
+                "Mengubah metode HTTP dari GET menjadi POST",
+                "Menyimpan referensi AbortController ke variabel global/luar, lalu memanggil `.abort()` secara manual sesaat sebelum request fetch huruf berikutnya ditembakkan",
+                "Mematikan Wi-Fi komputer pengguna sementara waktu"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 29,
+            "question": "Pada kode fungsi custom `sleep(ms)` yang berbasiskan sistem asynchrony, apa isi implementasi sesungguhnya dari fungsi tersebut?",
+            "options": [
+                "while(time < ms) { do_nothing; }",
+                "new Promise(resolve => setTimeout(resolve, ms))",
+                "clearTimeout(ms)",
+                "fetch('timeout_url')"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 30,
+            "question": "Dalam struktur arsitektur pemisahan file Mini API Client (contoh: memisahkan `client.js` dan `endpoints.js`), file manakah yang secara ideal menampung fungsi konfigurasi Low-Level murni seperti 'getJson', 'timeout', dan 'buildUrl'?",
+            "options": [
+                "index.js",
+                "endpoints.js",
+                "client.js",
+                "server.js"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 31,
+            "question": "Apa manfaat fundamental dari memisahkan fungsi Low-Level dari deklarasi High-Level per-endpoint seperti `listPosts()` dan `createPost()`?",
+            "options": [
+                "Jika kita ingin mengubah domain (Base URL) API atau menambahkan header autentikasi secara serentak, kita cukup merombaknya di satu file saja (client.js)",
+                "Ukuran file kode JavaScript akan berkurang hingga 90%",
+                "Agar file HTML bisa langsung merender datanya tanpa melewati JavaScript",
+                "Karena hal ini adalah satu-satunya cara agar vite bisa berjalan"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 32,
+            "question": "Method apa yang dipanggil untuk mengeksekusi instruksi pembatalan dari objek AbortController?",
+            "options": [
+                "controller.stop()",
+                "controller.cancel()",
+                "controller.halt()",
+                "controller.abort()"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": 33,
+            "question": "Di kode `sendJson`, konfigurasi `'accept': 'application/json'` pada properti header diletakkan dengan tujuan...",
+            "options": [
+                "Memerintahkan API untuk menerima data berbentuk form-data",
+                "Memberitahu server agar secara eksplisit membalas (merespons) request ini dengan format data JSON",
+                "Menolak masuknya semua format selain teks biasa",
+                "Menentukan jenis otorisasi/token yang dipakai"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 34,
+            "question": "Manakah nilai properti `res.statusText` yang dikembalikan apabila HTTP request menghasilkan kode angka status 200?",
+            "options": [
+                "\"Not Found\"",
+                "\"Internal Server Error\"",
+                "\"OK\"",
+                "\"Bad Request\""
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 35,
+            "question": "Berdasarkan materi yang dipelajari, method apa saja yang sering digunakan untuk proses memodifikasi data yang membutuhkan instruksi HTTP dan parameter body?",
+            "options": [
+                "Hanya POST",
+                "GET dan POST",
+                "POST dan PUT",
+                "Semua method HTTP wajib mengirimkan body"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": 36,
+            "question": "Jika fungsi `fetchWithTimeout` secara tidak sengaja menerima input URL yang tidak wajar (bukan link yang benar), error jenis apakah yang akan langsung di-throw di level bawah sebelum timeout itu sendiri berjalan?",
+            "options": [
+                "AbortError",
+                "TypeError",
+                "SyntaxError",
+                "ReferenceError"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 37,
+            "question": "Bagaimana cara menangani kondisi saat server me-return error log berupa teks biasa ketika gagal mem-parsing JSON, berdasarkan desain dari fungsi pembungkus (wrapper) pada materi?",
+            "options": [
+                "Memanggil res.text().catch(() => \"\") untuk menangkap dan menampilkan balasan teks aslinya (jika ada) ke dalam custom Error",
+                "Membiarkan program crash agar bisa di-debug",
+                "Otomatis me-restart browser pengguna",
+                "Selalu menelan error secara diam-diam (silent fail)"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": 38,
+            "question": "Dalam kode implementasi `getJsonWithRetry`, blok percabangan utama `if (retryable && attempt < retries)` tidak berjalan pada error Abort/Cancel. Mengapa kita tidak me-retry request yang secara manual di-cancel?",
+            "options": [
+                "Karena akan menyebabkan loop tanpa henti (infinite loop)",
+                "Karena tidak masuk akal me-retry tindakan yang dengan sengaja dibatalkan oleh logic aplikasi atau pengguna",
+                "Karena AbortController hanya bisa dipanggil sebanyak 1 kali seumur hidup aplikasi",
+                "Karena dilarang oleh standar ECMA Script"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 39,
+            "question": "Menurut panduan teknis implementasi Lab, fitur timeout bawaan (seperti `timeoutMs: 1`) digunakan pada pengembangan aplikasi dengan target...",
+            "options": [
+                "Menghindari browser crash akibat file yang terlampau besar",
+                "Mensimulasikan skenario kegagalan koneksi di lingkungan lokal (testing) tanpa memutus internet sungguhan",
+                "Mendownload ribuan file sekaligus tanpa hambatan waktu",
+                "Memanipulasi respon kode status (misalnya dari 404 menjadi 200)"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": 40,
+            "question": "Apa output default dari metode `.json()` jika response ternyata mereturn tipe string JSON yang berisi array kosongan: `[]`?",
+            "options": [
+                "Error parsing JSON",
+                "Objek Null",
+                "Array kosong di JavaScript",
+                "String teks murni \"[]\""
+            ],
+            "correctAnswer": 2
+        }
+    ]
+}

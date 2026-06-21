@@ -66,18 +66,6 @@ Kita bahas lebih detail nanti, tapi intinya: **HTML yang terstruktur dengan baik
 
 ---
 
-## 🎯 Latihan Sub-Bab 1
-
-Okay, jadi kamu udah tau basic flow web works. Sekarang coba jawab soal ini buat ngetest pemahaman:
-
-**Soal 1:** Jelaskan dengan singkat, apa bedanya antara domain name sama IP address?
-
-**Soal 2:** Sebutkan 3 komponen frontend development dan fungsinya masing-masing!
-
-**Soal 3:** Kalau kamu akses `www.github.com`, tuliskan proses HTTP request-response-nya step by step.
-
----
-
 # 2. Struktur Dasar HTML
 
 Alright, sekarang kita mulai coding! HTML itu punya struktur yang kayak rumah, ada fondasi, ada dinding, ada atap.
@@ -170,16 +158,6 @@ Jadi kalau kamu gabungin semuanya, struktur HTML yang proper:
 ```
 
 Ini **boilerplate** HTML yang siap pakai. Setiap file HTML baru biasanya mulai dari struktur ini.
-
----
-
-## 🎯 Latihan Sub-Bab 2
-
-**Soal 1:** Apa yang akan terjadi kalau kamu lupa menulis `<!DOCTYPE html>` di awal? Jelaskan!
-
-**Soal 2:** Perbedaan antara tag `<head>` dan `<body>` itu apa? Jelaskan dengan singkat.
-
-**Soal 3:** Kalau kamu mau website kamu responsive di HP, tag meta mana yang harus ditambah? Tuliskan lengkap!
 
 ---
 
@@ -378,18 +356,6 @@ Kalau mau preserve whitespace, pakai `<pre>`.
 
 ---
 
-## 🎯 Latihan Sub-Bab 3
-
-**Soal 1:** Buatlah teks dengan struktur: `<h1>` untuk judul, `<h2>` untuk sub-judul, lalu 2 paragraf dengan minimal 1 kata di-bold pakai `<strong>` dan 1 kata di-highlight pakai `<mark>`.
-
-**Soal 2:** Buatlah link ke halaman eksternal (misal Google) dan link ke dalam file yang sama (anchor link dengan `#`).
-
-**Soal 3:** Jelaskan bedanya `<b>` dan `<strong>`, serta `<i>` dan `<em>`. Kapan masing-masing dipakai?
-
-**Soal 4:** Tuliskan HTML entity buat simbol: `<`, `>`, `&`, dan `©`.
-
----
-
 # 4. Organisasi Konten & Attributes
 
 Sekarang kita bahas cara ngatur dan memberikan label pada konten. HTML punya tag generik dan attribute standar buat ini.
@@ -500,16 +466,6 @@ console.log(btn.dataset.price);      // Output: "50000"
 
 ---
 
-## 🎯 Latihan Sub-Bab 4
-
-**Soal 1:** Buatlah struktur HTML dengan 3 produk. Setiap produk punya `<div>` dengan class `product-card`. Tambahkan `id` unik untuk masing-masing (misal `product-1`, `product-2`, `product-3`).
-
-**Soal 2:** Di dalam masing-masing produk, ada `<h3>` nama produk, `<p>` deskripsi, dan `<button>` beli. Tambahkan `data-price` attribute di button dengan harga masing-masing.
-
-**Soal 3:** Gunakan `<span>` untuk highlight harga di dalam teks (misal, "Harga: <span>Rp 100.000</span>").
-
----
-
 # 5. Tabel
 
 Tabel itu struktur data dalam baris dan kolom. HTML punya tag khusus buat ini.
@@ -592,16 +548,6 @@ Kalau tabelnya besar, gunakan `<thead>`, `<tbody>`, `<tfoot>` buat clarity:
 
 ---
 
-## 🎯 Latihan Sub-Bab 5
-
-**Soal 1:** Buatlah tabel dengan data 5 pelajar. Kolom: Nama, Kelas, Nilai Matematika, Nilai Bahasa. Gunakan `<thead>`, `<tbody>`.
-
-**Soal 2:** Di bawah tabel, tambahkan `<tfoot>` yang nunjukin rata-rata nilai (gunakan `colspan` kalau perlu).
-
-**Soal 3:** Buatlah tabel jadwal pelajaran dengan kolom Hari dan 5 kolom jam pelajaran (08:00-09:00, dll). Gunakan `colspan` untuk judul.
-
----
-
 # 6. Lists (Daftar)
 
 List itu cara ngatur data secara berurut atau berkelompok. HTML punya 3 tipe list.
@@ -673,16 +619,6 @@ List bisa di-nest (masuk dalam list lain):
   <li>Masak</li>
 </ol>
 ```
-
----
-
-## 🎯 Latihan Sub-Bab 6
-
-**Soal 1:** Buatlah `<ol>` dengan 5 step cara membuat website (dari planning sampai deploy). Tiap step punya detail di `<ul>` nested di dalamnya.
-
-**Soal 2:** Buatlah `<ul>` daftar 5 teknologi frontend (HTML, CSS, JavaScript, React, Vue). Buat setiap item punya `<ol>` fitur-fiturnya.
-
-**Soal 3:** Buatlah `<dl>` glossary 3 istilah teknis (misal: API, HTTP, DNS) dengan definisinya.
 
 ---
 
@@ -771,18 +707,6 @@ Sama seperti audio, bisa pakai `controls`, `autoplay`, `loop`.
 ```
 
 > **Perhatian:** Selalu kasih `alt` text atau fallback untuk aksesibilitas. User yang pake screen reader perlu tahu apa konten yang di-embed.
-
----
-
-## 🎯 Latihan Sub-Bab 7
-
-**Soal 1:** Buatlah 3 `<figure>` dengan gambar berbeda. Setiap gambar punya `alt` text yang deskriptif dan `<figcaption>`.
-
-**Soal 2:** Buatlah `<audio>` player dengan 2 lagu berbeda. Pakai `controls` dan `loop`.
-
-**Soal 3:** Buatlah `<video>` player dengan kontrol. Sebutkan attributes yang wajib ada!
-
-**Soal 4:** Embed sebuah YouTube video menggunakan `<iframe>`. Jangan lupa `width`, `height`, dan `allow` attribute.
 
 ---
 
@@ -890,18 +814,6 @@ HTML bisa validasi basic:
 ```
 
 > **Perhatian:** Validasi HTML itu frontend. **Selalu validasi juga di backend!** Frontend validation bisa di-bypass.
-
----
-
-## 🎯 Latihan Sub-Bab 8
-
-**Soal 1:** Buatlah form "Register User" dengan field: nama (text), email (email), password (password), confirm password (password), dan checkbox "Saya setuju dengan T&C".
-
-**Soal 2:** Buatlah form "Survey Kepuasan" dengan: rating (radio, 1-5), feedback (textarea), dan submit button.
-
-**Soal 3:** Buatlah form "Upload Dokumen" dengan file input yang accept hanya `.pdf` dan `.docx`. Pakai `multiple` attribute.
-
-**Soal 4:** Tambahkan validasi HTML ke form pertama (nama wajib diisi, email harus valid format, password minimal 8 karakter).
 
 ---
 
@@ -1022,25 +934,6 @@ Layout semantik buat struktur halaman yang jelas:
 - `<footer>` = footer halaman/section
 
 > **Perhatian:** Jangan gunakan `<div>` kalau ada tag semantik yang cocok. Search engine tahu struktur halaman lebih baik kalau pakai semantic tags.
-
----
-
-## 🎯 Latihan Sub-Bab 9
-
-**Soal 1:** Buatlah layout halaman blog dengan struktur:
-- `<header>` dengan judul dan subtitle
-- `<nav>` dengan link Home, Blog, Contact
-- `<main>` berisi `<article>` (blog post minimal 2 paragraf)
-- `<aside>` dengan kategori blog
-- `<footer>` dengan copyright
-
-**Soal 2:** Di dalam blog post, gunakan:
-- Minimal 1 `<blockquote>`
-- 1 teks dengan `<abbr>`
-- 1 teks dengan `<ins>` atau `<del>`
-- 1 `<cite>`
-
-**Soal 3:** Buatlah halaman dengan 3 `<section>` berbeda tema. Masing-masing `<section>` punya `<h2>` dan minimal 2 artikel.
 
 ---
 
@@ -1188,19 +1081,6 @@ document.getElementById('greet-btn').addEventListener('click', greet);
 ```
 
 > **Perhatian:** Selalu letakkan `<script>` di akhir `</body>`, supaya DOM sudah load dulu sebelum JavaScript jalan.
-
----
-
-## 🎯 Latihan Sub-Bab 10
-
-**Soal 1:** Buatlah 3 file:
-- `index.html` dengan struktur: heading, 3 paragraf, 1 tombol
-- `styles.css` dengan styling: warna heading, font size paragraf, styling button (background, color, padding)
-- Link keduanya di HTML
-
-**Soal 2:** Tambahkan `<script>` internal atau external yang bikin: ketika button diklik, muncul alert "Button berhasil diklik!".
-
-**Soal 3:** Buatlah form dengan 2 input (nama dan email) dan 1 button. Pakai JavaScript buat validasi: kalau nama kosong, alert "Nama harus diisi!". Kalau email kosong, alert "Email harus diisi!".
 
 ---
 
