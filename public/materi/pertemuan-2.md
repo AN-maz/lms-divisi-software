@@ -47,18 +47,6 @@ Breakdown:
 
 ---
 
-## 🎯 Latihan Sub-Bab 1
-
-**Challenge:** Buatlah CSS rule buat `<p>` tag dengan:
-
-- Warna teks biru
-- Font size 16px
-- Margin 10px
-
-Tuliskan dalam format yang benar!
-
----
-
 # 2. Selectors
 
 Selector itu kunci. Kalau selector salah, styling bakal ngenai elemen yang gak tepat. Ada banyak cara ngasih target elemen.
@@ -423,16 +411,6 @@ h1 ~ p {
 
 ---
 
-## 🎯 Latihan Sub-Bab 2
-
-**Challenge 1:** Bikin selector buat semua `<button>` dengan class `action-btn`. Warna biru, padding 15px.
-
-**Challenge 2:** Bikin selector buat `<a>` yang punya `href` mulai dengan "https" (pakai attribute selector).
-
-**Challenge 3:** Bikin selector buat semua `<p>` yang langsung di-follow `<h2>` pakai adjacent sibling combinator.
-
----
-
 # 3. Colors
 
 Warna itu fundamental di CSS. Ada 4 cara ngasih warna: color names, RGB/RGBA, HEX, HSL/HSLA.
@@ -535,16 +513,6 @@ HSL = Hue (0-360 derajat), Saturation (0-100%), Lightness (0-100%). A = Alpha.
 ```
 
 Gampang banget ngatur nuansa. Hue 0-360 buat warna, saturation buat intensity, lightness buat brightness.
-
----
-
-## 🎯 Latihan Sub-Bab 3
-
-**Challenge 1:** Bikin 3 `<div>` dengan background: red (color name), blue (HEX), green (RGB).
-
-**Challenge 2:** Bikin teks dengan warna transparansi pakai RGBA atau HSLA.
-
-**Challenge 3:** Bikin box dengan HEX color #2ecc71 dan transparansi 70%.
 
 ---
 
@@ -817,18 +785,6 @@ Google Fonts punya ratusan font gratis. Kunjungi [fonts.google.com](https://font
 
 ---
 
-## 🎯 Latihan Sub-Bab 4
-
-**Challenge 1:** Style `<h1>` dengan: font-size 36px, font-weight 700, text-align center, color navy.
-
-**Challenge 2:** Style `<p>` dengan: font-family sans-serif, line-height 1.8, letter-spacing 0.5px.
-
-**Challenge 3:** Tambahkan text-shadow ke heading yang membuat "glowing" effect.
-
-**Challenge 4:** Gunakan Google Fonts (misal 'Playfair Display') di website kamu.
-
----
-
 # 5. Box Model
 
 Setiap elemen HTML adalah kotak. Box model terdiri dari 4 layer: content, padding, border, margin. **Ini fundamental!**
@@ -982,16 +938,6 @@ Ini bikin life lebih mudah. Width yang kamu set itu akurat.
 
 ---
 
-## 🎯 Latihan Sub-Bab 5
-
-**Challenge 1:** Bikin `.card` dengan width 300px, height 200px, padding 20px, border 2px solid gray, margin 30px. Gunakan `box-sizing: border-box`.
-
-**Challenge 2:** Bikin elemen yang center horizontal dengan margin auto.
-
-**Challenge 3:** Buatlah `.box-uneven` dengan padding berbeda di setiap sisi (top 10px, right 20px, bottom 10px, left 20px).
-
----
-
 # 6. Display Property
 
 Display itu ngatur cara elemen ditampilkan dan bagaimana elemen lain berinteraksi dengannya.
@@ -1079,16 +1025,6 @@ Elemen gak ditampilkan sama sekali, kayak hilang dari halaman:
 Sering dipakai dengan JavaScript buat show/hide elemen.
 
 > **Berbeda dengan `visibility: hidden`** yang elemen masih ambil space tapi gak kelihatan. `display: none` elemen gak ambil space sama sekali.
-
----
-
-## 🎯 Latihan Sub-Bab 6
-
-**Challenge 1:** Bikin 3 button dengan `display: inline-block`, padding 15px, margin 10px. Layout-nya samping.
-
-**Challenge 2:** Ubah display `.sidebar` dari block jadi `display: none` dengan conditional (pakai comment).
-
-**Challenge 3:** Bikin elemen span dengan background color dan padding (perlu `inline-block` biar padding bekerja!).
 
 ---
 
@@ -1200,16 +1136,6 @@ Atur stacking order (siapa di atas, siapa di bawah) ketika elemen overlap:
 Nilai lebih tinggi = lebih atas.
 
 > **Catatan:** Z-index hanya bekerja di elemen yang punya `position` (bukan static).
-
----
-
-## 🎯 Latihan Sub-Bab 7
-
-**Challenge 1:** Bikin `.container` dengan `position: relative`, terus `.box` di dalamnya dengan `position: absolute`, `top: 30px`, `left: 50px`.
-
-**Challenge 2:** Bikin navbar dengan `position: fixed` yang tetap di atas saat scroll.
-
-**Challenge 3:** Bikin 2 overlapping box. Atur z-index supaya box yang satunya di atas.
 
 ---
 
@@ -1376,16 +1302,6 @@ Background gradient biar smooth dari satu warna ke warna lain.
 
 ---
 
-## 🎯 Latihan Sub-Bab 8
-
-**Challenge 1:** Bikin `.hero` dengan background image, `background-size: cover`, `background-position: center`.
-
-**Challenge 2:** Bikin `.gradient-box` dengan linear gradient dari biru ke pink.
-
-**Challenge 3:** Bikin `.radial` dengan radial gradient circle.
-
----
-
 # 9. Borders & Shadows
 
 Border dan shadow bikin elemen jadi lebih depth dan visual.
@@ -1478,16 +1394,6 @@ Shadow di sekitar elemen:
   /* Shadow di dalam elemen */
 }
 ```
-
----
-
-## 🎯 Latihan Sub-Bab 9
-
-**Challenge 1:** Bikin `.card` dengan `border: 1px solid #ccc`, `border-radius: 8px`, `box-shadow: 0 2px 8px rgba(0,0,0,0.1)`.
-
-**Challenge 2:** Bikin `.circle` dengan border radius 50% biar jadi perfect circle.
-
-**Challenge 3:** Bikin `.button` dengan colored shadow effect pakai `box-shadow`.
 
 ---
 
@@ -1671,16 +1577,6 @@ Spasi antar items (lebih praktis dari margin):
 
 ---
 
-## 🎯 Latihan Sub-Bab 10
-
-**Challenge 1:** Bikin `.navbar` flex container dengan `justify-content: space-between`. Di dalamnya ada `.logo` dan `.nav-links` (yang `.nav-links` ada 3 link samping).
-
-**Challenge 2:** Bikin `.cards` flex container dengan 3 cards. Pakai `flex: 1` supaya setiap card equal width.
-
-**Challenge 3:** Bikin `.button-group` dengan 4 buttons flex. Pakai `justify-content: space-evenly` dan `gap: 10px`.
-
----
-
 # 11. CSS Grid Layout
 
 Grid itu 2D layout system. Lebih powerful dari flexbox kalau mau complex layouts. Flexbox = 1D (row atau column), Grid = 2D (row DAN column).
@@ -1802,16 +1698,6 @@ Align items dan content dalam grid:
 
 ---
 
-## 🎯 Latihan Sub-Bab 11
-
-**Challenge 1:** Bikin `.grid-2x2` dengan 4 items dalam 2x2 grid. Grid template columns: `1fr 1fr`.
-
-**Challenge 2:** Bikin `.grid-spanning` dengan 6 items. 2 items di atas span 2 kolom masing-masing, 4 items di bawah regular.
-
-**Challenge 3:** Bikin `.responsive-grid` dengan `grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))`.
-
----
-
 # 12. Media Queries & Responsiveness
 
 Responsiveness = website looks good di semua ukuran screen. Media queries = CSS rules yang apply kalau kondisi tertentu terpenuhi (misal screen width).
@@ -1927,16 +1813,6 @@ Contoh lengkap:
   }
 }
 ```
-
----
-
-## 🎯 Latihan Sub-Bab 12
-
-**Challenge 1:** Bikin `.grid` yang responsive: 1 kolom di mobile, 2 kolom di tablet (600px+), 3 kolom di desktop (1000px+).
-
-**Challenge 2:** Bikin `font-size` responsive: 14px mobile, 16px tablet, 18px desktop.
-
-**Challenge 3:** Bikin `.container` yang `width: 100%` di mobile, `width: 90%` di tablet, `width: 1200px` di desktop.
 
 ---
 
@@ -2076,18 +1952,6 @@ input::placeholder {
   font-style: italic;
 }
 ```
-
----
-
-## 🎯 Latihan Sub-Bab 13
-
-**Challenge 1:** Style link: normal color blue, hover color red, visited color purple.
-
-**Challenge 2:** Bikin tabel dengan baris alternating: even rows background #f0f0f0, odd rows white.
-
-**Challenge 3:** Bikin `.list` dengan `li:first-child` bold dan `li:last-child` different color.
-
-**Challenge 4:** Bikin `.quote` dengan `::before` dan `::after` quote marks.
 
 ---
 
@@ -2261,18 +2125,6 @@ Keyframes define animation steps. Lebih complex dari transitions:
 
 ---
 
-## 🎯 Latihan Sub-Bab 14
-
-**Challenge 1:** Bikin `.button` dengan transition background-color 0.3s saat hover.
-
-**Challenge 2:** Bikin animation fade-in dan apply ke elemen. Duration 1s, ease.
-
-**Challenge 3:** Bikin keyframes bounce (naik-turun) dan apply ke `.bouncing-element` infinite.
-
-**Challenge 4:** Bikin transition color dan transform (scale) 0.3s ease pada `.box` saat hover.
-
----
-
 # 15. CSS Variables (Custom Properties)
 
 CSS variables (custom properties) = reusable values di CSS. Praktis buat warna, ukuran, font yang repeat berkali-kali.
@@ -2372,16 +2224,6 @@ body {
   padding: var(--padding);
 }
 ```
-
----
-
-## 🎯 Latihan Sub-Bab 15
-
-**Challenge 1:** Bikin CSS variables di `:root` untuk 3 warna (primary, secondary, accent). Pakai di element yang berbeda.
-
-**Challenge 2:** Bikin variable `--border-radius` dan `--padding-standard`. Pakai di `.card`, `.button`, dll.
-
-**Challenge 3:** Bikin responsive variables: `--font-size` 14px mobile, 16px desktop. Apply ke body.
 
 ---
 
@@ -2561,16 +2403,6 @@ Ini layout website typical:
 
 ---
 
-## 🎯 Latihan Sub-Bab 16
-
-**Challenge 1:** Bikin navbar flexbox dengan logo di kiri dan menu di kanan (space-between).
-
-**Challenge 2:** Bikin responsive card grid: 3 kolom desktop, 2 kolom tablet, 1 kolom mobile.
-
-**Challenge 3:** Bikin kompleks layout header-sidebar-main-footer pake grid. Responsive di mobile.
-
----
-
 # 🎓 Tugas Mandiri: Redesign Portfolio dengan CSS Modern
 
 Alright! Ini saatnya kamu apply **SEMUA** CSS yang udah dipelajari dalam project yang actual.
@@ -2650,7 +2482,7 @@ portfolio-redesigned/
 | **Interactive Effects**    | 15    | Smooth transitions, hover effects, pseudo-classes |
 | **CSS Features Usage**     | 15    | Selectors, box model, advanced CSS dipakai        |
 | **Overall Visual Quality** | 5     | Rapi, professional, tidak berantakan              |
-| **TOTAL**                  | 100   | -                                                 |
+| **TOTAL**                  | 100   | - |
 
 ---
 
