@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
+import { useParams, useNavigate, Link, useSearchParams } from 'react-router-dom';
 import MarkdownViewer from '../components/MarkdownViewer';
-
+import GerbangSanksi from '../components/GerbangSanksi';
+import FloatTimeIndicator from '../components/FloatTimeIndicator';
 
 
 const EksplorasiPage = () => {
@@ -13,7 +14,10 @@ const EksplorasiPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const [searchParams] = useSearchParams();
+  const isDebugView = searchParams.get('view') === 'debug'; // <-- Bernilai TRUE jika URL mengandung ?view=debug
+  
+  
 
  const [mode, setMode] = useState(() => {
     return localStorage.getItem('lms_fokus_mode') || 'BIASA';
@@ -35,48 +39,60 @@ const EksplorasiPage = () => {
 
 
 
-  const [kuisMath, setKuisMath] = useState({ soal: '', jawaban: 0 });
-  const [inputUser, setInputUser] = useState('');
-  const [pesanError, setPesanError] = useState('');
-  
-  const inputRef = useRef(null);
 
-  // --- MESIN SINKRONISASI MEMORI PERMANEN ---
+
+  //  MESIN SINKRONISASI MEMORI PERMANEN
   // Setiap mode berubah, ukir di hard disk browser
   useEffect(() => {
     localStorage.setItem('lms_fokus_mode', mode);
   }, [mode]);
 
-  // Setiap layar terkunci atau terbuka, catat di hard disk browser
   useEffect(() => {
     localStorage.setItem('lms_sanksi_absolut', isTerkunci);
-    
-    // Jika terkunci dan belum ada soal, otomatis buat soal baru saat refresh
-    if (isTerkunci && kuisMath.jawaban === 0) {
-      generateKuisMath();
-    }
   }, [isTerkunci]);
 
  
+  
+ // PEMUATAN DATA MATERI 
   useEffect(() => {
     setLoading(true);
     fetch('/silabus.json')
       .then(res => res.json())
       .then(data => {
         const allModules = data.flatMap(group => group.modules);
-        const currentMateri = allModules.find(m => m.id === parseInt(id));
+        const currentMateri = allModules.find(m => m.id === parseInt(id, 10));
+        
         if (currentMateri) {
-          setMateriTitle(currentMateri.title);
-          return fetch(currentMateri.file);
+          // Jika URL menghendaki view=debug, KUNCI rute ke materi jiwa
+          if (isDebugView) {
+           
+            // gunakan operator nullish coalescing (?.) dan OR (||) untuk memberikan data fallback otomatis.
+            // Tanpa perlu edit JSON satu-satu, semua ID sekarang aman terarah ke kesadaran-organik!
+            const judulMateri = currentMateri.debug_jiwa?.title || "Debugging Jiwa #1: Kesadaran Organik";
+            const fileSlug = currentMateri.debug_jiwa?.slug || "kesadaran-organik";
+            
+            setMateriTitle(judulMateri);
+            return fetch(`/materi/${fileSlug}.md`);
+          } else {
+            // Jalur Normal untuk Eksplorasi Teknis
+            setMateriTitle(currentMateri.title);
+            return fetch(currentMateri.file);
+          }
         } else {
           throw new Error("Materi tidak ditemukan");
         }
       })
       .then(res => {
-        if (!res.ok) throw new Error("File markdown gagal dimuat");
+        if (!res.ok) throw new Error("Koneksi ke peladen statis terputus.");
         return res.text();
       })
       .then(text => {
+       
+        if (text.trim().startsWith('<!doctype html>') || text.includes('id="root"')) {
+          throw new Error("Mismatch Data: Berkas fisik .md tidak ditemukan. Nama di silabus.json dan folder public berbeda!");
+        }
+
+     
         const rawSections = text.split(/(?=^#\s)/m).filter(s => s.trim() !== '');
         const parsedSections = rawSections.map((sec) => {
           const lines = sec.trim().split('\n');
@@ -90,87 +106,124 @@ const EksplorasiPage = () => {
       })
       .catch(err => {
         console.error(err);
-        setSections([{ title: "Error", content: "## ⚠️ Maaf, materi gagal dimuat." }]);
+        
+        setSections([{ 
+          title: "Error", content: "## ⚠️ Maaf, berkas materi gagal dimuat." 
+        }]);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, isDebugView]);
 
 
- // Mesin Timer Mode Biasa
+
+  // REAKTOR WAKTU 
+ 
+
+  // Reaktor Waktu Biasa (Mode Standar)
   useEffect(() => {
     let interval = null;
     if (mode === 'BIASA') {
-      interval = setInterval(() => setWaktuBiasa((prev) => prev + 1), 1000);
+      interval = setInterval(() => {
+        setWaktuBiasa((prev) => prev + 1);
+      }, 1000);
     } else {
       setWaktuBiasa(0);
     }
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [mode]);
 
-// Mesin Timer Pomodoro (Diperbarui dengan Logika Jeda)
+  
+  // Tidak ada penghilangan interval setiap detik!
   useEffect(() => {
-    let interval = null;
-    
-    // Mesin hanya hidup jika Pomodoro aktif DAN TIDAK DIJEDA
-    if (mode === 'FOKUS_POMODORO' && !isPomodoroPaused && waktuPomodoro > 0) {
-      interval = setInterval(() => setWaktuPomodoro((prev) => prev - 1), 1000);
-    } 
-    else if (mode === 'FOKUS_POMODORO' && waktuPomodoro === 0) {
-      if (!isIstirahat) {
-        setIsIstirahat(true);
-        setWaktuPomodoro(WAKTU_JEDA);
-        setIsPomodoroPaused(false); 
-      } else {
-        setIsIstirahat(false);
-        setWaktuPomodoro(WAKTU_FOKUS);
-      }
-    } 
-    else if (mode !== 'FOKUS_POMODORO') {
-      
+    let timer = null;
+
+    if (mode === 'FOKUS_POMODORO' && !isPomodoroPaused) {
+      timer = setInterval(() => {
+       
+        // agar kita tidak membutuhkan bantuan dependency array dari luar.
+        setWaktuPomodoro((prev) => (prev > 0 ? prev - 1 : 0));
+      }, 1000);
+    }
+
+  
+    // Interval hilang HANYA ketika subjek menekan tombol Jeda atau ganti mode.
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [mode, isPomodoroPaused]); 
+
+  // : Pengawas Transisi & Pembersih Residu (The Supervisor)
+  useEffect(() => {
+    // 1. Pemusnahan Residu Paksa saat subjek melarikan diri dari Mode Pomodoro
+    if (mode !== 'FOKUS_POMODORO') {
       setWaktuPomodoro(WAKTU_FOKUS);
       setIsIstirahat(false);
       setIsPomodoroPaused(false);
+    } 
+    //  Transisi Fase Otomatis saat waktu tepat mencapai 0
+    else if (waktuPomodoro === 0) {
+      if (!isIstirahat) {
+        setIsIstirahat(true);
+        setWaktuPomodoro(WAKTU_JEDA); // Masuk fase istirahat (5 menit)
+      } else {
+        setIsIstirahat(false);
+        setWaktuPomodoro(WAKTU_FOKUS); // Kembali ke fase fokus (25 menit)
+      }
     }
+  }, [mode, waktuPomodoro, isIstirahat, WAKTU_FOKUS, WAKTU_JEDA]);
+
+
+  // SENSOR KEYBOARD (NAVIGASI KOGNITIF INPUT PANAH)
+ 
+  useEffect(() => {
+    const tanganiKetukanKeyboard = (event) => {
     
-    return () => clearInterval(interval);
-  }, [mode, waktuPomodoro, isIstirahat, isPomodoroPaused]); 
+      
+      if (isTerkunci) return;
+
+    
+      if (event.key === 'ArrowRight') {
+        if (currentIndex < sections.length - 1) {
+          event.preventDefault(); // Mencegah browser melakukan scrolling bawaan halaman
+          setCurrentIndex((prev) => prev + 1);
+          
+         
+          document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } 
+     
+      else if (event.key === 'ArrowLeft') {
+        if (currentIndex > 0) {
+          event.preventDefault(); // Mencegah browser melakukan scrolling bawaan halaman
+          setCurrentIndex((prev) => prev - 1);
+      
+         
+          document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    };
+  
+    window.addEventListener('keydown', tanganiKetukanKeyboard);
+    return () => {
+      window.removeEventListener('keydown', tanganiKetukanKeyboard);
+    };
+  }, [currentIndex, sections.length, isTerkunci]); 
+
 
   // Sensor Alt+Tab (Mode Absolut)
   useEffect(() => {
     const handleKehilanganFokus = () => {
       if (mode === 'ABSOLUT' && !isTerkunci) {
-        generateKuisMath();
-        setIsTerkunci(true);
+        setIsTerkunci(true); 
       }
     };
     window.addEventListener('blur', handleKehilanganFokus);
     return () => window.removeEventListener('blur', handleKehilanganFokus);
   }, [mode, isTerkunci]);
 
-  useEffect(() => {
-    if (isTerkunci && inputRef.current) inputRef.current.focus();
-  }, [isTerkunci]);
-
-  const generateKuisMath = () => {
-    const a = Math.floor(Math.random() * 10) + 5;
-    const b = Math.floor(Math.random() * 10) + 2;
-    const ops = ['+', '*', '-'];
-    const operasi = ops[Math.floor(Math.random() * ops.length)];
-    let hasil = operasi === '+' ? a + b : operasi === '-' ? a - b : a * b;
-    setKuisMath({ soal: `${a} ${operasi} ${b} = ?`, jawaban: hasil });
-    setInputUser('');
-    setPesanError('');
-  };
-
-  const verifikasiJawaban = (e) => {
-    e.preventDefault();
-    if (parseInt(inputUser) === kuisMath.jawaban) {
-      setIsTerkunci(false);
-    } else {
-      setPesanError('Logika tidak valid. Kerjakan soal baru.');
-      generateKuisMath();
-    }
-  };
+ 
 
   const formatWaktu = (totalDetik) => {
     const m = Math.floor(totalDetik / 60).toString().padStart(2, '0');
@@ -178,9 +231,14 @@ const EksplorasiPage = () => {
     return `${m}:${s}`;
   };
 
+  
 
   const isLastPage = currentIndex === sections.length - 1;
   const progressPercentage = sections.length > 0 ? Math.round(((currentIndex + 1) / sections.length) * 100) : 0;
+
+
+
+
 
   const kontenMateriTerisolasi = useMemo(() => {
     if (sections.length === 0) return null;
@@ -243,53 +301,10 @@ const EksplorasiPage = () => {
  return (
     <div className="h-screen w-full flex bg-[#0a0a0a] text-gray-200 overflow-hidden font-sans relative">
 
-     {/* --- GERBANG SANKSI ABSOLUT (OVERLAY) --- */}
-      {isTerkunci && (
-        <div className="fixed inset-0 z-[99999] bg-[#050505]/95 backdrop-blur-md flex flex-col items-center justify-center p-4">
-          
-      
-          <div className="bg-[#121212] border border-red-600 p-6 sm:p-8 rounded-lg shadow-[0_0_50px_rgba(220,38,38,0.3)] w-[95%] max-w-md text-center">
-            
-            <h2 className="text-red-500 font-extrabold text-xl sm:text-2xl mb-2 tracking-widest uppercase">
-              Akses Terkunci
-            </h2>
-            
-            <p className="text-gray-400 text-xs sm:text-sm mb-6">
-              Sistem mendeteksi perpindahan aplikasi Selesaikan perhitungan ini untuk kembali fokus.
-            </p>
-            
-            <h1 className="text-[#14b8a6] text-4xl sm:text-5xl font-bold mb-6">
-              {kuisMath.soal}
-            </h1>
-            
-            {pesanError && (
-              <div className="mb-4 py-2 px-3 bg-red-900/30 text-red-400 text-xs font-bold border border-red-500 rounded">
-                ❌ {pesanError}
-              </div>
-            )}
-            
-            {/* */}
-            <form onSubmit={verifikasiJawaban} className="flex flex-col sm:flex-row gap-3">
-              <input 
-                ref={inputRef} 
-                type="number" 
-                value={inputUser} 
-                onChange={(e) => setInputUser(e.target.value)}
-                placeholder="Jawaban..."
-                className="w-full bg-[#0a0a0a] border border-gray-700 rounded px-4 py-3 text-white text-xl text-center outline-none focus:border-[#14b8a6] transition-colors" 
-                required
-              />
-              <button 
-                type="submit" 
-                className="w-full sm:w-auto bg-[#14b8a6] text-black font-bold px-8 py-3 rounded hover:bg-[#0f8a7c] transition-colors text-lg sm:text-base"
-              >
-                Buka
-              </button>
-            </form>
-
-          </div>
-        </div>
-      )}
+     <GerbangSanksi 
+        isOpen={isTerkunci} 
+        onUnlock={() => setIsTerkunci(false)} 
+      />
 
       {/*  JEDA ISTIRAHAT POMODORO (OVERLAY)  */}
       {mode === 'FOKUS_POMODORO' && isIstirahat && !isTerkunci && (
@@ -308,43 +323,12 @@ const EksplorasiPage = () => {
         </div>
 
       {/* Indikator Waktu Mengambang (Interaktif & Responsif Mutlak) */}
-        {mode !== 'BIASA' && (
-           <div className="
-             fixed z-[60] flex items-center gap-3 bg-[#121212]/95 backdrop-blur-md border border-gray-800 rounded-full shadow-[0_5px_25px_rgba(0,0,0,0.6)]
-             px-4 py-2 bottom-8 left-1/2 transform -translate-x-1/2
-             md:absolute md:bottom-auto md:top-4 md:left-auto md:right-6 md:translate-x-0 md:px-3 md:py-1.5
-           ">
-             
-             {/* Indikator Status (Titik Berkedip) & Teks Angka */}
-             <div className="flex items-center gap-2">
-               <span className="relative flex h-2.5 w-2.5 md:h-2 md:w-2">
-                 {/* Pendaran (Ping) dimatikan jika dijeda */}
-                 {!isPomodoroPaused && <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${mode === 'ABSOLUT' ? 'bg-red-500' : 'bg-[#14b8a6]'}`}></span>}
-                 {/* Warna berubah menjadi Kuning jika dijeda */}
-                 <span className={`relative inline-flex rounded-full h-full w-full ${mode === 'ABSOLUT' ? 'bg-red-500' : isPomodoroPaused ? 'bg-yellow-500' : 'bg-[#14b8a6]'}`}></span>
-               </span>
-               <span className={`text-xs md:text-sm font-mono font-bold tracking-wider ${mode === 'ABSOLUT' ? 'text-red-400' : isPomodoroPaused ? 'text-yellow-500' : 'text-[#14b8a6]'}`}>
-                 {mode === 'FOKUS_POMODORO' ? `Sisa: ${formatWaktu(waktuPomodoro)}` : 'Sensor Absolut'}
-               </span>
-             </div>
-
-             {/* Tombol Aksi Jeda (KHUSUS MODE POMODORO) */}
-             {mode === 'FOKUS_POMODORO' && (
-              <button 
-  onClick={() => setIsPomodoroPaused(!isPomodoroPaused)}
-  className={`ml-2 flex items-center justify-center h-6 px-3 rounded-full text-white transition-colors border shadow-sm ${
-    !isPomodoroPaused 
-      ? 'bg-red-600 hover:bg-red-700 border-red-800 shadow-[0_0_8px_rgba(220,38,38,0.4)]' // Kondisi Berjalan: Tombol Jeda Merah Menyala
-      : 'bg-gray-800 hover:bg-gray-700 border-gray-600' // Kondisi Berhenti: Tombol Mulai Netral
-  }`}
-  title={isPomodoroPaused ? "Lanjutkan Waktu" : "Jeda Sementara"}
->
-  <span className="text-[10px] font-bold tracking-wider">{isPomodoroPaused ? 'Mulai' : 'Jeda'}</span>
-</button>
-             )}
-
-           </div>
-        )}
+       <FloatTimeIndicator 
+       mode={mode}
+          waktuPomodoro={waktuPomodoro}
+          isPomodoroPaused={isPomodoroPaused}
+          onTogglePause={() => setIsPomodoroPaused(!isPomodoroPaused)}
+       />
 
         {/* Pemasangan Komponen Materi Terisolasi */}
         {kontenMateriTerisolasi}

@@ -107,7 +107,13 @@
       {
         "id": 14,
         "title": "Konsep Frontend & Project Vite + Tailwind",
-        "file": "/materi/pertemuan-6.md"
+        "file": "/materi/pertemuan-6.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
+       
       }
     ]
   },
@@ -119,7 +125,12 @@
       {
         "id": 15,
         "title": "Fetch API: Dari Nol ke Production-Ready",
-        "file": "/materi/pertemuan7.md"
+        "file": "/materi/pertemuan7.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       }
     ]
   }

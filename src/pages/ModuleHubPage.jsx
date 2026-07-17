@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { FiBookOpen, FiCheckSquare, FiArrowLeft } from 'react-icons/fi';
+import { FiBookOpen, FiCheckSquare, FiArrowLeft, FiActivity } from 'react-icons/fi';
 import useProgressStore from '../store/useProgressStore';
 
 const ModuleHubPage = () => {
@@ -101,6 +101,31 @@ const ModuleHubPage = () => {
                         </div>
                     </Link>
 
+
+
+                {/* Card 3: Debugging Jiwa  */}
+                    <Link
+                        to={`/eksplorasi/${id}?view=debug`}
+                        className="group bg-[#121212] border border-gray-800 hover:border-amber-500 rounded-2xl p-8 transition-all hover:-translate-y-2 shadow-lg flex flex-col items-start relative overflow-hidden"
+                    >
+  
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gray-700 to-gray-500 group-hover:from-amber-600 group-hover:to-yellow-500 transition-all"></div>
+
+   
+                        <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-amber-500/10 transition-colors">
+        
+                        <FiActivity className="text-gray-400 group-hover:text-amber-400" size="{28}"/>
+                        </div>
+
+                        <h2 className="text-2xl font-bold text-white mb-3">Debugging Jiwa</h2>
+                        <p className="text-gray-400 leading-relaxed text-sm">
+                        Bukan tentang motivasi sesaat, tetapi tentang bertumbuh setiap hari.
+                        </p>
+
+                        <div className="mt-8 font-bold text-sm text-amber-500 group-hover:text-white transition-colors flex items-center gap-2">
+                        Perkuat Mental <span className="group-hover:translate-x-1 transition-transform">→</span>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
