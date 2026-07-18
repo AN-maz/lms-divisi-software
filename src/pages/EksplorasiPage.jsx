@@ -1,6 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
+import { useParams, useNavigate, Link, useSearchParams } from 'react-router-dom';
 import MarkdownViewer from '../components/MarkdownViewer';
+import GerbangSanksi from '../components/GerbangSanksi';
+import FloatTimeIndicator from '../components/FloatTimeIndicator';
+
 
 const EksplorasiPage = () => {
   const { id } = useParams();
@@ -11,26 +14,85 @@ const EksplorasiPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [searchParams] = useSearchParams();
+  const isDebugView = searchParams.get('view') === 'debug'; // <-- Bernilai TRUE jika URL mengandung ?view=debug
+  
+  
 
+ const [mode, setMode] = useState(() => {
+    return localStorage.getItem('lms_fokus_mode') || 'BIASA';
+  });
+  
+  // Memori Mesin 1: Biasa
+  const [waktuBiasa, setWaktuBiasa] = useState(0);
+
+  // Memori Mesin 2: Pomodoro
+  const WAKTU_FOKUS = 1500; // 25 Menit
+  const WAKTU_JEDA = 300;   // 5 Menit
+  const [waktuPomodoro, setWaktuPomodoro] = useState(WAKTU_FOKUS);
+  const [isIstirahat, setIsIstirahat] = useState(false);
+
+  const [isPomodoroPaused, setIsPomodoroPaused] = useState(false);
+  const [isTerkunci, setIsTerkunci] = useState(() => {
+    return localStorage.getItem('lms_sanksi_absolut') === 'true';
+  });
+
+
+
+
+
+  //  MESIN SINKRONISASI MEMORI PERMANEN
+  // Setiap mode berubah, ukir di hard disk browser
+  useEffect(() => {
+    localStorage.setItem('lms_fokus_mode', mode);
+  }, [mode]);
+
+  useEffect(() => {
+    localStorage.setItem('lms_sanksi_absolut', isTerkunci);
+  }, [isTerkunci]);
+
+ 
+  
+ // PEMUATAN DATA MATERI 
   useEffect(() => {
     setLoading(true);
     fetch('/silabus.json')
       .then(res => res.json())
       .then(data => {
         const allModules = data.flatMap(group => group.modules);
-        const currentMateri = allModules.find(m => m.id === parseInt(id));
+        const currentMateri = allModules.find(m => m.id === parseInt(id, 10));
+        
         if (currentMateri) {
-          setMateriTitle(currentMateri.title);
-          return fetch(currentMateri.file);
+          // Jika URL menghendaki view=debug, KUNCI rute ke materi jiwa
+          if (isDebugView) {
+           
+            // gunakan operator nullish coalescing (?.) dan OR (||) untuk memberikan data fallback otomatis.
+            // Tanpa perlu edit JSON satu-satu, semua ID sekarang aman terarah ke kesadaran-organik!
+            const judulMateri = currentMateri.debug_jiwa?.title || "Debugging Jiwa #1: Kesadaran Organik";
+            const fileSlug = currentMateri.debug_jiwa?.slug || "kesadaran-organik";
+            
+            setMateriTitle(judulMateri);
+            return fetch(`/materi/${fileSlug}.md`);
+          } else {
+            // Jalur Normal untuk Eksplorasi Teknis
+            setMateriTitle(currentMateri.title);
+            return fetch(currentMateri.file);
+          }
         } else {
           throw new Error("Materi tidak ditemukan");
         }
       })
       .then(res => {
-        if (!res.ok) throw new Error("File markdown gagal dimuat");
+        if (!res.ok) throw new Error("Koneksi ke peladen statis terputus.");
         return res.text();
       })
       .then(text => {
+       
+        if (text.trim().startsWith('<!doctype html>') || text.includes('id="root"')) {
+          throw new Error("Mismatch Data: Berkas fisik .md tidak ditemukan. Nama di silabus.json dan folder public berbeda!");
+        }
+
+     
         const rawSections = text.split(/(?=^#\s)/m).filter(s => s.trim() !== '');
         const parsedSections = rawSections.map((sec) => {
           const lines = sec.trim().split('\n');
@@ -44,10 +106,186 @@ const EksplorasiPage = () => {
       })
       .catch(err => {
         console.error(err);
-        setSections([{ title: "Error", content: "## ⚠️ Maaf, materi gagal dimuat." }]);
+        
+        setSections([{ 
+          title: "Error", content: "## ⚠️ Maaf, berkas materi gagal dimuat." 
+        }]);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, isDebugView]);
+
+
+
+  // REAKTOR WAKTU 
+ 
+
+  // Reaktor Waktu Biasa (Mode Standar)
+  useEffect(() => {
+    let interval = null;
+    if (mode === 'BIASA') {
+      interval = setInterval(() => {
+        setWaktuBiasa((prev) => prev + 1);
+      }, 1000);
+    } else {
+      setWaktuBiasa(0);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [mode]);
+
+  
+  // Tidak ada penghilangan interval setiap detik!
+  useEffect(() => {
+    let timer = null;
+
+    if (mode === 'FOKUS_POMODORO' && !isPomodoroPaused) {
+      timer = setInterval(() => {
+       
+        // agar kita tidak membutuhkan bantuan dependency array dari luar.
+        setWaktuPomodoro((prev) => (prev > 0 ? prev - 1 : 0));
+      }, 1000);
+    }
+
+  
+    // Interval hilang HANYA ketika subjek menekan tombol Jeda atau ganti mode.
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [mode, isPomodoroPaused]); 
+
+  // : Pengawas Transisi & Pembersih Residu (The Supervisor)
+  useEffect(() => {
+    // 1. Pemusnahan Residu Paksa saat subjek melarikan diri dari Mode Pomodoro
+    if (mode !== 'FOKUS_POMODORO') {
+      setWaktuPomodoro(WAKTU_FOKUS);
+      setIsIstirahat(false);
+      setIsPomodoroPaused(false);
+    } 
+    //  Transisi Fase Otomatis saat waktu tepat mencapai 0
+    else if (waktuPomodoro === 0) {
+      if (!isIstirahat) {
+        setIsIstirahat(true);
+        setWaktuPomodoro(WAKTU_JEDA); // Masuk fase istirahat (5 menit)
+      } else {
+        setIsIstirahat(false);
+        setWaktuPomodoro(WAKTU_FOKUS); // Kembali ke fase fokus (25 menit)
+      }
+    }
+  }, [mode, waktuPomodoro, isIstirahat, WAKTU_FOKUS, WAKTU_JEDA]);
+
+
+  // SENSOR KEYBOARD (NAVIGASI KOGNITIF INPUT PANAH)
+ 
+  useEffect(() => {
+    const tanganiKetukanKeyboard = (event) => {
+    
+      
+      if (isTerkunci) return;
+
+    
+      if (event.key === 'ArrowRight') {
+        if (currentIndex < sections.length - 1) {
+          event.preventDefault(); // Mencegah browser melakukan scrolling bawaan halaman
+          setCurrentIndex((prev) => prev + 1);
+          
+         
+          document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } 
+     
+      else if (event.key === 'ArrowLeft') {
+        if (currentIndex > 0) {
+          event.preventDefault(); // Mencegah browser melakukan scrolling bawaan halaman
+          setCurrentIndex((prev) => prev - 1);
+      
+         
+          document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    };
+  
+    window.addEventListener('keydown', tanganiKetukanKeyboard);
+    return () => {
+      window.removeEventListener('keydown', tanganiKetukanKeyboard);
+    };
+  }, [currentIndex, sections.length, isTerkunci]); 
+
+
+  // Sensor Alt+Tab (Mode Absolut)
+  useEffect(() => {
+    const handleKehilanganFokus = () => {
+      if (mode === 'ABSOLUT' && !isTerkunci) {
+        setIsTerkunci(true); 
+      }
+    };
+    window.addEventListener('blur', handleKehilanganFokus);
+    return () => window.removeEventListener('blur', handleKehilanganFokus);
+  }, [mode, isTerkunci]);
+
+ 
+
+  const formatWaktu = (totalDetik) => {
+    const m = Math.floor(totalDetik / 60).toString().padStart(2, '0');
+    const s = (totalDetik % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  };
+
+  
+
+  const isLastPage = currentIndex === sections.length - 1;
+  const progressPercentage = sections.length > 0 ? Math.round(((currentIndex + 1) / sections.length) * 100) : 0;
+
+
+
+
+
+  const kontenMateriTerisolasi = useMemo(() => {
+    if (sections.length === 0) return null;
+    return (
+      <div className="max-w-4xl mx-auto w-full px-6 py-8 md:px-12 md:py-16 flex-grow flex flex-col">
+        <div className="flex-grow">
+          <div className="text-[var(--color-software-teal)] font-bold text-sm tracking-wider uppercase mb-2">
+            {materiTitle}
+          </div>
+          <MarkdownViewer content={sections[currentIndex]?.content || ""} />
+        </div>
+
+        <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <button
+            onClick={() => {
+              setCurrentIndex(prev => Math.max(0, prev - 1));
+              document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            disabled={currentIndex === 0}
+            className="px-6 py-3 bg-[#1a1a1a] text-white rounded-lg font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-800 border border-gray-700 w-full sm:w-auto transition-colors"
+          >
+            ← Sebelumnya
+          </button>
+
+          {isLastPage ? (
+            <button
+              onClick={() => navigate(`/materi/${id}`)}
+              className="px-8 py-3 bg-[var(--color-software-bright)] text-black font-extrabold rounded-lg hover:bg-[#2de54c] shadow-[0_0_15px_rgba(57,255,90,0.3)] w-full sm:w-auto transition-all"
+            >
+              Selesai Membaca & Kembali
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setCurrentIndex(prev => Math.min(sections.length - 1, prev + 1));
+                document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-8 py-3 bg-[var(--color-software-tosca)] text-black font-bold rounded-lg hover:bg-[#1db88a] shadow-[0_0_15px_rgba(32,201,151,0.2)] w-full sm:w-auto transition-colors"
+            >
+              Selanjutnya →
+            </button>
+          )}
+        </div>
+      </div>
+    );
+  }, [sections, currentIndex, materiTitle, isLastPage, id, navigate]);
+
 
   if (loading) {
     return (
@@ -57,84 +295,79 @@ const EksplorasiPage = () => {
     );
   }
 
-  const isLastPage = currentIndex === sections.length - 1;
-  const progressPercentage = Math.round(((currentIndex + 1) / sections.length) * 100);
 
-  return (
+ 
+
+ return (
     <div className="h-screen w-full flex bg-[#0a0a0a] text-gray-200 overflow-hidden font-sans relative">
 
-      <div className="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar relative">
+     <GerbangSanksi 
+        isOpen={isTerkunci} 
+        onUnlock={() => setIsTerkunci(false)} 
+      />
+
+      {/*  JEDA ISTIRAHAT POMODORO (OVERLAY)  */}
+      {mode === 'FOKUS_POMODORO' && isIstirahat && !isTerkunci && (
+        <div className="fixed inset-0 z-[99998] bg-black flex flex-col items-center justify-center p-4 text-center">
+          <h2 className="text-[#14b8a6] font-extrabold text-3xl mb-4 tracking-widest uppercase animate-pulse">Fase Istirahat</h2>
+          <div className="text-7xl font-mono font-bold text-white mb-6">{formatWaktu(waktuPomodoro)}</div>
+          <p className="text-gray-400 max-w-lg">Layar ini terkunci otomatis untuk melindungi kapasitas kognitif Anda. Regangkan badan dan kembalikan atensi.</p>
+        </div>
+      )}
+
+     
+      <div className="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar scroll-area relative">
         <div className="md:hidden sticky top-0 z-40 bg-[#121212] border-b border-gray-800 p-4 flex justify-between items-center shadow-md">
-          {/* Tombol back mengarah ke Hub */}
-          <Link to={`/materi/${id}`} className="text-[var(--color-software-tosca)] font-bold text-sm">
-            ← Kembali ke Hub
-          </Link>
-          <button
-            onClick={() => setIsSidebarOpen(true)}
-            className="text-white flex items-center gap-2 text-sm font-bold bg-gray-800 px-3 py-1.5 rounded-md"
-          >
-            Daftar Isi ☰
-          </button>
+          <Link to={`/materi/${id}`} className="text-[var(--color-software-tosca)] font-bold text-sm">← Kembali ke Hub</Link>
+          <button onClick={() => setIsSidebarOpen(true)} className="text-white flex items-center gap-2 text-sm font-bold bg-gray-800 px-3 py-1.5 rounded-md">Daftar Isi ☰</button>
         </div>
 
-        <div className="max-w-4xl mx-auto w-full px-6 py-8 md:px-12 md:py-16 flex-grow flex flex-col">
-          <div className="flex-grow">
-            <div className="text-[var(--color-software-teal)] font-bold text-sm tracking-wider uppercase mb-2">
-              {materiTitle}
-            </div>
-            <MarkdownViewer content={sections[currentIndex]?.content || ""} />
-          </div>
+      {/* Indikator Waktu Mengambang (Interaktif & Responsif Mutlak) */}
+       <FloatTimeIndicator 
+       mode={mode}
+          waktuPomodoro={waktuPomodoro}
+          isPomodoroPaused={isPomodoroPaused}
+          onTogglePause={() => setIsPomodoroPaused(!isPomodoroPaused)}
+       />
 
-          <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <button
-              onClick={() => {
-                setCurrentIndex(prev => Math.max(0, prev - 1));
-                document.querySelector('.flex-1.overflow-y-auto').scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              disabled={currentIndex === 0}
-              className="px-6 py-3 bg-[#1a1a1a] text-white rounded-lg font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-800 border border-gray-700 w-full sm:w-auto transition-colors"
-            >
-              ← Sebelumnya
-            </button>
-
-            {isLastPage ? (
-              <button
-                onClick={() => navigate(`/materi/${id}`)}
-                className="px-8 py-3 bg-[var(--color-software-bright)] text-black font-extrabold rounded-lg hover:bg-[#2de54c] shadow-[0_0_15px_rgba(57,255,90,0.3)] w-full sm:w-auto transition-all"
-              >
-                Selesai Membaca & Kembali
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setCurrentIndex(prev => Math.min(sections.length - 1, prev + 1));
-                  document.querySelector('.flex-1.overflow-y-auto').scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="px-8 py-3 bg-[var(--color-software-tosca)] text-black font-bold rounded-lg hover:bg-[#1db88a] shadow-[0_0_15px_rgba(32,201,151,0.2)] w-full sm:w-auto transition-colors"
-              >
-                Selanjutnya →
-              </button>
-            )}
-          </div>
-        </div>
+        {/* Pemasangan Komponen Materi Terisolasi */}
+        {kontenMateriTerisolasi}
       </div>
 
-      <div className={`
-        fixed inset-y-0 right-0 z-50 w-80 bg-[#121212] border-l border-gray-800 flex flex-col transform transition-transform duration-300 ease-in-out
-        ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'} 
-        md:relative md:translate-x-0 flex-shrink-0
-      `}>
+      {/* --- SIDEBAR KANAN --- */}
+      <div className={`fixed inset-y-0 right-0 z-50 w-80 bg-[#121212] border-l border-gray-800 flex flex-col transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'} md:relative md:translate-x-0 flex-shrink-0`}>
         <div className="p-4 border-b border-gray-800 flex justify-between items-center bg-[#0a0a0a]">
-          {/* Tombol back mengarah ke Hub */}
           <Link to={`/materi/${id}`} className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors">
-            <span className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center text-xs">←</span>
-            Module Hub
+            <span className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center text-xs">←</span> Module Hub
           </Link>
-          <button onClick={() => setIsSidebarOpen(false)} className="md:hidden text-gray-400 hover:text-white text-xl">
-            ✕
-          </button>
+          <button onClick={() => setIsSidebarOpen(false)} className="md:hidden text-gray-400 hover:text-white text-xl">✕</button>
+        </div>
+        
+        {/* PANEL KENDALI ATENSI */}
+        <div className="p-4 border-b border-gray-800">
+          <div className="mb-3 flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#14b8a6] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#14b8a6]"></span>
+              </span>
+              <span className="text-[11px] font-extrabold text-[#14b8a6] uppercase tracking-widest drop-shadow-[0_0_8px_rgba(20,184,166,0.6)]">
+                Pilih Mode Fokus
+              </span>
+            </div>
+            <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold border ${mode === 'BIASA' ? 'bg-gray-800/50 text-gray-400 border-gray-700' : mode === 'FOKUS_POMODORO' ? 'bg-[#14b8a6]/10 text-[#14b8a6] border-[#14b8a6]/30' : 'bg-red-900/20 text-red-400 border-red-900/50'}`}>
+              {mode}
+            </span>
+          </div>
+          
+          <div className="flex bg-[#0a0a0a] p-1 rounded border border-gray-800">
+            <button onClick={() => setMode('BIASA')} title="Mode Standar" className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${mode === 'BIASA' ? 'bg-gray-700 text-white shadow-sm' : 'text-gray-500 hover:text-gray-300'}`}>📖</button>
+            <button onClick={() => setMode('FOKUS_POMODORO')} title="Mode Pomodoro" className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${mode === 'FOKUS_POMODORO' ? 'bg-[#14b8a6] text-black shadow-[0_0_8px_rgba(20,184,166,0.4)]' : 'text-gray-500 hover:text-[#14b8a6]'}`}>⏱️</button>
+            <button onClick={() => setMode('ABSOLUT')} title="Mode Kunci Absolut" className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${mode === 'ABSOLUT' ? 'bg-red-600 text-white shadow-[0_0_8px_rgba(220,38,38,0.4)]' : 'text-gray-500 hover:text-red-400'}`}>⚡</button>
+          </div>
         </div>
 
+        {/* PROGRES MEMBACA */}
         <div className="p-5 border-b border-gray-800">
           <div className="flex justify-between text-xs font-bold text-gray-400 mb-2">
             <span>PROGRES MEMBACA</span>
@@ -145,6 +378,7 @@ const EksplorasiPage = () => {
           </div>
         </div>
 
+        {/* SILABUS MATERI */}
         <div className="flex-1 overflow-y-auto py-2 custom-scrollbar">
           <ul className="flex flex-col">
             {sections.map((sec, idx) => {
@@ -156,10 +390,9 @@ const EksplorasiPage = () => {
                     onClick={() => {
                       setCurrentIndex(idx);
                       if (window.innerWidth < 768) setIsSidebarOpen(false);
-                      document.querySelector('.flex-1.overflow-y-auto').scrollTo({ top: 0, behavior: 'smooth' });
+                      document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className={`w-full text-left px-5 py-4 text-sm transition-colors flex justify-between items-center ${isActive ? 'bg-[#1a1a1a] border-l-4 border-[var(--color-software-bright)] text-white font-bold' : 'border-l-4 border-transparent text-gray-400 hover:bg-[#161616] hover:text-gray-200'
-                      }`}
+                    className={`w-full text-left px-5 py-4 text-sm transition-colors flex justify-between items-center ${isActive ? 'bg-[#1a1a1a] border-l-4 border-[var(--color-software-bright)] text-white font-bold' : 'border-l-4 border-transparent text-gray-400 hover:bg-[#161616] hover:text-gray-200'}`}
                   >
                     <span className="flex-grow pr-3 leading-snug">{sec.title}</span>
                     {isPassed && <span className="text-[var(--color-software-teal)] font-bold">✓</span>}
@@ -171,9 +404,7 @@ const EksplorasiPage = () => {
         </div>
       </div>
 
-      {isSidebarOpen && (
-        <div onClick={() => setIsSidebarOpen(false)} className="fixed inset-0 bg-black/60 z-40 md:hidden transition-opacity"></div>
-      )}
+      {isSidebarOpen && <div onClick={() => setIsSidebarOpen(false)} className="fixed inset-0 bg-black/60 z-40 md:hidden transition-opacity"></div>}
     </div>
   );
 };
