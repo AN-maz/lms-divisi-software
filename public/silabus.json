@@ -7,7 +7,12 @@
       {
         "id": 1,
         "title": "Dasar-Dasar HTML",
-        "file": "/materi/pertemuan-1.md"
+        "file": "/materi/pertemuan-1.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       }
     ]
   },
@@ -19,7 +24,12 @@
       {
         "id": 2,
         "title": "Konsep Dasar CSS",
-        "file": "/materi/pertemuan-2.md"
+        "file": "/materi/pertemuan-2.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       }
     ]
   },
@@ -31,12 +41,22 @@
       {
         "id": 3,
         "title": "JavaScript Dasar",
-        "file": "/materi/pertemuan-3-part1.md"
+        "file": "/materi/pertemuan-3-part1.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       },
       {
         "id": 4,
         "title": "JavaScript DOM",
-        "file": "/materi/pertemuan-3-part2.md"
+        "file": "/materi/pertemuan-3-part2.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       }
     ]
   },
@@ -48,37 +68,72 @@
       {
         "id": 5,
         "title": "Pengenalan dan Dasar-Dasar DDL",
-        "file": "/materi/pertemuan-4-m1.md"
+        "file": "/materi/pertemuan-4-m1.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       },
       {
         "id": 6,
         "title": "Data Manipulation Language (DML) & Constraints",
-        "file": "/materi/pertemuan-4-m2.md"
+        "file": "/materi/pertemuan-4-m2.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       },
       {
         "id": 7,
         "title": "Pengambilan Data Dasar & Agregasi (DQL)",
-        "file": "/materi/pertemuan-4-m3.md"
+        "file": "/materi/pertemuan-4-m3.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       },
       {
         "id": 8,
         "title": "Penggabungan Tabel (JOIN) dan Subqueries",
-        "file": "/materi/pertemuan-4-m4.md"
+        "file": "/materi/pertemuan-4-m4.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       },
       {
         "id": 9,
         "title": "Fungsi Bawaan (Built-in) dan Logika Kondisional",
-        "file": "/materi/pertemuan-4-m5.md"
+        "file": "/materi/pertemuan-4-m5.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       },
       {
         "id": 10,
         "title": "Analitik (Window Functions, CTE, dan Views)",
-        "file": "/materi/pertemuan-4-m6.md"
+        "file": "/materi/pertemuan-4-m6.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       },
       {
         "id": 11,
         "title": "Transaksi, Indexing, dan Keamanan Database",
-        "file": "/materi/pertemuan-4-m7.md"
+        "file": "/materi/pertemuan-4-m7.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       }
     ]
   },
@@ -90,12 +145,22 @@
       {
         "id": 12,
         "title": "Konsep Backend & Pembuatan API Sederhana",
-        "file": "/materi/pertemuan-5.md"
+        "file": "/materi/pertemuan-5.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       },
       {
         "id": 13,
         "title": "Build Simple Project Backend",
-        "file": "/materi/pertemuan-5.part2.md"
+        "file": "/materi/pertemuan-5.part2.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
       }
     ]
   },
@@ -125,7 +190,24 @@
       {
         "id": 15,
         "title": "Fetch API: Dari Nol ke Production-Ready",
-        "file": "/materi/pertemuan7.md",
+        "file": "/materi/pertemuan-7.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #1: Kesadaran Organik",
+          "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+          "slug": "kesadaran-organik-per7"
+        }
+      }
+    ]
+  },
+  {
+    "pertemuan": 8,
+    "title": "Pertemuan 8: Pengenalan React Dasar",
+    "description": "Library UI modern untuk membangun antarmuka interaktif berbasis komponen.",
+    "modules": [
+      {
+        "id": 16,
+        "title": "Pengenalan React Dasar",
+        "file": "/materi/pertemuan-8.md",
         "debug_jiwa": {
           "title": "Debugging Jiwa #1: Kesadaran Organik",
           "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",

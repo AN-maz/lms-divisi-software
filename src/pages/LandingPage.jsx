@@ -189,7 +189,7 @@ const LandingPage = () => {
         </div>
 
         <div className="max-w-7xl mx-auto mt-16 pt-6 border-t border-gray-800 flex justify-between items-center relative z-10 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} OXIGEN UTB</p>
+          <p>© {new Date().getFullYear()} <span className="text-[var(--color-software-bright)]">SOFTWARE</span>-OXIGEN UTB</p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="w-10 h-10 rounded bg-gray-900 border border-gray-800 hover:bg-[var(--color-software-tosca)] hover:text-black flex items-center justify-center transition-all"
