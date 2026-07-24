@@ -215,5 +215,22 @@
         }
       }
     ]
+  },
+  {
+    "pertemuan": 9,
+    "title": "Pertemuan 9: React Lanjutan",
+    "description": "Interaktivitas dan Siklus Hidup Komponen",
+    "modules": [
+      {
+        "id": 17,
+        "title": "React Lanjutan: Components LifeCycle",
+        "file": "/materi/pertemuan-9.md"
+      },
+      {
+        "id": 18,
+        "title": "React Lanjutan: Mini Project Personal: Multi Page",
+        "file": "/materi/pertemuan-9-2.md"
+      }
+    ]
   }
 ]
