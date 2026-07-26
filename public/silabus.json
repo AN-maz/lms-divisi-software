@@ -224,12 +224,23 @@
       {
         "id": 17,
         "title": "React Lanjutan: Components LifeCycle",
-        "file": "/materi/pertemuan-9.md"
+        "file": "/materi/pertemuan-9.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #2: Kejujuran Intelektual",
+          "tagline": "Kejujuran adalah awal dari pemahaman.",
+          "slug": "kejujuran-intelektual-per9"
+        }
+        
       },
       {
         "id": 18,
         "title": "React Lanjutan: Mini Project Personal: Multi Page",
-        "file": "/materi/pertemuan-9-2.md"
+        "file": "/materi/pertemuan-9-2.md",
+        "debug_jiwa": {
+          "title": "Debugging Jiwa #2: Kejujuran Intelektual",
+          "tagline": "Kejujuran adalah awal dari pemahaman.",
+          "slug": "kejujuran-intelektual-per9"
+        }
       }
     ]
   }
