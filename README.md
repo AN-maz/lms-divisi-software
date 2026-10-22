@@ -1,8 +1,217 @@
 # PANDUAN LMS divisi SOFTWARE
 
-# 📋 Golden Rules (Sistem Halaman & Daftar Isi)
+# Rules Penulisan Materi
 
-Karena web kita membaca Markdown untuk membuat halaman secara dinamis, aturan nomor satu ini wajib diikuti:
+## Struktur halaman
+
+Setiap halaman Markdown terbuka jadi section unik di sidebar. Layout konsisten di seluruh LMS.
+
+- **Heading 1 (`#`)** → satu halaman + judul di daftar isi. **Setiap halaman wajib punya heading 1**
+- **Heading 2 (`##`) / Heading 3 (`###`)** → sub-bab (wajib pakai saat subdivisi).
+
+### Contoh
+
+✅ Benar (tepat 1 heading per halaman):
+```markdown
+# 1. Pengenalan React
+
+## Komponen Dasar
+
+### Gunakan dengan benar
+```
+
+❌ Salah (heading ekstra memotong halaman):
+```markdown
+# Pengenalan
+
+## Sub Pengenalan ← potong halaman, muncul sebagai route terpisah
+```
+
+## Alur & diagram
+
+Diagram sekarang harus pakai blok kode `mermaid` dengan nama bahasa wajib (tipe lainnya punya marker fixed):
+
+| Marker (di blok kode) | Jenis diagram | Contoh | Bahasa yang didukung |
+|-----------------------|---------------|---------|---------------------|
+| ` ```mermaid` | Horizontal flowchart (node kartu) + panah, responsif (mobile wrap jadi vertikal) | `flowchart LR\n  A["Client"] --> B["Server"]` | `mermaid` atau `flow` |
+| ` ```mermaid` | Vertical flow (title steps, cocok untuk alur langkah panjang) | `flowchart TD\n  A --> B --> C` | `mermaid` atau `flow-vertical` |
+| ` ```compare` | Dua kolom "Sebelum → Sesudah" / "❌ Salah / ✅ Benar" | `❌ Sebelum → ✅ Sesudah` | `compare` |
+| ` ```text` | Struktur folder (tree ASCII) | `folder/\n├── file.js` | `text` |
+
+### Contoh
+
+✅ Benar (horizontal flowchart):
+```mermaid
+flowchart LR
+  A["Client"] -->|Request| B["Server"] --> C["Database"]
+```
+
+✅ Benar (vertikal flow):
+```mermaid
+flowchart TD
+  A["User buka URL"] --> B["Browser kirim HTTP Request ke server"]
+  B --> C["Server kirim balik HTML/CSS/JS"]
+  C --> D["Browser menampilkan halaman"]
+```
+
+✅ Benar (compare):
+```compare
+❌ style.css bertambah terus  → ✅ Tailwind style di HTML
+❌ takut hapus class           → ✅ style ikut hilang otomatis
+```
+
+✅ Benar (tree):
+```text
+project/
+├── src/
+│   └── App.jsx
+└── public/
+    └── index.html
+```
+
+### Larangan (langkah umum)
+
+- Jangan pakai arrow → di paragraf panjang (gunakan blok diagram).
+- Blok kode tanpa bahasa (kecuali tree) **wajib** punya nama bahasa.
+- Jangan mencampur bahasa diagram yang berbeda (misalnya `flowchart TD` + `graph LR` di blok yang sama).
+- Jangan sembunyikan diagram di markdown inline.
+
+## Callout berwarna
+
+Callout sekarang punya 4 tipe (diwakili ikon + warna token tema). Writer's syntax tidak berubah — masih pakai blockquote biasa:
+
+- `> **Catatan:** ...` → Catatan (info netral) → Hijau toska
+- `> **Tips:** ...` → Tips (langkah penting) → Emerald
+- `> **Perhatian:** ...` → Peringatan (hati-hati, penting) → Amber
+- `> **Kenapa ...?**` / `> **Bagaimana ...?**` / `> **Apa itu ...?**` → Tanya-jawab (query) → Violet
+
+### Contoh
+
+> **Catatan:** Konsep ini dasar, cocok untuk pemula.
+
+> **Tips:** Gunakan `emerald-500` untuk aksen.
+
+> **Perhatian:** Jangan gunakan hex kode hardcoded.
+
+> **Kenapa kita pakai Tailwind?** Karena tidak ada file CSS yang terus bertambah.
+
+> **Apa itu Peer-to-Peer?** Topologi jaringan tanpa server pusat.
+
+### Callout biasa
+
+> Blockquote biasa (tanpa awalan) ditampilkan dalam gaya Tosca, cocok untuk kutipan sederhana.
+
+## Kode
+
+Semua blok kode wajib punya nama bahasa yang didukung (untuk SyntaxHighlighter + tombol salin). Bahasa umum:
+
+`javascript`, `html`, `css`, `sql`, `json`, `mermaid`, `flow`, `flow-vertical`, `compare`, `text`
+
+### Contoh
+
+✅ Benar (berwarna + tombol salin):
+```javascript
+async function login() {
+  const res = await fetch('/api/login', { method: 'POST' });
+  return res.json();
+}
+```
+
+✅ Benar (diagram alur):
+```mermaid
+flowchart LR
+  A["Start"] --> B["Process"] --> C["End"]
+```
+
+✅ Benar (tree folder):
+```text
+folder/
+└── file.js
+```
+
+### Larangan
+
+- Blok tanpa bahasa (kecuali tree) tidak dirender.
+- Jangan sembunyikan tombol salin (akan otomatis ada).
+- Jangan pakai bahasa tidak dikenali (akan jadi teks abu-abu biasa).
+
+## Tabel
+
+Tabel dibanding struktur (header sticky, baris bergantian) hanya untuk tabel data perbandingan. Untuk layout data, pakai tabel Markdown standar (header sticky, zebra striping otomatis diterapkan).
+
+### Kapan pakai Tabel vs Compare
+
+- **Tabel**: Saat menampilkan data mentah yang banyak barisnya (misalnya tipe data, properti).
+- **Compare**: Saat membandingkan dua status, sebelum/sesudah, atau pilihan benar/salah.
+
+### Contoh Tabel
+
+| Tipe Data | Keterangan | Contoh |
+|-----------|-------------|--------|
+| String    | Teks biasa  | "Halo" |
+| Number    | Angka       | 42     |
+| Boolean   | Benar/Salah | `true` |
+
+### Contoh Compare
+
+```compare
+❌ style.css bertambah terus    → ✅ Tailwind style di HTML
+❌ takut hapus class            → ✅ style ikut hilang otomatis
+```
+
+## Gambar
+
+Letakkan aset statis di `public/img/`. Namai file PNG/JPG/WEBP dengan deskripsi yang jelas (huruf kecil, gunakan tanda hubung `-` alih-alih spasi). Di Markdown wajib awali path dengan garis miring `/` (relatif ke public).
+
+### Contoh
+
+```markdown
+![Ilustrasi struktur DOM](/img/dom-structure.png)
+```
+
+### Aturan
+
+- File wajib PNG/JPG/WEBP (favicon.ico tidak perlu).
+- Hindari gambar > 300KB untuk halaman mobile.
+- Wajib punya atribut `alt` yang mendeskripsikan gambar.
+
+## Checklist sebelum commit
+
+Sebelum membuat pull request, jalankan:
+
+```bash
+npm run validate   # cek integritas konten
+npm run lint       # ESLint
+npm run build      # build produksi sukses
+npm run aislop     # quality gate (misalnya, AI-SLOP)
+```
+
+### Hasil yang diharapkan
+
+- Semua validasi lolos.
+- Tidak ada error lint.
+- Build berhasil.
+- AI-SLOP scoring 100/100 (atau sesuai standar).
+
+## Anti-pola
+
+| # | Kesalahan umum | Solusi |
+|---|----------------|---------|
+| 1 | Heading 1 (`#`) terlalu sering (paragraf tidak terputus jadi halaman terpisah) | Pastikan heading 1 hanya untuk judul halaman utama, gunakan `##`/`###` untuk subdivisi |
+| 2 | Blok kode tanpa bahasa (mendesain sebagai pseudo-diagram) | Pakai marker ```mermaid / ```compare / ```text yang sesuai |
+| 3 | Callout terlalu banyak awalan (misalnya `> **Note:**`) | Pakai 4 tipe callout (Catatan/Tips/Perhatian/WhatIs) |
+| 4 | Tabel dipakai untuk layout (misalnya grid grid) | Pakai CSS Flexbox/Grid alih-alih Markdown table |
+| 5 | Path gambar relatif tidak mulai dengan `/` | Awali dengan `/img/...` (relative ke `public`) |
+| 6 | Bahasa kuis `correctAnswer` di luar range `options.length` | Periksa indeks (dimulai dari 0) |
+
+---
+
+**Tips editor**: Beberapa editor markdown punya fitur snippet untuk blok Markdown (misalnya `> **Tips:**`). Gunakan untuk membuat callout lebih cepat.
+
+---
+
+Terakhir diperbarui: 2025-10-22
+
 
 1. Pembagian Halaman Menggunakan Heading 1 (# )
    Web memotong file .md menjadi beberapa halaman (Pagination) berdasarkan Heading 1. Setiap kali ada tanda # di awal baris, web akan menganggap itu sebagai Halaman Baru sekaligus Judul di Daftar Isi (Sidebar).

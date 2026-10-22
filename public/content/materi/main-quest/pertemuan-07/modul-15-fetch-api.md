@@ -388,7 +388,7 @@ Kalau kamu pakai Vite atau ingin kode yang rapi dan reusable, gunakan struktur b
 
 ## Struktur Folder
 
-```
+```text
 src/
 └── api/
     ├── client.js      ← request wrapper (buildUrl, getJson, sendJson, timeout, retry)

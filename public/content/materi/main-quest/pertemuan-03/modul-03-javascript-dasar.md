@@ -61,8 +61,9 @@ Awalnya JavaScript belum bernama JavaScript.
 
 Urutannya:
 
-```
-Mocha → LiveScript → JavaScript
+```mermaid
+flowchart LR
+  A["Mocha"] --> B["LiveScript"] --> C["JavaScript"]
 ```
 
 Kenapa akhirnya jadi "JavaScript"?

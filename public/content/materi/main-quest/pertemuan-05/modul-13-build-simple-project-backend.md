@@ -257,7 +257,7 @@ INSERT INTO `products` (`name`, `price`, `category_id`) VALUES
 
 Sekarang kita buat struktur folder yang rapi. Masih di dalam folder `latihan`, buat folder-folder berikut:
 
-```
+```text
 latihan/
 ├── config/              ← Konfigurasi database
 ├── node_modules/        ← Library yang diinstall (otomatis)
@@ -576,7 +576,7 @@ app.listen(PORT, () => {
 
 Pastikan semua file sudah dibuat dengan benar:
 
-```
+```text
 latihan/
 ├── config/
 │   └── database.js

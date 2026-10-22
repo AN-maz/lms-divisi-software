@@ -10,12 +10,14 @@
     "preview": "vite preview",
     "aislop": "aislop scan",
     "aislop:ci": "aislop ci --changes",
-    "validate": "node scripts/validate-content.mjs",
+    "validate": "node scripts/validate-content.mjs && node scripts/validate-mermaid.mjs",
+    "validate-mermaid": "node scripts/validate-mermaid.mjs",
     "migrate:content": "node scripts/migrate-content.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
     "lucide-react": "^1.16.0",
+    "mermaid": "^12.2.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "react-icons": "^5.6.0",

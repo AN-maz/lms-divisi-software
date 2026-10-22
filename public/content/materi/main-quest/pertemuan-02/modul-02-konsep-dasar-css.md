@@ -2461,7 +2461,7 @@ Kamu akan **redesign portfolio website** yang udah dibuat di modul HTML dengan C
 
 ### File Structure:
 
-```
+```text
 portfolio-redesigned/
 ├── index.html
 ├── styles.css

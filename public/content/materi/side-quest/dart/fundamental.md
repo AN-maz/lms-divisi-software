@@ -143,7 +143,7 @@ Ekstensi ini menyediakan fitur seperti syntax highlighting, autocomplete, analis
 
 Buat folder untuk menyimpan latihan Dart, misalnya:
 
-```
+```text
 dart-learning/
 ├── hello.dart
 ```
@@ -427,7 +427,7 @@ Ekstensi `.dart` menunjukkan bahwa file tersebut berisi kode Dart.
 
 Struktur proyek:
 
-```
+```text
 dart-learning/
 └── hello.dart
 ```
@@ -478,9 +478,9 @@ Untuk latihan awal, gunakan `dart run hello.dart` agar terbiasa dengan perintah 
 
 ### Memahami proses menjalankan program
 
-```
-hello.dart  →  perintah `dart run`  →  Dart memproses program  →  output di terminal
-   (kode sumber)                          (menjalankan & memproses)      (hasil program)
+```mermaid
+flowchart LR
+  A["hello.dart\n(kode sumber)"] --> B["dart run\n(menjalankan & memproses)"] --> C["Dart memproses program"] --> D["output di terminal\n(hasil program)"]
 ```
 
 ### Troubleshooting dasar

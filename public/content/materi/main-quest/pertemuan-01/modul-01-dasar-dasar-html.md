@@ -1128,7 +1128,7 @@ Buatlah **Portfolio Website Pribadi** dengan struktur dan fitur berikut:
 - Alert atau console.log kalau ada error
 
 ### File Structure:
-```
+```text
 portfolio-website/
 ├── index.html
 ├── styles.css

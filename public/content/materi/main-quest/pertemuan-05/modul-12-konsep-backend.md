@@ -89,8 +89,9 @@ Contoh:
 
 Ketika pengguna membuka halaman profil Instagram, browser akan meminta data profil kepada server Instagram.
 
-```
-Client → Request → Server
+```mermaid
+flowchart LR
+  A["Client"] -->|Request| B["Server"]
 ```
 
 ---
@@ -104,8 +105,9 @@ Setelah menerima permintaan, server akan melakukan berbagai proses, seperti:
 * Menghubungi layanan lain (microservices).
 * Mengolah data sesuai kebutuhan.
 
-```
-Client → Request → Server → Database
+```mermaid
+flowchart LR
+  A["Client"] -->|Request| B["Server"] --> C["Database"]
 ```
 
 ---
@@ -121,8 +123,9 @@ Contoh data yang dapat dikirim:
 * Saldo rekening.
 * Pesan kesalahan (*error message*).
 
-```
-Client ← Response ← Server
+```mermaid
+flowchart RL
+  A["Client"] <--|Response| B["Server"]
 ```
 
 ---
@@ -183,9 +186,10 @@ HTTP berfungsi sebagai aturan yang mengatur bagaimana data dikirim dan diterima 
 
 Contoh sederhana:
 
-```
-Browser → HTTP Request → Server
-Server → HTTP Response → Browser
+```mermaid
+flowchart LR
+  Browser -->|HTTP Request| Server
+  Server -->|HTTP Response| Browser
 ```
 
 Tanpa HTTP atau protokol jaringan lainnya, client dan server tidak dapat saling berkomunikasi.
@@ -240,10 +244,12 @@ Ketika mengunduh sebuah file:
 * Pengguna mengambil bagian file dari pengguna lain.
 * Pengguna juga membagikan bagian file yang dimilikinya kepada pengguna lain.
 
-```
-Komputer A ↔ Komputer B
-     ↕         ↕
-Komputer C ↔ Komputer D
+```mermaid
+flowchart LR
+  A["Komputer A"] <--> B["Komputer B"]
+  C["Komputer C"] <--> D["Komputer D"]
+  A <--> C
+  B <--> D
 ```
 
 Semua komputer dapat saling bertukar data tanpa bergantung pada satu server pusat.

@@ -37,22 +37,16 @@ Analoginya seperti restoran:
 
 Ketika user membuka website, ini yang terjadi secara berurutan:
 
-```
-User buka URL
-     ↓
-Browser kirim HTTP Request ke server
-     ↓
-Server kirim balik file HTML, CSS, JS
-     ↓
-Browser membaca & menampilkan HTML
-Browser memuat CSS → halaman jadi cantik
-Browser menjalankan JS → halaman jadi interaktif
-     ↓
-JS bisa kirim request lagi ke backend (Fetch API)
-     ↓
-Backend kirim data JSON
-     ↓
-JS tampilkan data ke halaman
+```mermaid
+flowchart TD
+  A["User buka URL"] --> B["Browser kirim HTTP Request ke server"]
+  B --> C["Server kirim balik file HTML, CSS, JS"]
+  C --> D["Browser membaca & menampilkan HTML"]
+  D --> E["Browser memuat CSS → halaman jadi cantik"]
+  D --> F["Browser menjalankan JS → halaman jadi interaktif"]
+  F --> G["JS bisa kirim request lagi ke backend (Fetch API)"]
+  G --> H["Backend kirim data JSON"]
+  H --> I["JS tampilkan data ke halaman"]
 ```
 
 Poin pentingnya: **HTML, CSS, dan JS yang dikirim server itu dijalankan di komputer user (browser)**, bukan di server. Inilah yang membedakan frontend dari backend.
@@ -155,16 +149,12 @@ Vite (dibaca: *vit*, bahasa Prancis artinya "cepat") adalah build tool modern ya
 
 ## Cara Kerja Vite (Sederhana)
 
-```
-Kamu tulis kode (HTML, CSS, JS)
-          ↓
-Vite memantau perubahan file
-          ↓
-Vite menyajikan file lewat dev server lokal
-          ↓
-Browser membuka http://localhost:5173
-          ↓
-Setiap kamu simpan file → browser otomatis refresh
+```mermaid
+flowchart TD
+  A["Kamu tulis kode (HTML, CSS, JS)"] --> B["Vite memantau perubahan file"]
+  B --> C["Vite menyajikan file lewat dev server lokal"]
+  C --> D["Browser membuka http://localhost:5173"]
+  D --> E["Setiap kamu simpan file → browser otomatis refresh"]
 ```
 
 Saat nanti project akan "dipublish", Vite juga bisa mengemas semua file menjadi versi yang dioptimasi dengan perintah `npm run build`. Tapi untuk belajar, kita cukup gunakan mode development-nya saja.
@@ -238,10 +228,9 @@ Ini adalah pertanyaan yang bagus. Untuk project kecil seperti latihan ini, CSS b
 
 Setiap fitur baru → perlu tambah class baru di CSS. Lama-lama file CSS bisa ribuan baris dan susah dikelola.
 
-```
-Bulan 1:  style.css  → 200 baris
-Bulan 3:  style.css  → 800 baris
-Bulan 6:  style.css  → 2000 baris  ← mulai kacau
+```mermaid
+flowchart LR
+  B1["Bulan 1\nstyle.css — 200 baris"] --> B3["Bulan 3\nstyle.css — 800 baris"] --> B6["Bulan 6\nstyle.css — 2000 baris (mulai kacau)"]
 ```
 
 Dengan Tailwind, tidak ada file CSS yang terus bertambah — semua style langsung di HTML.
