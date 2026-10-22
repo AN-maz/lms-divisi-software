@@ -1,27 +1,18 @@
-import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FiBookOpen, FiCheckSquare, FiArrowLeft, FiActivity } from 'react-icons/fi';
 import useProgressStore from '../store/useProgressStore';
+import useDataLoader from '../hooks/useDataLoader';
+import { findModuleById } from '../services/dataService';
 
 const ModuleHubPage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [moduleData, setModuleData] = useState(null);
 
     const completedModules = useProgressStore((state) => state.completedModules);
     const isCompleted = completedModules.includes(parseInt(id));
 
-    useEffect(() => {
-        fetch('/silabus.json')
-            .then(res => res.json())
-            .then(data => {
-                const allModules = data.flatMap(group => group.modules);
-                const currentMateri = allModules.find(m => m.id === parseInt(id));
-                if (currentMateri) {
-                    setModuleData(currentMateri);
-                }
-            });
-    }, [id]);
+    const { data: silabusData } = useDataLoader('silabus');
+    const moduleData = findModuleById(silabusData, id);
 
     if (!moduleData) return (
         <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
@@ -114,7 +105,7 @@ const ModuleHubPage = () => {
    
                         <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center mb-6 group-hover:bg-amber-500/10 transition-colors">
         
-                        <FiActivity className="text-gray-400 group-hover:text-amber-400" size="{28}"/>
+                        <FiActivity className="text-gray-400 group-hover:text-amber-400" size={28} />
                         </div>
 
                         <h2 className="text-2xl font-bold text-white mb-3">Debugging Jiwa</h2>

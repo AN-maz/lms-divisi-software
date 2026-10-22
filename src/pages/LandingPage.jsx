@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaYoutube, FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import useDataLoader from '../hooks/useDataLoader';
 
 const LandingPage = () => {
-  const [mentors, setMentors] = useState([]);
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    fetch('/data/mentors.json')
-      .then(res => res.json())
-      .then(data => setMentors(data))
-      .catch(err => console.error("Gagal memuat data mentor:", err));
+  const { data: mentorsData } = useDataLoader('mentors');
+  const mentors = mentorsData ?? [];
 
+  useEffect(() => {
     const timer = setTimeout(() => setMounted(true), 100);
     return () => clearTimeout(timer);
   }, []);

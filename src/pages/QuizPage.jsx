@@ -1,56 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FiCheck, FiX, FiAward, FiAlertCircle, FiArrowLeft, FiChevronRight, FiChevronLeft, FiGrid } from 'react-icons/fi';
+import { FiCheck, FiAward, FiAlertCircle, FiArrowLeft, FiChevronRight, FiChevronLeft, FiGrid } from 'react-icons/fi';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import useProgressStore from '../store/useProgressStore';
+import useDataLoader from '../hooks/useDataLoader';
+import { shuffleArray, calculateQuizScore } from '../utils';
 
-// Algoritma Fisher-Yates untuk mengacak urutan array
-const shuffleArray = (array) => {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-};
+const NILAI_LULUS = 70;
 
 const QuizPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  
-  const [questions, setQuestions] = useState([]);
+
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [result, setResult] = useState({ score: 0, correct: 0, wrong: 0 });
-  const [passed, setPassed] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [noQuizFound, setNoQuizFound] = useState(false);
 
   const markAsCompleted = useProgressStore((state) => state.markAsCompleted);
 
-  useEffect(() => {
-    setLoading(true);
-    fetch('/data/quizzes.json')
-      .then(res => res.json())
-      .then(data => {
-        if (data[id] && data[id].length > 0) {
-          // PERBAIKAN: Acak soal sebelum dimasukkan ke dalam state
-          const randomizedQuestions = shuffleArray(data[id]);
-          setQuestions(randomizedQuestions);
-          setNoQuizFound(false);
-        } else {
-          setNoQuizFound(true);
-        }
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Gagal memuat kuis:", err);
-        setNoQuizFound(true);
-        setLoading(false);
-      });
-  }, [id]);
+  const { data: quizData, loading, error } = useDataLoader('quizzes');
+
+  // Soal diacak (Fisher-Yates) sekali per modul, urutan tidak berubah saat render ulang
+  const questions = useMemo(() => {
+    const list = quizData?.[id];
+    return Array.isArray(list) && list.length > 0 ? shuffleArray(list) : [];
+  }, [quizData, id]);
+
+  const noQuizFound = !loading && !error && questions.length === 0;
+  const passed = result.score >= NILAI_LULUS;
 
   const handleSelect = (optionIdx) => {
     const currentQId = questions[currentQuestionIndex].id;
@@ -58,30 +37,26 @@ const QuizPage = () => {
   };
 
   const handleSubmit = () => {
-    let correctCount = 0;
-    let wrongCount = 0;
-
-    questions.forEach(q => {
-      if (selectedAnswers[q.id] === q.correctAnswer) {
-        correctCount++;
-      } else {
-        wrongCount++;
-      }
-    });
-
-    const finalScore = Math.round((correctCount / questions.length) * 100);
-    setResult({ score: finalScore, correct: correctCount, wrong: wrongCount });
+    const hasil = calculateQuizScore(questions, selectedAnswers);
+    setResult(hasil);
     setIsSubmitted(true);
 
-    if (finalScore >= 70) {
-      setPassed(true);
-      markAsCompleted(parseInt(id)); 
-    } else {
-      setPassed(false);
+    if (hasil.score >= NILAI_LULUS) {
+      markAsCompleted(parseInt(id));
     }
   };
 
   if (loading) return <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center animate-pulse text-[var(--color-software-bright)] font-bold">Inisialisasi Sistem Evaluasi...</div>;
+
+  if (error) return (
+    <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center p-6">
+      <div className="max-w-xl text-center bg-[#121212] p-10 rounded-3xl border border-gray-800 shadow-2xl">
+        <h1 className="text-3xl font-black text-red-400 mb-4">Gagal Memuat Kuis</h1>
+        <p className="text-gray-400 mb-8">{error.message}</p>
+        <button onClick={() => navigate('/materi')} className="w-full py-4 bg-[var(--color-software-bright)] text-black font-black rounded-xl">Kembali ke Peta Belajar</button>
+      </div>
+    </div>
+  );
 
   if (noQuizFound) return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center p-6">

@@ -225,11 +225,24 @@
         "id": 17,
         "title": "React Lanjutan: Components LifeCycle",
         "file": "/materi/pertemuan-9.md"
+        
       },
       {
         "id": 18,
         "title": "React Lanjutan: Mini Project Personal: Multi Page",
         "file": "/materi/pertemuan-9-2.md"
+      }
+    ]
+  },
+   {
+    "pertemuan": 10,
+    "title": "Pertemuan 10: React Intermediate",
+    "description": "Mulai berkomunikasi dengan servers",
+    "modules":[
+      {
+        "id":19,
+        "title": "React dan Integrasi Backend",
+        "file": "/materi/pertemuan-10.md"
       }
     ]
   }

@@ -26,13 +26,17 @@ const GerbangSanksi = ({ isOpen, onUnlock }) => {
 
   // Siklus Hidup: Hasilkan soal baru setiap kali gerbang terbuka
   useEffect(() => {
-    if (isOpen) {
+    if (!isOpen) return undefined;
+
+    // Dijalankan di frame berikutnya agar setState tidak terjadi sinkron
+    // di dalam body effect (men memicu cascading render).
+    const frameId = requestAnimationFrame(() => {
       generateKuisMath();
       // Fokuskan kursor secara otomatis untuk ergonomi maksimal
-      setTimeout(() => {
-        if (inputRef.current) inputRef.current.focus();
-      }, 50);
-    }
+      if (inputRef.current) inputRef.current.focus();
+    });
+
+    return () => cancelAnimationFrame(frameId);
   }, [isOpen]);
 
   

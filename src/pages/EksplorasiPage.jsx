@@ -3,46 +3,114 @@ import { useParams, useNavigate, Link, useSearchParams } from 'react-router-dom'
 import MarkdownViewer from '../components/MarkdownViewer';
 import GerbangSanksi from '../components/GerbangSanksi';
 import FloatTimeIndicator from '../components/FloatTimeIndicator';
+import useDataLoader from '../hooks/useDataLoader';
+import { findModuleById } from '../services/dataService';
 
+const WAKTU_FOKUS = 1500; // 25 Menit
+const WAKTU_JEDA = 300;   // 5 Menit
+
+const MODE_BIASA = 'BIASA';
+const MODE_POMODORO = 'FOKUS_POMODORO';
+const MODE_ABSOLUT = 'ABSOLUT';
+
+const formatWaktu = (totalDetik) => {
+  const m = Math.floor(totalDetik / 60).toString().padStart(2, '0');
+  const s = (totalDetik % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+};
+
+// Membaca file .md lalu memecahnya menjadi beberapa section berdasarkan Heading 1
+const parseMateriMarkdown = (text) => {
+  if (text.trim().startsWith('<!doctype html>') || text.includes('id="root"')) {
+    throw new Error(
+      'Mismatch Data: Berkas fisik .md tidak ditemukan. Nama di silabus.json dan folder public berbeda!'
+    );
+  }
+
+  return text
+    .split(/(?=^#\s)/m)
+    .filter((s) => s.trim() !== '')
+    .map((sec) => {
+      const lines = sec.trim().split('\n');
+      return { title: lines[0].replace(/^#+\s/, ''), content: sec };
+    });
+};
 
 const EksplorasiPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isDebugView = searchParams.get('view') === 'debug';
 
-  const [materiTitle, setMateriTitle] = useState("");
+  // ---------- State Materi ----------
+  const [materiTitle, setMateriTitle] = useState('');
   const [sections, setSections] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [searchParams] = useSearchParams();
-  const isDebugView = searchParams.get('view') === 'debug'; // <-- Bernilai TRUE jika URL mengandung ?view=debug
-  
-  
 
- const [mode, setMode] = useState(() => {
-    return localStorage.getItem('lms_fokus_mode') || 'BIASA';
-  });
-  
-  // Memori Mesin 1: Biasa
-  const [waktuBiasa, setWaktuBiasa] = useState(0);
-
-  // Memori Mesin 2: Pomodoro
-  const WAKTU_FOKUS = 1500; // 25 Menit
-  const WAKTU_JEDA = 300;   // 5 Menit
-  const [waktuPomodoro, setWaktuPomodoro] = useState(WAKTU_FOKUS);
-  const [isIstirahat, setIsIstirahat] = useState(false);
-
+  // ---------- Mode Fokus ----------
+  const [mode, setMode] = useState(() => localStorage.getItem('lms_fokus_mode') || MODE_BIASA);
+  const [pomodoro, setPomodoro] = useState({ sisa: WAKTU_FOKUS, istirahat: false });
   const [isPomodoroPaused, setIsPomodoroPaused] = useState(false);
-  const [isTerkunci, setIsTerkunci] = useState(() => {
-    return localStorage.getItem('lms_sanksi_absolut') === 'true';
-  });
+  const [isTerkunci, setIsTerkunci] = useState(
+    () => localStorage.getItem('lms_sanksi_absolut') === 'true'
+  );
 
+  // ---------- Pengambilan Data ----------
+  const { data: silabusData, loading: loadingSilabus } = useDataLoader('silabus');
 
+  // Menentukan sumber materi: normal (teknis) atau debug (jiwa)
+  const materiSource = useMemo(() => {
+    if (!silabusData) return { status: 'loading' };
 
+    const currentMateri = findModuleById(silabusData, id);
+    if (!currentMateri) return { status: 'notfound' };
 
+    if (isDebugView) {
+      return {
+        status: 'ok',
+        title: currentMateri.debug_jiwa?.title || 'Debugging Jiwa #1: Kesadaran Organik',
+        file: `/materi/${currentMateri.debug_jiwa?.slug || 'kesadaran-organik'}.md`,
+      };
+    }
 
-  //  MESIN SINKRONISASI MEMORI PERMANEN
-  // Setiap mode berubah, ukir di hard disk browser
+    return { status: 'ok', title: currentMateri.title, file: currentMateri.file };
+  }, [silabusData, id, isDebugView]);
+
+  // Memuat isi file .md tiap kali sumber materi berubah
+  useEffect(() => {
+    if (materiSource.status !== 'ok') return undefined;
+
+    let cancelled = false;
+
+    fetch(materiSource.file)
+      .then((res) => {
+        if (!res.ok) throw new Error('Koneksi ke peladen statis terputus.');
+        return res.text();
+      })
+      .then((text) => {
+        if (cancelled) return;
+        const parsed = parseMateriMarkdown(text);
+        setMateriTitle(materiSource.title);
+        setSections(parsed);
+        setCurrentIndex(0);
+        setError(null);
+      })
+      .catch((err) => {
+        if (cancelled) return;
+        console.error(err);
+        setError(err);
+        setSections([{ title: 'Error', content: '## ⚠️ Maaf, berkas materi gagal dimuat.' }]);
+        setCurrentIndex(0);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [materiSource]);
+
+  // ---------- Sinkronisasi Memori Permanen ----------
   useEffect(() => {
     localStorage.setItem('lms_fokus_mode', mode);
   }, [mode]);
@@ -51,298 +119,216 @@ const EksplorasiPage = () => {
     localStorage.setItem('lms_sanksi_absolut', isTerkunci);
   }, [isTerkunci]);
 
- 
-  
- // PEMUATAN DATA MATERI 
+  // ---------- Reaktor Waktu (Pomodoro) ----------
   useEffect(() => {
-    setLoading(true);
-    fetch('/silabus.json')
-      .then(res => res.json())
-      .then(data => {
-        const allModules = data.flatMap(group => group.modules);
-        const currentMateri = allModules.find(m => m.id === parseInt(id, 10));
-        
-        if (currentMateri) {
-          // Jika URL menghendaki view=debug, KUNCI rute ke materi jiwa
-          if (isDebugView) {
-           
-            // gunakan operator nullish coalescing (?.) dan OR (||) untuk memberikan data fallback otomatis.
-            // Tanpa perlu edit JSON satu-satu, semua ID sekarang aman terarah ke kesadaran-organik!
-            const judulMateri = currentMateri.debug_jiwa?.title || "Debugging Jiwa #1: Kesadaran Organik";
-            const fileSlug = currentMateri.debug_jiwa?.slug || "kesadaran-organik";
-            
-            setMateriTitle(judulMateri);
-            return fetch(`/materi/${fileSlug}.md`);
-          } else {
-            // Jalur Normal untuk Eksplorasi Teknis
-            setMateriTitle(currentMateri.title);
-            return fetch(currentMateri.file);
-          }
-        } else {
-          throw new Error("Materi tidak ditemukan");
-        }
-      })
-      .then(res => {
-        if (!res.ok) throw new Error("Koneksi ke peladen statis terputus.");
-        return res.text();
-      })
-      .then(text => {
-       
-        if (text.trim().startsWith('<!doctype html>') || text.includes('id="root"')) {
-          throw new Error("Mismatch Data: Berkas fisik .md tidak ditemukan. Nama di silabus.json dan folder public berbeda!");
-        }
+    if (mode !== MODE_POMODORO || isPomodoroPaused) return undefined;
 
-     
-        const rawSections = text.split(/(?=^#\s)/m).filter(s => s.trim() !== '');
-        const parsedSections = rawSections.map((sec) => {
-          const lines = sec.trim().split('\n');
-          const titleLine = lines[0].replace(/^#+\s/, '');
-          return { title: titleLine, content: sec };
-        });
-
-        setSections(parsedSections);
-        setCurrentIndex(0);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error(err);
-        
-        setSections([{ 
-          title: "Error", content: "## ⚠️ Maaf, berkas materi gagal dimuat." 
-        }]);
-        setLoading(false);
+    const timer = setInterval(() => {
+      // Transisi fase otomatis ditangani di dalam updater (pola state tunggal)
+      setPomodoro((prev) => {
+        if (prev.sisa > 0) return { ...prev, sisa: prev.sisa - 1 };
+        return prev.istirahat
+          ? { sisa: WAKTU_FOKUS, istirahat: false }
+          : { sisa: WAKTU_JEDA, istirahat: true };
       });
-  }, [id, isDebugView]);
+    }, 1000);
 
+    return () => clearInterval(timer);
+  }, [mode, isPomodoroPaused]);
 
-
-  // REAKTOR WAKTU 
- 
-
-  // Reaktor Waktu Biasa (Mode Standar)
-  useEffect(() => {
-    let interval = null;
-    if (mode === 'BIASA') {
-      interval = setInterval(() => {
-        setWaktuBiasa((prev) => prev + 1);
-      }, 1000);
-    } else {
-      setWaktuBiasa(0);
-    }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [mode]);
-
-  
-  // Tidak ada penghilangan interval setiap detik!
-  useEffect(() => {
-    let timer = null;
-
-    if (mode === 'FOKUS_POMODORO' && !isPomodoroPaused) {
-      timer = setInterval(() => {
-       
-        // agar kita tidak membutuhkan bantuan dependency array dari luar.
-        setWaktuPomodoro((prev) => (prev > 0 ? prev - 1 : 0));
-      }, 1000);
-    }
-
-  
-    // Interval hilang HANYA ketika subjek menekan tombol Jeda atau ganti mode.
-    return () => {
-      if (timer) clearInterval(timer);
-    };
-  }, [mode, isPomodoroPaused]); 
-
-  // : Pengawas Transisi & Pembersih Residu (The Supervisor)
-  useEffect(() => {
-    // 1. Pemusnahan Residu Paksa saat subjek melarikan diri dari Mode Pomodoro
-    if (mode !== 'FOKUS_POMODORO') {
-      setWaktuPomodoro(WAKTU_FOKUS);
-      setIsIstirahat(false);
-      setIsPomodoroPaused(false);
-    } 
-    //  Transisi Fase Otomatis saat waktu tepat mencapai 0
-    else if (waktuPomodoro === 0) {
-      if (!isIstirahat) {
-        setIsIstirahat(true);
-        setWaktuPomodoro(WAKTU_JEDA); // Masuk fase istirahat (5 menit)
-      } else {
-        setIsIstirahat(false);
-        setWaktuPomodoro(WAKTU_FOKUS); // Kembali ke fase fokus (25 menit)
-      }
-    }
-  }, [mode, waktuPomodoro, isIstirahat, WAKTU_FOKUS, WAKTU_JEDA]);
-
-
-  // SENSOR KEYBOARD (NAVIGASI KOGNITIF INPUT PANAH)
- 
+  // ---------- Sensor Keyboard (Navigasi Section) ----------
   useEffect(() => {
     const tanganiKetukanKeyboard = (event) => {
-    
-      
       if (isTerkunci) return;
 
-    
-      if (event.key === 'ArrowRight') {
-        if (currentIndex < sections.length - 1) {
-          event.preventDefault(); // Mencegah browser melakukan scrolling bawaan halaman
-          setCurrentIndex((prev) => prev + 1);
-          
-         
-          document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      } 
-     
-      else if (event.key === 'ArrowLeft') {
-        if (currentIndex > 0) {
-          event.preventDefault(); // Mencegah browser melakukan scrolling bawaan halaman
-          setCurrentIndex((prev) => prev - 1);
-      
-         
-          document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+      if (event.key === 'ArrowRight' && currentIndex < sections.length - 1) {
+        event.preventDefault();
+        setCurrentIndex((prev) => prev + 1);
+        document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (event.key === 'ArrowLeft' && currentIndex > 0) {
+        event.preventDefault();
+        setCurrentIndex((prev) => prev - 1);
+        document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
       }
     };
-  
+
     window.addEventListener('keydown', tanganiKetukanKeyboard);
-    return () => {
-      window.removeEventListener('keydown', tanganiKetukanKeyboard);
-    };
-  }, [currentIndex, sections.length, isTerkunci]); 
+    return () => window.removeEventListener('keydown', tanganiKetukanKeyboard);
+  }, [currentIndex, sections.length, isTerkunci]);
 
-
-  // Sensor Alt+Tab (Mode Absolut)
+  // ---------- Sensor Alt+Tab (Mode Absolut) ----------
   useEffect(() => {
     const handleKehilanganFokus = () => {
-      if (mode === 'ABSOLUT' && !isTerkunci) {
-        setIsTerkunci(true); 
+      if (mode === MODE_ABSOLUT && !isTerkunci) {
+        setIsTerkunci(true);
       }
     };
     window.addEventListener('blur', handleKehilanganFokus);
     return () => window.removeEventListener('blur', handleKehilanganFokus);
   }, [mode, isTerkunci]);
 
- 
-
-  const formatWaktu = (totalDetik) => {
-    const m = Math.floor(totalDetik / 60).toString().padStart(2, '0');
-    const s = (totalDetik % 60).toString().padStart(2, '0');
-    return `${m}:${s}`;
+  // ---------- Handler ----------
+  const gantiMode = (modeBaru) => {
+    setMode(modeBaru);
+    // Pemusnahan residu Pomodoro dilakukan saat mode diganti, bukan di dalam effect
+    if (modeBaru !== MODE_POMODORO) {
+      setPomodoro({ sisa: WAKTU_FOKUS, istirahat: false });
+      setIsPomodoroPaused(false);
+    }
   };
 
-  
+  const gotoSection = (idx) => {
+    setCurrentIndex(idx);
+    if (window.innerWidth < 768) setIsSidebarOpen(false);
+    document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const isLastPage = currentIndex === sections.length - 1;
-  const progressPercentage = sections.length > 0 ? Math.round(((currentIndex + 1) / sections.length) * 100) : 0;
+  const progressPercentage =
+    sections.length > 0 ? Math.round(((currentIndex + 1) / sections.length) * 100) : 0;
 
-
-
-
-
-  const kontenMateriTerisolasi = useMemo(() => {
-    if (sections.length === 0) return null;
-    return (
-      <div className="max-w-4xl mx-auto w-full px-6 py-8 md:px-12 md:py-16 flex-grow flex flex-col">
-        <div className="flex-grow">
-          <div className="text-[var(--color-software-teal)] font-bold text-sm tracking-wider uppercase mb-2">
-            {materiTitle}
-          </div>
-          <MarkdownViewer content={sections[currentIndex]?.content || ""} />
-        </div>
-
-        <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <button
-            onClick={() => {
-              setCurrentIndex(prev => Math.max(0, prev - 1));
-              document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            disabled={currentIndex === 0}
-            className="px-6 py-3 bg-[#1a1a1a] text-white rounded-lg font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-800 border border-gray-700 w-full sm:w-auto transition-colors"
-          >
-            ← Sebelumnya
-          </button>
-
-          {isLastPage ? (
-            <button
-              onClick={() => navigate(`/materi/${id}`)}
-              className="px-8 py-3 bg-[var(--color-software-bright)] text-black font-extrabold rounded-lg hover:bg-[#2de54c] shadow-[0_0_15px_rgba(57,255,90,0.3)] w-full sm:w-auto transition-all"
-            >
-              Selesai Membaca & Kembali
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                setCurrentIndex(prev => Math.min(sections.length - 1, prev + 1));
-                document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="px-8 py-3 bg-[var(--color-software-tosca)] text-black font-bold rounded-lg hover:bg-[#1db88a] shadow-[0_0_15px_rgba(32,201,151,0.2)] w-full sm:w-auto transition-colors"
-            >
-              Selanjutnya →
-            </button>
-          )}
-        </div>
-      </div>
-    );
-  }, [sections, currentIndex, materiTitle, isLastPage, id, navigate]);
-
-
-  if (loading) {
+  // ---------- Render ----------
+  if (loadingSilabus || materiSource.status === 'loading') {
     return (
       <div className="h-screen w-full flex items-center justify-center bg-[#0a0a0a]">
-        <div className="animate-pulse text-2xl font-bold text-[var(--color-software-bright)]">Memuat Codex...</div>
+        <div className="animate-pulse text-2xl font-bold text-[var(--color-software-bright)]">
+          Memuat Codex...
+        </div>
       </div>
     );
   }
 
+  if (materiSource.status === 'notfound') {
+    return (
+      <div className="h-screen w-full flex items-center justify-center bg-[#0a0a0a] px-6">
+        <div className="max-w-md text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
+          <h1 className="text-2xl font-black text-[var(--color-software-tosca)] mb-3">
+            Materi Tidak Ditemukan
+          </h1>
+          <p className="text-gray-400 text-sm mb-6">
+            Modul dengan ID <span className="text-white font-bold">{id}</span> tidak tersedia.
+          </p>
+          <Link
+            to="/materi"
+            className="inline-block w-full py-3 bg-[var(--color-software-bright)] text-black font-black rounded-xl"
+          >
+            Kembali ke Peta Belajar
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
- 
-
- return (
+  return (
     <div className="h-screen w-full flex bg-[#0a0a0a] text-gray-200 overflow-hidden font-sans relative">
+      <GerbangSanksi isOpen={isTerkunci} onUnlock={() => setIsTerkunci(false)} />
 
-     <GerbangSanksi 
-        isOpen={isTerkunci} 
-        onUnlock={() => setIsTerkunci(false)} 
-      />
-
-      {/*  JEDA ISTIRAHAT POMODORO (OVERLAY)  */}
-      {mode === 'FOKUS_POMODORO' && isIstirahat && !isTerkunci && (
+      {/* Jeda Istirahat Pomodoro (Overlay) */}
+      {mode === MODE_POMODORO && pomodoro.istirahat && !isTerkunci && (
         <div className="fixed inset-0 z-[99998] bg-black flex flex-col items-center justify-center p-4 text-center">
-          <h2 className="text-[#14b8a6] font-extrabold text-3xl mb-4 tracking-widest uppercase animate-pulse">Fase Istirahat</h2>
-          <div className="text-7xl font-mono font-bold text-white mb-6">{formatWaktu(waktuPomodoro)}</div>
-          <p className="text-gray-400 max-w-lg">Layar ini terkunci otomatis untuk melindungi kapasitas kognitif Anda. Regangkan badan dan kembalikan atensi.</p>
+          <h2 className="text-[#14b8a6] font-extrabold text-3xl mb-4 tracking-widest uppercase animate-pulse">
+            Fase Istirahat
+          </h2>
+          <div className="text-7xl font-mono font-bold text-white mb-6">
+            {formatWaktu(pomodoro.sisa)}
+          </div>
+          <p className="text-gray-400 max-w-lg">
+            Layar ini terkunci otomatis untuk melindungi kapasitas kognitif Anda. Regangkan badan dan
+            kembalikan atensi.
+          </p>
         </div>
       )}
 
-     
       <div className="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar scroll-area relative">
         <div className="md:hidden sticky top-0 z-40 bg-[#121212] border-b border-gray-800 p-4 flex justify-between items-center shadow-md">
-          <Link to={`/materi/${id}`} className="text-[var(--color-software-tosca)] font-bold text-sm">← Kembali ke Hub</Link>
-          <button onClick={() => setIsSidebarOpen(true)} className="text-white flex items-center gap-2 text-sm font-bold bg-gray-800 px-3 py-1.5 rounded-md">Daftar Isi ☰</button>
+          <Link
+            to={`/materi/${id}`}
+            className="text-[var(--color-software-tosca)] font-bold text-sm"
+          >
+            ← Kembali ke Hub
+          </Link>
+          <button
+            onClick={() => setIsSidebarOpen(true)}
+            className="text-white flex items-center gap-2 text-sm font-bold bg-gray-800 px-3 py-1.5 rounded-md"
+          >
+            Daftar Isi ☰
+          </button>
         </div>
 
-      {/* Indikator Waktu Mengambang (Interaktif & Responsif Mutlak) */}
-       <FloatTimeIndicator 
-       mode={mode}
-          waktuPomodoro={waktuPomodoro}
+        <FloatTimeIndicator
+          mode={mode}
+          waktuPomodoro={pomodoro.sisa}
           isPomodoroPaused={isPomodoroPaused}
-          onTogglePause={() => setIsPomodoroPaused(!isPomodoroPaused)}
-       />
+          onTogglePause={() => setIsPomodoroPaused((prev) => !prev)}
+        />
 
-        {/* Pemasangan Komponen Materi Terisolasi */}
-        {kontenMateriTerisolasi}
+        {/* Konten Materi */}
+        <div className="max-w-4xl mx-auto w-full px-6 py-8 md:px-12 md:py-16 flex-grow flex flex-col">
+          {error && (
+            <div className="mb-6 rounded-xl border border-red-700 bg-red-950/40 px-4 py-3 text-sm text-red-300">
+              {error.message}
+            </div>
+          )}
+
+          <div className="flex-grow">
+            <div className="text-[var(--color-software-teal)] font-bold text-sm tracking-wider uppercase mb-2">
+              {materiTitle}
+            </div>
+            <MarkdownViewer content={sections[currentIndex]?.content || ''} />
+          </div>
+
+          <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <button
+              onClick={() => gotoSection(Math.max(0, currentIndex - 1))}
+              disabled={currentIndex === 0}
+              className="px-6 py-3 bg-[#1a1a1a] text-white rounded-lg font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-800 border border-gray-700 w-full sm:w-auto transition-colors"
+            >
+              ← Sebelumnya
+            </button>
+
+            {isLastPage ? (
+              <button
+                onClick={() => navigate(`/materi/${id}`)}
+                className="px-8 py-3 bg-[var(--color-software-bright)] text-black font-extrabold rounded-lg hover:bg-[#2de54c] shadow-[0_0_15px_rgba(57,255,90,0.3)] w-full sm:w-auto transition-all"
+              >
+                Selesai Membaca & Kembali
+              </button>
+            ) : (
+              <button
+                onClick={() => gotoSection(Math.min(sections.length - 1, currentIndex + 1))}
+                className="px-8 py-3 bg-[var(--color-software-tosca)] text-black font-bold rounded-lg hover:bg-[#1db88a] shadow-[0_0_15px_rgba(32,201,151,0.2)] w-full sm:w-auto transition-colors"
+              >
+                Selanjutnya →
+              </button>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* --- SIDEBAR KANAN --- */}
-      <div className={`fixed inset-y-0 right-0 z-50 w-80 bg-[#121212] border-l border-gray-800 flex flex-col transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'} md:relative md:translate-x-0 flex-shrink-0`}>
+      <div
+        className={`fixed inset-y-0 right-0 z-50 w-80 bg-[#121212] border-l border-gray-800 flex flex-col transform transition-transform duration-300 ease-in-out ${
+          isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
+        } md:relative md:translate-x-0 flex-shrink-0`}
+      >
         <div className="p-4 border-b border-gray-800 flex justify-between items-center bg-[#0a0a0a]">
-          <Link to={`/materi/${id}`} className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors">
-            <span className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center text-xs">←</span> Module Hub
+          <Link
+            to={`/materi/${id}`}
+            className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors"
+          >
+            <span className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center text-xs">
+              ←
+            </span>
+            Module Hub
           </Link>
-          <button onClick={() => setIsSidebarOpen(false)} className="md:hidden text-gray-400 hover:text-white text-xl">✕</button>
+          <button
+            onClick={() => setIsSidebarOpen(false)}
+            className="md:hidden text-gray-400 hover:text-white text-xl"
+          >
+            ✕
+          </button>
         </div>
-        
+
         {/* PANEL KENDALI ATENSI */}
         <div className="p-4 border-b border-gray-800">
           <div className="mb-3 flex justify-between items-center">
@@ -355,15 +341,53 @@ const EksplorasiPage = () => {
                 Pilih Mode Fokus
               </span>
             </div>
-            <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold border ${mode === 'BIASA' ? 'bg-gray-800/50 text-gray-400 border-gray-700' : mode === 'FOKUS_POMODORO' ? 'bg-[#14b8a6]/10 text-[#14b8a6] border-[#14b8a6]/30' : 'bg-red-900/20 text-red-400 border-red-900/50'}`}>
+            <span
+              className={`text-[9px] px-1.5 py-0.5 rounded font-bold border ${
+                mode === MODE_BIASA
+                  ? 'bg-gray-800/50 text-gray-400 border-gray-700'
+                  : mode === MODE_POMODORO
+                    ? 'bg-[#14b8a6]/10 text-[#14b8a6] border-[#14b8a6]/30'
+                    : 'bg-red-900/20 text-red-400 border-red-900/50'
+              }`}
+            >
               {mode}
             </span>
           </div>
-          
+
           <div className="flex bg-[#0a0a0a] p-1 rounded border border-gray-800">
-            <button onClick={() => setMode('BIASA')} title="Mode Standar" className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${mode === 'BIASA' ? 'bg-gray-700 text-white shadow-sm' : 'text-gray-500 hover:text-gray-300'}`}>📖</button>
-            <button onClick={() => setMode('FOKUS_POMODORO')} title="Mode Pomodoro" className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${mode === 'FOKUS_POMODORO' ? 'bg-[#14b8a6] text-black shadow-[0_0_8px_rgba(20,184,166,0.4)]' : 'text-gray-500 hover:text-[#14b8a6]'}`}>⏱️</button>
-            <button onClick={() => setMode('ABSOLUT')} title="Mode Kunci Absolut" className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${mode === 'ABSOLUT' ? 'bg-red-600 text-white shadow-[0_0_8px_rgba(220,38,38,0.4)]' : 'text-gray-500 hover:text-red-400'}`}>⚡</button>
+            <button
+              onClick={() => gantiMode(MODE_BIASA)}
+              title="Mode Standar"
+              className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${
+                mode === MODE_BIASA
+                  ? 'bg-gray-700 text-white shadow-sm'
+                  : 'text-gray-500 hover:text-gray-300'
+              }`}
+            >
+              📖
+            </button>
+            <button
+              onClick={() => gantiMode(MODE_POMODORO)}
+              title="Mode Pomodoro"
+              className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${
+                mode === MODE_POMODORO
+                  ? 'bg-[#14b8a6] text-black shadow-[0_0_8px_rgba(20,184,166,0.4)]'
+                  : 'text-gray-500 hover:text-[#14b8a6]'
+              }`}
+            >
+              ⏱️
+            </button>
+            <button
+              onClick={() => gantiMode(MODE_ABSOLUT)}
+              title="Mode Kunci Absolut"
+              className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${
+                mode === MODE_ABSOLUT
+                  ? 'bg-red-600 text-white shadow-[0_0_8px_rgba(220,38,38,0.4)]'
+                  : 'text-gray-500 hover:text-red-400'
+              }`}
+            >
+              ⚡
+            </button>
           </div>
         </div>
 
@@ -374,7 +398,10 @@ const EksplorasiPage = () => {
             <span className="text-[var(--color-software-tosca)]">{progressPercentage}%</span>
           </div>
           <div className="h-1.5 w-full bg-gray-800 rounded-full overflow-hidden">
-            <div className="h-full bg-[var(--color-software-tosca)] transition-all duration-500 ease-out" style={{ width: `${progressPercentage}%` }}></div>
+            <div
+              className="h-full bg-[var(--color-software-tosca)] transition-all duration-500 ease-out"
+              style={{ width: `${progressPercentage}%` }}
+            ></div>
           </div>
         </div>
 
@@ -387,12 +414,12 @@ const EksplorasiPage = () => {
               return (
                 <li key={idx}>
                   <button
-                    onClick={() => {
-                      setCurrentIndex(idx);
-                      if (window.innerWidth < 768) setIsSidebarOpen(false);
-                      document.querySelector('.scroll-area')?.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className={`w-full text-left px-5 py-4 text-sm transition-colors flex justify-between items-center ${isActive ? 'bg-[#1a1a1a] border-l-4 border-[var(--color-software-bright)] text-white font-bold' : 'border-l-4 border-transparent text-gray-400 hover:bg-[#161616] hover:text-gray-200'}`}
+                    onClick={() => gotoSection(idx)}
+                    className={`w-full text-left px-5 py-4 text-sm transition-colors flex justify-between items-center ${
+                      isActive
+                        ? 'bg-[#1a1a1a] border-l-4 border-[var(--color-software-bright)] text-white font-bold'
+                        : 'border-l-4 border-transparent text-gray-400 hover:bg-[#161616] hover:text-gray-200'
+                    }`}
                   >
                     <span className="flex-grow pr-3 leading-snug">{sec.title}</span>
                     {isPassed && <span className="text-[var(--color-software-teal)] font-bold">✓</span>}
@@ -404,7 +431,12 @@ const EksplorasiPage = () => {
         </div>
       </div>
 
-      {isSidebarOpen && <div onClick={() => setIsSidebarOpen(false)} className="fixed inset-0 bg-black/60 z-40 md:hidden transition-opacity"></div>}
+      {isSidebarOpen && (
+        <div
+          onClick={() => setIsSidebarOpen(false)}
+          className="fixed inset-0 bg-black/60 z-40 md:hidden transition-opacity"
+        ></div>
+      )}
     </div>
   );
 };
