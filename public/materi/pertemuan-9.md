@@ -522,7 +522,7 @@ export default Stopwatch;
 
 ---
 
-# 📚 Referensi
+# Referensi
 
 * [React Docs: Responding to Events](https://react.dev/learn/responding-to-events)
 * [React Docs: Conditional Rendering](https://react.dev/learn/conditional-rendering)

@@ -591,8 +591,6 @@ export const companyInfo = {
 }
 ``` 
 
+# Kesimpulan 
 
-
-
-
-
+Jadi project ini mengimplementasikan materi yg sudah kalian pelajari di modul sebelumnya dengan project multi page ini. Teman-teman bisa untuk improve sesuai dengan style masing-masing tapi untuk konsepnya untuk membuat web multi page hampir sama. Semoga project ini bisa menjadikan pemahaman baru berhadap react ini

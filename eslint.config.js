@@ -17,5 +17,13 @@ export default defineConfig([
       globals: globals.browser,
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
+    rules: {
+      // `node` di-pattern destructuring komponen react-markdown memang dibuang
+      // dengan sengaja agar tidak ikut di-spread ke elemen DOM.
+      'no-unused-vars': [
+        'error',
+        { varsIgnorePattern: '^node$', argsIgnorePattern: '^node$' },
+      ],
+    },
   },
 ])

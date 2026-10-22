@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiChevronDown, FiChevronUp, FiCheckCircle, FiBookOpen } from 'react-icons/fi';
 import useProgressStore from '../store/useProgressStore';
+import useDataLoader from '../hooks/useDataLoader';
 
 const SilabusPage = () => {
-  const [silabus, setSilabus] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3; // Menampilkan 3 kelompok pertemuan per halaman
 
@@ -13,24 +13,17 @@ const SilabusPage = () => {
 
   const completedModules = useProgressStore((state) => state.completedModules);
 
-  useEffect(() => {
-    fetch('/silabus.json')
-      .then((res) => res.json())
-      .then((data) => {
-        setSilabus(data);
-        // Secara default, buka dropdown untuk pertemuan pertama di halaman tersebut
-        if (data.length > 0) {
-          setOpenSections({ [data[0].pertemuan]: true });
-        }
-      })
-      .catch((err) => console.error("Gagal memuat silabus:", err));
-  }, []);
+  const { data: silabusData, loading, error } = useDataLoader('silabus');
+  const silabus = silabusData ?? [];
+
+  // Pertemuan pertama otomatis terbuka (bisa ditimpa oleh toggle pengguna)
+  const pertemuanAwal = silabus[0]?.pertemuan;
 
   // Fungsi toggle buka-tutup accordion
   const toggleSection = (pertemuanId) => {
-    setOpenSections(prev => ({
+    setOpenSections((prev) => ({
       ...prev,
-      [pertemuanId]: !prev[pertemuanId]
+      [pertemuanId]: !(prev[pertemuanId] ?? pertemuanId === pertemuanAwal),
     }));
   };
 
@@ -63,7 +56,7 @@ const SilabusPage = () => {
         {/* List Kelompok Pertemuan */}
         <div className="space-y-6 min-h-[400px]">
           {currentPertemuan.map((group) => {
-            const isExpanded = openSections[group.pertemuan];
+            const isExpanded = openSections[group.pertemuan] ?? group.pertemuan === pertemuanAwal;
             
             // Hitung total modul yang selesai di dalam pertemuan ini
             const completedCount = group.modules.filter(m => completedModules.includes(m.id)).length;
@@ -108,7 +101,34 @@ const SilabusPage = () => {
                     {group.modules.map((materi) => {
                       const isCompleted = completedModules.includes(materi.id);
 
-                      return (
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <div className="animate-pulse text-[var(--color-software-bright)] font-bold">
+          Memuat Peta Belajar...
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-6">
+        <div className="max-w-md text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
+          <h1 className="text-2xl font-black text-red-400 mb-3">Gagal Memuat Silabus</h1>
+          <p className="text-gray-400 text-sm mb-6">{error.message}</p>
+          <Link
+            to="/"
+            className="inline-block w-full py-3 bg-[var(--color-software-bright)] text-black font-black rounded-xl"
+          >
+            Kembali ke Beranda
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
                         <div 
                           key={materi.id}
                           className="p-4 rounded-xl border border-gray-800 bg-[#121212] hover:border-[var(--color-software-teal)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all"

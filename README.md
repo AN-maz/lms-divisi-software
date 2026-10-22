@@ -76,31 +76,45 @@ Markdown
 lms-app/
 │
 ├── public/                  <-- Tempat menyimpan data murni
-│   ├── materi/
-│   │   ├── pertemuan-1.md   <-- File materi Markdown
+│   ├── data/              <-- Data JSON untuk aplikasi
+│   │   ├── mentors.json      <-- Data tim pengurus
+│   │   └── quizzes.json     <-- Soal-soal kuis
+│   ├── materi/            <-- File materi Markdown
+│   │   ├── pertemuan-1.md
 │   │   ├── pertemuan-2.md
 │   │   └── pertemuan-3.md
-│   └── silabus.json         <-- "Database" dummy berisi daftar materi
+│   └── silabus.json       <-- "Database" daftar materi
 │
 ├── src/
-│   ├── components/          <-- Komponen yang bisa dipakai berulang
-│   │   ├── Navbar.jsx
-│   │   ├── MarkdownViewer.jsx <-- Jantung aplikasinya (Render MD to HTML)
-│   │   └── CourseCard.jsx
+│   ├── components/        <-- Komponen yang bisa dipakai berulang
+│   │   ├── FloatTimeIndicator.jsx <-- Timer Pomodoro & indikator status
+│   │   ├── GerbangSanksi.jsx      <-- Anti-tab switch quiz
+│   │   └── MarkdownViewer.jsx     <-- Jantung aplikasinya (Render MD to HTML)
 │   │
-│   ├── pages/               <-- Komponen Halaman (Views)
-│   │   ├── LandingPage.jsx
-│   │   ├── SilabusPage.jsx
-│   │   └── MateriDetail.jsx
+│   ├── hooks/             <-- Custom React Hook
+│   │   └── useDataLoader.js       <-- Hook pemuat data (loading/error/refetch)
 │   │
-│   ├── store/               <-- State Management
-│   │   └── useProgressStore.js <-- Menyimpan state (materi terbuka/terkunci)
+│   ├── pages/            <-- Komponen Halaman (Views)
+│   │   ├── EksplorasiPage.jsx      <-- Halaman membaca materi Markdown
+│   │   ├── LandingPage.jsx         <-- Halaman beranda dengan hero & tim
+│   │   ├── ModuleHubPage.jsx       <-- Pusat kontrol modul
+│   │   ├── QuizPage.jsx           <-- Halaman kuis interaktif
+│   │   └── SilabusPage.jsx         <-- Halaman peta jalan belajar
 │   │
-│   ├── App.jsx              <-- Konfigurasi React Router diletakkan di sini
+│   ├── services/         <-- Service layer untuk data handling
+│   │   └── dataService.js        <-- fetchData + cache + loader silabus/quizzes/mentors
+│   │
+│   ├── store/           <-- State Management (Zustand)
+│   │   └── useProgressStore.js   <-- Menyimpan state (materi terbuka/terkunci)
+│   │
+│   ├── utils/           <-- Utility functions
+│   │   └── index.js             <-- shuffleArray, calculateQuizScore, dll
+│   │
+│   ├── App.jsx          <-- Konfigurasi React Router
 │   ├── main.jsx
-│   └── index.css            <-- Konfigurasi warna kamu di sini
+│   └── index.css        <-- Konfigurasi warna & styling
 │
-├── tailwind.config.js       <-- (Biarkan default, pastikan path 'content' sudah benar)
+├── tailwind.config.js   <-- (Biarkan default, pastikan path 'content' sudah benar)
 └── package.json
 ```
 
