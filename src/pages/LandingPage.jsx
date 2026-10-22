@@ -50,7 +50,7 @@ const LandingPage = () => {
           to="/materi"
           className="relative z-10 inline-flex items-center justify-center px-10 py-4 bg-[var(--color-software-tosca)] text-black font-extrabold text-lg rounded-full hover:bg-[var(--color-software-bright)] transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(32,201,151,0.4)]"
         >
-          Masuk ke Ruang Belajar 🚀
+          Masuk ke Ruang Kelaz 🚀
         </Link>
       </main>
 

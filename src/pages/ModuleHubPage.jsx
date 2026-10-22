@@ -2,21 +2,43 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FiBookOpen, FiCheckSquare, FiArrowLeft, FiActivity } from 'react-icons/fi';
 import useProgressStore from '../store/useProgressStore';
 import useDataLoader from '../hooks/useDataLoader';
-import { findModuleById } from '../services/dataService';
+import { findModuleContext, getTrack } from '../services/dataService';
 
 const ModuleHubPage = () => {
-    const { id } = useParams();
+    const { track: slugTrack, id } = useParams();
     const navigate = useNavigate();
 
     const completedModules = useProgressStore((state) => state.completedModules);
     const isCompleted = completedModules.includes(parseInt(id));
 
-    const { data: kurikulum } = useDataLoader('kurikulum');
-    const moduleData = findModuleById(kurikulum, id);
+    const { data: kurikulum, loading } = useDataLoader('kurikulum');
 
-    if (!moduleData) return (
+    // Track diambil dari URL; bila URL dibuat tanpa track, resolve dari id modul.
+    const konteks = findModuleContext(kurikulum, id);
+    const track = getTrack(kurikulum, slugTrack) ?? konteks?.track ?? null;
+    const moduleData = konteks?.modul ?? null;
+    const siap = !loading && Boolean(kurikulum);
+
+    if (!siap) return (
         <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
             <div className="animate-pulse text-[var(--color-software-bright)] font-bold">Memuat Hub...</div>
+        </div>
+    );
+
+    if (!moduleData || !track) return (
+        <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-6">
+            <div className="max-w-md text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
+                <h1 className="text-2xl font-black text-red-400 mb-3">Modul Tidak Ditemukan</h1>
+                <p className="text-gray-400 text-sm mb-6">
+                    Tidak ada modul dengan ID <span className="text-white font-bold">{id}</span>.
+                </p>
+                <Link
+                    to="/materi"
+                    className="inline-block w-full py-3 bg-[var(--color-software-bright)] text-black font-black rounded-xl"
+                >
+                    Pilih Jalur Kelaz
+                </Link>
+            </div>
         </div>
     );
 
@@ -24,12 +46,12 @@ const ModuleHubPage = () => {
         <div className="min-h-screen bg-[#0a0a0a] text-white font-sans flex flex-col p-6 md:p-12">
             <div className="max-w-4xl mx-auto w-full">
 
-                {/* Tombol Back ke Silabus */}
+                {/* Tombol Back ke daftar pertemuan track ini */}
                 <button
-                    onClick={() => navigate('/materi', { state: { lastModuleId: parseInt(id) } })}
+                    onClick={() => navigate(`/materi/${track.slug}`)}
                     className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-10 font-bold text-sm"
                 >
-                    <FiArrowLeft /> Peta Belajar
+                    <FiArrowLeft /> {track.nama}
                 </button>
 
                 {/* Header Modul */}

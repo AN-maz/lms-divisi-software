@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
+import TrackPickerPage from './pages/TrackPickerPage';
 import SilabusPage from './pages/SilabusPage';
 import ModuleHubPage from './pages/ModuleHubPage';
 import EksplorasiPage from './pages/EksplorasiPage';
@@ -11,10 +12,13 @@ function App() {
       <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a' }}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/materi" element={<SilabusPage />} />
-          
-          {/* Rute dibuat Flat/Satu Tingkat agar aset tidak pecah */}
-          <Route path="/materi/:id" element={<ModuleHubPage />} />
+
+          {/* Pemilih jalur -> daftar pertemuan -> hub modul */}
+          <Route path="/materi" element={<TrackPickerPage />} />
+          <Route path="/materi/:track" element={<SilabusPage />} />
+          <Route path="/materi/:track/:id" element={<ModuleHubPage />} />
+
+          {/* Rute flat agar aset tidak pecah */}
           <Route path="/eksplorasi/:id" element={<EksplorasiPage />} />
           <Route path="/kuis/:id" element={<QuizPage />} />
         </Routes>

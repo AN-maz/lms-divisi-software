@@ -40,8 +40,9 @@ async function validasiKurikulum() {
   const kurikulum = await bacaJson(path, 'content/kurikulum.json');
   if (!kurikulum) return null;
 
-  if (!Array.isArray(kurikulum.pertemuan) || kurikulum.pertemuan.length === 0) {
-    gagal('content/kurikulum.json: "pertemuan" harus array tidak kosong');
+  const tracks = kurikulum.tracks;
+  if (!Array.isArray(tracks) || tracks.length === 0) {
+    gagal('content/kurikulum.json: "tracks" harus array tidak kosong');
     return null;
   }
 
@@ -52,50 +53,81 @@ async function validasiKurikulum() {
     }
   }
 
+  const slugTerlihat = new Set();
   const idTerlihat = new Set();
   let jumlahModul = 0;
 
-  for (const grup of kurikulum.pertemuan) {
-    if (typeof grup.pertemuan !== 'number') {
-      gagal(`kurikulum: ada grup tanpa field "pertemuan" numerik (judul: ${grup.title ?? '?'})`);
+  for (const track of tracks) {
+    if (!track.slug || typeof track.slug !== 'string') {
+      gagal(`kurikulum: ada jalur tanpa "slug" (nama: ${track.nama ?? '?'})`);
+    } else if (slugTerlihat.has(track.slug)) {
+      gagal(`kurikulum: slug jalur duplikat -> ${track.slug}`);
+    } else {
+      slugTerlihat.add(track.slug);
     }
-    if (!Array.isArray(grup.modules) || grup.modules.length === 0) {
-      gagal(`kurikulum: pertemuan ${grup.pertemuan} tidak punya "modules"`);
+
+    if (!track.nama) gagal(`kurikulum: jalur ${track.slug ?? '?'} tanpa "nama"`);
+
+    if (!Array.isArray(track.pertemuan)) {
+      gagal(`kurikulum: jalur ${track.slug ?? '?'} tanpa array "pertemuan"`);
       continue;
     }
 
-    for (const m of grup.modules) {
-      jumlahModul += 1;
+    // Jalur boleh kosong (mis. Side Quest yang belum diisi).
+    if (track.pertemuan.length === 0) {
+      catat(`jalur ${track.slug}: belum ada pertemuan`);
+      continue;
+    }
 
-      if (typeof m.id !== 'number') {
-        gagal(`kurikulum: modul tanpa id numerik di pertemuan ${grup.pertemuan}`);
+    const noPertemuan = new Set();
+    for (const grup of track.pertemuan) {
+      if (typeof grup.pertemuan !== 'number') {
+        gagal(`jalur ${track.slug}: ada grup tanpa field "pertemuan" numerik (judul: ${grup.title ?? '?'})`);
+      } else if (noPertemuan.has(grup.pertemuan)) {
+        gagal(`jalur ${track.slug}: nomor pertemuan duplikat -> ${grup.pertemuan}`);
+      } else {
+        noPertemuan.add(grup.pertemuan);
+      }
+
+      if (!Array.isArray(grup.modules) || grup.modules.length === 0) {
+        gagal(`jalur ${track.slug}: pertemuan ${grup.pertemuan} tidak punya "modules"`);
         continue;
       }
-      if (idTerlihat.has(m.id)) {
-        gagal(`kurikulum: id modul duplikat -> ${m.id}`);
-      }
-      idTerlihat.add(m.id);
 
-      if (!m.title) gagal(`kurikulum: modul ${m.id} tanpa title`);
-      if (!m.file) {
-        gagal(`kurikulum: modul ${m.id} tanpa file`);
-        continue;
-      }
+      for (const m of grup.modules) {
+        jumlahModul += 1;
 
-      // Path di kurikulum relatif terhadap public/.
-      const materiPath = join(PUBLIC, m.file.replace(/^\//, ''));
-      if (!(await ada(materiPath))) {
-        gagal(`kurikulum: materi modul ${m.id} tidak ada -> ${m.file}`);
-      }
+        if (typeof m.id !== 'number') {
+          gagal(`jalur ${track.slug}: modul tanpa id numerik di pertemuan ${grup.pertemuan}`);
+          continue;
+        }
+        // ID harus unik lintas jalur agar rute /eksplorasi/:id dan /kuis/:id tidak ambigu.
+        if (idTerlihat.has(m.id)) {
+          gagal(`kurikulum: id modul duplikat lintas jalur -> ${m.id}`);
+        }
+        idTerlihat.add(m.id);
 
-      // Konvensi nama: /content/materi/pertemuan-NN/modul-NN-slug.md
-      if (!m.file.startsWith('/content/materi/')) {
-        gagal(`kurikulum: path materi modul ${m.id} tidak di dalam /content/materi/ -> ${m.file}`);
+        if (!m.title) gagal(`kurikulum: modul ${m.id} tanpa title`);
+        if (!m.file) {
+          gagal(`kurikulum: modul ${m.id} tanpa file`);
+          continue;
+        }
+
+        // Path di kurikulum relatif terhadap public/.
+        const materiPath = join(PUBLIC, m.file.replace(/^\//, ''));
+        if (!(await ada(materiPath))) {
+          gagal(`kurikulum: materi modul ${m.id} tidak ada -> ${m.file}`);
+        }
+
+        const prefix = `/content/materi/${track.slug}/`;
+        if (!m.file.startsWith(prefix)) {
+          gagal(`kurikulum: path materi modul ${m.id} harus di dalam ${prefix} -> ${m.file}`);
+        }
       }
     }
   }
 
-  catat(`kurikulum: ${kurikulum.pertemuan.length} pertemuan, ${jumlahModul} modul`);
+  catat(`kurikulum: ${tracks.length} jalur, ${jumlahModul} modul`);
   return { kurikulum, idModul: idTerlihat };
 }
 

@@ -56,15 +56,43 @@ export const loadData = (nama) => {
   return fetchData(path);
 };
 
+// Daftar jalur belajar (Main Quest, Side Quest, ...).
+export const getTracks = (kurikulum) => kurikulum?.tracks ?? [];
+
+export const getTrack = (kurikulum, slugTrack) =>
+  getTracks(kurikulum).find((t) => t.slug === slugTrack) ?? null;
+
 export const extractAllModules = (kurikulum) => {
-  if (!kurikulum?.pertemuan) return [];
-  return kurikulum.pertemuan.flatMap((grup) => grup.modules ?? []);
+  if (!kurikulum?.tracks) return [];
+  return kurikulum.tracks.flatMap((track) =>
+    (track.pertemuan ?? []).flatMap((grup) => grup.modules ?? [])
+  );
 };
 
-export const findModuleById = (kurikulum, moduleId) => {
+// Mencari modul lintas track. Mengembalikan modul beserta track induknya
+// supaya tautan bisa dibentuk ulang tanpa perlu tahu track dari URL.
+export const findModuleContext = (kurikulum, moduleId) => {
   const id = Number.parseInt(moduleId, 10);
-  return extractAllModules(kurikulum).find((m) => m.id === id) ?? null;
+  for (const track of getTracks(kurikulum)) {
+    for (const grup of track.pertemuan ?? []) {
+      const modul = (grup.modules ?? []).find((m) => m.id === id);
+      if (modul) return { track, modul, pertemuan: grup.pertemuan };
+    }
+  }
+  return null;
 };
+
+export const findModuleById = (kurikulum, moduleId) =>
+  findModuleContext(kurikulum, moduleId)?.modul ?? null;
+
+// Jumlah modul yang sudah selesai di dalam sebuah track.
+export const countCompleted = (track, completedModules) => {
+  const semua = (track?.pertemuan ?? []).flatMap((grup) => grup.modules ?? []);
+  return semua.filter((m) => completedModules.includes(m.id)).length;
+};
+
+export const countModules = (track) =>
+  (track?.pertemuan ?? []).flatMap((grup) => grup.modules ?? []).length;
 
 export const clearDataCache = () => {
   dataCache.clear();
