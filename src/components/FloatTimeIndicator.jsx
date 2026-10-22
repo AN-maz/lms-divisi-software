@@ -22,7 +22,7 @@ const FloatingTimer = ({
 
   return (
     <div className="
-      fixed z-[60] flex items-center gap-3 bg-[#121212]/95 backdrop-blur-md border border-gray-800 rounded-full shadow-[0_5px_25px_rgba(0,0,0,0.6)]
+      fixed z-[60] flex items-center gap-3 bg-[var(--lms-surface)]/95 backdrop-blur-md border border-[var(--lms-border)] rounded-full shadow-[0_5px_25px_rgba(0,0,0,0.6)]
       px-4 py-2 bottom-8 left-1/2 transform -translate-x-1/2
       md:absolute md:bottom-auto md:top-4 md:left-auto md:right-6 md:translate-x-0 md:px-3 md:py-1.5
       transition-all duration-300 ease-in-out
@@ -54,10 +54,10 @@ const FloatingTimer = ({
       {mode === 'FOKUS_POMODORO' && (
         <button 
           onClick={onTogglePause}
-          className={`ml-2 flex items-center justify-center h-6 px-3 rounded-full text-white transition-all duration-200 border shadow-sm ${
+          className={`ml-2 flex items-center justify-center h-6 px-3 rounded-full text-[var(--lms-text)] transition-all duration-200 border shadow-sm ${
             !isPomodoroPaused 
               ? 'bg-red-600 hover:bg-red-700 border-red-800 shadow-[0_0_8px_rgba(220,38,38,0.4)]' // Berjalan -> Tombol Jeda Merah
-              : 'bg-gray-800 hover:bg-gray-700 border-gray-600'                                  // Berhenti -> Tombol Mulai Netral
+              : 'bg-[var(--lms-surface-3)] hover:bg-[var(--lms-surface-3)] border-[var(--lms-border-soft)]'                                  // Berhenti -> Tombol Mulai Netral
           }`}
           title={isPomodoroPaused ? "Lanjutkan Waktu" : "Jeda Sementara"}
         >

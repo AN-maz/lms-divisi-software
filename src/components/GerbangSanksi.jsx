@@ -56,14 +56,14 @@ const GerbangSanksi = ({ isOpen, onUnlock }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[99999] bg-[#050505]/95 backdrop-blur-md flex flex-col items-center justify-center p-4">
-      <div className="bg-[#121212] border border-red-600 p-6 sm:p-8 rounded-lg shadow-[0_0_50px_rgba(220,38,38,0.3)] w-[95%] max-w-md text-center">
+    <div className="fixed inset-0 z-[99999] bg-[var(--lms-bg-deep)]/95 backdrop-blur-md flex flex-col items-center justify-center p-4">
+      <div className="bg-[var(--lms-surface)] border border-red-600 p-6 sm:p-8 rounded-lg shadow-[0_0_50px_rgba(220,38,38,0.3)] w-[95%] max-w-md text-center">
         
         <h2 className="text-red-500 font-extrabold text-xl sm:text-2xl mb-2 tracking-widest uppercase">
           Akses Terkunci
         </h2>
         
-        <p className="text-gray-400 text-xs sm:text-sm mb-6">
+        <p className="text-[var(--lms-text-muted)] text-xs sm:text-sm mb-6">
           Sistem mendeteksi perpindahan atensi (Alt+Tab). Selesaikan parameter logis ini untuk memulihkan koneksi kognitif Anda.
         </p>
         
@@ -84,7 +84,7 @@ const GerbangSanksi = ({ isOpen, onUnlock }) => {
             value={inputUser} 
             onChange={(e) => setInputUser(e.target.value)}
             placeholder="Jawaban..."
-            className="w-full bg-[#0a0a0a] border border-gray-700 rounded px-4 py-3 text-white text-xl text-center outline-none focus:border-[#14b8a6] transition-colors" 
+            className="w-full bg-[var(--lms-bg)] border border-[var(--lms-border-strong)] rounded px-4 py-3 text-[var(--lms-text)] text-xl text-center outline-none focus:border-[#14b8a6] transition-colors" 
             required
           />
           <button 
