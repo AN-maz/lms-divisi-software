@@ -62,7 +62,20 @@ const MermaidDiagram = ({ chart, judul }) => {
         const { svg } = await mermaid.render(id, chart);
         if (dibatalkan || !wrapRef.current) return;
 
-        wrapRef.current.innerHTML = svg;
+        if (wrapRef.current) {
+          // Kosongkan wrapper
+          while (wrapRef.current.firstChild) wrapRef.current.removeChild(wrapRef.current.firstChild);
+          // Parse SVG string dari Mermaid ke DOM
+          try {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(svg, 'text/html');
+            const svgEl = doc.body.firstChild;
+            if (svgEl) wrapRef.current.appendChild(svgEl);
+          } catch {
+            // Parsing gagal; tampilkan teks error aman.
+            wrapRef.current.textContent = 'Gagal merender diagram';
+          }
+        }
         setError(null);
       } catch (err) {
         if (dibatalkan) return;
