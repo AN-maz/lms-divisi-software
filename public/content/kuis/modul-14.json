@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "question": "Perbedaan utama terkait tempat berjalannya proses antara Frontend dan Backend pada aplikasi web adalah...",
+    "options": [
+      "Frontend berjalan di database, backend berjalan di internet",
+      "Frontend berjalan di browser (komputer user), backend berjalan di server",
+      "Frontend berjalan di server, backend berjalan di browser",
+      "Keduanya berjalan di server yang sama"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Jika diibaratkan sebagai anatomi tubuh manusia, bahasa HTML pada frontend berfungsi sebagai...",
+    "options": [
+      "Otak (logika)",
+      "Tulang (kerangka/struktur)",
+      "Kulit (desain/tampilan)",
+      "Darah (data)"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 3,
+    "question": "Bahasa utama pada frontend yang bertanggung jawab untuk mengatur interaktivitas dan komunikasi dengan backend adalah...",
+    "options": [
+      "HTML",
+      "Node.js",
+      "JavaScript",
+      "CSS"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 4,
+    "question": "Apa yang membedakan Frontend dari Backend terkait interaksi langsung dengan pengguna?",
+    "options": [
+      "Frontend adalah bagian yang dilihat dan berinteraksi langsung dengan user, sedangkan backend tidak",
+      "Frontend tidak memiliki antarmuka pengguna",
+      "Hanya backend yang merespon klik mouse pengguna",
+      "Tidak ada perbedaan, keduanya dilihat oleh pengguna"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 5,
+    "question": "Saat user membuka sebuah website, di manakah file HTML, CSS, dan JavaScript dieksekusi dan dijalankan?",
+    "options": [
+      "Di dalam database",
+      "Di server penyedia hosting",
+      "Di dalam file system lokal tanpa aplikasi",
+      "Di dalam browser pada komputer user"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 6,
+    "question": "Mengapa kita tidak disarankan menggunakan file HTML biasa (membuka langsung di browser) untuk project web modern skala besar?",
+    "options": [
+      "Karena browser tidak bisa membaca file HTML",
+      "Karena file HTML biasa tidak mendukung tag <h1>",
+      "Karena tidak ada auto-reload, fitur import/export terbatas, dan tidak ada optimasi file",
+      "Karena HTML biasa berbayar"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 7,
+    "question": "Apa fungsi utama dari sebuah Build Tool dalam ekosistem frontend modern?",
+    "options": [
+      "Sebagai bahasa pemrograman pengganti JavaScript",
+      "Menyediakan dev server, memproses kode (seperti minify), dan mengizinkan import/export secara bebas",
+      "Menulis kode CSS secara otomatis",
+      "Membuat database MySQL tanpa server"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 8,
+    "question": "Apa arti dari nama 'Vite' yang diambil dari bahasa Prancis?",
+    "options": [
+      "Modern",
+      "Kuat",
+      "Cepat",
+      "Aman"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 9,
+    "question": "Fitur unggulan pada Vite yang memungkinkan perubahan kode langsung terlihat di browser tanpa perlu melakukan full reload (refresh total) disebut...",
+    "options": [
+      "Hot Module Replacement (HMR)",
+      "Fast Compile Protocol (FCP)",
+      "Auto Browser Synchronizer",
+      "Dynamic Reloading"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 10,
+    "question": "Framework CSS apa yang menggunakan pendekatan 'utility-first', di mana pengembang menempelkan class-class kecil spesifik secara langsung ke elemen HTML?",
+    "options": [
+      "Bootstrap",
+      "Bulma",
+      "Tailwind CSS",
+      "Sass"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 11,
+    "question": "Apa arti dari class Tailwind `px-4 py-2`?",
+    "options": [
+      "Margin horizontal 4rem, padding vertikal 2rem",
+      "Padding horizontal 1rem, padding vertikal 0.5rem",
+      "Posisi X 4 pixel, posisi Y 2 pixel",
+      "Padding atas 4px, margin bawah 2px"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 12,
+    "question": "Salah satu masalah besar pada CSS biasa di project skala besar yang berhasil diatasi oleh Tailwind CSS adalah...",
+    "options": [
+      "CSS biasa tidak mendukung pewarnaan hex",
+      "Ukuran file CSS akan terus bertambah besar dan berantakan seiring bertambahnya fitur",
+      "CSS biasa tidak bisa digabungkan dengan JavaScript",
+      "CSS biasa hanya bisa digunakan untuk teks"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 13,
+    "question": "Bagaimana Tailwind CSS menjaga ukuran file CSS production tetap sangat kecil (sering di bawah 10KB)?",
+    "options": [
+      "Dengan menghapus semua warna dari halaman",
+      "Dengan mengubah CSS menjadi format gambar",
+      "Hanya menyertakan (membuild) class utility yang benar-benar diketikkan/dipakai di dalam file HTML",
+      "Dengan membatasi jumlah baris HTML menjadi 100 baris"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 14,
+    "question": "Dalam Tailwind CSS, format penulisan class untuk mengubah warna background menjadi abu-abu dengan intensitas 500 adalah...",
+    "options": [
+      "bg:gray-500",
+      "background-gray-500",
+      "bg-gray-500",
+      "color-gray-500"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 15,
+    "question": "Untuk memberikan efek ketika mouse menyorot sebuah tombol (hover) agar background berubah menjadi hijau, penulisan pseudo-class Tailwind yang benar adalah...",
+    "options": [
+      "hover:bg-green-500",
+      "bg-green-500:hover",
+      "onhover-bg-green-500",
+      "hover-green"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 16,
+    "question": "Class apa yang digunakan pada Tailwind CSS untuk menyembunyikan sebuah elemen (setara dengan `display: none`)?",
+    "options": [
+      "invisible",
+      "hide",
+      "none",
+      "hidden"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 17,
+    "question": "Fitur bawaan pada browser modern yang digunakan untuk mengirim HTTP request dari JavaScript ke backend disebut...",
+    "options": [
+      "Thunder Client",
+      "REST Engine",
+      "Fetch API",
+      "HTTP Requestor"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Mengapa proses komunikasi (request) dari Fetch API ke server harus berjalan secara 'Asynchronous'?",
+    "options": [
+      "Agar browser tidak freeze (hang) selama menunggu response dari server yang memakan waktu",
+      "Agar data yang dikirim otomatis terenkripsi",
+      "Karena backend hanya menerima data asynchronous",
+      "Agar server bisa mengirimkan virus ke browser"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 19,
+    "question": "Konsep di mana kode JavaScript dijalankan satu per satu, dan baris berikutnya akan berhenti menahan eksekusi sampai baris sebelumnya selesai disebut...",
+    "options": [
+      "Asynchronous",
+      "Synchronous",
+      "Parallel",
+      "Multithreading"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 20,
+    "question": "Sintaks modern pada JavaScript yang memungkinkan kita menulis kode asynchronous agar terlihat lebih rapi seperti kode synchronous adalah...",
+    "options": [
+      "try/catch",
+      "if/else",
+      "async/await",
+      "then/catch"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 21,
+    "question": "Apa syarat utama agar kita bisa menggunakan kata kunci `await` di depan sebuah operasi Fetch?",
+    "options": [
+      "Operasi tersebut harus berada di dalam file eksternal",
+      "Operasi tersebut harus ditandai dengan sintaks .then()",
+      "Operasi tersebut harus dibungkus di dalam fungsi yang menggunakan kata kunci `async`",
+      "Operasi tersebut harus memiliki parameter id"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 22,
+    "question": "Setelah mendapatkan object `response` dari Fetch API, method apa yang harus dipanggil secara asynchronous untuk mengambil dan mem-parsing body-nya menjadi data JavaScript?",
+    "options": [
+      "response.json()",
+      "response.parse()",
+      "response.body()",
+      "response.data()"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 23,
+    "question": "Method HTTP apa yang secara bawaan (default) akan digunakan oleh Fetch API jika kita tidak menetapkan parameter method secara spesifik?",
+    "options": [
+      "POST",
+      "GET",
+      "PUT",
+      "DELETE"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 24,
+    "question": "Saat mengirim data baru (POST) berupa format JSON ke backend menggunakan Fetch, properti 'headers' apa yang wajib kita deklarasikan agar server mengenali formatnya?",
+    "options": [
+      "'Format-Type': 'json'",
+      "'Data-Type': 'application/json'",
+      "'Content-Type': 'application/json'",
+      "'Accept': 'application/json'"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 25,
+    "question": "Sebelum disisipkan ke dalam opsi `body` pada request Fetch (POST/PUT), sebuah object JavaScript wajib diubah terlebih dahulu menjadi format string JSON menggunakan perintah...",
+    "options": [
+      "JSON.parse()",
+      "JSON.toString()",
+      "JSON.stringify()",
+      "String(JSON)"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 26,
+    "question": "Pada Fetch API, metode HTTP apa saja yang umumnya TIDAK memerlukan pengiriman `body` data?",
+    "options": [
+      "POST dan PUT",
+      "GET dan DELETE",
+      "PATCH dan POST",
+      "GET dan PUT"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 27,
+    "question": "Kelemahan Fetch API terkait penanganan error adalah ia TIDAK akan otomatis melempar (throw) error jika terjadi HTTP error seperti 404 atau 500. Fetch hanya otomatis throw error apabila terjadi...",
+    "options": [
+      "Salah password",
+      "File JSON kosong",
+      "Network error (koneksi terputus/server mati)",
+      "Salah ketik nama fungsi"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 28,
+    "question": "Bagaimana cara paling tepat yang direkomendasikan untuk mendeteksi secara manual apakah sebuah HTTP Request menggunakan Fetch berhasil (status code 200-299)?",
+    "options": [
+      "Mengecek apakah `response.ok` bernilai true",
+      "Mengecek panjang `response.length`",
+      "Mengecek pesan `response.message`",
+      "Mengecek `response.success`"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 29,
+    "question": "Apa perintah terminal yang benar untuk membuat sebuah proyek Vite baru dengan nama 'inventory-frontend' menggunakan template JavaScript murni (Vanilla)?",
+    "options": [
+      "npm install vite inventory-frontend vanilla",
+      "npm create vite@latest inventory-frontend -- --template vanilla",
+      "npm init vanilla-vite inventory-frontend",
+      "vite create inventory-frontend -vanilla"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 30,
+    "question": "Di dalam struktur standar project Vite, di manakah letak file utama `index.html` seharusnya berada?",
+    "options": [
+      "Di dalam folder /public",
+      "Di dalam folder /src",
+      "Di root folder (paling luar) sejajar dengan package.json",
+      "Di dalam folder /node_modules"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 31,
+    "question": "Browser memiliki mekanisme keamanan yang memblokir permintaan dari domain/port yang berbeda (contoh: dari port 5173 meminta ke port 3000). Aturan keamanan ini dikenal dengan istilah...",
+    "options": [
+      "SQL Injection",
+      "CORS (Cross-Origin Resource Sharing)",
+      "DDoS Prevention",
+      "XSS (Cross-Site Scripting)"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 32,
+    "question": "Untuk mengatasi blokir CORS pada project backend berbasis Express, solusi paling umum adalah...",
+    "options": [
+      "Mematikan antivirus pada komputer user",
+      "Menghapus Fetch API dan menggunakan form HTML biasa",
+      "Menginstal dan menggunakan middleware library `cors` pada kode backend",
+      "Menyatukan folder frontend dan backend"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 33,
+    "question": "Mengapa file konfigurasi rahasia seperti `.env` tidak boleh disertakan dan harus diabaikan saat mengunggah (push) kode ke GitHub?",
+    "options": [
+      "Karena ukurannya terlalu besar",
+      "Karena berisi informasi rahasia dan sensitif seperti username, password, dan kredensial database",
+      "Karena GitHub tidak mendukung ekstensi file .env",
+      "Karena akan merusak sistem operasi server"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 34,
+    "question": "Library bawaan NPM apa yang perlu diinstal untuk membaca dan memuat variabel lingkungan dari file `.env` ke dalam kode Node.js?",
+    "options": [
+      "env-reader",
+      "config-env",
+      "dotenv",
+      "node-env"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 35,
+    "question": "Di dalam arsitektur sistem, jika frontend memerlukan data produk terbaru untuk ditampilkan ke tabel, pihak manakah yang bertugas melakukan query (mencari) data tersebut langsung ke dalam database MySQL?",
+    "options": [
+      "Vite",
+      "Frontend (Browser)",
+      "Tailwind CSS",
+      "Backend (Server Node.js)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 36,
+    "question": "Setelah data produk berhasil didapatkan dari Backend, siapakah yang bertanggung jawab untuk menyusun (me-render) elemen DOM agar data tersebut terlihat sebagai tabel pada layar pengguna?",
+    "options": [
+      "Database MySQL",
+      "Backend Server",
+      "Frontend (JavaScript di Browser)",
+      "File .env"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 37,
+    "question": "Pada class ukuran teks di Tailwind CSS, class apa yang digunakan untuk mengatur ukuran teks menjadi sangat kecil?",
+    "options": [
+      "text-small",
+      "text-xs",
+      "text-mini",
+      "text-sm"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 38,
+    "question": "Kode `response.status === 404` pada hasil Fetch API menandakan pesan error yang berarti...",
+    "options": [
+      "Internal Server Error",
+      "Bad Request",
+      "Not Found (Endpoint/URL tidak ditemukan)",
+      "Unauthorized"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 39,
+    "question": "Pada konfigurasi Vite untuk menggunakan Tailwind CSS, nama plugin yang perlu di-import pada file `vite.config.js` adalah...",
+    "options": [
+      "@tailwindcss/vite",
+      "tailwind-vite-plugin",
+      "vite-plugin-tailwind",
+      "tailwind-compiler"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 40,
+    "question": "Ketika Anda mengetikkan perintah `npm run dev` pada proyek Vite, apa yang akan terjadi?",
+    "options": [
+      "Proyek akan di-build menjadi file statis untuk production",
+      "Vite akan menyalakan Development Server lokal (biasanya di port 5173) yang memantau perubahan file",
+      "Vite akan menghapus folder node_modules",
+      "Vite akan otomatis membuatkan database baru"
+    ],
+    "correctAnswer": 1
+  }
+]

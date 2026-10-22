@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "question": "Pada tahapan pengambilan data, DQL adalah singkatan dari...",
+    "options": [
+      "Data Quality Logic",
+      "Data Query Language",
+      "Document Query List",
+      "Database Query Level"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Perintah SQL apa yang paling mendasar dan paling sering digunakan untuk mengambil atau membaca data dari dalam tabel?",
+    "options": [
+      "FETCH",
+      "GET",
+      "SELECT",
+      "PULL"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "Berdasarkan materi, mengapa lebih disarankan mengambil kolom secara spesifik (misal: SELECT nama, email) dibandingkan menggunakan 'SELECT *'?",
+    "options": [
+      "Lebih efisien untuk performa database saat memproses data",
+      "Agar data tidak mudah diretas",
+      "SELECT * sudah tidak didukung di SQL modern",
+      "Karena SELECT * hanya bisa mengambil 10 baris data"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 4,
+    "question": "Kata kunci apa yang digunakan untuk membuat nama samaran (Alias) agar judul kolom pada hasil query lebih enak dibaca tanpa mengubah nama asli di database?",
+    "options": [
+      "LIKE",
+      "AS",
+      "IN",
+      "TO"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 5,
+    "question": "Jika kita tidak ingin menampilkan semua data, klausa apa yang dikombinasikan dengan perintah SELECT untuk menyaring baris data berdasarkan kondisi spesifik?",
+    "options": [
+      "LIMIT",
+      "ORDER BY",
+      "HAVING",
+      "WHERE"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 6,
+    "question": "Operator logika manakah yang mengharuskan KEDUA belah kondisi bernilai benar (TRUE) agar data tersebut bisa ditampilkan di hasil pencarian?",
+    "options": [
+      "AND",
+      "OR",
+      "NOT",
+      "IN"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 7,
+    "question": "Jika kita ingin mencari produk yang kategorinya 'Elektronik', 'Fashion', atau 'Makanan', operator apa yang paling efisien digunakan sebagai pengganti operator 'OR' yang berulang-ulang?",
+    "options": [
+      "LIKE",
+      "BETWEEN",
+      "IN",
+      "AND"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Untuk mencari data pelanggan yang memiliki rentang umur antara 20 sampai 30 tahun secara inklusif, operator apa yang paling tepat?",
+    "options": [
+      "IN",
+      "BETWEEN",
+      "LIKE",
+      "MAX"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 9,
+    "question": "Pada klausa pencarian teks 'LIKE', karakter wildcard apa yang digunakan untuk mewakili panjang teks berapapun (termasuk nol karakter)?",
+    "options": [
+      "%",
+      "_",
+      "*",
+      "?"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 10,
+    "question": "Jika ingin mencari kata menggunakan klausa 'LIKE' di mana kita hanya tidak tahu TEPAT SATU huruf saja (misal mencari nama 'Purwa' tapi huruf 'P' tidak diketahui), wildcard apa yang dipakai?",
+    "options": [
+      "%",
+      "-",
+      "*",
+      "_ (Underscore)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 11,
+    "question": "Bagaimana cara penulisan kondisi WHERE yang benar jika kita ingin mencari pengguna yang nomor teleponnya masih kosong/belum diisi di database?",
+    "options": [
+      "WHERE nomor_telepon = NULL",
+      "WHERE nomor_telepon == NULL",
+      "WHERE nomor_telepon IS NULL",
+      "WHERE nomor_telepon IN NULL"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 12,
+    "question": "Klausa apa yang digunakan dalam query SQL untuk mengurutkan data hasil pencarian?",
+    "options": [
+      "SORT BY",
+      "ORDER BY",
+      "GROUP BY",
+      "FILTER BY"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 13,
+    "question": "Saat menggunakan ORDER BY, pengurutan bawaan (default) akan dilakukan dari nilai terkecil ke terbesar (A-Z). Format ini disebut juga dengan...",
+    "options": [
+      "ASC (Ascending)",
+      "DESC (Descending)",
+      "MIN",
+      "TOP"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 14,
+    "question": "Fungsi utama dari perintah LIMIT di dalam query SQL adalah untuk...",
+    "options": [
+      "Membatasi ukuran teks yang bisa masuk ke tabel",
+      "Membatasi jumlah maksimal baris data yang ingin ditampilkan pada hasil query",
+      "Membatasi hak akses pengguna database",
+      "Menghentikan query yang memakan waktu terlalu lama"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 15,
+    "question": "Saat membuat fitur Pagination (Pindah Halaman), klausa apa yang digabungkan dengan LIMIT untuk menginstruksikan database agar 'melewati' atau men-skip sejumlah baris tertentu di awal?",
+    "options": [
+      "SKIP",
+      "NEXT",
+      "OFFSET",
+      "PASS"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 16,
+    "question": "Dari daftar fungsi agregasi di bawah ini, manakah yang digunakan secara khusus untuk menjumlahkan total keseluruhan nilai numerik dari sebuah kolom?",
+    "options": [
+      "COUNT()",
+      "SUM()",
+      "AVG()",
+      "MAX()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 17,
+    "question": "Fungsi agregasi AVG() di dalam SQL digunakan untuk mendapatkan hasil berupa...",
+    "options": [
+      "Jumlah baris (total data)",
+      "Nilai terbesar",
+      "Nilai rata-rata dari sekumpulan data",
+      "Nilai paling sering muncul (Modus)"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Klausa apa yang digunakan untuk mengelompokkan baris yang memiliki nilai identik (sama) ke dalam satu baris ringkasan (misalnya mencari rata-rata harga PER kategori)?",
+    "options": [
+      "GROUP BY",
+      "ORDER BY",
+      "COLLECT BY",
+      "SUMMARIZE"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 19,
+    "question": "Apa fungsi utama dari klausa HAVING di dalam SQL?",
+    "options": [
+      "Menggantikan fungsi JOIN",
+      "Mengurutkan data sebelum dikelompokkan",
+      "Menampilkan data yang mengandung klausa WHERE",
+      "Menyaring hasil dari fungsi agregasi (menyaring data setelah dikelompokkan dengan GROUP BY)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 20,
+    "question": "Manakah pernyataan yang PALING TEPAT mengenai perbedaan antara WHERE dan HAVING?",
+    "options": [
+      "HAVING hanya bisa digunakan untuk teks, WHERE hanya untuk angka",
+      "WHERE menyaring data sebelum dikelompokkan, HAVING menyaring data setelah dikelompokkan",
+      "WHERE digunakan bersama LIMIT, HAVING digunakan bersama OFFSET",
+      "Keduanya adalah perintah yang sama persis dan bisa ditukar posisinya kapan saja"
+    ],
+    "correctAnswer": 1
+  }
+]

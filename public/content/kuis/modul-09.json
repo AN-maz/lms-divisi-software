@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "question": "Fungsi bawaan SQL apa yang digunakan untuk menggabungkan dua atau lebih string (teks) menjadi satu kesatuan teks utuh?",
+    "options": [
+      "JOIN()",
+      "MERGE()",
+      "CONCAT()",
+      "COMBINE()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 2,
+    "question": "Jika Anda ingin mengubah format teks pada kolom 'email' agar selalu ditampilkan dengan huruf kecil semua, fungsi apa yang harus digunakan?",
+    "options": [
+      "SMALL()",
+      "LOWER()",
+      "DOWN()",
+      "MIN()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 3,
+    "question": "Berdasarkan sintaks `SUBSTRING(nama_bulan, 1, 4)`, apa hasil yang akan dikembalikan jika data di dalam kolom `nama_bulan` berisi teks 'Agustus'?",
+    "options": [
+      "tus",
+      "stus",
+      "Agus",
+      "Agust"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 4,
+    "question": "Untuk menyaring data pelanggan yang nama lengkapnya melebihi 20 karakter, fungsi teks apa yang digunakan untuk menghitung jumlah karakter tersebut?",
+    "options": [
+      "LENGTH()",
+      "COUNT()",
+      "SIZE()",
+      "CHAR_SUM()"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 5,
+    "question": "Fungsi angka (Numeric Function) manakah yang bertugas membulatkan angka desimal ke nilai bulat yang paling terdekat?",
+    "options": [
+      "FLOOR()",
+      "ROUND()",
+      "CEIL()",
+      "TRUNCATE()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 6,
+    "question": "Jika sebuah barang memiliki harga 15000.10, fungsi bawaan apa yang akan memaksanya dibulatkan ke ATAS menjadi 15001?",
+    "options": [
+      "CEIL()",
+      "TOP()",
+      "ROUND()",
+      "UP()"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 7,
+    "question": "Berkebalikan dengan pembulatan ke atas, fungsi apa yang selalu memaksa pembulatan angka desimal ke arah BAWAH?",
+    "options": [
+      "BOTTOM()",
+      "DOWN()",
+      "FLOOR()",
+      "MIN()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Berapakah hasil yang akan dikembalikan oleh eksekusi fungsi `ABS(-15000)`?",
+    "options": [
+      "-15000",
+      "15000",
+      "0",
+      "NULL"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 9,
+    "question": "Fungsi apa yang umum digunakan di berbagai DBMS (seperti MySQL dan PostgreSQL) untuk mengambil tanggal sekaligus waktu saat ini pada sistem?",
+    "options": [
+      "TODAY()",
+      "CURRENT_TIME()",
+      "NOW()",
+      "DATE()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 10,
+    "question": "Berdasarkan standar SQL atau PostgreSQL, bagaimana sintaks yang benar untuk mengambil secara spesifik komponen 'Tahun' dari kolom 'tanggal_order'?",
+    "options": [
+      "GET(YEAR FROM tanggal_order)",
+      "EXTRACT(YEAR FROM tanggal_order)",
+      "PULL(YEAR IN tanggal_order)",
+      "SUBSTRING(tanggal_order, YEAR)"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 11,
+    "question": "Di MySQL, jika kita ingin menghitung selisih jumlah hari di antara 'tanggal_kirim' dan 'tanggal_order', fungsi apa yang digunakan?",
+    "options": [
+      "DIFFDATE()",
+      "DATE_MINUS()",
+      "DATEDIFF()",
+      "DAYS_BETWEEN()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 12,
+    "question": "Struktur logika kondisional apa di dalam SQL yang cara kerjanya setara dengan percabangan 'if-else' pada bahasa pemrograman biasa?",
+    "options": [
+      "IF ... ELSE ...",
+      "SWITCH ... CASE ...",
+      "CHOOSE ... WHEN ...",
+      "CASE ... WHEN ... THEN ... ELSE ... END"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 13,
+    "question": "Setiap blok logika kondisional CASE WHEN di dalam SQL selalu harus ditutup atau diakhiri dengan kata kunci apa?",
+    "options": [
+      "STOP",
+      "FINISH",
+      "END",
+      "CLOSE"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 14,
+    "question": "Berdasarkan sintaks `CASE WHEN stok > 50 THEN 'Aman' ELSE 'Habis' END`, output apa yang akan dicetak jika nilai stok persis di angka 50?",
+    "options": [
+      "Aman",
+      "Habis",
+      "Error",
+      "NULL"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 15,
+    "question": "Apa fungsi utama dari perintah COALESCE() dalam SQL?",
+    "options": [
+      "Menggabungkan dua tabel tanpa menggunakan primary key",
+      "Menyatukan dua kolom teks (sama seperti CONCAT)",
+      "Mengambil/mengembalikan argumen nilai pertama yang TIDAK bernilai NULL",
+      "Menghapus nilai NULL dari sebuah database"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 16,
+    "question": "Jika sebuah kolom `nomor_telepon` mungkin berisi data kosong (NULL) dan Anda ingin menampilkannya sebagai teks 'Belum Ada Nomor' pada hasil query, sintaks manakah yang paling tepat?",
+    "options": [
+      "COALESCE(nomor_telepon, 'Belum Ada Nomor')",
+      "NULLIF(nomor_telepon, 'Belum Ada Nomor')",
+      "IFNULL('Belum Ada Nomor', nomor_telepon)",
+      "REPLACE(nomor_telepon, NULL, 'Belum Ada Nomor')"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 17,
+    "question": "Kondisi apa yang membuat fungsi `NULLIF(nilai1, nilai2)` mengembalikan hasil berupa NULL?",
+    "options": [
+      "Jika kedua nilai tersebut berbeda",
+      "Jika nilai1 lebih besar dari nilai2",
+      "Jika salah satu nilai sudah berupa NULL",
+      "Jika nilai1 persis sama dengan nilai2"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 18,
+    "question": "Fungsi `NULLIF()` paling populer dimanfaatkan di skenario operasional database untuk menghindari error fatal berupa...",
+    "options": [
+      "Error tipe data yang tidak cocok",
+      "Error pembagian sebuah angka dengan nol (division by zero)",
+      "Error limitasi memori saat JOIN",
+      "Error primary key ganda"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 19,
+    "question": "Secara umum, fungsi teks (String Functions) seperti CONCAT, UPPER, dan LOWER ditujukan untuk memanipulasi kolom dengan tipe data...",
+    "options": [
+      "INT dan DECIMAL",
+      "DATE dan TIMESTAMP",
+      "VARCHAR dan TEXT",
+      "BOOLEAN"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 20,
+    "question": "Selain menggunakan sintaks SQL standar (EXTRACT), jika Anda menggunakan MySQL, fungsi apa yang bisa dipanggil secara langsung untuk mendapatkan nilai bulan dari sebuah tanggal?",
+    "options": [
+      "GET_MONTH()",
+      "MONTH()",
+      "MM()",
+      "MONTH_OF()"
+    ],
+    "correctAnswer": 1
+  }
+]

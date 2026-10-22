@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "question": "Prasyarat versi Node.js minimal berapakah yang direkomendasikan agar bisa menggunakan `fetch()` secara bawaan (built-in) tanpa perlu menginstal package eksternal?",
+    "options": [
+      "Node.js 12+",
+      "Node.js 14+",
+      "Node.js 16+",
+      "Node.js 18+"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 2,
+    "question": "Untuk mengaktifkan fitur ECMAScript Modules (ESM) agar file JavaScript di Node.js bisa menggunakan sintaks `import/export`, konfigurasi apa yang wajib ditambahkan ke dalam file `package.json`?",
+    "options": [
+      "\"module\": \"true\"",
+      "\"type\": \"module\"",
+      "\"export\": \"esm\"",
+      "\"import\": \"enabled\""
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 3,
+    "question": "Berdasarkan 'Mental Model' Fetch API, fakta paling krusial yang wajib dipahami adalah...",
+    "options": [
+      "Fetch akan otomatis mengulang request jika internet mati",
+      "Fetch selalu mengembalikan data bertipe JSON secara langsung",
+      "Fetch tidak akan gagal (throw/reject) meskipun mendapatkan respon HTTP error seperti 404 atau 500",
+      "Fetch akan langsung melempar error jika data tidak ditemukan (404)"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 4,
+    "question": "Fetch() HANYA akan melempar error (reject/throw) pada kondisi-kondisi di bawah ini, KECUALI...",
+    "options": [
+      "Koneksi internet terputus (Network Error)",
+      "Request diblokir oleh server karena masalah CORS",
+      "Server merespons dengan HTTP Status 500 (Internal Server Error)",
+      "Request sengaja dibatalkan via AbortController"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 5,
+    "question": "Properti apa pada objek response dari `fetch()` yang digunakan untuk mengecek dengan praktis apakah HTTP status berada di rentang berhasil (200–299)?",
+    "options": [
+      "res.success",
+      "res.ok",
+      "res.valid",
+      "res.done"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 6,
+    "question": "Bagaimana cara yang aman dan benar saat kita perlu membaca isi data (body) dari response `fetch()`?",
+    "options": [
+      "Memanggil `await res.json()` berkali-kali untuk memastikan datanya tidak hilang",
+      "Menyimpannya ke dalam database terlebih dahulu sebelum dibaca",
+      "Membacanya hanya SATU KALI karena response body tidak bisa dibaca berulang (stream habis)",
+      "Selalu memanggil `res.text()` lalu di-parse manual menggunakan eval()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 7,
+    "question": "Jika sebuah API mengembalikan file gambar alih-alih data teks/JSON, method response manakah yang harus dipanggil?",
+    "options": [
+      "await res.image()",
+      "await res.buffer()",
+      "await res.blob()",
+      "await res.file()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Di dalam kode wrapper `getJson`, pengecekan keamanan tambahan dilakukan dengan melihat tipe konten dari server menggunakan sintaks...",
+    "options": [
+      "res.headers.get(\"content-type\")",
+      "res.type",
+      "res.content",
+      "res.body.type"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 9,
+    "question": "Mengapa menyambungkan Query Parameters secara manual menggunakan operasi string (contoh: `url + \"?limit=\" + n`) sangat tidak disarankan?",
+    "options": [
+      "Karena string pada JavaScript memiliki batas maksimal karakter",
+      "Karena tidak aman, rentan format yang salah, dan karakter khusus tidak ter-encode otomatis",
+      "Karena fetch() tidak bisa menerima tipe data string murni",
+      "Karena metode itu akan memperlambat koneksi internet"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 10,
+    "question": "Class atau Objek JavaScript bawaan apa yang direkomendasikan untuk membangun URL dengan Query Parameters secara aman dan otomatis?",
+    "options": [
+      "URLBuilder",
+      "URL dan URL.searchParams",
+      "QueryString API",
+      "HttpParams"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 11,
+    "question": "Pada fungsi helper `buildUrl(base, query)`, sintaks `Object.entries(query)` digunakan untuk...",
+    "options": [
+      "Menghapus parameter yang tidak diinginkan",
+      "Mengubah objek query parameters menjadi format JSON string",
+      "Mengekstrak setiap pasangan key-value dari objek parameter agar bisa di-looping",
+      "Memvalidasi tipe data yang dimasukkan"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 12,
+    "question": "Di dalam looping pembentukan URL parameter (`buildUrl`), apa tujuan dari pengecekan `if (v === undefined || v === null) continue;`?",
+    "options": [
+      "Menghentikan fungsi jika ada variabel yang kosong",
+      "Membuang atau melewati parameter yang kosong agar tidak ikut terbawa ke dalam susunan URL",
+      "Mengubah nilai null menjadi angka 0",
+      "Membuat program menjadi asynchronous"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 13,
+    "question": "Saat melakukan HTTP POST dan mengirimkan data JSON, properti apa yang mutlak harus ditambahkan pada opsi `headers` pada fetch?",
+    "options": [
+      "\"auth-token\": \"application/json\"",
+      "\"content-type\": \"text/html\"",
+      "\"content-type\": \"application/json\"",
+      "\"data-type\": \"json\""
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 14,
+    "question": "Fungsi/method bawaan JavaScript apa yang wajib digunakan untuk mengubah objek JS yang akan dikirim (payload) menjadi string JSON agar bisa dipasang di properti `body` fetch?",
+    "options": [
+      "JSON.parse()",
+      "String()",
+      "JSON.toString()",
+      "JSON.stringify()"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 15,
+    "question": "Bagaimana penanganan khusus yang harus dilakukan jika server API mengembalikan status kode HTTP 204 (No Content) setelah operasi POST/PUT/DELETE?",
+    "options": [
+      "Segera mengulang kembali request tersebut",
+      "Melempar error karena berarti data gagal disimpan",
+      "Me-return nilai null tanpa memanggil `res.json()`, karena body responnya memang kosong",
+      "Menunggu selama beberapa detik lalu memanggil `res.text()`"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 16,
+    "question": "Berapa lama waktu timeout bawaan (default) yang diimplementasikan di dalam fungsi standar `fetch()` pada JavaScript?",
+    "options": [
+      "30 detik",
+      "60 detik",
+      "2 menit",
+      "Fetch tidak memiliki batasan timeout bawaan"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 17,
+    "question": "Karena fetch() tidak bisa batal sendiri jika koneksi lambat, objek JavaScript apa yang digunakan secara resmi untuk menambahkan fitur 'Tombol Batal' / Timeout pada fetch?",
+    "options": [
+      "TimeoutController",
+      "FetchManager",
+      "AbortController",
+      "CancelToken"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Agar proses fetch() bisa mengenali instruksi pembatalan, properti apa yang dihubungkan/ditempelkan dari Controller ke opsi fetch?",
+    "options": [
+      "controller.stop",
+      "controller.abort",
+      "controller.signal",
+      "controller.timeout"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 19,
+    "question": "Pada blok kode implementasi timeout khusus (`fetchWithTimeout`), mengapa fungsi `clearTimeout(t)` harus diletakkan secara paksa di blok `finally`?",
+    "options": [
+      "Untuk memastikan timer pembatalan selalu dibersihkan dari memori komputer, terlepas dari fetch tersebut akhirnya sukses ataupun gagal",
+      "Untuk memanggil ulang proses fetch dari awal",
+      "Untuk menghapus cache pada browser",
+      "Untuk menghindari peringatan (warning) linter dari VS Code"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 20,
+    "question": "Jika fungsi `fetch()` dibatalkan menggunakan instruksi timeout, jenis tipe Error apa yang akan dilemparkan (throw) dan ditangkap oleh blok catch?",
+    "options": [
+      "\"TimeoutError\"",
+      "\"NetworkError\"",
+      "\"AbortError\"",
+      "\"TypeError\""
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 21,
+    "question": "Sedangkan jika fungsi `fetch()` gagal di tengah jalan akibat DNS tidak terjangkau atau perangkat sedang tidak ada kuota (offline), jenis Error bawaan apa yang muncul?",
+    "options": [
+      "\"TimeoutError\"",
+      "\"TypeError\"",
+      "\"AbortError\"",
+      "\"ReferenceError\""
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 22,
+    "question": "Dalam konteks pemrograman aplikasi yang tangguh, melakukan 'Retry Selektif' otomatis sangat diperbolehkan untuk kondisi berikut, KECUALI...",
+    "options": [
+      "Status HTTP 502 Bad Gateway",
+      "Network Error (Koneksi putus sesaat)",
+      "Status HTTP 503 Service Unavailable",
+      "Status HTTP 400 Bad Request"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 23,
+    "question": "Mengapa error yang bersumber dari client (seperti status 400, 401, atau 404) TIDAK BOLEH atau tidak disarankan untuk di-retry secara otomatis?",
+    "options": [
+      "Karena jika di-retry, browser akan crash (membeku)",
+      "Karena status 4xx menandakan kesalahan pada payload/request pengguna, di-retry ratusan kali pun hasilnya akan tetap gagal",
+      "Karena akan langsung memicu error CORS",
+      "Karena status 4xx sangat membebani tagihan bandwidth server"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 24,
+    "question": "Apa nama pola algoritma penundaan jeda waktu standar industri, yang diterapkan agar waktu tunggu retry makin lama makin panjang (misal: 200ms -> 400ms -> 800ms)?",
+    "options": [
+      "Linear Progression",
+      "Fibonacci Timeout",
+      "Exponential Backoff",
+      "Recursive Delay"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 25,
+    "question": "Tujuan utama menerapkan jeda waktu yang semakin merenggang saat melakukan retry berulang kali pada server yang down adalah...",
+    "options": [
+      "Menghemat penggunaan baterai pada perangkat pengguna",
+      "Mencegah server yang sedang kesulitan atau sibuk agar tidak 'dibombardir' spam request yang akan membuatnya semakin jatuh",
+      "Agar animasi loading di UI tampil lebih estetik",
+      "Untuk mengeksekusi kode lainnya di background"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 26,
+    "question": "Pada fungsi utilitas pembungkus seperti `getJson`, parameter desktrukturisasi `{ signal } = {}` ditulis di akhir tanda kurung. Apa fungsi dari penugasan `= {}` tersebut?",
+    "options": [
+      "Mengubah hasil return menjadi bentuk array",
+      "Memaksa pemanggil fungsi untuk selalu memasukkan objek AbortController",
+      "Mengantisipasi error program dengan memberikan nilai objek kosong default apabila pemanggil fungsi tidak menyertakan konfigurasi opsi apa pun",
+      "Menghapus parameter signal yang tidak terpakai"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 27,
+    "question": "Pada skenario fitur Autocomplete / Search API yang dipanggil terus-menerus setiap kali pengguna mengetik satu huruf, apa risiko utama jika request-request lama yang tertinggal tidak dibatalkan?",
+    "options": [
+      "Memori database akan langsung terisi penuh (Storage Full)",
+      "Terjadi Race Condition, di mana response dari request lama datang belakangan dan menimpa/merusak hasil dari kata kunci terbaru yang sedang ditampilkan",
+      "Fitur fetch akan ter-disable permanen oleh browser",
+      "IP pengguna akan diblokir langsung oleh penyedia ISP"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 28,
+    "question": "Bagaimana cara paling efektif menangani kondisi request Search yang beruntun sebagaimana dijelaskan di atas?",
+    "options": [
+      "Menurunkan kecepatan mengetik pengguna di sisi UI",
+      "Mengubah metode HTTP dari GET menjadi POST",
+      "Menyimpan referensi AbortController ke variabel global/luar, lalu memanggil `.abort()` secara manual sesaat sebelum request fetch huruf berikutnya ditembakkan",
+      "Mematikan Wi-Fi komputer pengguna sementara waktu"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 29,
+    "question": "Pada kode fungsi custom `sleep(ms)` yang berbasiskan sistem asynchrony, apa isi implementasi sesungguhnya dari fungsi tersebut?",
+    "options": [
+      "while(time < ms) { do_nothing; }",
+      "new Promise(resolve => setTimeout(resolve, ms))",
+      "clearTimeout(ms)",
+      "fetch('timeout_url')"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 30,
+    "question": "Dalam struktur arsitektur pemisahan file Mini API Client (contoh: memisahkan `client.js` dan `endpoints.js`), file manakah yang secara ideal menampung fungsi konfigurasi Low-Level murni seperti 'getJson', 'timeout', dan 'buildUrl'?",
+    "options": [
+      "index.js",
+      "endpoints.js",
+      "client.js",
+      "server.js"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 31,
+    "question": "Apa manfaat fundamental dari memisahkan fungsi Low-Level dari deklarasi High-Level per-endpoint seperti `listPosts()` dan `createPost()`?",
+    "options": [
+      "Jika kita ingin mengubah domain (Base URL) API atau menambahkan header autentikasi secara serentak, kita cukup merombaknya di satu file saja (client.js)",
+      "Ukuran file kode JavaScript akan berkurang hingga 90%",
+      "Agar file HTML bisa langsung merender datanya tanpa melewati JavaScript",
+      "Karena hal ini adalah satu-satunya cara agar vite bisa berjalan"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 32,
+    "question": "Method apa yang dipanggil untuk mengeksekusi instruksi pembatalan dari objek AbortController?",
+    "options": [
+      "controller.stop()",
+      "controller.cancel()",
+      "controller.halt()",
+      "controller.abort()"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 33,
+    "question": "Di kode `sendJson`, konfigurasi `'accept': 'application/json'` pada properti header diletakkan dengan tujuan...",
+    "options": [
+      "Memerintahkan API untuk menerima data berbentuk form-data",
+      "Memberitahu server agar secara eksplisit membalas (merespons) request ini dengan format data JSON",
+      "Menolak masuknya semua format selain teks biasa",
+      "Menentukan jenis otorisasi/token yang dipakai"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 34,
+    "question": "Manakah nilai properti `res.statusText` yang dikembalikan apabila HTTP request menghasilkan kode angka status 200?",
+    "options": [
+      "\"Not Found\"",
+      "\"Internal Server Error\"",
+      "\"OK\"",
+      "\"Bad Request\""
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 35,
+    "question": "Berdasarkan materi yang dipelajari, method apa saja yang sering digunakan untuk proses memodifikasi data yang membutuhkan instruksi HTTP dan parameter body?",
+    "options": [
+      "Hanya POST",
+      "GET dan POST",
+      "POST dan PUT",
+      "Semua method HTTP wajib mengirimkan body"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 36,
+    "question": "Jika fungsi `fetchWithTimeout` secara tidak sengaja menerima input URL yang tidak wajar (bukan link yang benar), error jenis apakah yang akan langsung di-throw di level bawah sebelum timeout itu sendiri berjalan?",
+    "options": [
+      "AbortError",
+      "TypeError",
+      "SyntaxError",
+      "ReferenceError"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 37,
+    "question": "Bagaimana cara menangani kondisi saat server me-return error log berupa teks biasa ketika gagal mem-parsing JSON, berdasarkan desain dari fungsi pembungkus (wrapper) pada materi?",
+    "options": [
+      "Memanggil res.text().catch(() => \"\") untuk menangkap dan menampilkan balasan teks aslinya (jika ada) ke dalam custom Error",
+      "Membiarkan program crash agar bisa di-debug",
+      "Otomatis me-restart browser pengguna",
+      "Selalu menelan error secara diam-diam (silent fail)"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 38,
+    "question": "Dalam kode implementasi `getJsonWithRetry`, blok percabangan utama `if (retryable && attempt < retries)` tidak berjalan pada error Abort/Cancel. Mengapa kita tidak me-retry request yang secara manual di-cancel?",
+    "options": [
+      "Karena akan menyebabkan loop tanpa henti (infinite loop)",
+      "Karena tidak masuk akal me-retry tindakan yang dengan sengaja dibatalkan oleh logic aplikasi atau pengguna",
+      "Karena AbortController hanya bisa dipanggil sebanyak 1 kali seumur hidup aplikasi",
+      "Karena dilarang oleh standar ECMA Script"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 39,
+    "question": "Menurut panduan teknis implementasi Lab, fitur timeout bawaan (seperti `timeoutMs: 1`) digunakan pada pengembangan aplikasi dengan target...",
+    "options": [
+      "Menghindari browser crash akibat file yang terlampau besar",
+      "Mensimulasikan skenario kegagalan koneksi di lingkungan lokal (testing) tanpa memutus internet sungguhan",
+      "Mendownload ribuan file sekaligus tanpa hambatan waktu",
+      "Memanipulasi respon kode status (misalnya dari 404 menjadi 200)"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 40,
+    "question": "Apa output default dari metode `.json()` jika response ternyata mereturn tipe string JSON yang berisi array kosongan: `[]`?",
+    "options": [
+      "Error parsing JSON",
+      "Objek Null",
+      "Array kosong di JavaScript",
+      "String teks murni \"[]\""
+    ],
+    "correctAnswer": 2
+  }
+]

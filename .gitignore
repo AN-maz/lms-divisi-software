@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Laporan skrip
+scripts/*.report.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

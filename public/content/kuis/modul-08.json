@@ -1,0 +1,224 @@
+[
+  {
+    "id": 1,
+    "question": "Dalam arsitektur database relasional, praktik memecah data ke dalam banyak tabel untuk menghindari duplikasi disebut dengan proses...",
+    "options": [
+      "Agregasi",
+      "Normalisasi",
+      "Derived Table",
+      "Pagination"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Apa fungsi utama dari klausa JOIN di dalam SQL?",
+    "options": [
+      "Menghapus data ganda di dalam satu tabel",
+      "Mengelompokkan data berdasarkan fungsi agregasi",
+      "Menggabungkan baris dari dua tabel atau lebih berdasarkan kolom yang saling berelasi",
+      "Membuat backup (cadangan) data dari sebuah tabel"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "Klausa apa yang digunakan dalam sintaks JOIN untuk menentukan kondisi titik temu (misalnya menyamakan Foreign Key dan Primary Key)?",
+    "options": [
+      "WHERE",
+      "ON",
+      "IN",
+      "HAVING"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 4,
+    "question": "Jenis JOIN manakah yang HANYA akan menampilkan data jika terdapat kecocokan nilai di KEDUA tabel yang digabungkan?",
+    "options": [
+      "INNER JOIN",
+      "LEFT JOIN",
+      "RIGHT JOIN",
+      "FULL OUTER JOIN"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 5,
+    "question": "Jika Anda hanya menuliskan perintah 'JOIN' tanpa spesifikasi awalan apapun di dalam SQL, bagaimana mesin database akan memprosesnya secara default?",
+    "options": [
+      "Akan memunculkan pesan error sintaks",
+      "Akan diproses sebagai LEFT JOIN",
+      "Akan diproses sebagai FULL OUTER JOIN",
+      "Akan diproses sebagai INNER JOIN"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 6,
+    "question": "Pada operasi LEFT JOIN, apa yang terjadi pada data dari tabel kiri (FROM) yang TIDAK MEMILIKI kecocokan relasi di tabel kanan?",
+    "options": [
+      "Data tersebut akan diabaikan dan tidak ditampilkan",
+      "Data dari tabel kiri tetap ditampilkan, dan nilai untuk kolom dari tabel kanan akan diisi dengan NULL",
+      "Data akan dihapus secara otomatis dari database",
+      "Akan menghasilkan error Constraint Violation"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 7,
+    "question": "Berdasarkan sintaks `FROM mahasiswa m LEFT JOIN program_studi p`, huruf 'm' dan 'p' berfungsi sebagai...",
+    "options": [
+      "Tipe data baru",
+      "Fungsi agregasi",
+      "Alias tabel untuk mempersingkat penulisan query",
+      "Subqueries"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Jika Anda ingin menampilkan SELURUH data jurusan (tabel kanan), termasuk jurusan yang saat ini belum memiliki satupun mahasiswa (tabel kiri), jenis JOIN apa yang paling tepat digunakan?",
+    "options": [
+      "INNER JOIN",
+      "LEFT JOIN",
+      "RIGHT JOIN",
+      "CROSS JOIN"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 9,
+    "question": "Jenis penggabungan yang menampilkan semua data dari kedua belah tabel, baik yang memiliki kecocokan maupun yang tidak (gabungan penuh), disebut...",
+    "options": [
+      "INNER JOIN",
+      "FULL OUTER JOIN",
+      "UNION JOIN",
+      "DERIVED JOIN"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 10,
+    "question": "DBMS manakah yang secara bawaan (default) tidak mendukung perintah FULL OUTER JOIN secara langsung, sehingga harus diakali menggunakan kombinasi LEFT JOIN, UNION, dan RIGHT JOIN?",
+    "options": [
+      "PostgreSQL",
+      "SQL Server",
+      "Oracle",
+      "MySQL"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 11,
+    "question": "Apa pengertian yang paling tepat mengenai Subquery (Nested Query) dalam SQL?",
+    "options": [
+      "Query SQL yang digunakan khusus untuk menghapus tabel",
+      "Sebuah query yang disisipkan atau diletakkan di dalam instruksi query SQL lainnya",
+      "Query yang gagal dieksekusi",
+      "Proses penggabungan dua tabel menjadi satu tabel baru"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 12,
+    "question": "Pada studi kasus mencari 'produk yang harganya di atas rata-rata semua produk', di manakah posisi penempatan Subquery yang paling tepat?",
+    "options": [
+      "Di dalam klausa FROM",
+      "Di dalam klausa SELECT",
+      "Di dalam klausa WHERE",
+      "Di dalam klausa ORDER BY"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 13,
+    "question": "Saat sebuah Subquery diletakkan di dalam klausa WHERE untuk memfilter data, bagian manakah yang akan dieksekusi terlebih dahulu oleh sistem database?",
+    "options": [
+      "Query utama (Outer query) dieksekusi terlebih dahulu",
+      "Subquery (Query bagian dalam) dieksekusi terlebih dahulu",
+      "Keduanya dieksekusi secara bersamaan",
+      "Tergantung pada klausa ORDER BY"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 14,
+    "question": "Apa sebutan khusus untuk Subquery yang diletakkan di dalam klausa FROM, di mana hasil dari query tersebut diperlakukan layaknya sebuah tabel?",
+    "options": [
+      "Derived Table (Tabel Sementara)",
+      "Primary Table",
+      "Joined Table",
+      "Alias Table"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 15,
+    "question": "Bagaimana cara membuat sebuah kolom hasil perhitungan agregasi tambahan (misal: 'jumlah_mahasiswa') agar bersandingan dengan tabel master 'program_studi' TANPA menggunakan klausa JOIN sama sekali?",
+    "options": [
+      "Menggunakan Subquery di dalam klausa SELECT",
+      "Menggunakan klausa HAVING",
+      "Menggunakan perintah UNION",
+      "Menggunakan klausa LIMIT"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 16,
+    "question": "Berdasarkan materi Tugas Mandiri, operator SQL apa yang sering dipasangkan dengan Subquery pada klausa WHERE jika Subquery tersebut memunculkan hasil LEBIH DARI SATU baris nilai?",
+    "options": [
+      "=",
+      "IN",
+      "LIKE",
+      "BETWEEN"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 17,
+    "question": "Jika sebuah skema E-Commerce memiliki 3 tabel berelasi (users, products, orders), berapa kali Anda harus memanggil klausa JOIN di dalam satu blok query untuk bisa menampilkan 'Nama Pelanggan' bersandingan dengan 'Nama Produk'?",
+    "options": [
+      "1 kali",
+      "2 kali",
+      "3 kali",
+      "Tidak perlu menggunakan JOIN"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 18,
+    "question": "Pendekatan query apa yang paling tepat untuk mecari 'pengguna yang belum pernah berbelanja sama sekali'?",
+    "options": [
+      "Menggunakan INNER JOIN dengan kondisi WHERE jumlah_beli = 0",
+      "Menggunakan FULL OUTER JOIN",
+      "Menggunakan LEFT JOIN (dari tabel users ke orders) dan menambahkan filter WHERE id_order IS NULL",
+      "Menggunakan Subquery di dalam klausa FROM"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 19,
+    "question": "Dalam menjelaskan konsep penggabungan tabel (JOIN), bentuk representasi visual atau logika himpunan apa yang paling sering digunakan untuk memudahkan pemahaman?",
+    "options": [
+      "Flowchart",
+      "Diagram Batang",
+      "Diagram Venn",
+      "Use Case Diagram"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 20,
+    "question": "Berdasarkan sintaks berikut, metode DQL apa saja yang diterapkan di dalamnya?",
+    "codeSnippet": "SELECT k.nama, d.nama_dept\nFROM karyawan k\nJOIN departemen d ON k.dept_id = d.id;",
+    "language": "sql",
+    "options": [
+      "FULL OUTER JOIN dan Subquery",
+      "INNER JOIN dan Alias Tabel",
+      "LEFT JOIN dan GROUP BY",
+      "Derived Table dan RIGHT JOIN"
+    ],
+    "correctAnswer": 1
+  }
+]

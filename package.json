@@ -7,13 +7,17 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "aislop": "aislop scan",
+    "aislop:ci": "aislop ci --changes",
+    "validate": "node scripts/validate-content.mjs",
+    "migrate:content": "node scripts/migrate-content.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
     "lucide-react": "^1.16.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "react-icons": "^5.6.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.15.1",
@@ -23,10 +27,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@tailwindcss/typography": "^0.5.19",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "aislop": "^0.18.1",
     "autoprefixer": "^10.5.0",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",

@@ -1,0 +1,342 @@
+[
+  {
+    "id": 1,
+    "question": "Berapa lama waktu yang diberikan kepada Brendan Eich untuk menciptakan versi awal JavaScript pada tahun 1995?",
+    "options": [
+      "1 bulan",
+      "10 hari",
+      "1 tahun",
+      "6 bulan"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Sebelum akhirnya dinamakan JavaScript, bahasa ini memiliki urutan nama awal yaitu...",
+    "options": [
+      "Java -> JScript -> JavaScript",
+      "ECMAScript -> LiveScript -> JavaScript",
+      "Mocha -> LiveScript -> JavaScript",
+      "JScript -> Mocha -> JavaScript"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "Apa nama standar resmi dari JavaScript yang dibuat oleh ECMA International untuk mengatasi 'Browser War' pada tahun 1997?",
+    "options": [
+      "ECMAScript",
+      "JScript",
+      "NetscapeScript",
+      "Node.js"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 4,
+    "question": "Teknologi apa yang diperkenalkan oleh Ryan Dahl pada tahun 2009 sehingga JavaScript bisa digunakan di luar browser (seperti di Server dan Backend)?",
+    "options": [
+      "React",
+      "Internet Explorer",
+      "ES6",
+      "Node.js"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 5,
+    "question": "Tag HTML apa yang paling tepat digunakan untuk menyisipkan dan menghubungkan file 'script.js' ke dalam file HTML?",
+    "codeSnippet": "",
+    "language": "html",
+    "options": [
+      "<link rel=\"stylesheet\" href=\"script.js\">",
+      "<script src=\"script.js\"></script>",
+      "<js href=\"script.js\"></js>",
+      "<script href=\"script.js\"></script>"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 6,
+    "question": "Kata kunci apa yang diperkenalkan pada ES6 untuk mendeklarasikan variabel yang nilainya TETAP dan tidak boleh diubah?",
+    "options": [
+      "let",
+      "const",
+      "var",
+      "static"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 7,
+    "question": "Manakah dari penulisan nama variabel berikut yang menerapkan gaya penulisan 'camelCase'?",
+    "options": [
+      "const namaSaya;",
+      "const NAMASAYA;",
+      "const nama_saya;",
+      "const NamaSaya;"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 8,
+    "question": "Tipe data primitif apa yang digunakan untuk merepresentasikan nilai logika yang hanya berisi 'true' atau 'false'?",
+    "options": [
+      "String",
+      "Null",
+      "Boolean",
+      "Undefined"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 9,
+    "question": "Apa sebutan tipe data untuk variabel di JavaScript yang sudah dibuat atau dideklarasikan, tetapi belum diberikan nilai sama sekali?",
+    "options": [
+      "Undefined",
+      "Null",
+      "NaN",
+      "Object"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 10,
+    "question": "Apa fungsi dari operator modulus (%) di dalam JavaScript?",
+    "options": [
+      "Melakukan perhitungan persentase",
+      "Melakukan pembagian bilangan bulat",
+      "Melakukan operasi perpangkatan",
+      "Menghitung sisa bagi dari suatu pembagian"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 11,
+    "question": "Operator perbandingan manakah yang sangat direkomendasikan karena mengecek kesamaan nilai SEKALIGUS kesamaan tipe datanya?",
+    "options": [
+      "==",
+      "!=",
+      "===",
+      ">="
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 12,
+    "question": "Operator logika manakah yang akan menghasilkan nilai 'true' HANYA JIKA SEMUA kondisi yang digabungkan bernilai benar?",
+    "options": [
+      "&& (AND)",
+      "|| (OR)",
+      "! (NOT)",
+      "== (EQUAL)"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 13,
+    "question": "Berdasarkan kode operator ternary berikut, apa hasil teks yang akan tersimpan di dalam variabel 'kategoriUmur'?",
+    "codeSnippet": "let umur = 15;\nlet kategoriUmur = (umur >= 18) ? \"Dewasa\" : \"Anak-anak\";",
+    "language": "javascript",
+    "options": [
+      "Dewasa",
+      "Anak-anak",
+      "15",
+      "Undefined"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 14,
+    "question": "Kata kunci apa yang digunakan di dalam struktur pengondisian 'switch' untuk menghentikan pengecekan berlanjut ke case berikutnya jika suatu kondisi sudah terpenuhi?",
+    "options": [
+      "stop",
+      "return",
+      "break",
+      "continue"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 15,
+    "question": "Struktur dasar dari perulangan 'for' terdiri dari tiga bagian utama di dalam kurungnya. Urutan yang benar adalah...",
+    "options": [
+      "kondisi; inisialisasi; perubahan",
+      "inisialisasi; kondisi; perubahan",
+      "perubahan; kondisi; inisialisasi",
+      "inisialisasi; perubahan; kondisi"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 16,
+    "question": "Apa perbedaan paling mendasar antara perulangan 'while' dan 'do...while'?",
+    "options": [
+      "'while' berjalan lebih cepat daripada 'do...while'.",
+      "'do...while' pasti menjalankan blok kode minimal satu kali di awal sebelum mengecek kondisi.",
+      "'while' digunakan untuk array, sedangkan 'do...while' digunakan untuk object.",
+      "'do...while' tidak membutuhkan kondisi untuk berhenti."
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 17,
+    "question": "Perulangan khusus apa yang digunakan untuk mengambil nilai (value) dari dalam daftar struktur data Array secara ringkas?",
+    "options": [
+      "for...in",
+      "while...of",
+      "for...of",
+      "do...in"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Jika sebuah perulangan mengeksekusi perintah 'continue', apa yang akan terjadi pada alur program?",
+    "options": [
+      "Melewati sisa kode pada iterasi saat ini dan langsung melompat ke urutan/iterasi berikutnya.",
+      "Menghentikan paksa seluruh proses perulangan saat itu juga.",
+      "Menghapus variabel iterator yang sedang digunakan.",
+      "Membuat perulangan berjalan selamanya (infinite loop)."
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 19,
+    "question": "Apa fungsi dari kata kunci 'return' di dalam sebuah fungsi (function)?",
+    "options": [
+      "Mendeklarasikan sebuah fungsi agar bisa dipanggil nanti.",
+      "Menampilkan hasil langsung ke dalam console browser.",
+      "Mengulangi kembali proses fungsi dari awal.",
+      "Menghentikan proses fungsi dan mengirimkan hasil/nilai keluar dari fungsi tersebut."
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 20,
+    "question": "Variabel penampung yang ditulis di dalam tanda kurung SAAT sebuah fungsi PERTAMA KALI DIBUAT disebut sebagai...",
+    "options": [
+      "Argumen",
+      "Parameter",
+      "Return value",
+      "Property"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 21,
+    "question": "Manakah sintaks penulisan 'Arrow Function' modern yang paling tepat untuk menjumlahkan dua angka?",
+    "options": [
+      "const tambah = (a, b) => a + b;",
+      "const tambah => (a, b) { return a + b };",
+      "function tambah(a, b) => { return a + b; }",
+      "let tambah = a, b => a + b;"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 22,
+    "question": "Berdasarkan kode fungsi dengan Default Parameter berikut, apa angka yang akan dikembalikan oleh fungsi tersebut?",
+    "codeSnippet": "function hitungPangkat(angka, nilaiPangkat = 2) {\n  return angka ** nilaiPangkat;\n}\n\nhitungPangkat(5);",
+    "language": "javascript",
+    "options": [
+      "5",
+      "7",
+      "25",
+      "NaN"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 23,
+    "question": "Built-in method array apa yang digunakan untuk menambahkan elemen baru ke bagian paling AKHIR dari sebuah array?",
+    "options": [
+      ".pop()",
+      ".push()",
+      ".shift()",
+      ".unshift()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 24,
+    "question": "Berdasarkan manipulasi array berikut, apa isi dari array 'daftarDivisi' di akhir program?",
+    "codeSnippet": "let daftarDivisi = [\"Hardware\", \"Software\"];\ndaftarDivisi.shift();",
+    "language": "javascript",
+    "options": [
+      "[\"Software\"]",
+      "[\"Hardware\"]",
+      "[\"Hardware\", \"Software\", \"shift\"]",
+      "[] (Array Kosong)"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 25,
+    "question": "Jika sebuah Object memiliki properti dengan kunci yang mengandung spasi (misalnya: \"tahun berdiri\"), bagaimana cara mengakses nilainya yang valid?",
+    "options": [
+      "Menggunakan Dot Notation: object.tahun berdiri",
+      "Menggunakan Index: object[1]",
+      "Menggunakan Dash Notation: object.tahun-berdiri",
+      "Menggunakan Bracket Notation: object[\"tahun berdiri\"]"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 26,
+    "question": "Kata kunci apa yang digunakan dalam JavaScript untuk membuang atau menghapus sebuah properti secara permanen dari dalam Object?",
+    "options": [
+      "remove",
+      "delete",
+      "clear",
+      "pop"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 27,
+    "question": "Berdasarkan struktur Array of Objects berikut, bagaimana cara mencetak kata 'Purwa'?",
+    "codeSnippet": "const daftarPengurus = [\n  { id: 1, nama: \"Sulastian\", jabatan: \"Ketua\" },\n  { id: 2, nama: \"Purwa\", jabatan: \"Rakyat Software\" }\n];",
+    "language": "javascript",
+    "options": [
+      "daftarPengurus[1].nama",
+      "daftarPengurus[2].nama",
+      "daftarPengurus.nama[1]",
+      "daftarPengurus.Purwa"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 28,
+    "question": "Kepanjangan dari DOM dalam pengembangan web dengan JavaScript adalah...",
+    "options": [
+      "Data Object Mode",
+      "Document Orientation Map",
+      "Document Object Model",
+      "Dynamic Output Method"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 29,
+    "question": "Perintah DOM apa yang digunakan untuk memerintahkan JavaScript agar mencari dan menangkap elemen HTML berdasarkan atribut ID-nya?",
+    "options": [
+      "document.querySelectorId()",
+      "document.getElementById()",
+      "document.findId()",
+      "document.searchId()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 30,
+    "question": "Setelah sebuah elemen DOM ditangkap (misalnya ke dalam variabel 'kotakOutput'), properti apa yang digunakan untuk menyisipkan teks atau tag HTML baru ke dalamnya?",
+    "options": [
+      ".insertText",
+      ".innerHTML",
+      ".textContent",
+      ".appendHTML"
+    ],
+    "correctAnswer": 1
+  }
+]

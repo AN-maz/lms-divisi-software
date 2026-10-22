@@ -49,7 +49,7 @@ Tag HTML adalah blablabla...
 ❌ Salah (Hanya jadi teks abu-abu biasa):
 
 4. Memasukkan Gambar (Image)
-   Karena aplikasi kita tidak menggunakan database, letakkan semua gambar di dalam folder public/img/ di proyek React-mu.
+   Letakkan gambar di dalam `public/img/` (buat foldernya bila belum ada) agar bisa diakses sebagai aset statis.
 
 Cara memanggilnya di Markdown harus menggunakan awalan garis miring / (merujuk ke folder public).
 
@@ -75,15 +75,31 @@ Markdown
 ```
 lms-app/
 │
-├── public/                  <-- Tempat menyimpan data murni
-│   ├── data/              <-- Data JSON untuk aplikasi
-│   │   ├── mentors.json      <-- Data tim pengurus
-│   │   └── quizzes.json     <-- Soal-soal kuis
-│   ├── materi/            <-- File materi Markdown
-│   │   ├── pertemuan-1.md
-│   │   ├── pertemuan-2.md
-│   │   └── pertemuan-3.md
-│   └── silabus.json       <-- "Database" daftar materi
+├── public/                        <-- Tempat menyimpan data murni
+│   ├── content/                   <-- Semua konten kurikulum
+│   │   ├── kurikulum.json         <-- MANIFEST: daftar pertemuan + modul
+│   │   ├── materi/                <-- Materi Markdown, 1 file per modul
+│   │   │   ├── pertemuan-01/
+│   │   │   │   └── modul-01-dasar-dasar-html.md
+│   │   │   ├── pertemuan-02/
+│   │   │   │   └── modul-02-konsep-dasar-css.md
+│   │   │   └── ... (sampai pertemuan-10, 19 modul)
+│   │   ├── kuis/                  <-- Soal kuis, 1 file JSON per modul
+│   │   │   ├── modul-01.json
+│   │   │   ├── modul-02.json
+│   │   │   └── ... (modul-13, 16-19 belum punya kuis)
+│   │   └── debugging-jiwa/
+│   │       └── kesadaran-organik.md
+│   └── data/                      <-- Data aplikasi (bukan kurikulum)
+│       └── mentors.json           <-- Data tim pengurus
+│
+├── scripts/
+│   ├── migrate-content.mjs        <-- Migrasi konten (sekali pakai)
+│   └── validate-content.mjs       <-- Validasi integritas konten
+│
+├── .aislop/                       <-- Konfigurasi quality gate "aislop"
+│   ├── config.yml
+│   └── rules.yml
 │
 ├── src/
 │   ├── components/        <-- Komponen yang bisa dipakai berulang
@@ -102,88 +118,87 @@ lms-app/
 │   │   └── SilabusPage.jsx         <-- Halaman peta jalan belajar
 │   │
 │   ├── services/         <-- Service layer untuk data handling
-│   │   └── dataService.js        <-- fetchData + cache + loader silabus/quizzes/mentors
+│   │   └── dataService.js        <-- fetchData + cache + dataSources (kurikulum/mentors/kuis)
 │   │
 │   ├── store/           <-- State Management (Zustand)
 │   │   └── useProgressStore.js   <-- Menyimpan state (materi terbuka/terkunci)
 │   │
 │   ├── utils/           <-- Utility functions
-│   │   └── index.js             <-- shuffleArray, calculateQuizScore, dll
+│   │   └── index.js             <-- shuffleArray, calculateQuizScore
 │   │
 │   ├── App.jsx          <-- Konfigurasi React Router
 │   ├── main.jsx
 │   └── index.css        <-- Konfigurasi warna & styling
 │
-├── tailwind.config.js   <-- (Biarkan default, pastikan path 'content' sudah benar)
 └── package.json
 ```
 
 ---
 
-# Panduan Kontribusi Soal Knowledge Check
+# Panduan Kontribusi Konten
 
-Dokumen ini menjelaskan format dan aturan penambahan soal untuk fitur **Knowledge Check** pada LMS Web.
+Semua konten (materi & kuis) berada di dalam `public/content/`, satu file per modul. Tujuannya: satu modul = satu PR, diff kecil, tidak ada merge conflict di file raksasa.
 
-## Lokasi File
+## 1. Menambah / Mengubah Materi
 
-Seluruh data kuis disimpan pada:
+**Lokasi file** — di dalam folder pertemuan, dengan nama `modul-NN-slug.md`:
 
 ```text
-public/data/quizzes.json
+public/content/materi/pertemuan-04/
+├── modul-05-pengenalan-ddl.md
+├── modul-06-dml-dan-constraints.md
+└── ...
 ```
 
-## Relasi dengan Modul
+`NN` = **ID modul**, sama dengan `id` di `kurikulum.json`.
 
-Setiap kuis terhubung ke materi berdasarkan **ID Modul** yang terdapat pada `public/silabus.json`.
+**Konvensi Heading** — lihat **Golden Rules** di atas. Setiap `#` (Heading 1) memotong halaman jadi satu section di sidebar. Gunakan `##`/`###` untuk sub-bab.
 
-Contoh:
+**Daftarkan di manifest** — tambahkan entri di `public/content/kurikulum.json`:
 
 ```json
 {
-  "id": 4,
-  "title": "Pertemuan 4 - SQL : Penggabungan Tabel (JOIN) dan Subqueries",
-  "file": "/materi/pertemuan-4-m4.md"
+  "id": 20,
+  "title": "Judul Modul Baru",
+  "file": "/content/materi/pertemuan-11/modul-20-judul-modul-baru.md"
 }
 ```
 
-Maka seluruh soal untuk materi tersebut harus berada pada key `"4"` di `quizzes.json`.
+Modul baru harus ditaruh di dalam `pertemuan` yang sesuai (tambah objek pertemuan baru bila perlu).
 
-```json
-{
-  "4": []
-}
+## 2. Menambah / Mengubah Soal Kuis
+
+**Lokasi file** — satu file JSON per modul, dinamai mengikuti ID modul:
+
+```text
+public/content/kuis/modul-05.json
 ```
 
-## Format Soal Pilihan Ganda
+Isinya array soal (bukan lagi di-key per modul):
 
 ```json
-{
-  "4": [
-    {
-      "id": 1,
-      "question": "Perintah SQL apa yang digunakan untuk menggabungkan baris dari dua tabel berdasarkan kolom yang berelasi?",
-      "options": [
-        "MERGE",
-        "COMBINE",
-        "JOIN",
-        "APPEND"
-      ],
-      "correctAnswer": 2
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "question": "Perintah SQL apa yang digunakan untuk menggabungkan baris dari dua tabel berdasarkan kolom yang berelasi?",
+    "options": ["MERGE", "COMBINE", "JOIN", "APPEND"],
+    "correctAnswer": 2
+  }
+]
 ```
 
 ### Properti
 
 | Properti        | Keterangan                              |
 | --------------- | --------------------------------------- |
-| `id`            | Nomor unik soal dalam modul             |
+| `id`            | Nomor unik soal dalam modul (mulai `1`) |
 | `question`      | Teks pertanyaan                         |
-| `options`       | Daftar pilihan jawaban                  |
+| `options`       | Daftar pilihan jawaban (minimal 2)      |
 | `correctAnswer` | Indeks jawaban benar (dimulai dari `0`) |
+| `codeSnippet`   | (opsional) Potongan kode                |
+| `language`      | (wajib bila ada `codeSnippet`)          |
 
-Contoh:
+Contoh indeks jawaban benar:
 
 ```text
 0 = MERGE
@@ -192,51 +207,58 @@ Contoh:
 3 = APPEND
 ```
 
-## Format Soal dengan Blok Kode
+Nilai `language` yang umum: `javascript`, `html`, `css`, `sql`, `json`.
 
-Untuk soal yang memerlukan potongan kode, gunakan `codeSnippet` dan `language`.
+Contoh soal dengan kode:
 
 ```json
 {
-  "4": [
-    {
-      "id": 2,
-      "question": "Berdasarkan query berikut, data apa yang akan dihasilkan?",
-      "codeSnippet": "SELECT users.name, orders.total\nFROM users\nINNER JOIN orders ON users.id = orders.user_id;",
-      "language": "sql",
-      "options": [
-        "Semua user beserta total ordernya",
-        "Hanya user yang memiliki order",
-        "Akan menghasilkan error",
-        "Hanya order tanpa user_id"
-      ],
-      "correctAnswer": 1
-    }
-  ]
+  "id": 2,
+  "question": "Berdasarkan query berikut, data apa yang akan dihasilkan?",
+  "codeSnippet": "SELECT users.name, orders.total\nFROM users\nINNER JOIN orders ON users.id = orders.user_id;",
+  "language": "sql",
+  "options": [
+    "Semua user beserta total ordernya",
+    "Hanya user yang memiliki order",
+    "Akan menghasilkan error",
+    "Hanya order tanpa user_id"
+  ],
+  "correctAnswer": 1
 }
 ```
 
-### Properti Tambahan
+## 3. Aturan Kontribusi
 
-| Properti      | Keterangan                                   |
-| ------------- | -------------------------------------------- |
-| `codeSnippet` | Potongan kode yang akan ditampilkan          |
-| `language`    | Bahasa pemrograman untuk syntax highlighting |
+1. Nama file kuis **wajib** `modul-NN.json`, cocok dengan ID modul di `kurikulum.json`.
+2. Modul yang belum punya kuis: **jangan** buat file kosong. Cukup tidak ada filenya — fitur "Modul Eksplorasi Bebas" akan menanganinya (modul dianggap lulus otomatis).
+3. Nilai kelulusan Knowledge Check adalah **70%**.
+4. Sebelum commit, jalankan:
 
-Nilai `language` yang umum digunakan:
+   ```bash
+   npm run validate   # cek integritas konten (path, id, correctAnswer, file yatim)
+   npm run lint       # cek kode
+   npm run build      # pastikan build sukses
+   npm run aislop     # quality gate untuk kode
+   ```
 
-```text
-javascript
-html
-css
-sql
-json
-```
+5. `npm run validate` akan menolak: JSON tidak valid, `correctAnswer` di luar rentang, id soal duplikat, path materi tidak ada, dan file kuis yatim.
 
-## Aturan Kontribusi
+## 4. Menambah Pertemuan (Bab) Baru
 
-1. Pastikan format JSON valid dan tidak mengandung trailing comma.
-2. Gunakan ID modul sebagai key string, misalnya `"1"`, `"2"`, `"3"`.
-3. Verifikasi file dengan JSON Validator sebelum melakukan commit.
-4. Jika sebuah modul belum memiliki kuis, sistem akan menganggap modul tersebut lulus secara otomatis.
-5. Nilai kelulusan Knowledge Check adalah **70%**.
+1. Buat folder `public/content/materi/pertemuan-NN/`.
+2. Taruh file materi di dalamnya dengan pola `modul-NN-slug.md`.
+3. Tambahkan objek pertemuan baru di `public/content/kurikulum.json`.
+4. (Opsional) Buat file kuis `modul-NN.json` bila modul itu punya Knowledge Check.
+5. Jalankan `npm run validate`.
+
+## 5. Skrip Bantu
+
+| Perintah                 | Fungsi                                                        |
+| ------------------------ | ------------------------------------------------------------- |
+| `npm run validate`       | Validasi integritas seluruh konten                            |
+| `npm run migrate:content`| Migrasi ulang struktur konten (hanya untuk arsip, idempoten)   |
+| `npm run aislop`         | Scan kualitas kode (quality gate)                             |
+| `npm run aislop:ci`      | Scan hanya file yang berubah (untuk CI/PR)                    |
+| `npm run lint`           | ESLint                                                        |
+| `npm run build`          | Build produksi                                                |
+

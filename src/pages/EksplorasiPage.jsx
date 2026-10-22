@@ -23,7 +23,7 @@ const formatWaktu = (totalDetik) => {
 const parseMateriMarkdown = (text) => {
   if (text.trim().startsWith('<!doctype html>') || text.includes('id="root"')) {
     throw new Error(
-      'Mismatch Data: Berkas fisik .md tidak ditemukan. Nama di silabus.json dan folder public berbeda!'
+      'Mismatch Data: Berkas .md tidak ditemukan. Path di kurikulum.json dan folder public/ berbeda!'
     );
   }
 
@@ -42,14 +42,14 @@ const EksplorasiPage = () => {
   const [searchParams] = useSearchParams();
   const isDebugView = searchParams.get('view') === 'debug';
 
-  // ---------- State Materi ----------
+  // State materi
   const [materiTitle, setMateriTitle] = useState('');
   const [sections, setSections] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [error, setError] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // ---------- Mode Fokus ----------
+  // State mode fokus
   const [mode, setMode] = useState(() => localStorage.getItem('lms_fokus_mode') || MODE_BIASA);
   const [pomodoro, setPomodoro] = useState({ sisa: WAKTU_FOKUS, istirahat: false });
   const [isPomodoroPaused, setIsPomodoroPaused] = useState(false);
@@ -57,26 +57,29 @@ const EksplorasiPage = () => {
     () => localStorage.getItem('lms_sanksi_absolut') === 'true'
   );
 
-  // ---------- Pengambilan Data ----------
-  const { data: silabusData, loading: loadingSilabus } = useDataLoader('silabus');
+  // Sumber data kurikulum (di-cache oleh dataService)
+  const { data: kurikulum, loading: loadingKurikulum } = useDataLoader('kurikulum');
 
-  // Menentukan sumber materi: normal (teknis) atau debug (jiwa)
+  // Menentukan sumber materi: normal (teknis) atau debug (jiwa).
+  // debug_jiwa ada di top-level kurikulum dan dipakai bersama semua modul.
   const materiSource = useMemo(() => {
-    if (!silabusData) return { status: 'loading' };
+    if (!kurikulum) return { status: 'loading' };
 
-    const currentMateri = findModuleById(silabusData, id);
+    const currentMateri = findModuleById(kurikulum, id);
     if (!currentMateri) return { status: 'notfound' };
 
     if (isDebugView) {
+      const debug = kurikulum.debug_jiwa;
+      if (!debug) return { status: 'notfound' };
       return {
         status: 'ok',
-        title: currentMateri.debug_jiwa?.title || 'Debugging Jiwa #1: Kesadaran Organik',
-        file: `/materi/${currentMateri.debug_jiwa?.slug || 'kesadaran-organik'}.md`,
+        title: debug.title,
+        file: `/content/debugging-jiwa/${debug.slug}.md`,
       };
     }
 
     return { status: 'ok', title: currentMateri.title, file: currentMateri.file };
-  }, [silabusData, id, isDebugView]);
+  }, [kurikulum, id, isDebugView]);
 
   // Memuat isi file .md tiap kali sumber materi berubah
   useEffect(() => {
@@ -110,7 +113,7 @@ const EksplorasiPage = () => {
     };
   }, [materiSource]);
 
-  // ---------- Sinkronisasi Memori Permanen ----------
+  // Simpan preferensi ke localStorage
   useEffect(() => {
     localStorage.setItem('lms_fokus_mode', mode);
   }, [mode]);
@@ -119,7 +122,7 @@ const EksplorasiPage = () => {
     localStorage.setItem('lms_sanksi_absolut', isTerkunci);
   }, [isTerkunci]);
 
-  // ---------- Reaktor Waktu (Pomodoro) ----------
+  // Jam Pomodoro
   useEffect(() => {
     if (mode !== MODE_POMODORO || isPomodoroPaused) return undefined;
 
@@ -136,7 +139,7 @@ const EksplorasiPage = () => {
     return () => clearInterval(timer);
   }, [mode, isPomodoroPaused]);
 
-  // ---------- Sensor Keyboard (Navigasi Section) ----------
+  // Navigasi section lewat tombol panah
   useEffect(() => {
     const tanganiKetukanKeyboard = (event) => {
       if (isTerkunci) return;
@@ -156,7 +159,7 @@ const EksplorasiPage = () => {
     return () => window.removeEventListener('keydown', tanganiKetukanKeyboard);
   }, [currentIndex, sections.length, isTerkunci]);
 
-  // ---------- Sensor Alt+Tab (Mode Absolut) ----------
+  // Mode Absolut mengunci layar saat jendela kehilangan fokus
   useEffect(() => {
     const handleKehilanganFokus = () => {
       if (mode === MODE_ABSOLUT && !isTerkunci) {
@@ -167,7 +170,7 @@ const EksplorasiPage = () => {
     return () => window.removeEventListener('blur', handleKehilanganFokus);
   }, [mode, isTerkunci]);
 
-  // ---------- Handler ----------
+  // Handler
   const gantiMode = (modeBaru) => {
     setMode(modeBaru);
     // Pemusnahan residu Pomodoro dilakukan saat mode diganti, bukan di dalam effect
@@ -187,8 +190,8 @@ const EksplorasiPage = () => {
   const progressPercentage =
     sections.length > 0 ? Math.round(((currentIndex + 1) / sections.length) * 100) : 0;
 
-  // ---------- Render ----------
-  if (loadingSilabus || materiSource.status === 'loading') {
+  // Render
+  if (loadingKurikulum || materiSource.status === 'loading') {
     return (
       <div className="h-screen w-full flex items-center justify-center bg-[#0a0a0a]">
         <div className="animate-pulse text-2xl font-bold text-[var(--color-software-bright)]">
@@ -433,6 +436,7 @@ const EksplorasiPage = () => {
 
       {isSidebarOpen && (
         <div
+          role="presentation"
           onClick={() => setIsSidebarOpen(false)}
           className="fixed inset-0 bg-black/60 z-40 md:hidden transition-opacity"
         ></div>

@@ -18,11 +18,12 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     rules: {
-      // `node` di-pattern destructuring komponen react-markdown memang dibuang
-      // dengan sengaja agar tidak ikut di-spread ke elemen DOM.
+      // Konvensi underscore untuk parameter/variabel yang sengaja tidak dipakai.
+      // Dipakai antara lain oleh pola `({ _node, ...props })` di MarkdownViewer,
+      // tempat prop `node` milik react-markdown dibuang agar tidak ikut ke DOM.
       'no-unused-vars': [
         'error',
-        { varsIgnorePattern: '^node$', argsIgnorePattern: '^node$' },
+        { varsIgnorePattern: '^_', argsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
       ],
     },
   },

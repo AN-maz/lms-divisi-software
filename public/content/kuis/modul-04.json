@@ -1,0 +1,336 @@
+[
+  {
+    "id": 1,
+    "question": "Apa kepanjangan dari DOM dalam bahasa JavaScript?",
+    "options": [
+      "Data Object Mode",
+      "Document Object Model",
+      "Document Orientation Map",
+      "Dynamic Output Method"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Apa fungsi utama dari DOM pada pengembangan halaman web?",
+    "options": [
+      "Sebagai bahasa pemrograman server pengganti Node.js",
+      "Untuk mendesain tampilan web menggunakan kode CSS",
+      "Sebagai jembatan penghubung antara struktur HTML dan logika JavaScript",
+      "Untuk mengubah file HTML menjadi database"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "Ketika browser membaca file HTML, struktur tersebut diubah menjadi susunan objek. Susunan ini biasa disebut sebagai...",
+    "options": [
+      "Relational Database",
+      "Tree Structure (Pohon Dokumen)",
+      "Array 3 Dimensi",
+      "Flat File Object"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 4,
+    "question": "Objek apa yang bertindak sebagai pintu masuk (akar) utama ke seluruh halaman HTML di dalam JavaScript DOM?",
+    "options": [
+      "document",
+      "window",
+      "body",
+      "element"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 5,
+    "question": "Method DOM manakah yang bekerja paling cepat dan khusus digunakan untuk mencari satu elemen berdasarkan ID uniknya?",
+    "options": [
+      "querySelector()",
+      "querySelectorAll()",
+      "getElementsByClassName()",
+      "getElementById()"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 6,
+    "question": "Jika kita ingin memilih elemen pertama yang cocok menggunakan format selector CSS modern (seperti '.deskripsi' atau 'div > p'), method apa yang harus dipakai?",
+    "options": [
+      "getElementById()",
+      "getElementsByTagName()",
+      "querySelector()",
+      "querySelectorAll()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 7,
+    "question": "Apa hasil yang dikembalikan oleh method 'querySelectorAll(\"li\")'?",
+    "options": [
+      "Hanya elemen <li> yang pertama kali ditemukan",
+      "Semua elemen <li> yang ada di halaman dalam bentuk daftar koleksi",
+      "Sebuah string teks yang berisi tulisan \"li\"",
+      "Elemen <li> terakhir di halaman"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 8,
+    "question": "Apa kekurangan utama dari menggunakan 'innerHTML' jika dibandingkan dengan 'textContent' saat menangani input dari user?",
+    "options": [
+      "Lebih rawan terkena serangan XSS (Cross Site Scripting)",
+      "Tidak bisa menambahkan elemen baru",
+      "Kecepatannya sangat lambat",
+      "Hanya bisa membaca teks biasa"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 9,
+    "question": "Properti DOM apa yang paling aman digunakan jika kita HANYA ingin mengubah atau membaca teks biasa di dalam elemen (tanpa merender tag HTML)?",
+    "options": [
+      "outerHTML",
+      "innerHTML",
+      "textContent",
+      "value"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 10,
+    "question": "Method apa yang digunakan untuk menyisipkan atau mengubah nilai dari sebuah atribut elemen HTML (contoh: menambahkan 'src' pada tag <img>)?",
+    "options": [
+      "getAttribute()",
+      "setAttribute()",
+      "removeAttribute()",
+      "changeAttribute()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 11,
+    "question": "Bagaimana cara penulisan properti CSS 'background-color' yang benar apabila dimanipulasi langsung dari dalam file JavaScript?",
+    "options": [
+      "background-color",
+      "Background-Color",
+      "background_color",
+      "backgroundColor"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 12,
+    "question": "Manakah cara yang dianggap sebagai *best practice* atau lebih efisien saat ingin mengubah banyak style/tampilan pada sebuah elemen sekaligus?",
+    "options": [
+      "Mengubah properti elemen.style satu per satu",
+      "Menghapus elemen lama dan membuat ulang elemen baru dengan style baru",
+      "Membuat class di CSS, lalu menambahkan class tersebut ke elemen menggunakan classList",
+      "Menulis tag <style> langsung menggunakan innerHTML"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 13,
+    "question": "Method apa pada 'classList' yang secara cerdas akan MENAMBAH class jika elemen tersebut belum memilikinya, atau MENGHAPUS class jika sudah ada?",
+    "options": [
+      "contains()",
+      "add()",
+      "remove()",
+      "toggle()"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 14,
+    "question": "Method 'classList.contains(\"active\")' pada JavaScript digunakan untuk...",
+    "options": [
+      "Mengecek dan menghasilkan nilai true/false apakah elemen memiliki class \"active\"",
+      "Menambahkan class \"active\" ke elemen tersebut",
+      "Menghapus semua class kecuali class \"active\"",
+      "Mengganti class saat ini dengan class \"active\""
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 15,
+    "question": "Method DOM apa yang bertugas untuk menciptakan elemen HTML baru ke dalam memori JavaScript sebelum ditampilkan ke halaman?",
+    "options": [
+      "document.makeElement()",
+      "document.createElement()",
+      "document.newElement()",
+      "document.buildElement()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 16,
+    "question": "Setelah elemen baru diciptakan, method apa yang kita gunakan untuk menyisipkannya ke posisi PALING AKHIR di dalam elemen induk?",
+    "options": [
+      "appendChild()",
+      "prepend()",
+      "insertBefore()",
+      "addLast()"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 17,
+    "question": "Method apa yang harus kita gunakan jika ingin elemen HTML yang baru dibuat disisipkan pada posisi PALING AWAL dari elemen induknya?",
+    "options": [
+      "appendChild()",
+      "firstInsert()",
+      "prepend()",
+      "insertTop()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Untuk membuang atau menghapus secara permanen sebuah elemen HTML dari tampilan halaman web, method apa yang dipanggil?",
+    "options": [
+      "delete()",
+      "remove()",
+      "clear()",
+      "destroy()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 19,
+    "question": "Di dalam materi DOM Events, event 'mouseenter' akan terpicu pada saat...",
+    "options": [
+      "User mengklik elemen secara ganda (double click)",
+      "User mulai mengetik pada keyboard",
+      "User mensubmit sebuah formulir",
+      "Cursor mouse bergerak masuk ke area sebuah elemen"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 20,
+    "question": "Cara paling modern dan sangat direkomendasikan untuk menugaskan aksi terhadap sebuah event (misalnya saat tombol diklik) adalah menggunakan...",
+    "options": [
+      "Atribut onclick langsung di dalam file HTML",
+      "addEventListener()",
+      "Menulis fungsi biasa di akhir file script",
+      "Method setAttribute()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 21,
+    "question": "Ketika membuat aplikasi interaktif dan kita ingin merespon/mendeteksi ketikan user di dalam kolom teks secara *real-time*, event apa yang paling cocok?",
+    "options": [
+      "click",
+      "submit",
+      "input",
+      "load"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 22,
+    "question": "Pada sebuah event listener, biasanya terdapat parameter 'e' atau 'event'. Apa fungsi utama dari objek Event tersebut?",
+    "options": [
+      "Berisi fungsi matematika tambahan bawaan JavaScript",
+      "Menyimpan informasi spesifik dan detail mengenai kejadian event tersebut",
+      "Merupakan referensi untuk mematikan browser",
+      "Untuk menjalankan fungsi secara berulang-ulang"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 23,
+    "question": "Properti Event Object manakah yang secara spesifik menunjuk ke 'elemen HTML yang menjadi target terjadinya aksi' (misalnya, tombol spesifik mana yang barusan diklik)?",
+    "options": [
+      "e.type",
+      "e.key",
+      "e.value",
+      "e.target"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 24,
+    "question": "Ketika kita men-submit sebuah tag <form>, browser memiliki kebiasaan default otomatis me-reload halaman. Method Event Object apa yang bisa mencegah hal ini?",
+    "options": [
+      "e.stopPropagation()",
+      "e.stopReload()",
+      "e.preventDefault()",
+      "e.cancelAction()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 25,
+    "question": "Menurut panduan *Best Practice* JavaScript DOM, mengapa kita disarankan menyimpan referensi tangkapan elemen HTML ke dalam variabel bertipe 'const'?",
+    "options": [
+      "Karena lokasi referensi elemen tersebut di halaman tidak perlu kita ubah-ubah penunjuknya",
+      "Karena elemen tersebut nilainya dienkripsi oleh browser",
+      "Agar teks di dalam elemen tersebut tidak dapat diedit sama sekali",
+      "Karena var dan let sudah dihapus dari sistem HTML"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 26,
+    "question": "Berdasarkan pedoman penulisan *Best Practice* efisiensi DOM, apa kebiasaan yang HARUS DIHINDARI?",
+    "options": [
+      "Menangkap/mencari elemen (DOM Selection) berulang kali di dalam fungsi yang sama",
+      "Menggunakan querySelector() alih-alih getElementsByClassName()",
+      "Menangkap semua elemen yang dibutuhkan cukup satu kali di bagian awal file JavaScript",
+      "Menggunakan classList untuk mengganti style"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 27,
+    "question": "Berdasarkan kode di bawah ini, aksi apa yang dilakukan pada elemen UI List (Daftar)?",
+    "codeSnippet": "const daftar = document.getElementById(\"daftar\");\nconst item = document.createElement(\"li\");\nitem.textContent = \"Tugas Baru\";\ndaftar.appendChild(item);",
+    "language": "javascript",
+    "options": [
+      "Menghapus \"Tugas Baru\" dari daftar",
+      "Membuat elemen list <li> dan menyisipkannya ke posisi paling akhir dari id 'daftar'",
+      "Mengganti seluruh daftar menjadi tulisan \"Tugas Baru\"",
+      "Membuat daftar baru dari awal"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 28,
+    "question": "Ketika kita menjalankan perintah 'judul.textContent = \"Hello World\"' pada file JavaScript, apa yang sesungguhnya berubah?",
+    "options": [
+      "Tampilan HTML pada layar browser pengguna saja",
+      "Kode sumber di file HTML yang ada di dalam server hosting ikut berubah permanen",
+      "File index.html di dalam komputer kita akan otomatis tersimpan ulang",
+      "Nama tag HTML <h1> berubah menjadi teks"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 29,
+    "question": "Berdasarkan kode mendengarkan event keyboard ini, apa fungsi properti 'e.key'?",
+    "codeSnippet": "document.addEventListener(\"keydown\", function(e) {\n  console.log(e.key);\n});",
+    "language": "javascript",
+    "options": [
+      "Mendapatkan koordinat persis letak kursor mouse",
+      "Mengetahui tag HTML apa yang sedang di-highlight",
+      "Menginformasikan secara spesifik tombol keyboard huruf/simbol apa yang baru saja ditekan",
+      "Mendapatkan jumlah karakter di halaman"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 30,
+    "question": "Berdasarkan materi, method lama ini masih dapat digunakan untuk memilih elemen berdasarkan nama class dan akan me-return kumpulan elemen. Method apakah ini?",
+    "options": [
+      "getElementById()",
+      "querySelector()",
+      "querySelectorAll()",
+      "getElementsByClassName()"
+    ],
+    "correctAnswer": 3
+  }
+]

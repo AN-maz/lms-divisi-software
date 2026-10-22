@@ -1,0 +1,310 @@
+[
+  {
+    "id": 1,
+    "question": "Apa perbedaan utama antara domain name dan IP address?",
+    "options": [
+      "Domain name adalah alamat numerik, IP address adalah nama yang mudah diingat",
+      "Domain name adalah nama yang mudah diingat (seperti google.com), IP address adalah alamat numerik yang digunakan komputer untuk menemukan server",
+      "Domain name dan IP address adalah hal yang sama persis",
+      "IP address hanya digunakan untuk website berbayar"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Fungsi DNS (Domain Name System) adalah...",
+    "options": [
+      "Menyimpan file HTML di server",
+      "Mengamankan koneksi antara browser dan server",
+      "Menerjemahkan domain name menjadi IP address",
+      "Mengatur kecepatan loading website"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "Komponen frontend mana yang bertugas sebagai 'kerangka' atau struktur halaman web?",
+    "options": [
+      "CSS",
+      "JavaScript",
+      "HTML",
+      "Backend"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 4,
+    "question": "Urutan yang benar dari proses HTTP request-response adalah...",
+    "options": [
+      "Server kirim HTML → Browser render → User ketik URL",
+      "User ketik URL → Server kirim HTML → Browser render",
+      "Browser render → User ketik URL → Server kirim HTML",
+      "DNS cari IP → User ketik URL → Server kirim HTML"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 5,
+    "question": "Apa yang dimaksud dengan 'hosting'?",
+    "options": [
+      "Nama domain yang digunakan website",
+      "Protokol komunikasi antara browser dan server",
+      "Tempat penyimpanan file web agar bisa diakses 24/7 melalui internet",
+      "Aplikasi untuk membaca file HTML"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 6,
+    "question": "Apa yang terjadi jika kamu lupa menulis `<!DOCTYPE html>` di awal file HTML?",
+    "options": [
+      "File tidak bisa disimpan",
+      "Browser mungkin merender halaman dalam mode yang tidak konsisten (quirks mode)",
+      "Halaman tidak akan tampil sama sekali",
+      "CSS tidak bisa dihubungkan ke file HTML"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 7,
+    "question": "Konten di dalam tag `<head>` digunakan untuk...",
+    "options": [
+      "Menampilkan judul besar di halaman",
+      "Menyimpan metadata seperti judul tab, link CSS, dan meta tags — tidak ditampilkan di halaman",
+      "Menampilkan navigasi utama website",
+      "Menyimpan konten utama yang dilihat pengguna"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 8,
+    "question": "Meta tag mana yang harus ditambahkan agar website tampil responsif di HP?",
+    "options": [
+      "<meta charset=\"UTF-8\">",
+      "<meta name=\"description\" content=\"...\">",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "<meta name=\"author\" content=\"...\">"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 9,
+    "question": "Apa perbedaan antara tag `<b>` dan `<strong>`?",
+    "options": [
+      "Tidak ada perbedaan, keduanya menghasilkan teks tebal",
+      "`<b>` hanya untuk styling visual (tebal), sedangkan `<strong>` memiliki makna semantik bahwa teks tersebut penting",
+      "`<strong>` hanya untuk heading, `<b>` untuk paragraf biasa",
+      "`<b>` adalah versi terbaru dari `<strong>`"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 10,
+    "question": "HTML entity yang benar untuk menampilkan simbol `<` di halaman adalah...",
+    "options": [
+      "&less;",
+      "&lt;",
+      "&langle;",
+      "\\<"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 11,
+    "question": "Apa perbedaan antara `<i>` dan `<em>`?",
+    "options": [
+      "`<i>` adalah italic semantik (penekanan), `<em>` hanya styling visual",
+      "`<i>` hanya untuk styling visual (misal nama ilmiah), `<em>` memiliki makna penekanan yang semantik",
+      "Keduanya identik dan dapat digunakan secara bergantian",
+      "`<em>` hanya bisa digunakan di dalam heading"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 12,
+    "question": "Perbedaan utama antara `id` dan `class` attribute adalah...",
+    "options": [
+      "ID bisa digunakan berkali-kali, class hanya sekali per halaman",
+      "ID harus unik (hanya satu per halaman), class bisa digunakan pada banyak elemen sekaligus",
+      "ID hanya untuk JavaScript, class hanya untuk CSS",
+      "Tidak ada perbedaan, keduanya fungsinya sama"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 13,
+    "question": "Kapan kamu menggunakan `<span>` dibanding `<div>`?",
+    "options": [
+      "Ketika ingin membuat container yang mengambil satu baris penuh (block)",
+      "Ketika ingin mengelompokkan elemen secara inline tanpa membuat baris baru",
+      "`<span>` selalu lebih disarankan daripada `<div>`",
+      "Ketika ingin menambahkan border pada konten"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 14,
+    "question": "Tag HTML yang digunakan untuk header kolom tabel adalah...",
+    "options": [
+      "<td>",
+      "<tr>",
+      "<th>",
+      "<thead>"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 15,
+    "question": "Attribute `colspan` pada tabel digunakan untuk...",
+    "options": [
+      "Menggabungkan beberapa baris secara vertikal",
+      "Menambah warna pada sel tabel",
+      "Menggabungkan beberapa kolom secara horizontal",
+      "Mengatur lebar kolom tabel"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 16,
+    "question": "Kapan sebaiknya menggunakan `<ol>` dibanding `<ul>`?",
+    "options": [
+      "Ketika daftar berisi lebih dari 5 item",
+      "Ketika urutan item sangat penting, seperti langkah-langkah atau peringkat",
+      "`<ol>` selalu digunakan untuk navigasi website",
+      "Ketika item menggunakan bullet point"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 17,
+    "question": "Tag `<dl>` digunakan untuk...",
+    "options": [
+      "Membuat daftar bernomor (ordered list)",
+      "Membuat daftar dengan bullet (unordered list)",
+      "Membuat daftar istilah beserta definisinya (definition list)",
+      "Membuat daftar di dalam tabel"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Attribute mana yang WAJIB ada pada tag `<img>`?",
+    "options": [
+      "width dan height",
+      "src dan alt",
+      "id dan class",
+      "title dan style"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 19,
+    "question": "Perbedaan `<img>` biasa dengan `<figure>` + `<img>` adalah...",
+    "options": [
+      "Tidak ada perbedaan, keduanya menampilkan gambar yang sama",
+      "`<figure>` membuat gambar lebih besar secara otomatis",
+      "`<figure>` bersifat semantik dan memungkinkan penambahan `<figcaption>` sebagai keterangan gambar",
+      "`<img>` di dalam `<figure>` tidak bisa diberi atribut alt"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 20,
+    "question": "Attribute `controls` pada tag `<audio>` dan `<video>` berfungsi untuk...",
+    "options": [
+      "Membuat media berjalan otomatis saat halaman dibuka",
+      "Menampilkan kontrol player (play, pause, volume) kepada pengguna",
+      "Mengulang media dari awal setelah selesai",
+      "Menyembunyikan player dari pengguna"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 21,
+    "question": "Attribute `for` pada `<label>` harus cocok dengan attribute apa pada `<input>`?",
+    "options": [
+      "name",
+      "type",
+      "id",
+      "class"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 22,
+    "question": "Perbedaan antara `<input type=\"radio\">` dan `<input type=\"checkbox\">` adalah...",
+    "options": [
+      "Radio untuk teks, checkbox untuk angka",
+      "Radio hanya boleh dipilih satu (mutually exclusive dalam satu group), checkbox bisa dipilih banyak sekaligus",
+      "Checkbox lebih modern dan menggantikan radio",
+      "Tidak ada perbedaan fungsional"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 23,
+    "question": "Validasi form di HTML (seperti `required`, `type=\"email\"`) bersifat...",
+    "options": [
+      "Cukup dan tidak perlu validasi tambahan di backend",
+      "Hanya untuk tampilan, tidak benar-benar memvalidasi data",
+      "Frontend validation yang bisa di-bypass, sehingga validasi di backend tetap wajib dilakukan",
+      "Lebih aman dari validasi JavaScript"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 24,
+    "question": "Semantic layout tag `<main>` digunakan untuk...",
+    "options": [
+      "Bagian navigasi halaman",
+      "Konten utama halaman — hanya boleh ada satu per halaman",
+      "Bagian bawah (footer) halaman",
+      "Header dan judul halaman"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 25,
+    "question": "Kapan sebaiknya menggunakan `<article>` dibanding `<section>`?",
+    "options": [
+      "`<article>` untuk bagian yang bisa berdiri sendiri (seperti blog post, produk), `<section>` untuk pengelompokan tematik yang merupakan bagian dari halaman",
+      "`<section>` selalu lebih diutamakan daripada `<article>`",
+      "Keduanya identik dan bisa digunakan bergantian",
+      "`<article>` hanya untuk berita, `<section>` untuk semua jenis konten"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 26,
+    "question": "Mengapa menggunakan semantic tags (`<header>`, `<nav>`, `<main>`, dst.) lebih baik daripada hanya menggunakan `<div>`?",
+    "options": [
+      "Semantic tags membuat halaman lebih cepat loading",
+      "Semantic tags membantu SEO dan aksesibilitas karena search engine dan screen reader memahami struktur konten lebih baik",
+      "Semantic tags hanya tersedia di HTML5 dan membuat kode lebih pendek",
+      "Semantic tags secara otomatis menambahkan styling ke elemen"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 27,
+    "question": "Di antara tiga cara memasukkan CSS (inline, internal, external), mana yang paling direkomendasikan dan mengapa?",
+    "options": [
+      "Inline, karena styling langsung pada elemen dan tidak perlu file tambahan",
+      "Internal, karena semua styling berada dalam satu file HTML",
+      "External, karena file CSS terpisah bisa digunakan ulang di banyak halaman dan HTML tetap bersih",
+      "Semua cara sama baiknya tergantung preferensi"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 28,
+    "question": "Di mana sebaiknya tag `<script>` diletakkan dalam dokumen HTML dan mengapa?",
+    "options": [
+      "Di dalam `<head>`, agar JavaScript dimuat pertama sebelum konten",
+      "Di awal `<body>`, agar script tersedia sebelum elemen apapun",
+      "Di akhir `</body>`, agar DOM sudah selesai dimuat sebelum JavaScript dijalankan",
+      "Tidak ada aturan khusus, bisa di mana saja"
+    ],
+    "correctAnswer": 2
+  }
+]

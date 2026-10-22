@@ -1,0 +1,5 @@
+# Konten (materi markdown & kuis JSON) bukan kode -> tidak perlu linter kode.
+public/content
+
+# File hasil migrasi & laporan
+scripts/**/*.report.json

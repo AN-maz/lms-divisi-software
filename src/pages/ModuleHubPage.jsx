@@ -11,8 +11,8 @@ const ModuleHubPage = () => {
     const completedModules = useProgressStore((state) => state.completedModules);
     const isCompleted = completedModules.includes(parseInt(id));
 
-    const { data: silabusData } = useDataLoader('silabus');
-    const moduleData = findModuleById(silabusData, id);
+    const { data: kurikulum } = useDataLoader('kurikulum');
+    const moduleData = findModuleById(kurikulum, id);
 
     if (!moduleData) return (
         <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
