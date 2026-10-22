@@ -1,52 +1,52 @@
 import { useState, useEffect, useCallback } from 'react';
-import { dataLoaders } from '../services/dataService';
+import { fetchData, loadData } from '../services/dataService';
 
-// Custom hook untuk memuat data JSON dengan state loading/error
-const useDataLoader = (loaderKey, additionalProps = {}) => {
+// Memuat data JSON dan melaporkan status loading/error.
+//
+// `sumber` bisa berupa:
+//   - nama sumber terdaftar, mis. 'silabus' | 'mentors'
+//   - path langsung dimulai '/', mis. '/content/kuis/modul-03.json'
+const useDataLoader = (sumber) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const loadData = useCallback(async () => {
+  const load = useCallback(async () => {
     setLoading(true);
     setError(null);
 
     try {
-      const loader = dataLoaders[loaderKey];
-      if (!loader) {
-        throw new Error(`Unknown data loader: ${loaderKey}`);
-      }
-
-      const result = await loader(additionalProps.cacheKey);
-      setData(result);
+      const hasil = sumber?.startsWith('/') ? await fetchData(sumber) : await loadData(sumber);
+      setData(hasil);
     } catch (err) {
-      console.error(`Gagal memuat data (${loaderKey}):`, err);
+      // Data yang memang tidak ada (mis. modul tanpa kuis) bukan kegagalan sistem,
+      // jadi tidak perlu dicatat sebagai error di konsol.
+      if (!err.notFound) {
+        console.error(`Gagal memuat data "${sumber}":`, err);
+      }
       setError(err);
       setData(null);
     } finally {
       setLoading(false);
     }
-  }, [loaderKey, additionalProps.cacheKey]);
+  }, [sumber]);
 
-  // Muat data saat pertama kali / saat loaderKey berubah
   useEffect(() => {
-    let aktif = true;
+    let diabaikan = false;
 
     const jalankan = async () => {
-      await loadData();
-      if (!aktif) return;
+      await load();
+      if (diabaikan) return;
     };
 
     jalankan();
 
     return () => {
-      aktif = false;
+      diabaikan = true;
     };
-  }, [loadData]);
+  }, [load]);
 
-  const refetch = () => loadData();
-
-  return { data, loading, error, loadData, refetch };
+  return { data, loading, error, refetch: load };
 };
 
 export default useDataLoader;

@@ -5,6 +5,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import useProgressStore from '../store/useProgressStore';
 import useDataLoader from '../hooks/useDataLoader';
+import { dataSources } from '../services/dataService';
 import { shuffleArray, calculateQuizScore } from '../utils';
 
 const NILAI_LULUS = 70;
@@ -20,15 +21,16 @@ const QuizPage = () => {
 
   const markAsCompleted = useProgressStore((state) => state.markAsCompleted);
 
-  const { data: quizData, loading, error } = useDataLoader('quizzes');
+  // Satu file soal per modul: /content/kuis/modul-NN.json
+  const { data: daftarSoal, loading, error } = useDataLoader(dataSources.kuisModul(id));
 
   // Soal diacak (Fisher-Yates) sekali per modul, urutan tidak berubah saat render ulang
-  const questions = useMemo(() => {
-    const list = quizData?.[id];
-    return Array.isArray(list) && list.length > 0 ? shuffleArray(list) : [];
-  }, [quizData, id]);
+  const questions = useMemo(
+    () => (Array.isArray(daftarSoal) && daftarSoal.length > 0 ? shuffleArray(daftarSoal) : []),
+    [daftarSoal]
+  );
 
-  const noQuizFound = !loading && !error && questions.length === 0;
+  const noQuizFound = !loading && (!error || error.notFound) && questions.length === 0;
   const passed = result.score >= NILAI_LULUS;
 
   const handleSelect = (optionIdx) => {
@@ -48,22 +50,22 @@ const QuizPage = () => {
 
   if (loading) return <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center animate-pulse text-[var(--color-software-bright)] font-bold">Inisialisasi Sistem Evaluasi...</div>;
 
-  if (error) return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center p-6">
-      <div className="max-w-xl text-center bg-[#121212] p-10 rounded-3xl border border-gray-800 shadow-2xl">
-        <h1 className="text-3xl font-black text-red-400 mb-4">Gagal Memuat Kuis</h1>
-        <p className="text-gray-400 mb-8">{error.message}</p>
-        <button onClick={() => navigate('/materi')} className="w-full py-4 bg-[var(--color-software-bright)] text-black font-black rounded-xl">Kembali ke Peta Belajar</button>
-      </div>
-    </div>
-  );
-
   if (noQuizFound) return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center p-6">
       <div className="max-w-xl text-center bg-[#121212] p-10 rounded-3xl border border-gray-800 shadow-2xl">
         <h1 className="text-3xl font-black text-[var(--color-software-tosca)] mb-4">Modul Eksplorasi Bebas</h1>
         <p className="text-gray-400 mb-8">Knowledge Check tidak tersedia untuk modul ini. Anda dapat langsung memvalidasi progres Anda.</p>
         <button onClick={() => { markAsCompleted(parseInt(id)); navigate('/materi'); }} className="w-full py-4 bg-[var(--color-software-bright)] text-black font-black rounded-xl">Konfirmasi Kelulusan</button>
+      </div>
+    </div>
+  );
+
+  if (error) return (
+    <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center p-6">
+      <div className="max-w-xl text-center bg-[#121212] p-10 rounded-3xl border border-gray-800 shadow-2xl">
+        <h1 className="text-3xl font-black text-red-400 mb-4">Gagal Memuat Kuis</h1>
+        <p className="text-gray-400 mb-8">{error.message}</p>
+        <button onClick={() => navigate('/materi')} className="w-full py-4 bg-[var(--color-software-bright)] text-black font-black rounded-xl">Kembali ke Peta Belajar</button>
       </div>
     </div>
   );

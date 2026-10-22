@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "question": "Apa fungsi dan tujuan utama dari penerapan Data Constraints pada sebuah tabel database?",
+    "options": [
+      "Untuk mempercepat proses pencarian data",
+      "Menjaga keakuratan, konsistensi data, dan mencegah masuknya data yang tidak valid",
+      "Menghubungkan aplikasi web dengan database",
+      "Mengubah tipe data kolom secara otomatis"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Constraint apa yang wajib digunakan untuk memastikan bahwa suatu kolom tidak boleh dibiarkan kosong oleh pengguna saat memasukkan data?",
+    "options": [
+      "UNIQUE",
+      "DEFAULT",
+      "NOT NULL",
+      "CHECK"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "Constraint 'PRIMARY KEY' pada dasarnya adalah kombinasi langsung dari dua buah constraint dasar. Dua constraint tersebut adalah...",
+    "options": [
+      "NOT NULL dan CHECK",
+      "UNIQUE dan DEFAULT",
+      "NOT NULL dan UNIQUE",
+      "CHECK dan UNIQUE"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 4,
+    "question": "Berdasarkan sintaks pembuatan tabel berikut, apa fungsi dari constraint yang diletakkan pada kolom umur?",
+    "codeSnippet": "umur INT CHECK (umur >= 13)",
+    "language": "sql",
+    "options": [
+      "Memberikan nilai bawaan angka 13 jika kolom tidak diisi",
+      "Memastikan bahwa setiap nilai umur yang dimasukkan harus berbeda",
+      "Mencegah nilai umur dimasukkan jika kurang dari 13 tahun",
+      "Menjadikan kolom umur sebagai Primary Key"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 5,
+    "question": "Jika kita ingin sebuah kolom 'status_aktif' otomatis terisi dengan nilai 'TRUE' saat pengguna lupa atau tidak mengisi data tersebut, constraint apa yang digunakan?",
+    "options": [
+      "DEFAULT TRUE",
+      "CHECK TRUE",
+      "SET TRUE",
+      "NOT NULL TRUE"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 6,
+    "question": "Kolom pada suatu tabel yang secara khusus merujuk ke PRIMARY KEY di tabel lain guna membentuk relasi disebut sebagai...",
+    "options": [
+      "Parent Key",
+      "Foreign Key",
+      "Secondary Key",
+      "Relation Key"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 7,
+    "question": "Salah satu tujuan utama menggunakan Foreign Key adalah mencegah terjadinya 'orphan records' atau data yatim piatu. Apa maksud dari orphan records tersebut?",
+    "options": [
+      "Data yang kolom Primary Key-nya kosong",
+      "Data anak (child) yang berelasi dengan data induk (parent) yang sudah tidak ada/terhapus",
+      "Data yang memiliki duplikasi di tabel lain",
+      "Data yang tidak memiliki aturan tipe data"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 8,
+    "question": "Saat mengatur relasi antar tabel, apa efek yang terjadi jika kita menggunakan opsi 'ON DELETE CASCADE' pada Foreign Key?",
+    "options": [
+      "Mencegah penghapusan data induk jika ada data anak yang terkait",
+      "Mengubah nilai Foreign Key menjadi NULL di tabel anak jika data induk dihapus",
+      "Data di tabel anak akan ikut terhapus secara otomatis jika data di tabel induk dihapus",
+      "Akan memunculkan pesan error Foreign Key Constraint"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 9,
+    "question": "Sebaliknya, opsi Foreign Key apa yang harus kita atur jika kita ingin SECARA TEGAS MENCEGAH penghapusan data di tabel induk selama masih ada data di tabel anak yang berelasi?",
+    "options": [
+      "CASCADE",
+      "SET NULL",
+      "RESTRICT",
+      "IGNORE"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 10,
+    "question": "Perbedaan mendasar antara DDL (Data Definition Language) dan DML (Data Manipulation Language) adalah...",
+    "options": [
+      "DML mengurus pembuatan struktur kerangka tabel, DDL mengurus isi data di dalamnya",
+      "DDL mengurus pembuatan struktur kerangka tabel, DML mengurus isi data di dalamnya",
+      "DDL digunakan oleh administrator, DML digunakan oleh user biasa",
+      "DDL dan DML adalah hal yang sama"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 11,
+    "question": "Di bawah ini, manakah yang merupakan TIGA perintah utama dari kelompok Data Manipulation Language (DML)?",
+    "options": [
+      "CREATE, ALTER, DROP",
+      "SELECT, INSERT, CREATE",
+      "INSERT, UPDATE, DELETE",
+      "GRANT, REVOKE, TRUNCATE"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 12,
+    "question": "Perintah SQL apa yang digunakan untuk menambahkan sebuah data baris (record) baru ke dalam tabel?",
+    "options": [
+      "ADD INTO",
+      "CREATE DATA",
+      "UPDATE INTO",
+      "INSERT INTO"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 13,
+    "question": "Berdasarkan materi DML, bagaimana cara melakukan 'Bulk Insert' (memasukkan banyak baris data sekaligus) dengan cara yang paling efisien?",
+    "options": [
+      "Menuliskan perintah INSERT INTO secara berulang-ulang di baris yang berbeda",
+      "Menggunakan satu perintah INSERT INTO dan menyusun banyak kelompok data di dalam klausa VALUES yang dipisahkan koma",
+      "Menggunakan perulangan (loop) di dalam SQL",
+      "Menggunakan perintah UPDATE secara masal"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 14,
+    "question": "Peringatan keras saat menggunakan perintah UPDATE: Apa yang akan terjadi jika Anda mengeksekusi query UPDATE dan lupa menggunakan klausa 'WHERE'?",
+    "options": [
+      "Query akan gagal dijalankan dan memunculkan pesan error keamanan",
+      "Hanya data pada baris pertama yang akan berubah",
+      "Tabel tersebut akan terhapus secara permanen",
+      "Seluruh data pada tabel tersebut akan ikut berubah nilainya tanpa pandang bulu"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 15,
+    "question": "Manakah sintaks UPDATE yang paling tepat untuk mengubah nama mahasiswa menjadi 'Purwa' secara spesifik HANYA untuk mahasiswa dengan nim '24A002'?",
+    "options": [
+      "UPDATE nama = 'Purwa' FROM mahasiswa WHERE nim = '24A002';",
+      "UPDATE mahasiswa SET nama = 'Purwa' WHERE nim = '24A002';",
+      "MODIFY mahasiswa SET nama = 'Purwa' WHERE nim = '24A002';",
+      "ALTER TABLE mahasiswa UPDATE nama = 'Purwa' WHERE nim = '24A002';"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 16,
+    "question": "Bagaimana cara mengubah lebih dari satu kolom sekaligus di dalam perintah UPDATE?",
+    "codeSnippet": "UPDATE mahasiswa\nSET nama = 'Purwa' [...] prodi_id = 2\nWHERE nim = '24A002';",
+    "language": "sql",
+    "options": [
+      "Menggunakan kata kunci AND (SET nama = 'Purwa' AND prodi_id = 2)",
+      "Menggunakan dua klausa SET yang berbeda (SET nama = 'Purwa' SET prodi_id = 2)",
+      "Memisahkan setiap kolom yang diubah dengan tanda koma (SET nama = 'Purwa', prodi_id = 2)",
+      "Menggunakan klausa ADD (SET nama = 'Purwa' ADD prodi_id = 2)"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 17,
+    "question": "Manakah sintaks DELETE yang tepat untuk membuang sebuah baris data spesifik?",
+    "options": [
+      "DELETE mahasiswa WHERE nim = '24552011001';",
+      "DELETE FROM mahasiswa WHERE nim = '24552011001';",
+      "REMOVE FROM mahasiswa WHERE nim = '24552011001';",
+      "DROP FROM mahasiswa WHERE nim = '24552011001';"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 18,
+    "question": "Sama halnya dengan UPDATE, perintah DELETE tanpa klausa WHERE sangat berbahaya karena...",
+    "options": [
+      "Menghapus database beserta isi tabelnya",
+      "Menghapus seluruh baris data di dalam tabel tersebut sampai kosong",
+      "Menyebabkan sistem crash",
+      "Menghapus Primary Key dari struktur tabel"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 19,
+    "question": "Pada latihan perancangan database LMS sederhana, tabel apa yang bertindak sebagai tabel relasi untuk menjembatani relasi Many-to-Many antara tabel 'mahasiswa' dan 'mata_kuliah'?",
+    "options": [
+      "Tabel mahasiswa_mk",
+      "Tabel program_studi",
+      "Tabel krs",
+      "Tabel distribusi"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 20,
+    "question": "Pada sistem aplikasi MBG, mengapa kita tidak bisa menghapus penerima_manfaat sembarangan jika mereka sudah pernah menerima makanan (mempunyai histori pada distribusi_makanan)?",
+    "options": [
+      "Karena admin harus mengganti status verifikasinya dulu menjadi FALSE",
+      "Karena ada Primary Key Constraint Error",
+      "Karena memicu Foreign Key Constraint Error (kecuali diatur opsi CASCADE saat pembuatan tabel relasinya)",
+      "Karena tipe data VARCHAR tidak mendukung penghapusan"
+    ],
+    "correctAnswer": 2
+  }
+]

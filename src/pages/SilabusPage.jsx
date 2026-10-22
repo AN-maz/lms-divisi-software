@@ -13,8 +13,8 @@ const SilabusPage = () => {
 
   const completedModules = useProgressStore((state) => state.completedModules);
 
-  const { data: silabusData, loading, error } = useDataLoader('silabus');
-  const silabus = silabusData ?? [];
+  const { data: kurikulum, loading, error } = useDataLoader('kurikulum');
+  const silabus = kurikulum?.pertemuan ?? [];
 
   // Pertemuan pertama otomatis terbuka (bisa ditimpa oleh toggle pengguna)
   const pertemuanAwal = silabus[0]?.pertemuan;
@@ -37,6 +37,33 @@ const SilabusPage = () => {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <div className="animate-pulse text-[var(--color-software-bright)] font-bold">
+          Memuat Peta Belajar...
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-6">
+        <div className="max-w-md text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
+          <h1 className="text-2xl font-black text-red-400 mb-3">Gagal Memuat Silabus</h1>
+          <p className="text-gray-400 text-sm mb-6">{error.message}</p>
+          <Link
+            to="/"
+            className="inline-block w-full py-3 bg-[var(--color-software-bright)] text-black font-black rounded-xl"
+          >
+            Kembali ke Beranda
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] p-4 md:p-8 text-white font-sans flex flex-col">
@@ -101,34 +128,7 @@ const SilabusPage = () => {
                     {group.modules.map((materi) => {
                       const isCompleted = completedModules.includes(materi.id);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-        <div className="animate-pulse text-[var(--color-software-bright)] font-bold">
-          Memuat Peta Belajar...
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-6">
-        <div className="max-w-md text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
-          <h1 className="text-2xl font-black text-red-400 mb-3">Gagal Memuat Silabus</h1>
-          <p className="text-gray-400 text-sm mb-6">{error.message}</p>
-          <Link
-            to="/"
-            className="inline-block w-full py-3 bg-[var(--color-software-bright)] text-black font-black rounded-xl"
-          >
-            Kembali ke Beranda
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  return (
+                      return (
                         <div 
                           key={materi.id}
                           className="p-4 rounded-xl border border-gray-800 bg-[#121212] hover:border-[var(--color-software-teal)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all"

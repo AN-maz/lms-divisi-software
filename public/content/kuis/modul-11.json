@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "question": "Konsep dasar yang mengatur agar sebuah transaksi database berjalan dengan aman, konsisten, dan handal dikenal dengan singkatan...",
+    "options": [
+      "ACID",
+      "CRUD",
+      "SOLID",
+      "JSON"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 2,
+    "question": "Huruf 'A' pada prinsip ACID merupakan singkatan dari Atomicity. Apa makna dari prinsip tersebut dalam sebuah transaksi database?",
+    "options": [
+      "Data akan tersimpan secara otomatis",
+      "Semua proses dalam transaksi harus berhasil sepenuhnya, atau semuanya dibatalkan sekaligus",
+      "Data tidak bisa diubah lagi setelah dimasukkan",
+      "Transaksi berjalan secara terisolasi dari transaksi lain"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 3,
+    "question": "Prinsip ACID yang memastikan bahwa transaksi yang berjalan secara bersamaan (paralel) tidak akan saling tumpang tindih atau mengganggu satu sama lain adalah...",
+    "options": [
+      "Atomicity",
+      "Consistency",
+      "Isolation",
+      "Durability"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 4,
+    "question": "Perintah kelompok TCL (Transaction Control Language) apa yang digunakan untuk mengawali sebuah blok transaksi di MySQL?",
+    "options": [
+      "START TRANSACTION;",
+      "BEGIN TRANSACTION;",
+      "OPEN TRANSACTION;",
+      "INIT TRANSACTION;"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 5,
+    "question": "Jika terjadi error atau kegagalan (misalnya server mati di tengah proses transaksi), perintah apa yang harus dieksekusi agar seluruh perubahan yang belum selesai dibatalkan?",
+    "options": [
+      "UNDO",
+      "REVERT",
+      "CANCEL",
+      "ROLLBACK"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 6,
+    "question": "Sebaliknya, jika seluruh query dalam blok transaksi berhasil dieksekusi tanpa error, perintah apa yang dipanggil untuk menyimpan perubahan tersebut ke database secara permanen?",
+    "options": [
+      "SAVE",
+      "COMMIT",
+      "PUSH",
+      "FINISH"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 7,
+    "question": "Dalam implementasi backend modern (seperti menggunakan Node.js atau Kotlin), blok perintah transaksi (commit dan rollback) biasanya dibungkus ke dalam struktur logika penanganan error berupa...",
+    "options": [
+      "if...else",
+      "switch...case",
+      "try...catch",
+      "for...loop"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Ketika tabel database sudah memiliki jutaan baris data, sistem secara default akan mencari data dengan membacanya satu per satu dari atas ke bawah. Proses pencarian default yang lambat ini disebut dengan istilah...",
+    "options": [
+      "Index Scan",
+      "Full Table Scan",
+      "Sequential Search",
+      "Deep Query"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 9,
+    "question": "Teknik optimasi apa yang paling tepat diterapkan untuk mempercepat waktu eksekusi query SELECT pada kolom yang sering dicari dalam sebuah tabel besar?",
+    "options": [
+      "Mengubah tipe data kolom",
+      "Membuat Index",
+      "Menghapus Primary Key",
+      "Menggunakan perintah COMMIT"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 10,
+    "question": "Cara kerja Index pada database relasional sangat mirip dan sering dianalogikan seperti hal apa di kehidupan nyata?",
+    "options": [
+      "Rak pada perpustakaan",
+      "Daftar isi / indeks pada sebuah buku",
+      "Mesin fotokopi",
+      "Kalkulator ilmiah"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 11,
+    "question": "Sintaks manakah yang paling tepat untuk membuat index pada kolom 'email' di dalam tabel 'users'?",
+    "options": [
+      "ADD INDEX idx_user_email TO users (email);",
+      "CREATE INDEX idx_user_email ON users (email);",
+      "MAKE INDEX idx_user_email FOR users (email);",
+      "INSERT INDEX idx_user_email IN users (email);"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 12,
+    "question": "Jika Anda membuat sebuah index yang mencakup lebih dari satu kolom sekaligus (misalnya pada kolom 'status_pesanan' dan 'tanggal_order'), index jenis tersebut dinamakan...",
+    "options": [
+      "Multiple Index",
+      "Double Index",
+      "Composite Index",
+      "Complex Index"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 13,
+    "question": "Walaupun sangat terbukti mampu mempercepat query SELECT, membuat index pada terlalu banyak kolom memiliki kelemahan utama, yaitu...",
+    "options": [
+      "Membuat query SELECT justru menjadi lambat",
+      "Memperlambat proses modifikasi data seperti INSERT, UPDATE, dan DELETE",
+      "Mengubah tipe data dari kolom secara otomatis",
+      "Sering menyebabkan error pada transaksi database"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 14,
+    "question": "Selain berdampak pada performa manipulasi (DML) data, hal lain yang menjadi kelemahan atau konsekuensi dari penggunaan Indexing adalah...",
+    "options": [
+      "Menghapus data lama secara otomatis ketika penuh",
+      "Memakan kapasitas penyimpanan (storage) tambahan di database",
+      "Membuat koneksi server menjadi mudah terputus",
+      "Mengubah struktur dasar tabel secara permanen"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 15,
+    "question": "Sesuai panduan 'Best Practice', Anda disarankan untuk membuat index HANYA pada kolom yang sangat sering dieksekusi di dalam klausa berikut ini, KECUALI...",
+    "options": [
+      "Klausa WHERE",
+      "Klausa JOIN",
+      "Klausa ORDER BY",
+      "Klausa SELECT (pemilihan nama kolom biasa)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 16,
+    "question": "Prinsip dasar keamanan di mana sebuah entitas atau aplikasi hanya boleh diberikan hak akses seminimal mungkin sesuai dengan yang benar-benar diperlukannya saja disebut dengan prinsip...",
+    "options": [
+      "Maximum Security",
+      "Least Privilege",
+      "Zero Trust",
+      "Admin Only"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 17,
+    "question": "Perintah kelompok DCL (Data Control Language) manakah yang digunakan untuk MEMBERIKAN izin hak akses spesifik kepada sebuah user?",
+    "options": [
+      "ALLOW",
+      "PERMIT",
+      "GRANT",
+      "GIVE"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Sintaks manakah yang paling tepat untuk MENCABUT (menghapus) hak akses operasi DELETE dari user bernama 'app_backend'?",
+    "options": [
+      "REMOVE DELETE ON lms_db.* TO 'app_backend'@'localhost';",
+      "REVOKE DELETE ON lms_db.* FROM 'app_backend'@'localhost';",
+      "DELETE ACCESS ON lms_db.* FOR 'app_backend'@'localhost';",
+      "DENY DELETE ON lms_db.* FROM 'app_backend'@'localhost';"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 19,
+    "question": "Setelah Administrator melakukan perubahan hak akses user (menggunakan GRANT atau REVOKE), perintah apa yang umumnya dieksekusi agar perubahan tersebut segera direfresh dan diterapkan oleh sistem?",
+    "options": [
+      "APPLY CHANGES;",
+      "FLUSH PRIVILEGES;",
+      "REFRESH DATABASE;",
+      "UPDATE ACCESS;"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 20,
+    "question": "Berdasarkan pedoman keamanan database backend modern, mengapa Anda sangat dilarang menghubungkan aplikasi langsung menggunakan user 'root'?",
+    "options": [
+      "Karena user 'root' terlalu lambat saat dipanggil oleh aplikasi backend",
+      "Karena user 'root' tidak memiliki kemampuan untuk melakukan transaksi COMMIT dan ROLLBACK",
+      "Karena user 'root' memiliki privilege akses tak terbatas yang akan berakibat sangat fatal apabila aplikasi mengalami celah kebocoran peretasan",
+      "Karena nama 'root' tidak dikenali oleh framework modern seperti Node.js"
+    ],
+    "correctAnswer": 2
+  }
+]

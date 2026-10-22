@@ -1,0 +1,11 @@
+# Aturan arsitektur kustom (aislop architecture engine).
+#
+# `public/content/**` adalah data statis, tidak pernah diimpor dari src/.
+# Semua akses konten WAJIB lewat src/services/dataService.js supaya cache
+# dan penanganan error tetap terpusat.
+rules:
+  - name: pages-lewat-data-service
+    type: forbid_import_from_path
+    from: "src/pages/**"
+    forbid: "**/public/**"
+    severity: error

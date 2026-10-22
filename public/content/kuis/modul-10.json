@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "question": "Jika penggunaan Subquery yang bersarang (query di dalam query) dirasa membuat kode SQL menjadi sangat panjang dan sulit dibaca, fitur apa yang menjadi solusi terbaik untuk menyederhanakannya?",
+    "options": [
+      "Database Views",
+      "Common Table Expressions (CTE)",
+      "Window Functions",
+      "JOIN Statement"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Klausa (kata kunci) apa yang digunakan pada SQL untuk mendefinisikan dan membuat sebuah Common Table Expression (CTE)?",
+    "options": [
+      "WITH",
+      "CREATE",
+      "DECLARE",
+      "SET"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 3,
+    "question": "Salah satu keuntungan utama menggunakan CTE adalah cara kerjanya yang bisa dianalogikan mirip dengan konsep dasar pemrograman, yaitu...",
+    "options": [
+      "Mirip dengan perulangan (looping) for/while",
+      "Mirip dengan struktur if-else",
+      "Mirip dengan pembuatan variabel sementara untuk menyimpan data",
+      "Mirip dengan pembuatan class dan object (OOP)"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 4,
+    "question": "Bagaimana cara mendefinisikan lebih dari satu CTE sekaligus dalam satu blok eksekusi query?",
+    "options": [
+      "Menggunakan kata kunci WITH berulang kali (WITH CTE_Satu, WITH CTE_Dua)",
+      "Memisahkan setiap nama CTE dan query-nya menggunakan tanda koma setelah kata kunci WITH",
+      "Menggunakan klausa UNION di antara deklarasi CTE",
+      "Hanya bisa membuat satu CTE per satu file SQL"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 5,
+    "question": "Perbedaan paling fundamental antara fungsi agregasi biasa (seperti SUM dan AVG dengan GROUP BY) dibandingkan dengan Window Functions adalah...",
+    "options": [
+      "Window Functions hanya bisa memproses data angka/numerik",
+      "Window Functions menggabungkan hasil menjadi satu baris kesimpulan",
+      "Window Functions mempertahankan baris data asli dan tidak menggabungkannya menjadi satu baris ringkasan",
+      "Window Functions berjalan lebih lambat dari agregasi biasa"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 6,
+    "question": "Kata kunci (klausa) wajib apa yang menjadi penanda utama bahwa sebuah fungsi sedang berjalan sebagai Window Function?",
+    "options": [
+      "WINDOW()",
+      "GROUP()",
+      "OVER()",
+      "PARTITION()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 7,
+    "question": "Ranking function manakah yang akan selalu menghasilkan nomor urut yang unik dan berurutan secara ketat (1, 2, 3, 4...), meskipun ada nilai data yang sama/seri?",
+    "options": [
+      "RANK()",
+      "DENSE_RANK()",
+      "ROW_NUMBER()",
+      "SERIAL()"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Jika terdapat dua orang karyawan yang memiliki gaji tertinggi yang sama persis (keduanya juara 1), bagaimana fungsi `RANK()` akan memberikan peringkat untuk karyawan di urutan selanjutnya?",
+    "options": [
+      "1, 1, 2",
+      "1, 1, 3",
+      "1, 2, 3",
+      "1, 2, 2"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 9,
+    "question": "Kebalikan dari `RANK()`, jika Anda menggunakan `DENSE_RANK()` dan ada nilai yang sama (misal juara 1 ada dua orang), peringkat berapakah yang diberikan pada orang selanjutnya?",
+    "options": [
+      "Peringkat 2 (1, 1, 2)",
+      "Peringkat 3 (1, 1, 3)",
+      "Peringkat 0",
+      "Otomatis membatalkan query"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 10,
+    "question": "Untuk membandingkan data penjualan bulan ini dengan data penjualan pada baris periode 'sebelumnya' (bulan lalu), Window Function apa yang paling tepat digunakan?",
+    "options": [
+      "LEAD()",
+      "LAG()",
+      "PREVIOUS()",
+      "BACK()"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 11,
+    "question": "Fungsi `LEAD()` di dalam Window Functions SQL berguna untuk...",
+    "options": [
+      "Mengambil data dari baris sesudahnya/berikutnya",
+      "Mengambil rata-rata dari seluruh baris",
+      "Mengambil data dari baris paling atas (juara 1)",
+      "Menghapus data duplikat"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 12,
+    "question": "Apa definisi dari Database View dalam SQL?",
+    "options": [
+      "Tabel virtual yang berisi data cadangan (backup)",
+      "Antarmuka grafis (GUI) untuk mengelola database",
+      "Tabel virtual yang datanya berasal dari hasil eksekusi sebuah query",
+      "Kumpulan variabel sementara di dalam RAM"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 13,
+    "question": "Bagaimana sintaks dasar untuk menyimpan sebuah query kompleks menjadi tabel virtual (View)?",
+    "options": [
+      "MAKE VIEW nama_view AS ...",
+      "CREATE VIEW nama_view AS ...",
+      "BUILD VIEW nama_view FROM ...",
+      "INSERT INTO VIEW nama_view AS ..."
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 14,
+    "question": "Setelah sebuah View berhasil dibuat (misal: 'Laporan_Penjualan'), bagaimana cara kita menggunakan atau memanggil View tersebut?",
+    "options": [
+      "EXECUTE Laporan_Penjualan;",
+      "CALL VIEW Laporan_Penjualan;",
+      "SELECT * FROM Laporan_Penjualan;",
+      "RUN Laporan_Penjualan;"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 15,
+    "question": "Salah satu keuntungan utama menggunakan Database View adalah dari segi 'Keamanan' (Security). Maksudnya adalah...",
+    "options": [
+      "View otomatis mengenkripsi password pelanggan",
+      "Pengguna hanya dapat melihat data spesifik yang diizinkan lewat View tanpa perlu diberikan akses langsung ke tabel aslinya",
+      "View mencegah database terkena serangan virus",
+      "View memblokir semua perintah DELETE"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 16,
+    "question": "Maksud dari keuntungan 'Reusability' pada penggunaan Database View adalah...",
+    "options": [
+      "Tabel bisa digunakan di bahasa pemrograman lain",
+      "Tidak perlu menulis ulang query JOIN yang panjang berkali-kali, cukup panggil nama View-nya saja",
+      "Data yang sudah dihapus bisa didaur ulang",
+      "Mempercepat proses load data di dalam server"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 17,
+    "question": "Di dalam sintaks Window Function `OVER(PARTITION BY departemen ORDER BY gaji DESC)`, apa fungsi utama dari sub-klausa `PARTITION BY`?",
+    "options": [
+      "Memisahkan data menjadi tabel-tabel kecil yang permanen",
+      "Menghapus departemen yang tidak memiliki karyawan",
+      "Membagi dan mengelompokkan ruang lingkup perhitungan Window Function berdasarkan departemen tertentu",
+      "Membuat partisi harddisk baru untuk menyimpan data gaji"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Berdasarkan latihan penggabungan CTE dan Window Function untuk mencari top 3 karyawan bergaji tertinggi per departemen, di manakah filter pembatas `WHERE ranking <= 3` harus diletakkan?",
+    "options": [
+      "Di dalam kurung pendeklarasian CTE",
+      "Di query utama (luar CTE) saat melakukan SELECT terhadap CTE tersebut",
+      "Di dalam klausa OVER()",
+      "Di dalam klausa PARTITION BY"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 19,
+    "question": "Pada tugas mandiri Analitik LMS, apa instruksi utama untuk menyelesaikan 'Tantangan Sulit' tanpa menggunakan klausa GROUP BY?",
+    "options": [
+      "Memanfaatkan klausa OVER(PARTITION BY user_id) dikombinasikan dengan fungsi MAX()",
+      "Menggunakan perintah FULL OUTER JOIN",
+      "Menggunakan DENSE_RANK() dan LIMIT 1",
+      "Menulis tiga Subquery di dalam SELECT"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 20,
+    "question": "Mengapa materi CTE, Window Functions, dan Views disebut sangat penting hingga sering dijadikan syarat tes teknis untuk posisi Backend Developer atau Data Analyst?",
+    "options": [
+      "Karena query dasar seperti SELECT sudah dihapus dari standar industri",
+      "Karena ketiga fitur ini adalah materi paling mudah dalam SQL",
+      "Karena kemampuannya menangani analisis data yang kompleks, perankingan, dan abstraksi kode menjadi efisien di tingkat mahir (Advanced)",
+      "Karena ketiga perintah tersebut wajib digunakan sebelum membuat tabel apapun"
+    ],
+    "correctAnswer": 2
+  }
+]

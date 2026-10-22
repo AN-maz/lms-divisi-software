@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "question": "Apa kepanjangan dari SQL?",
+    "options": [
+      "Standard Query Logic",
+      "Structured Query Language",
+      "Simple Query Language",
+      "System Query Language"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Salah satu alasan utama menggunakan SQL dibandingkan dengan spreadsheet (seperti Excel) adalah...",
+    "options": [
+      "Hanya bisa digunakan oleh Data Scientist",
+      "Mampu menangani dan mencari jutaan baris data dalam hitungan detik",
+      "Memiliki tampilan grafis yang lebih berwarna",
+      "Tidak membutuhkan sistem penyimpanan data"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 3,
+    "question": "Perintah apa yang diketikkan di dalam terminal (CLI) untuk masuk dan login ke dalam MySQL menggunakan user admin bawaan?",
+    "options": [
+      "mysql login root",
+      "mysql -admin",
+      "mysql -u root",
+      "mysql -root"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 4,
+    "question": "Jika menggunakan XAMPP dan ingin mengelola database MySQL menggunakan antarmuka visual (GUI Mode), fitur bawaan apa yang disediakan saat menekan tombol 'Admin'?",
+    "options": [
+      "TablePlus",
+      "DBeaver",
+      "SQL Fiddle",
+      "phpMyAdmin"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 5,
+    "question": "Manakah pernyataan di bawah ini yang merupakan karakteristik utama dari database RDBMS (seperti MySQL)?",
+    "options": [
+      "Menggunakan format dokumen (seperti JSON)",
+      "Memiliki struktur tabel berelasi (baris dan kolom) dengan skema yang kaku",
+      "Sangat dinamis dan fleksibel tanpa aturan tipe data",
+      "Dikhususkan untuk menyimpan data tidak terstruktur dalam jumlah masif"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 6,
+    "question": "Tipe data apa yang paling tepat untuk menyimpan nominal uang atau harga barang agar mendapat hasil yang sangat presisi (tidak ada pembulatan yang salah)?",
+    "options": [
+      "FLOAT",
+      "DECIMAL",
+      "INT",
+      "VARCHAR"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 7,
+    "question": "Jika Anda ingin menyimpan data teks dengan panjang karakter yang SELALU TETAP (misalnya kode negara 'ID' atau jenis kelamin 'L'/'P'), tipe data apa yang paling optimal?",
+    "options": [
+      "CHAR",
+      "VARCHAR",
+      "TEXT",
+      "BOOLEAN"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 8,
+    "question": "Tipe data BOOLEAN di dalam SQL digunakan untuk menyimpan nilai logika berupa...",
+    "options": [
+      "Hanya teks 'YES' dan 'NO'",
+      "Angka mulai dari 1 sampai 10",
+      "TRUE (1) dan FALSE (0)",
+      "Teks dengan panjang maksimal 1 karakter"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 9,
+    "question": "Data Definition Language (DDL) adalah sekumpulan perintah SQL yang fokus utamanya digunakan untuk...",
+    "options": [
+      "Menambah dan mengedit baris data satu per satu",
+      "Mendefinisikan struktur atau kerangka dari database dan tabel",
+      "Mengatur hak akses dan keamanan user",
+      "Menghitung total nilai dari sebuah kolom"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 10,
+    "question": "Perintah DDL dasar apa yang digunakan untuk membuat database baru?",
+    "options": [
+      "MAKE DATABASE",
+      "INSERT DATABASE",
+      "CREATE DATABASE",
+      "BUILD DATABASE"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 11,
+    "question": "Setelah sebuah database berhasil dibuat, perintah apa yang WAJIB dijalankan agar kita bisa masuk dan mulai membuat tabel di dalam database tersebut?",
+    "options": [
+      "SELECT nama_database;",
+      "OPEN nama_database;",
+      "ENTER nama_database;",
+      "USE nama_database;"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 12,
+    "question": "Constraint apa yang wajib digunakan untuk memastikan sebuah kolom berfungsi sebagai penanda unik utama untuk setiap baris data di dalam tabel?",
+    "options": [
+      "NOT NULL",
+      "PRIMARY KEY",
+      "UNIQUE",
+      "DEFAULT"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 13,
+    "question": "Pada sintaks 'email VARCHAR(100) UNIQUE NOT NULL', apa fungsi dari constraint 'UNIQUE'?",
+    "options": [
+      "Memastikan kolom email harus diisi (tidak boleh kosong)",
+      "Memberikan nilai awal otomatis jika dikosongkan",
+      "Memastikan nilai email tidak boleh ada yang duplikat/kembar di dalam tabel",
+      "Membuat kolom email menjadi Primary Key sekunder"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 14,
+    "question": "Jika kita ingin ID pada tabel bertambah angkanya sendiri secara berurutan (1, 2, 3...) setiap kali ada data baru, constraint apa yang ditambahkan?",
+    "options": [
+      "AUTO_INCREMENT",
+      "ADD_AUTO",
+      "DEFAULT_INCREMENT",
+      "PRIMARY_ADD"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 15,
+    "question": "Perintah DDL apa yang paling tepat jika kita ingin MENAMBAHKAN kolom baru bernama 'phone_number' ke dalam tabel 'users' yang sudah ada?",
+    "options": [
+      "UPDATE TABLE users ADD phone_number VARCHAR(15);",
+      "ALTER TABLE users ADD COLUMN phone_number VARCHAR(15);",
+      "MODIFY TABLE users INSERT phone_number VARCHAR(15);",
+      "CREATE COLUMN phone_number ON users;"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 16,
+    "question": "Berdasarkan query `ALTER TABLE users RENAME COLUMN phone_number TO phone;`, apa yang sedang dilakukan oleh perintah tersebut?",
+    "options": [
+      "Menghapus kolom phone_number",
+      "Mengganti tipe data kolom phone_number",
+      "Mengganti nama kolom dari 'phone_number' menjadi 'phone'",
+      "Menambahkan kolom baru bernama phone"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 17,
+    "question": "Untuk mengubah TIPE DATA dari sebuah kolom yang sudah jadi (misalnya dari TEXT menjadi VARCHAR(255)), perintah apa yang digunakan?",
+    "options": [
+      "ALTER TABLE ... MODIFY COLUMN ...",
+      "ALTER TABLE ... CHANGE DATA ...",
+      "UPDATE TABLE ... SET TYPE ...",
+      "REPLACE COLUMN ... WITH ..."
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 18,
+    "question": "Apa perbedaan paling fatal antara perintah `DROP TABLE` dan `TRUNCATE TABLE`?",
+    "options": [
+      "DROP hanya menghapus data, TRUNCATE menghapus kerangka tabel",
+      "DROP menghapus tabel beserta seluruh datanya secara permanen, TRUNCATE hanya mengosongkan isi datanya saja (struktur tabel tetap aman)",
+      "DROP digunakan untuk database, TRUNCATE digunakan untuk tabel",
+      "Tidak ada perbedaan, keduanya melakukan hal yang persis sama"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 19,
+    "question": "Jika kita ingin otomatis mencatat waktu saat sebuah baris data baru ditambahkan ke tabel, constraint apa yang diletakkan pada kolom 'created_at'?",
+    "options": [
+      "DEFAULT NOW()",
+      "SET CURRENT_TIME",
+      "AUTO_TIMESTAMP",
+      "DEFAULT CURRENT_TIMESTAMP"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 20,
+    "question": "Manakah perintah yang benar untuk menghapus sebuah kolom (misal: 'tanggal_lahir') dari tabel 'siswa'?",
+    "options": [
+      "ALTER TABLE siswa REMOVE COLUMN tanggal_lahir;",
+      "ALTER TABLE siswa DELETE COLUMN tanggal_lahir;",
+      "ALTER TABLE siswa DROP COLUMN tanggal_lahir;",
+      "ALTER TABLE siswa TRUNCATE COLUMN tanggal_lahir;"
+    ],
+    "correctAnswer": 2
+  }
+]

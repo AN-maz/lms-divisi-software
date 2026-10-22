@@ -1,0 +1,574 @@
+[
+  {
+    "id": 1,
+    "question": "Manakah struktur CSS yang benar?",
+    "options": [
+      "h1 { color: blue }",
+      "h1: { color = blue; }",
+      "h1 { color: blue; }",
+      "h1 >> color: blue;"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 2,
+    "question": "Pada anatomy CSS, apa yang dimaksud dengan 'declaration'?",
+    "options": [
+      "Nama elemen yang menjadi target styling",
+      "Kombinasi selector dan rule set dalam kurung kurawal",
+      "Pasangan property dan value dalam satu instruksi styling",
+      "Nama file CSS yang di-link ke HTML"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "CSS adalah singkatan dari...",
+    "options": [
+      "Computer Style Sheets",
+      "Cascading Style Sheets",
+      "Creative Styling System",
+      "Cascading Styling Script"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 4,
+    "question": "Selector mana yang digunakan untuk menarget SEMUA elemen di halaman?",
+    "options": [
+      "all { }",
+      "body { }",
+      "every { }",
+      "* { }"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 5,
+    "question": "Bagaimana cara menulis class selector untuk class bernama 'highlight'?",
+    "options": [
+      "#highlight { }",
+      ".highlight { }",
+      "@highlight { }",
+      "highlight { }"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 6,
+    "question": "Perbedaan utama antara class selector dan ID selector adalah...",
+    "options": [
+      "Class selector lebih kuat (specificity lebih tinggi) dari ID selector",
+      "ID selector bisa digunakan berkali-kali, class selector hanya sekali",
+      "Class selector bisa digunakan pada banyak elemen, ID selector harus unik (hanya satu elemen)",
+      "Tidak ada perbedaan, keduanya fungsinya sama"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 7,
+    "question": "Attribute selector `a[href^=\"https\"]` artinya...",
+    "options": [
+      "Semua link yang href-nya mengandung 'https' di mana saja",
+      "Semua link yang href-nya diakhiri 'https'",
+      "Semua link yang href-nya dimulai dengan 'https'",
+      "Semua link yang href-nya persis sama dengan 'https'"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Apa yang dilakukan descendant combinator (spasi) pada selector `div p`?",
+    "options": [
+      "Menarget `<p>` yang langsung menjadi child dari `<div>` saja",
+      "Menarget semua `<p>` yang berada di dalam `<div>` (termasuk nested)",
+      "Menarget `<p>` yang berada tepat setelah `<div>`",
+      "Menarget `<div>` dan `<p>` sekaligus"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 9,
+    "question": "Perbedaan antara descendant combinator (spasi) `div p` dan child combinator `div > p` adalah...",
+    "options": [
+      "Tidak ada perbedaan, keduanya sama",
+      "`div p` menarget semua `<p>` di dalam `<div>` (termasuk nested), `div > p` hanya menarget `<p>` yang langsung jadi child",
+      "`div > p` menarget semua `<p>` di dalam `<div>`, `div p` hanya langsung child",
+      "`div p` hanya untuk block element, `div > p` untuk inline"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 10,
+    "question": "Format warna HEX yang benar adalah...",
+    "options": [
+      "hex(255, 0, 0)",
+      "hsl(0, 100%, 50%)",
+      "#ff0000",
+      "rgb(ff, 00, 00)"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 11,
+    "question": "Apa keunggulan format warna RGBA dibanding RGB?",
+    "options": [
+      "RGBA bisa menampilkan lebih banyak warna",
+      "RGBA mendukung nilai transparansi (alpha channel 0-1)",
+      "RGBA lebih cepat di-render browser",
+      "RGBA adalah format terbaru yang menggantikan RGB"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 12,
+    "question": "Pada format HSL, komponen 'Hue' mewakili...",
+    "options": [
+      "Tingkat kecerahan warna (0-100%)",
+      "Tingkat saturasi/intensitas warna (0-100%)",
+      "Sudut warna pada color wheel (0-360 derajat)",
+      "Tingkat transparansi warna (0-1)"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 13,
+    "question": "Property CSS apa yang mengatur jenis font?",
+    "options": [
+      "font-type",
+      "font-style",
+      "font-family",
+      "font-name"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 14,
+    "question": "Apa perbedaan antara satuan `em` dan `rem` untuk font-size?",
+    "options": [
+      "Tidak ada perbedaan, keduanya sama",
+      "`em` relatif terhadap ukuran font parent, `rem` relatif terhadap ukuran font root (html)",
+      "`rem` relatif terhadap ukuran font parent, `em` relatif terhadap root",
+      "`em` hanya untuk heading, `rem` hanya untuk paragraf"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 15,
+    "question": "Property `line-height: 1.6` artinya...",
+    "options": [
+      "Tinggi baris 1.6px",
+      "Tinggi baris 1.6% dari parent",
+      "Tinggi baris 1.6 kali dari ukuran font yang digunakan",
+      "Spasi antar huruf sebesar 1.6"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 16,
+    "question": "Property `text-transform: uppercase` akan...",
+    "options": [
+      "Mengubah semua teks menjadi huruf kecil",
+      "Mengubah huruf pertama setiap kata menjadi besar",
+      "Mengubah semua teks menjadi huruf kapital",
+      "Menghapus semua transformasi teks"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 17,
+    "question": "Dalam Box Model CSS, urutan layer dari dalam ke luar adalah...",
+    "options": [
+      "margin → border → padding → content",
+      "content → padding → border → margin",
+      "content → border → padding → margin",
+      "padding → content → border → margin"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 18,
+    "question": "Apa perbedaan antara `padding` dan `margin`?",
+    "options": [
+      "Padding adalah spasi di luar elemen, margin adalah spasi di dalam elemen",
+      "Padding adalah spasi di dalam elemen (antara content dan border), margin adalah spasi di luar elemen",
+      "Keduanya sama, hanya berbeda nama",
+      "Padding hanya untuk elemen block, margin hanya untuk inline"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 19,
+    "question": "Jika sebuah elemen memiliki `box-sizing: content-box`, width 300px, padding 20px, dan border 5px, berapakah total lebar yang ditempati?",
+    "options": [
+      "300px",
+      "320px",
+      "350px",
+      "370px"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 20,
+    "question": "Keuntungan menggunakan `box-sizing: border-box` adalah...",
+    "options": [
+      "Membuat semua elemen memiliki border secara otomatis",
+      "Menghilangkan kebutuhan menggunakan padding",
+      "Width dan height yang diset sudah termasuk padding dan border, sehingga ukuran total lebih mudah diprediksi",
+      "Membuat layout lebih responsif di mobile"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 21,
+    "question": "Shorthand `padding: 10px 20px` artinya...",
+    "options": [
+      "Top/Bottom 20px, Left/Right 10px",
+      "Top/Bottom 10px, Left/Right 20px",
+      "Semua sisi 10px, kecuali bottom 20px",
+      "Top 10px, Right 20px, Bottom 10px, Left 20px"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 22,
+    "question": "Perbedaan antara `display: none` dan `visibility: hidden` adalah...",
+    "options": [
+      "Tidak ada perbedaan, keduanya membuat elemen tidak terlihat",
+      "`display: none` elemen tidak tampil dan tidak mengambil ruang, `visibility: hidden` elemen tidak tampil tapi masih mengambil ruang",
+      "`visibility: hidden` menghapus elemen dari DOM, `display: none` hanya menyembunyikan",
+      "`display: none` hanya untuk mobile, `visibility: hidden` untuk desktop"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 23,
+    "question": "Kapan sebaiknya menggunakan `display: inline-block`?",
+    "options": [
+      "Ketika ingin elemen mengambil seluruh lebar baris",
+      "Ketika ingin elemen tetap inline (di samping elemen lain) tetapi bisa diberi width dan height",
+      "Ketika ingin menyembunyikan elemen",
+      "Ketika ingin membuat elemen menjadi flex container"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 24,
+    "question": "Pada `position: absolute`, elemen akan diposisikan relatif terhadap...",
+    "options": [
+      "Selalu relatif terhadap `<body>`",
+      "Parent terdekat yang memiliki `position` bukan `static`",
+      "Posisi normal elemen tersebut dalam document flow",
+      "Viewport (jendela browser)"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 25,
+    "question": "Apa yang membuat `position: fixed` berbeda dari `position: absolute`?",
+    "options": [
+      "Fixed lebih presisi dalam penempatan elemen",
+      "Fixed membuat elemen tetap di posisi viewport meskipun di-scroll, absolute tidak",
+      "Fixed hanya bekerja di dalam parent yang punya position: relative",
+      "Tidak ada perbedaan, keduanya sama"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 26,
+    "question": "Syarat agar `z-index` bekerja pada sebuah elemen adalah...",
+    "options": [
+      "Elemen harus memiliki background color",
+      "Elemen harus memiliki `position` selain `static`",
+      "Elemen harus berada di dalam flex container",
+      "Elemen harus memiliki ukuran (width dan height)"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 27,
+    "question": "Nilai `background-size: cover` artinya...",
+    "options": [
+      "Gambar ditampilkan penuh tanpa dipotong, dengan kemungkinan ada ruang kosong",
+      "Gambar di-stretch untuk memenuhi seluruh area, bisa terdistorsi",
+      "Gambar di-scale untuk memenuhi seluruh area container, bisa terpotong",
+      "Gambar ditampilkan dalam ukuran aslinya"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 28,
+    "question": "Apa perbedaan antara `background-size: cover` dan `background-size: contain`?",
+    "options": [
+      "Tidak ada perbedaan visual",
+      "`cover` memenuhi seluruh area (bisa crop), `contain` menampilkan seluruh gambar (bisa ada ruang kosong)",
+      "`contain` memenuhi seluruh area (bisa crop), `cover` menampilkan seluruh gambar",
+      "`cover` hanya untuk foto, `contain` untuk icon"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 29,
+    "question": "Syntax CSS yang benar untuk membuat linear gradient dari biru ke merah (kiri ke kanan) adalah...",
+    "options": [
+      "background: gradient(blue, red);",
+      "background: linear-gradient(to right, blue, red);",
+      "background-gradient: linear(blue, red, right);",
+      "background: linear(to right, blue, red);"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 30,
+    "question": "Property `border-radius: 50%` pada elemen dengan lebar dan tinggi sama akan menghasilkan...",
+    "options": [
+      "Elemen dengan semua sudut sedikit membulat",
+      "Elemen berbentuk oval/ellipse",
+      "Elemen berbentuk lingkaran sempurna",
+      "Elemen tanpa border"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 31,
+    "question": "Pada `box-shadow: 0 2px 4px rgba(0,0,0,0.1)`, nilai `4px` mewakili...",
+    "options": [
+      "Offset horizontal shadow",
+      "Offset vertikal shadow",
+      "Blur radius shadow",
+      "Spread radius shadow"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 32,
+    "question": "Untuk membuat Flexbox layout, property apa yang harus ditambahkan pada container?",
+    "options": [
+      "flex: true",
+      "display: flex",
+      "layout: flex",
+      "flex-container: enabled"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 33,
+    "question": "Property `justify-content: space-between` pada flex container akan...",
+    "options": [
+      "Menempatkan semua item di tengah",
+      "Menyebarkan item dengan jarak yang sama di antara item (item pertama di kiri, terakhir di kanan)",
+      "Menyebarkan item dengan jarak sama di sekitar setiap item",
+      "Menyelaraskan item di sumbu vertikal"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 34,
+    "question": "Apa perbedaan antara `justify-content` dan `align-items` pada Flexbox?",
+    "options": [
+      "Tidak ada perbedaan, keduanya mengatur alignment yang sama",
+      "`justify-content` mengatur alignment pada main axis, `align-items` pada cross axis",
+      "`align-items` mengatur alignment pada main axis, `justify-content` pada cross axis",
+      "`justify-content` hanya untuk horizontal, `align-items` hanya untuk vertikal (selalu)"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 35,
+    "question": "Property `flex: 1` pada flex item artinya...",
+    "options": [
+      "Item hanya mengambil 1px ruang",
+      "Item tidak akan grow atau shrink",
+      "Item akan grow dan mengisi available space secara proporsional",
+      "Item berada di posisi pertama"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 36,
+    "question": "Perbedaan utama antara Flexbox dan CSS Grid adalah...",
+    "options": [
+      "Flexbox lebih modern dan menggantikan Grid sepenuhnya",
+      "Flexbox adalah sistem layout 1D (row ATAU column), Grid adalah sistem 2D (row DAN column)",
+      "Grid hanya untuk tabel, Flexbox untuk semua layout",
+      "Tidak ada perbedaan signifikan"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 37,
+    "question": "CSS Grid `grid-template-columns: repeat(3, 1fr)` artinya...",
+    "options": [
+      "3 kolom dengan lebar tetap 1px masing-masing",
+      "3 kolom yang membagi ruang yang tersedia secara merata",
+      "Kolom pertama 3x lebih lebar dari kolom lainnya",
+      "Kolom yang berulang setiap 3 item"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 38,
+    "question": "`grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))` digunakan untuk...",
+    "options": [
+      "Membuat grid dengan tepat 200 kolom",
+      "Membuat kolom yang selalu berukuran 200px",
+      "Membuat grid yang otomatis menyesuaikan jumlah kolom berdasarkan lebar container (responsive)",
+      "Mengulang kolom sebanyak 200 kali"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 39,
+    "question": "Property `grid-column: span 2` pada grid item artinya...",
+    "options": [
+      "Item berada di kolom ke-2",
+      "Item memulai dari kolom ke-2",
+      "Item menempati 2 kolom sekaligus",
+      "Item memiliki lebar 2 kali kolom lainnya secara otomatis"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 40,
+    "question": "Apa yang dimaksud dengan 'mobile-first' approach dalam responsive design?",
+    "options": [
+      "Website hanya dibuat untuk mobile, tidak ada versi desktop",
+      "Styling dimulai dari tampilan mobile sebagai base, kemudian ditambahkan styles untuk layar lebih besar menggunakan `min-width` media queries",
+      "Website loading lebih cepat di mobile dibanding desktop",
+      "Menggunakan `max-width` media queries untuk mengatur tampilan"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 41,
+    "question": "Meta tag `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">` berfungsi untuk...",
+    "options": [
+      "Mengatur ukuran font di perangkat mobile",
+      "Memberitahu browser menggunakan lebar device sebagai viewport dan tidak melakukan zoom default",
+      "Menghilangkan scrollbar di mobile",
+      "Mengaktifkan mode gelap di mobile"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 42,
+    "question": "Media query `@media (min-width: 768px)` akan diterapkan ketika...",
+    "options": [
+      "Lebar layar kurang dari 768px (mobile)",
+      "Lebar layar tepat 768px",
+      "Lebar layar 768px atau lebih (tablet ke atas)",
+      "Tinggi layar minimal 768px"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 43,
+    "question": "Pseudo-class `:nth-child(even)` digunakan untuk...",
+    "options": [
+      "Menarget elemen pertama dari setiap tipe",
+      "Menarget semua elemen dengan nomor urut ganjil",
+      "Menarget semua elemen dengan nomor urut genap (2, 4, 6, ...)",
+      "Menarget elemen terakhir dari parent"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 44,
+    "question": "Apa kegunaan pseudo-class `:focus`?",
+    "options": [
+      "Menarget elemen yang sedang di-hover mouse",
+      "Menarget elemen yang sedang aktif/dipilih (misal input yang sedang diketik)",
+      "Menarget elemen pertama dalam parent",
+      "Menarget elemen yang sudah dikunjungi (link)"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 45,
+    "question": "Perbedaan antara pseudo-class dan pseudo-element adalah...",
+    "options": [
+      "Pseudo-class ditulis dengan `::`, pseudo-element dengan `:`",
+      "Tidak ada perbedaan, hanya penulisan yang berbeda",
+      "Pseudo-class menarget state/kondisi elemen (`:`), pseudo-element menarget bagian tertentu atau membuat elemen virtual (`::`) ",
+      "Pseudo-element hanya bisa digunakan pada elemen block"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 46,
+    "question": "Pseudo-element `::before` digunakan untuk...",
+    "options": [
+      "Menarget elemen sebelum elemen yang dipilih di DOM",
+      "Menyisipkan konten virtual sebelum content sebenarnya dari elemen yang dipilih",
+      "Menarget child pertama dari elemen",
+      "Memberikan style sebelum hover state diterapkan"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 47,
+    "question": "Pada CSS transitions, `transition: background-color 0.3s ease` artinya...",
+    "options": [
+      "Background color berubah instan setelah 0.3 detik",
+      "Background color berubah secara smooth dalam 0.3 detik dengan timing 'ease'",
+      "Transition hanya terjadi pada event ease",
+      "Background color berubah 0.3 kali per detik"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 48,
+    "question": "Apa perbedaan antara CSS transitions dan CSS animations?",
+    "options": [
+      "Transitions lebih modern dari animations",
+      "Transitions hanya bisa smooth change antara 2 state (biasanya dipicu event), animations bisa memiliki banyak keyframe dan bisa berjalan otomatis",
+      "Animations lebih sederhana dari transitions",
+      "Tidak ada perbedaan fungsional"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 49,
+    "question": "Pada keyframe animation, `animation-iteration-count: infinite` artinya...",
+    "options": [
+      "Animation berjalan selama tak terbatas waktu lalu berhenti",
+      "Animation berulang terus-menerus tanpa henti",
+      "Animation memiliki jumlah frame yang tidak terbatas",
+      "Animation hanya berjalan sekali"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 50,
+    "question": "CSS Variables dideklarasikan dengan format...",
+    "options": [
+      "$nama-variable: nilai;",
+      "@nama-variable: nilai;",
+      "--nama-variable: nilai;",
+      "var(nama-variable): nilai;"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 51,
+    "question": "Mengapa CSS variables sebaiknya dideklarasikan di `:root`?",
+    "options": [
+      "Karena `:root` adalah satu-satunya tempat yang valid untuk deklarasi variable",
+      "Agar variable bisa diakses secara global di seluruh dokumen",
+      "Karena `:root` memiliki specificity tertinggi",
+      "Karena browser hanya membaca variable dari `:root`"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 52,
+    "question": "Cara menggunakan CSS variable `--primary-color` pada property `color` adalah...",
+    "options": [
+      "color: $primary-color;",
+      "color: --primary-color;",
+      "color: @primary-color;",
+      "color: var(--primary-color);"
+    ],
+    "correctAnswer": 3
+  }
+]

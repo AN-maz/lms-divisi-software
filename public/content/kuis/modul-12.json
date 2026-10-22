@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "question": "Model arsitektur jaringan yang digunakan untuk memungkinkan perangkat saling bertukar data, di mana ada pihak peminta dan pihak penyedia informasi, disebut...",
+    "options": [
+      "Peer-to-Peer (P2P)",
+      "Client-Server",
+      "Microservices",
+      "Centralized Processing"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Dalam analogi restoran untuk model Client-Server, pelanggan yang memesan makanan diibaratkan sebagai apa?",
+    "options": [
+      "API",
+      "Server",
+      "Client",
+      "Database"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "Manakah di bawah ini yang BUKAN merupakan contoh dari sebuah Client?",
+    "options": [
+      "Browser web seperti Google Chrome",
+      "Smartphone atau aplikasi mobile",
+      "Cloud database penyimpan data",
+      "Program yang berjalan di laptop pengguna"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 4,
+    "question": "Dalam alur komunikasi Client-Server, tahapan di mana server mengirimkan hasil pemrosesan kembali kepada client disebut...",
+    "options": [
+      "Request",
+      "Response",
+      "Render UI",
+      "Fetching"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 5,
+    "question": "Model Client-Server sering disebut sebagai pendekatan terpusat (centralized approach) karena...",
+    "options": [
+      "Semua perangkat memiliki kontrol yang sama",
+      "Server menjadi pusat pengelolaan data dan sumber kebenaran (Single Source of Truth)",
+      "Internet berpusat pada satu satelit utama",
+      "Client mengontrol aliran data utama"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 6,
+    "question": "Apa perbedaan utama model Client-Server dengan model Peer-to-Peer (P2P)?",
+    "options": [
+      "P2P memiliki banyak server pusat, Client-Server hanya satu",
+      "Client-Server bisa berjalan tanpa internet, P2P butuh internet",
+      "Pada P2P tidak ada server pusat, setiap perangkat bisa menjadi client sekaligus server",
+      "P2P lebih mudah dikelola dibandingkan Client-Server"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 7,
+    "question": "Protokol aturan komunikasi yang paling umum digunakan agar data dapat dikirim dan diterima melalui internet antara client dan server adalah...",
+    "options": [
+      "FTP",
+      "SMTP",
+      "HTTP",
+      "JSON"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Apa fungsi utama dari API (Application Programming Interface)?",
+    "options": [
+      "Menggantikan peran server secara keseluruhan",
+      "Sebagai bahasa pemrograman pembuat website",
+      "Sebagai kontrak atau jembatan komunikasi antara dua aplikasi/sistem",
+      "Menyimpan data pengguna di dalam database"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 9,
+    "question": "Dalam analogi restoran, jika pelanggan adalah client dan dapur adalah server, maka API diibaratkan sebagai apa?",
+    "options": [
+      "Bahan masakan",
+      "Menu restoran",
+      "Piring dan gelas",
+      "Kasir restoran"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 10,
+    "question": "Alamat tujuan spesifik yang dipanggil oleh client untuk mengakses sumber daya tertentu dari sebuah API disebut dengan...",
+    "options": [
+      "Method",
+      "Parameter",
+      "Endpoint",
+      "Token"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 11,
+    "question": "HTTP Method manakah yang standar digunakan untuk MENAMBAHKAN data baru ke server?",
+    "options": [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 12,
+    "question": "Apa yang terjadi jika client tidak mengirimkan 'Required Parameter' saat melakukan permintaan ke API?",
+    "options": [
+      "Server akan tetap memproses permintaan menggunakan data default",
+      "Server akan menolak permintaan tersebut",
+      "Server akan mengirimkan peringatan tetapi proses berlanjut",
+      "Client akan diblokir selamanya"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 13,
+    "question": "Proses pembatasan jumlah request yang boleh dilakukan dalam periode waktu tertentu (misal: 100 request/jam) untuk mencegah spam pada API dinamakan...",
+    "options": [
+      "Authentication",
+      "Authorization",
+      "Rate Limiting",
+      "Data Validation"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 14,
+    "question": "Format data apa yang paling umum dan standar digunakan sebagai format 'Response API' saat ini?",
+    "options": [
+      "XML",
+      "HTML",
+      "JSON",
+      "CSV"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 15,
+    "question": "Kepanjangan dari JSON adalah...",
+    "options": [
+      "JavaScript Object Notation",
+      "Java Standard Output Network",
+      "JavaScript Online Network",
+      "Java Syntax Object Native"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 16,
+    "question": "Mengapa format JSON sangat populer dalam pertukaran data internet?",
+    "options": [
+      "Karena hanya bisa dibaca oleh bahasa JavaScript",
+      "Karena ukurannya ringan, mudah dibaca manusia, dan mudah diproses oleh komputer",
+      "Karena dapat mengeksekusi kode program secara otomatis",
+      "Karena sangat aman dari serangan hacker"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 17,
+    "question": "Dalam struktur dasar JSON, data selalu direpresentasikan dalam bentuk pasangan...",
+    "options": [
+      "Index : Array",
+      "Parent : Child",
+      "Key : Value",
+      "Name : Property"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Simbol kurung apa yang digunakan untuk mendefinisikan sebuah 'Array' (menyimpan banyak data dalam satu variabel) di dalam JSON?",
+    "options": [
+      "Kurung biasa ()",
+      "Kurung kurawal {}",
+      "Kurung sudut <>",
+      "Kurung siku []"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 19,
+    "question": "Tipe data manakah yang TIDAK didukung atau TIDAK BISA disimpan di dalam format JSON?",
+    "options": [
+      "String",
+      "Boolean",
+      "Null",
+      "Function"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 20,
+    "question": "Apa perbedaan utama dalam penulisan antara Object JavaScript asli dengan format JSON?",
+    "options": [
+      "Di JSON, nama Key wajib menggunakan tanda kutip ganda (\"\")",
+      "Object JavaScript tidak boleh bersarang (nested), sedangkan JSON boleh",
+      "JSON harus diakhiri dengan titik koma (;)",
+      "JSON hanya mendukung tipe data angka (Number)"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 21,
+    "question": "Sebelum Node.js diciptakan, kode bahasa pemrograman JavaScript hanya bisa dieksekusi di lingkungan mana?",
+    "options": [
+      "Di dalam sistem operasi Linux",
+      "Di dalam text editor",
+      "Di dalam browser web",
+      "Di dalam database server"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 22,
+    "question": "Apa pengertian yang paling tepat mengenai Node.js?",
+    "options": [
+      "Sebuah framework frontend untuk membangun UI",
+      "Bahasa pemrograman baru pengganti JavaScript",
+      "Runtime environment yang memungkinkan JavaScript berjalan di luar browser (di server/komputer)",
+      "Aplikasi database terpusat"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 23,
+    "question": "Mesin utama (engine) yang digunakan oleh Node.js untuk membaca dan menjalankan kode JavaScript dengan cepat adalah...",
+    "options": [
+      "V8 Engine buatan Google",
+      "SpiderMonkey buatan Mozilla",
+      "Chakra buatan Microsoft",
+      "WebKit buatan Apple"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 24,
+    "question": "Dalam ekosistem pemrograman, modul siap pakai yang dibuat oleh developer lain untuk menyelesaikan tugas tertentu (misal mengelola database atau mengirim email) disebut sebagai...",
+    "options": [
+      "API",
+      "Package",
+      "JSON Object",
+      "Runtime"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 25,
+    "question": "Package Manager bawaan paling populer di ekosistem Node.js, yang otomatis terpasang saat kita menginstal Node.js, adalah...",
+    "options": [
+      "Yarn",
+      "Bower",
+      "NPM (Node Package Manager)",
+      "Composer"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 26,
+    "question": "Ketika Anda menjalankan perintah `npm install express`, di folder manakah NPM akan menyimpan file-file package Express tersebut beserta seluruh dependensinya?",
+    "options": [
+      "bin/",
+      "package.json",
+      "src_modules/",
+      "node_modules/"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 27,
+    "question": "Saat project Node.js pertama kali diinisialisasi menggunakan perintah `npm init`, NPM akan membuatkan satu file khusus yang berfungsi sebagai identitas project dan pencatat daftar package yang digunakan. File tersebut bernama...",
+    "options": [
+      "index.js",
+      "node_modules.json",
+      "package.json",
+      "config.json"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 28,
+    "question": "Dalam analogi smartphone, jika Node.js diibaratkan sebagai sistem operasi Android, maka NPM diibaratkan sebagai apa?",
+    "options": [
+      "Baterai smartphone",
+      "Play Store (Toko Aplikasi)",
+      "Kamera smartphone",
+      "Aplikasi WhatsApp"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 29,
+    "question": "Selain NPM, nama package manager modern alternatif lainnya yang juga populer digunakan dalam ekosistem Node.js adalah...",
+    "options": [
+      "Pip dan Gem",
+      "Apt dan Yum",
+      "Yarn dan pnpm",
+      "Brew dan Chocolaty"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 30,
+    "question": "Apa itu Express.js?",
+    "options": [
+      "Database NoSQL berbasis dokumen",
+      "Framework frontend untuk membuat tampilan website",
+      "Framework backend untuk Node.js yang mempermudah pembuatan Web Server dan REST API",
+      "Browser terbaru khusus untuk JavaScript"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 31,
+    "question": "Mengapa developer lebih memilih menggunakan Express.js daripada modul HTTP bawaan murni dari Node.js untuk membuat server?",
+    "options": [
+      "Karena Node.js bawaan tidak aman dan mudah diretas",
+      "Karena Express menyederhanakan penanganan route, validasi, dan middleware sehingga kode tidak rumit",
+      "Karena Express berjalan di dalam browser",
+      "Karena Express menghapus kebutuhan akan database"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 32,
+    "question": "Bagaimana perintah dasar di terminal untuk menginstal framework Express.js ke dalam project Node.js?",
+    "options": [
+      "node install express",
+      "npm get express",
+      "npm install express",
+      "download express.js"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 33,
+    "question": "Pada penulisan dasar Express.js, baris kode manakah yang berfungsi untuk menginisialisasi objek utama pembuat server?",
+    "options": [
+      "const app = new Server();",
+      "const app = express();",
+      "const server = require('app');",
+      "const app = express.start();"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 34,
+    "question": "Alamat spesifik yang didefinisikan di server untuk dapat diakses oleh client (contohnya: app.get('/about', ...)) disebut sebagai...",
+    "options": [
+      "Package",
+      "Route",
+      "Index",
+      "Module"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 35,
+    "question": "Method atau fungsi apa pada Express.js yang bertugas memerintahkan server agar 'mendengarkan' permintaan masuk pada port tertentu (misal: port 3000)?",
+    "options": [
+      "app.start(3000)",
+      "app.listen(3000)",
+      "app.run(3000)",
+      "app.port(3000)"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 36,
+    "question": "Di dalam fungsi penanganan route pada Express `(req, res) => {}`, argumen 'req' merujuk pada objek Request. Objek ini berisi...",
+    "options": [
+      "Informasi tentang memori sisa dari server",
+      "Fungsi untuk membalas pesan ke pengguna",
+      "Informasi dan data parameter yang dikirimkan oleh client kepada server",
+      "Kode HTML yang akan dirender"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 37,
+    "question": "Dalam Express.js, jika Anda ingin merespons permintaan client dengan mengembalikan data bertipe JSON, method pada objek Response yang paling tepat digunakan adalah...",
+    "options": [
+      "res.sendJSON()",
+      "res.render()",
+      "res.end()",
+      "res.json()"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 38,
+    "question": "Berdasarkan rute ini: `app.get('/user', ...)` — Kapan kode di dalam blok fungsi tersebut akan dijalankan?",
+    "options": [
+      "Setiap kali server Node.js baru dinyalakan",
+      "Ketika pengguna mengetik perintah apa pun di terminal",
+      "Ketika client/browser melakukan request dengan metode GET ke endpoint '/user'",
+      "Ketika data pengguna dihapus dari database"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 39,
+    "question": "Jika analogi Node.js adalah 'mesin mobil', maka Express.js dalam pembuatan backend bisa diibaratkan sebagai apa?",
+    "options": [
+      "Bahan bakar bensin",
+      "Pengemudi mobil",
+      "Jalan raya tempat mobil berjalan",
+      "Body dan setir yang merangkai mesin menjadi mobil yang mudah dan siap dikendalikan"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 40,
+    "question": "Berdasarkan alur yang terjadi saat browser mengakses API Express, apa langkah yang terjadi tepat SETELAH Express Server menemukan rute (misal: `/user`) yang cocok?",
+    "options": [
+      "Express akan merestart server otomatis",
+      "Handler Route akan dipanggil untuk memproses permintaan dan mengirim balik balasan (misal melalui res.json)",
+      "Express akan langsung membuka database tanpa persetujuan",
+      "Express akan menghapus log request tersebut"
+    ],
+    "correctAnswer": 1
+  }
+]

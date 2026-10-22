@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { FaYoutube, FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import useDataLoader from '../hooks/useDataLoader';
 
+// Dihitung sekali di luar render (fungsi impure: tidak boleh dipanggil saat render)
+const TAHUN_INI = new Date().getFullYear();
+
 const LandingPage = () => {
   const [mounted, setMounted] = useState(false);
 
@@ -170,7 +173,8 @@ const LandingPage = () => {
             <h3 className="text-xl font-bold mb-6 text-white">Quick Link</h3>
             <ul className="space-y-4 text-sm text-gray-400">
               <li><a href="https://utb-univ.ac.id" target="_blank" rel="noreferrer" className="hover:text-[var(--color-software-bright)] transition-colors">Universitas Teknologi Bandung</a></li>
-              <li><a href="https://oxigenutb.netlify.app/" target="_blank" rel="noreferrer" className="hover:text-[var(--color-software-bright)] transition-colors">Oxigen UTB</a></li>
+              <li><a // aislop-ignore-next-line ai-slop/hardcoded-url -- situs resmi organisasi, bukan URL environment
+                href="https://oxigenutb.netlify.app/" target="_blank" rel="noreferrer" className="hover:text-[var(--color-software-bright)] transition-colors">Oxigen UTB</a></li>
             </ul>
           </div>
 
@@ -187,7 +191,7 @@ const LandingPage = () => {
         </div>
 
         <div className="max-w-7xl mx-auto mt-16 pt-6 border-t border-gray-800 flex justify-between items-center relative z-10 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} <span className="text-[var(--color-software-bright)]">SOFTWARE</span>-OXIGEN UTB</p>
+          <p>© {TAHUN_INI} <span className="text-[var(--color-software-bright)]">SOFTWARE</span>-OXIGEN UTB</p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="w-10 h-10 rounded bg-gray-900 border border-gray-800 hover:bg-[var(--color-software-tosca)] hover:text-black flex items-center justify-center transition-all"
