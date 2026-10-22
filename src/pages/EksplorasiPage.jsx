@@ -4,6 +4,7 @@ import MarkdownViewer from '../components/MarkdownViewer';
 import GerbangSanksi from '../components/GerbangSanksi';
 import FloatTimeIndicator from '../components/FloatTimeIndicator';
 import useDataLoader from '../hooks/useDataLoader';
+import useTrackSlug from '../hooks/useTrackSlug';
 import { findModuleById } from '../services/dataService';
 
 const WAKTU_FOKUS = 1500; // 25 Menit
@@ -41,6 +42,10 @@ const EksplorasiPage = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const isDebugView = searchParams.get('view') === 'debug';
+  const slugTrack = useTrackSlug(id);
+
+  // Tujuan kembali: hub modul bila track diketahui, selain itu pemilih jalur.
+  const backTo = slugTrack ? `/materi/${slugTrack}/${id}` : '/materi';
 
   // State materi
   const [materiTitle, setMateriTitle] = useState('');
@@ -245,7 +250,7 @@ const EksplorasiPage = () => {
       <div className="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar scroll-area relative">
         <div className="md:hidden sticky top-0 z-40 bg-[#121212] border-b border-gray-800 p-4 flex justify-between items-center shadow-md">
           <Link
-            to={`/materi/${id}`}
+            to={backTo}
             className="text-[var(--color-software-tosca)] font-bold text-sm"
           >
             ← Kembali ke Hub
@@ -291,7 +296,7 @@ const EksplorasiPage = () => {
 
             {isLastPage ? (
               <button
-                onClick={() => navigate(`/materi/${id}`)}
+                onClick={() => navigate(backTo)}
                 className="px-8 py-3 bg-[var(--color-software-bright)] text-black font-extrabold rounded-lg hover:bg-[#2de54c] shadow-[0_0_15px_rgba(57,255,90,0.3)] w-full sm:w-auto transition-all"
               >
                 Selesai Membaca & Kembali
@@ -316,7 +321,7 @@ const EksplorasiPage = () => {
       >
         <div className="p-4 border-b border-gray-800 flex justify-between items-center bg-[#0a0a0a]">
           <Link
-            to={`/materi/${id}`}
+            to={backTo}
             className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors"
           >
             <span className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center text-xs">

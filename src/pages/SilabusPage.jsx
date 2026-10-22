@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FiChevronDown, FiChevronUp, FiCheckCircle, FiBookOpen } from 'react-icons/fi';
+import { Link, Navigate, useParams } from 'react-router-dom';
+import { FiChevronDown, FiChevronUp, FiCheckCircle, FiBookOpen, FiArrowLeft } from 'react-icons/fi';
 import useProgressStore from '../store/useProgressStore';
 import useDataLoader from '../hooks/useDataLoader';
+import { getTrack, findModuleContext } from '../services/dataService';
 
 const SilabusPage = () => {
+  const { track: slugTrack } = useParams();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3; // Menampilkan 3 kelompok pertemuan per halaman
 
@@ -14,7 +16,15 @@ const SilabusPage = () => {
   const completedModules = useProgressStore((state) => state.completedModules);
 
   const { data: kurikulum, loading, error } = useDataLoader('kurikulum');
-  const silabus = kurikulum?.pertemuan ?? [];
+  const track = getTrack(kurikulum, slugTrack);
+  const silabus = track?.pertemuan ?? [];
+  const belumDimuat = loading || !kurikulum;
+  const trackTidakDikenal = !belumDimuat && !track;
+
+  // Kompatibilitas tautan lama /materi/:id -> /materi/<track>/<id>.
+  // Rute /materi/:track menangkap "8" sebagai slug, jadi dialihkan di sini.
+  const idLama = /^\d+$/.test(slugTrack ?? '') ? Number(slugTrack) : null;
+  const konteksLama = idLama !== null ? findModuleContext(kurikulum, idLama) : null;
 
   // Pertemuan pertama otomatis terbuka (bisa ditimpa oleh toggle pengguna)
   const pertemuanAwal = silabus[0]?.pertemuan;
@@ -38,7 +48,7 @@ const SilabusPage = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  if (loading) {
+  if (belumDimuat) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="animate-pulse text-[var(--color-software-bright)] font-bold">
@@ -48,17 +58,26 @@ const SilabusPage = () => {
     );
   }
 
-  if (error) {
+  if (error || trackTidakDikenal) {
+    // Tautan lama /materi/8 -> arahkan ke jalur yang benar.
+    if (!error && idLama !== null) {
+      return <Navigate to={konteksLama ? `/materi/${konteksLama.track.slug}/${idLama}` : '/materi'} replace />;
+    }
+
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-6">
         <div className="max-w-md text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
-          <h1 className="text-2xl font-black text-red-400 mb-3">Gagal Memuat Silabus</h1>
-          <p className="text-gray-400 text-sm mb-6">{error.message}</p>
+          <h1 className="text-2xl font-black text-red-400 mb-3">
+            {error ? 'Gagal Memuat Silabus' : 'Jalur Tidak Dikenal'}
+          </h1>
+          <p className="text-gray-400 text-sm mb-6">
+            {error ? error.message : `Tidak ada jalur dengan nama "${slugTrack}".`}
+          </p>
           <Link
-            to="/"
+            to="/materi"
             className="inline-block w-full py-3 bg-[var(--color-software-bright)] text-black font-black rounded-xl"
           >
-            Kembali ke Beranda
+            Pilih Jalur Kelaz
           </Link>
         </div>
       </div>
@@ -68,17 +87,28 @@ const SilabusPage = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] p-4 md:p-8 text-white font-sans flex flex-col">
       <div className="max-w-4xl mx-auto w-full flex-grow">
-        
-        <Link to="/" className="inline-flex items-center text-gray-400 hover:text-white font-bold mb-8 transition-colors text-sm">
-          ← Kembali ke Beranda
+        <Link
+          to="/materi"
+          className="inline-flex items-center gap-2 text-gray-400 hover:text-white font-bold mb-8 transition-colors text-sm"
+        >
+          <FiArrowLeft /> Pilih Jalur Kelaz
         </Link>
-        
+
         <h1 className="text-4xl font-black mb-2 text-center text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-software-bright)] to-[var(--color-software-teal)]">
-          Peta Perjalanan Belajar
+          {track.nama}
         </h1>
-        <p className="text-center mb-12 text-gray-400">
-          Kelompok materi berdasarkan pertemuan divisi. Buka pertemuan untuk melihat modul penjelasannya!
-        </p>
+        <p className="text-center mb-12 text-gray-400">{track.tagline}</p>
+
+        {silabus.length === 0 && (
+          <div className="max-w-md mx-auto text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
+            <h2 className="text-xl font-black text-[var(--color-software-tosca)] mb-3">
+              Belum Ada Materi
+            </h2>
+            <p className="text-gray-400 text-sm">
+              Jalur ini sedang disiapkan. Pantau terus, ya!
+            </p>
+          </div>
+        )}
 
         {/* List Kelompok Pertemuan */}
         <div className="space-y-6 min-h-[400px]">
@@ -141,7 +171,7 @@ const SilabusPage = () => {
                           </div>
 
                           <Link
-                            to={`/materi/${materi.id}`}
+                            to={`/materi/${track.slug}/${materi.id}`}
                             className={`px-5 py-2 text-xs font-bold rounded-lg transition-all w-full sm:w-auto text-center ${
                               isCompleted
                                 ? 'bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700'

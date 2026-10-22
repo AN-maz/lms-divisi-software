@@ -77,24 +77,26 @@ lms-app/
 │
 ├── public/                        <-- Tempat menyimpan data murni
 │   ├── content/                   <-- Semua konten kurikulum
-│   │   ├── kurikulum.json         <-- MANIFEST: daftar pertemuan + modul
+│   │   ├── kurikulum.json         <-- MANIFEST: daftar jalur -> pertemuan -> modul
 │   │   ├── materi/                <-- Materi Markdown, 1 file per modul
-│   │   │   ├── pertemuan-01/
-│   │   │   │   └── modul-01-dasar-dasar-html.md
-│   │   │   ├── pertemuan-02/
-│   │   │   │   └── modul-02-konsep-dasar-css.md
-│   │   │   └── ... (sampai pertemuan-10, 19 modul)
+│   │   │   ├── main-quest/        <-- Jalur utama (Main Quest)
+│   │   │   │   ├── pertemuan-01/
+│   │   │   │   │   └── modul-01-dasar-dasar-html.md
+│   │   │   │   └── ... (sampai pertemuan-10, 19 modul)
+│   │   │   └── side-quest/        <-- Jalur tambahan (Side Quest)
+│   │   │       └── bonus-lab/
+│   │   │           └── modul-100-git-dan-alur-kerja.md
 │   │   ├── kuis/                  <-- Soal kuis, 1 file JSON per modul
 │   │   │   ├── modul-01.json
 │   │   │   ├── modul-02.json
-│   │   │   └── ... (modul-13, 16-19 belum punya kuis)
+│   │   │   └── ... (modul-13, 16-19, 100 belum punya kuis)
 │   │   └── debugging-jiwa/
 │   │       └── kesadaran-organik.md
 │   └── data/                      <-- Data aplikasi (bukan kurikulum)
 │       └── mentors.json           <-- Data tim pengurus
 │
 ├── scripts/
-│   ├── migrate-content.mjs        <-- Migrasi konten (sekali pakai)
+│   ├── migrate-content.mjs        <-- Migrasi konten (arsip, sekali pakai)
 │   └── validate-content.mjs       <-- Validasi integritas konten
 │
 ├── .aislop/                       <-- Konfigurasi quality gate "aislop"
@@ -108,17 +110,19 @@ lms-app/
 │   │   └── MarkdownViewer.jsx     <-- Jantung aplikasinya (Render MD to HTML)
 │   │
 │   ├── hooks/             <-- Custom React Hook
-│   │   └── useDataLoader.js       <-- Hook pemuat data (loading/error/refetch)
+│   │   ├── useDataLoader.js       <-- Hook pemuat data (loading/error/refetch)
+│   │   └── useTrackSlug.js        <-- Resolve slug jalur dari id modul
 │   │
 │   ├── pages/            <-- Komponen Halaman (Views)
-│   │   ├── EksplorasiPage.jsx      <-- Halaman membaca materi Markdown
-│   │   ├── LandingPage.jsx         <-- Halaman beranda dengan hero & tim
+│   │   ├── TrackPickerPage.jsx     <-- Halaman pemilih jalur ("Pilih Jalur Kelaz")
+│   │   ├── SilabusPage.jsx         <-- Daftar pertemuan dalam satu jalur
 │   │   ├── ModuleHubPage.jsx       <-- Pusat kontrol modul
+│   │   ├── EksplorasiPage.jsx      <-- Halaman membaca materi Markdown
 │   │   ├── QuizPage.jsx           <-- Halaman kuis interaktif
-│   │   └── SilabusPage.jsx         <-- Halaman peta jalan belajar
+│   │   └── LandingPage.jsx         <-- Halaman beranda dengan hero & tim
 │   │
 │   ├── services/         <-- Service layer untuk data handling
-│   │   └── dataService.js        <-- fetchData + cache + dataSources (kurikulum/mentors/kuis)
+│   │   └── dataService.js        <-- fetchData + cache + dataSources + helper jalur
 │   │
 │   ├── store/           <-- State Management (Zustand)
 │   │   └── useProgressStore.js   <-- Menyimpan state (materi terbuka/terkunci)
@@ -133,18 +137,49 @@ lms-app/
 └── package.json
 ```
 
+## Alur Navigasi
+
+```text
+/                       Beranda
+/materi                 Pilih Jalur Kelaz   (pemilih jalur)
+/materi/:track          daftar pertemuan    (mis. /materi/main-quest)
+/materi/:track/:id      hub modul
+/eksplorasi/:id         baca materi
+/kuis/:id               knowledge check
+```
+
+`/materi/:id` (tautan lama) otomatis dialihkan ke jalur yang benar.
+
+## Jalur Belajar (Track)
+
+| Jalur        | Slug         | Isi                                                  |
+| ------------ | ------------ | ---------------------------------------------------- |
+| **Main Quest** | `main-quest` | Kurikulum inti, persis pertemuan 1-10 (modul id 1-19) |
+| **Side Quest** | `side-quest` | Materi tambahan di luar kurikulum (modul id mulai 100) |
+
+ID modul Side Quest dimulai dari **100** supaya tidak bentrok dengan Main Quest. Ini penting karena rute `/eksplorasi/:id` dan `/kuis/:id` hanya memakai ID, tanpa slug jalur.
+
 ---
 
 # Panduan Kontribusi Konten
 
 Semua konten (materi & kuis) berada di dalam `public/content/`, satu file per modul. Tujuannya: satu modul = satu PR, diff kecil, tidak ada merge conflict di file raksasa.
 
+## 0. Dua Jalur Belajar
+
+Kurikulum dibagi jadi **jalur (track)**, didefinisikan di `kurikulum.json`:
+
+- **Main Quest** (`main-quest`) — kurikulum inti, pertemuan 1-10, modul id 1-19.
+- **Side Quest** (`side-quest`) — materi tambahan, modul id mulai 100.
+
+Aturan penting: **ID modul harus unik lintas jalur**, karena rute `/eksplorasi/:id` dan `/kuis/:id` hanya memakai ID.
+
 ## 1. Menambah / Mengubah Materi
 
-**Lokasi file** — di dalam folder pertemuan, dengan nama `modul-NN-slug.md`:
+**Lokasi file** — di dalam folder jalur, lalu pertemuan, dengan nama `modul-NN-slug.md`:
 
 ```text
-public/content/materi/pertemuan-04/
+public/content/materi/main-quest/pertemuan-04/
 ├── modul-05-pengenalan-ddl.md
 ├── modul-06-dml-dan-constraints.md
 └── ...
@@ -154,17 +189,17 @@ public/content/materi/pertemuan-04/
 
 **Konvensi Heading** — lihat **Golden Rules** di atas. Setiap `#` (Heading 1) memotong halaman jadi satu section di sidebar. Gunakan `##`/`###` untuk sub-bab.
 
-**Daftarkan di manifest** — tambahkan entri di `public/content/kurikulum.json`:
+**Daftarkan di manifest** — tambahkan entri di dalam `pertemuan` milik jalur yang sesuai di `public/content/kurikulum.json`:
 
 ```json
 {
   "id": 20,
   "title": "Judul Modul Baru",
-  "file": "/content/materi/pertemuan-11/modul-20-judul-modul-baru.md"
+  "file": "/content/materi/main-quest/pertemuan-11/modul-20-judul-modul-baru.md"
 }
 ```
 
-Modul baru harus ditaruh di dalam `pertemuan` yang sesuai (tambah objek pertemuan baru bila perlu).
+Path materi **wajib** berada di dalam `/content/materi/<slug-jalur>/`, jika tidak `npm run validate` akan menolak.
 
 ## 2. Menambah / Mengubah Soal Kuis
 
@@ -230,33 +265,49 @@ Contoh soal dengan kode:
 ## 3. Aturan Kontribusi
 
 1. Nama file kuis **wajib** `modul-NN.json`, cocok dengan ID modul di `kurikulum.json`.
-2. Modul yang belum punya kuis: **jangan** buat file kosong. Cukup tidak ada filenya — fitur "Modul Eksplorasi Bebas" akan menanganinya (modul dianggap lulus otomatis).
-3. Nilai kelulusan Knowledge Check adalah **70%**.
-4. Sebelum commit, jalankan:
+2. ID modul **wajib unik di seluruh jalur** (Main Quest dan Side Quest).
+3. Modul yang belum punya kuis: **jangan** buat file kosong. Cukup tidak ada filenya — fitur "Modul Eksplorasi Bebas" akan menanganinya (modul dianggap lulus otomatis).
+4. Nilai kelulusan Knowledge Check adalah **70%**.
+5. Sebelum commit, jalankan:
 
    ```bash
-   npm run validate   # cek integritas konten (path, id, correctAnswer, file yatim)
+   npm run validate   # cek integritas konten (jalur, path, id, correctAnswer, file yatim)
    npm run lint       # cek kode
    npm run build      # pastikan build sukses
    npm run aislop     # quality gate untuk kode
    ```
 
-5. `npm run validate` akan menolak: JSON tidak valid, `correctAnswer` di luar rentang, id soal duplikat, path materi tidak ada, dan file kuis yatim.
+## 4. Menambah Modul di Side Quest
 
-## 4. Menambah Pertemuan (Bab) Baru
+1. Buat file di `public/content/materi/side-quest/<kelompok>/modul-NN-slug.md` (mis. `<kelompok>` = `bonus-lab`).
+2. Pilih ID mulai 100 (lanjutkan dari yang terakhir dipakai).
+3. Tambahkan grup pertemuan baru (atau modul ke grup yang ada) di jalur `side-quest` pada `kurikulum.json`.
+4. Jalankan `npm run validate`.
 
-1. Buat folder `public/content/materi/pertemuan-NN/`.
-2. Taruh file materi di dalamnya dengan pola `modul-NN-slug.md`.
-3. Tambahkan objek pertemuan baru di `public/content/kurikulum.json`.
-4. (Opsional) Buat file kuis `modul-NN.json` bila modul itu punya Knowledge Check.
-5. Jalankan `npm run validate`.
+## 5. Menambah Jalur (Track) Baru
 
-## 5. Skrip Bantu
+1. Tambah objek baru di array `tracks` pada `kurikulum.json`:
+
+   ```json
+   {
+     "slug": "challenge",
+     "nama": "Challenge Arena",
+     "tagline": "Tantangan mingguan untuk menguji pemahamanmu.",
+     "ikon": "compass",
+     "pertemuan": []
+   }
+   ```
+
+2. Taruh materinya di `public/content/materi/challenge/...`.
+3. Kalau memakai ikon baru, tambahkan pemetaannya di `src/pages/TrackPickerPage.jsx` (objek `IKON`).
+4. Jalankan `npm run validate`.
+
+## 6. Skrip Bantu
 
 | Perintah                 | Fungsi                                                        |
 | ------------------------ | ------------------------------------------------------------- |
 | `npm run validate`       | Validasi integritas seluruh konten                            |
-| `npm run migrate:content`| Migrasi ulang struktur konten (hanya untuk arsip, idempoten)   |
+| `npm run migrate:content`| Migrasi konten lama (arsip; berhenti sendiri bila tak perlu)  |
 | `npm run aislop`         | Scan kualitas kode (quality gate)                             |
 | `npm run aislop:ci`      | Scan hanya file yang berubah (untuk CI/PR)                    |
 | `npm run lint`           | ESLint                                                        |

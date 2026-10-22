@@ -3,169 +3,197 @@
     "title": "Debugging Jiwa #1: Kesadaran Organik",
     "slug": "kesadaran-organik"
   },
-  "pertemuan": [
+  "tracks": [
     {
-      "pertemuan": 1,
-      "title": "Pertemuan 1: Fondasi Web (HTML)",
-      "description": "Pengenalan struktur dasar dan kerangka utama dalam pembuatan halaman website.",
-      "modules": [
+      "slug": "main-quest",
+      "nama": "Main Quest",
+      "tagline": "Misi utama mingguan: dari fondasi web sampai integrasi backend.",
+      "ikon": "compass",
+      "pertemuan": [
         {
-          "id": 1,
-          "title": "Dasar-Dasar HTML",
-          "file": "/content/materi/pertemuan-01/modul-01-dasar-dasar-html.md"
+          "pertemuan": 1,
+          "title": "Pertemuan 1: Fondasi Web (HTML)",
+          "description": "Pengenalan struktur dasar dan kerangka utama dalam pembuatan halaman website.",
+          "modules": [
+            {
+              "id": 1,
+              "title": "Dasar-Dasar HTML",
+              "file": "/content/materi/main-quest/pertemuan-01/modul-01-dasar-dasar-html.md"
+            }
+          ]
+        },
+        {
+          "pertemuan": 2,
+          "title": "Pertemuan 2: Styling Web (CSS)",
+          "description": "Mempelajari cara mempercantik tampilan website menggunakan Cascading Style Sheets.",
+          "modules": [
+            {
+              "id": 2,
+              "title": "Konsep Dasar CSS",
+              "file": "/content/materi/main-quest/pertemuan-02/modul-02-konsep-dasar-css.md"
+            }
+          ]
+        },
+        {
+          "pertemuan": 3,
+          "title": "Pertemuan 3: JavaScript Programming",
+          "description": "Mempelajari logika pemrograman dan memanipulasi struktur halaman web menggunakan DOM.",
+          "modules": [
+            {
+              "id": 3,
+              "title": "JavaScript Dasar",
+              "file": "/content/materi/main-quest/pertemuan-03/modul-03-javascript-dasar.md"
+            },
+            {
+              "id": 4,
+              "title": "JavaScript DOM",
+              "file": "/content/materi/main-quest/pertemuan-03/modul-04-javascript-dom.md"
+            }
+          ]
+        },
+        {
+          "pertemuan": 4,
+          "title": "Pertemuan 4: Database & Native SQL",
+          "description": "Pendalaman bahasa query terstruktur (SQL) untuk mengelola database relasional secara native tanpa ORM.",
+          "modules": [
+            {
+              "id": 5,
+              "title": "Pengenalan dan Dasar-Dasar DDL",
+              "file": "/content/materi/main-quest/pertemuan-04/modul-05-pengenalan-ddl.md"
+            },
+            {
+              "id": 6,
+              "title": "Data Manipulation Language (DML) & Constraints",
+              "file": "/content/materi/main-quest/pertemuan-04/modul-06-dml-dan-constraints.md"
+            },
+            {
+              "id": 7,
+              "title": "Pengambilan Data Dasar & Agregasi (DQL)",
+              "file": "/content/materi/main-quest/pertemuan-04/modul-07-dql-dan-agregasi.md"
+            },
+            {
+              "id": 8,
+              "title": "Penggabungan Tabel (JOIN) dan Subqueries",
+              "file": "/content/materi/main-quest/pertemuan-04/modul-08-join-dan-subqueries.md"
+            },
+            {
+              "id": 9,
+              "title": "Fungsi Bawaan (Built-in) dan Logika Kondisional",
+              "file": "/content/materi/main-quest/pertemuan-04/modul-09-fungsi-bawaan-dan-kondisional.md"
+            },
+            {
+              "id": 10,
+              "title": "Analitik (Window Functions, CTE, dan Views)",
+              "file": "/content/materi/main-quest/pertemuan-04/modul-10-window-function-cte-view.md"
+            },
+            {
+              "id": 11,
+              "title": "Transaksi, Indexing, dan Keamanan Database",
+              "file": "/content/materi/main-quest/pertemuan-04/modul-11-transaksi-indexing-keamanan.md"
+            }
+          ]
+        },
+        {
+          "pertemuan": 5,
+          "title": "Pertemuan 5: Backend Development",
+          "description": "Membangun layanan server dan RESTful API menggunakan lingkungan Node.js dan Express.",
+          "modules": [
+            {
+              "id": 12,
+              "title": "Konsep Backend & Pembuatan API Sederhana",
+              "file": "/content/materi/main-quest/pertemuan-05/modul-12-konsep-backend.md"
+            },
+            {
+              "id": 13,
+              "title": "Build Simple Project Backend",
+              "file": "/content/materi/main-quest/pertemuan-05/modul-13-build-simple-project-backend.md"
+            }
+          ]
+        },
+        {
+          "pertemuan": 6,
+          "title": "Pertemuan 6: Frontend Development",
+          "description": "Membangun antarmuka modern dan responsif memanfaatkan React, Vite, dan ekosistem Tailwind CSS.",
+          "modules": [
+            {
+              "id": 14,
+              "title": "Konsep Frontend & Project Vite + Tailwind",
+              "file": "/content/materi/main-quest/pertemuan-06/modul-14-konsep-frontend-vite-tailwind.md"
+            }
+          ]
+        },
+        {
+          "pertemuan": 7,
+          "title": "Pertemuan 7: Integrasi Sistem",
+          "description": "Menghubungkan aplikasi frontend client-side dengan layanan backend melalui Fetch API.",
+          "modules": [
+            {
+              "id": 15,
+              "title": "Fetch API: Dari Nol ke Production-Ready",
+              "file": "/content/materi/main-quest/pertemuan-07/modul-15-fetch-api.md"
+            }
+          ]
+        },
+        {
+          "pertemuan": 8,
+          "title": "Pertemuan 8: Pengenalan React Dasar",
+          "description": "Library UI modern untuk membangun antarmuka interaktif berbasis komponen.",
+          "modules": [
+            {
+              "id": 16,
+              "title": "Pengenalan React Dasar",
+              "file": "/content/materi/main-quest/pertemuan-08/modul-16-pengenalan-react.md"
+            }
+          ]
+        },
+        {
+          "pertemuan": 9,
+          "title": "Pertemuan 9: React Lanjutan",
+          "description": "Interaktivitas dan Siklus Hidup Komponen",
+          "modules": [
+            {
+              "id": 17,
+              "title": "React Lanjutan: Components LifeCycle",
+              "file": "/content/materi/main-quest/pertemuan-09/modul-17-react-lanjutan-lifecycle.md"
+            },
+            {
+              "id": 18,
+              "title": "React Lanjutan: Mini Project Personal: Multi Page",
+              "file": "/content/materi/main-quest/pertemuan-09/modul-18-mini-project-multipage.md"
+            }
+          ]
+        },
+        {
+          "pertemuan": 10,
+          "title": "Pertemuan 10: React Intermediate",
+          "description": "Mulai berkomunikasi dengan servers",
+          "modules": [
+            {
+              "id": 19,
+              "title": "React dan Integrasi Backend",
+              "file": "/content/materi/main-quest/pertemuan-10/modul-19-react-intermediate.md"
+            }
+          ]
         }
       ]
     },
     {
-      "pertemuan": 2,
-      "title": "Pertemuan 2: Styling Web (CSS)",
-      "description": "Mempelajari cara mempercantik tampilan website menggunakan Cascading Style Sheets.",
-      "modules": [
+      "slug": "side-quest",
+      "nama": "Side Quest",
+      "tagline": "Misi sampingan di luar kurikulum: tooling, studi kasus, dan eksperimen bebas.",
+      "ikon": "flask",
+      "pertemuan": [
         {
-          "id": 2,
-          "title": "Konsep Dasar CSS",
-          "file": "/content/materi/pertemuan-02/modul-02-konsep-dasar-css.md"
-        }
-      ]
-    },
-    {
-      "pertemuan": 3,
-      "title": "Pertemuan 3: JavaScript Programming",
-      "description": "Mempelajari logika pemrograman dan memanipulasi struktur halaman web menggunakan DOM.",
-      "modules": [
-        {
-          "id": 3,
-          "title": "JavaScript Dasar",
-          "file": "/content/materi/pertemuan-03/modul-03-javascript-dasar.md"
-        },
-        {
-          "id": 4,
-          "title": "JavaScript DOM",
-          "file": "/content/materi/pertemuan-03/modul-04-javascript-dom.md"
-        }
-      ]
-    },
-    {
-      "pertemuan": 4,
-      "title": "Pertemuan 4: Database & Native SQL",
-      "description": "Pendalaman bahasa query terstruktur (SQL) untuk mengelola database relasional secara native tanpa ORM.",
-      "modules": [
-        {
-          "id": 5,
-          "title": "Pengenalan dan Dasar-Dasar DDL",
-          "file": "/content/materi/pertemuan-04/modul-05-pengenalan-ddl.md"
-        },
-        {
-          "id": 6,
-          "title": "Data Manipulation Language (DML) & Constraints",
-          "file": "/content/materi/pertemuan-04/modul-06-dml-dan-constraints.md"
-        },
-        {
-          "id": 7,
-          "title": "Pengambilan Data Dasar & Agregasi (DQL)",
-          "file": "/content/materi/pertemuan-04/modul-07-dql-dan-agregasi.md"
-        },
-        {
-          "id": 8,
-          "title": "Penggabungan Tabel (JOIN) dan Subqueries",
-          "file": "/content/materi/pertemuan-04/modul-08-join-dan-subqueries.md"
-        },
-        {
-          "id": 9,
-          "title": "Fungsi Bawaan (Built-in) dan Logika Kondisional",
-          "file": "/content/materi/pertemuan-04/modul-09-fungsi-bawaan-dan-kondisional.md"
-        },
-        {
-          "id": 10,
-          "title": "Analitik (Window Functions, CTE, dan Views)",
-          "file": "/content/materi/pertemuan-04/modul-10-window-function-cte-view.md"
-        },
-        {
-          "id": 11,
-          "title": "Transaksi, Indexing, dan Keamanan Database",
-          "file": "/content/materi/pertemuan-04/modul-11-transaksi-indexing-keamanan.md"
-        }
-      ]
-    },
-    {
-      "pertemuan": 5,
-      "title": "Pertemuan 5: Backend Development",
-      "description": "Membangun layanan server dan RESTful API menggunakan lingkungan Node.js dan Express.",
-      "modules": [
-        {
-          "id": 12,
-          "title": "Konsep Backend & Pembuatan API Sederhana",
-          "file": "/content/materi/pertemuan-05/modul-12-konsep-backend.md"
-        },
-        {
-          "id": 13,
-          "title": "Build Simple Project Backend",
-          "file": "/content/materi/pertemuan-05/modul-13-build-simple-project-backend.md"
-        }
-      ]
-    },
-    {
-      "pertemuan": 6,
-      "title": "Pertemuan 6: Frontend Development",
-      "description": "Membangun antarmuka modern dan responsif memanfaatkan React, Vite, dan ekosistem Tailwind CSS.",
-      "modules": [
-        {
-          "id": 14,
-          "title": "Konsep Frontend & Project Vite + Tailwind",
-          "file": "/content/materi/pertemuan-06/modul-14-konsep-frontend-vite-tailwind.md"
-        }
-      ]
-    },
-    {
-      "pertemuan": 7,
-      "title": "Pertemuan 7: Integrasi Sistem",
-      "description": "Menghubungkan aplikasi frontend client-side dengan layanan backend melalui Fetch API.",
-      "modules": [
-        {
-          "id": 15,
-          "title": "Fetch API: Dari Nol ke Production-Ready",
-          "file": "/content/materi/pertemuan-07/modul-15-fetch-api.md"
-        }
-      ]
-    },
-    {
-      "pertemuan": 8,
-      "title": "Pertemuan 8: Pengenalan React Dasar",
-      "description": "Library UI modern untuk membangun antarmuka interaktif berbasis komponen.",
-      "modules": [
-        {
-          "id": 16,
-          "title": "Pengenalan React Dasar",
-          "file": "/content/materi/pertemuan-08/modul-16-pengenalan-react.md"
-        }
-      ]
-    },
-    {
-      "pertemuan": 9,
-      "title": "Pertemuan 9: React Lanjutan",
-      "description": "Interaktivitas dan Siklus Hidup Komponen",
-      "modules": [
-        {
-          "id": 17,
-          "title": "React Lanjutan: Components LifeCycle",
-          "file": "/content/materi/pertemuan-09/modul-17-react-lanjutan-lifecycle.md"
-        },
-        {
-          "id": 18,
-          "title": "React Lanjutan: Mini Project Personal: Multi Page",
-          "file": "/content/materi/pertemuan-09/modul-18-mini-project-multipage.md"
-        }
-      ]
-    },
-    {
-      "pertemuan": 10,
-      "title": "Pertemuan 10: React Intermediate",
-      "description": "Mulai berkomunikasi dengan servers",
-      "modules": [
-        {
-          "id": 19,
-          "title": "React dan Integrasi Backend",
-          "file": "/content/materi/pertemuan-10/modul-19-react-intermediate.md"
+          "pertemuan": 101,
+          "title": "Bonus Lab: Alat Pendukung",
+          "description": "Kumpulan materi pendukung yang bisa dikerjakan kapan saja, tidak terikat urutan pertemuan.",
+          "modules": [
+            {
+              "id": 100,
+              "title": "Contoh: Git & Alur Kerja Kolaborasi",
+              "file": "/content/materi/side-quest/bonus-lab/modul-100-git-dan-alur-kerja.md"
+            }
+          ]
         }
       ]
     }

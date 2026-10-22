@@ -5,6 +5,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import useProgressStore from '../store/useProgressStore';
 import useDataLoader from '../hooks/useDataLoader';
+import useTrackSlug from '../hooks/useTrackSlug';
 import { dataSources } from '../services/dataService';
 import { shuffleArray, calculateQuizScore } from '../utils';
 
@@ -13,6 +14,7 @@ const NILAI_LULUS = 70;
 const QuizPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const slugTrack = useTrackSlug(id);
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -23,6 +25,9 @@ const QuizPage = () => {
 
   // Satu file soal per modul: /content/kuis/modul-NN.json
   const { data: daftarSoal, loading, error } = useDataLoader(dataSources.kuisModul(id));
+
+  // Tujuan kembali: hub modul bila track diketahui, selain itu pemilih jalur.
+  const backTo = slugTrack ? `/materi/${slugTrack}/${id}` : '/materi';
 
   // Soal diacak (Fisher-Yates) sekali per modul, urutan tidak berubah saat render ulang
   const questions = useMemo(
@@ -88,7 +93,7 @@ const QuizPage = () => {
                     <p className="text-2xl font-black text-red-400">{result.wrong}</p>
                 </div>
             </div>
-            <button onClick={() => navigate('/materi')} className="w-full py-4 bg-[var(--color-software-tosca)] text-black font-black rounded-xl shadow-lg">Kembali ke Peta Belajar</button>
+            <button onClick={() => navigate(backTo)} className="w-full py-4 bg-[var(--color-software-tosca)] text-black font-black rounded-xl shadow-lg">Kembali ke Hub Modul</button>
          </div>
       </div>
     );
@@ -102,7 +107,7 @@ const QuizPage = () => {
       
       {/* --- SIDEBAR NAVIGASI (GRID SOAL) --- */}
       <div className="w-full md:w-80 bg-[#121212] border-b md:border-b-0 md:border-r border-gray-800 p-6 flex flex-col h-auto md:h-screen sticky top-0 overflow-y-auto">
-        <Link to={`/materi/${id}`} className="text-gray-500 hover:text-white transition-colors flex items-center gap-2 mb-8 font-bold text-sm">
+        <Link to={backTo} className="text-gray-500 hover:text-white transition-colors flex items-center gap-2 mb-8 font-bold text-sm">
           <FiArrowLeft /> Mission Hub
         </Link>
         

@@ -1,12 +1,13 @@
-// Migrasi satu kali: menata ulang konten ke struktur bersih.
+// Migrasi satu kali (ARSIP): dari struktur lama ke struktur saat ini.
 //
-//   public/materi/*.md            -> public/content/materi/pertemuan-NN/modul-NN-slug.md
-//   public/materi/<debug>.md      -> public/content/debugging-jiwa/kesadaran-organik.md
-//   public/data/quizzes.json      -> public/content/kuis/modul-NN.json  (1 file per modul)
-//   public/silabus.json           -> public/content/kurikulum.json       (debug_jiwa di-hoist)
+//   public/materi/*.md       -> public/content/materi/main-quest/pertemuan-NN/modul-NN-slug.md
+//   public/materi/<debug>.md -> public/content/debugging-jiwa/kesadaran-organik.md
+//   public/data/quizzes.json -> public/content/kuis/modul-NN.json  (1 file per modul)
+//   public/silabus.json      -> public/content/kurikulum.json      (skema multi-jalur "tracks")
 //
-// Idempoten: kalau dijalankan dua kali, hasilnya sama. File lama TIDAK dihapus,
-// hanya dilaporkan sebagai "sisa" supaya bisa diverifikasi dulu sebelum dihapus.
+// Skrip ini SUDAH DIJALANKAN. Sumbernya (public/silabus.json, public/data/quizzes.json,
+// public/materi/) sudah dihapus, jadi sekarang skrip ini akan berhenti dengan pesan.
+// Disimpan sebagai rujukan bila suatu saat perlu mengulang migrasi dari git history.
 //
 // Jalankan: npm run migrate:content
 
@@ -47,6 +48,10 @@ const pad = (n) => String(n).padStart(2, '0');
 const namaModul = (id) => `modul-${pad(id)}-${SLUG_MODUL[id]}`;
 const namaPertemuan = (n) => `pertemuan-${pad(n)}`;
 
+// Jalur yang dipakai skema tracks saat ini.
+const TRACK_UTAMA = 'main-quest';
+const TRACK_TAMBAHAN = 'side-quest';
+
 const baca = async (p) => JSON.parse(await readFile(p, 'utf8'));
 const ada = (p) => access(p).then(() => true, () => false);
 
@@ -65,20 +70,23 @@ async function jalan() {
   const masalah = [];
 
   if (!(await ada(SILABUS_LAMA))) {
-    throw new Error(`Tidak menemukan ${SILABUS_LAMA}`);
+    console.log('Migrasi tidak dijalankan: sumber lama sudah tidak ada.');
+    console.log(`  ${SILABUS_LAMA.replace(ROOT, '')} tidak ditemukan.`);
+    console.log('Konten sudah berada di struktur baru (public/content/). Tidak ada yang perlu dilakukan.');
+    return;
   }
 
   const silabus = await baca(SILABUS_LAMA);
   const semuaModul = silabus.flatMap((g) => (g.modules ?? []).map((m) => ({ ...m, pertemuan: g.pertemuan })));
 
-  // 1. Materi: satu file per modul, dikelompokkan per pertemuan.
+  // 1. Materi: satu file per modul, dikelompokkan per pertemuan di dalam jalur utama.
   for (const m of semuaModul) {
     if (!SLUG_MODUL[m.id]) {
       masalah.push(`Modul ${m.id} belum punya slug di SLUG_MODUL`);
       continue;
     }
     const dari = join(PUBLIC, m.file.replace(/^\//, ''));
-    const ke = join(KONTEN, 'materi', namaPertemuan(m.pertemuan), `${namaModul(m.id)}.md`);
+    const ke = join(KONTEN, 'materi', TRACK_UTAMA, namaPertemuan(m.pertemuan), `${namaModul(m.id)}.md`);
     if (!(await salinBila(tindakan, dari, ke))) {
       masalah.push(`File materi modul ${m.id} tidak ada: ${m.file}`);
     }
@@ -110,21 +118,35 @@ async function jalan() {
     masalah.push(`Tidak menemukan ${KUIS_LAMA}`);
   }
 
-  // 4. Manifest baru: metadata saja, path kuis TIDAK dicatat (diturunkan dari id).
+  // 4. Manifest baru (skema tracks): metadata saja, path kuis TIDAK dicatat.
+  //    Pertemuan lama dibungkus ke jalur "main-quest".
   const kurikulum = {
-    debug_jiwa: debugAsal
-      ? { title: debugAsal.title, slug: 'kesadaran-organik' }
-      : null,
-    pertemuan: silabus.map((g) => ({
-      pertemuan: g.pertemuan,
-      title: g.title,
-      description: g.description,
-      modules: (g.modules ?? []).map((m) => ({
-        id: m.id,
-        title: m.title,
-        file: `/content/materi/${namaPertemuan(g.pertemuan)}/${namaModul(m.id)}.md`,
-      })),
-    })),
+    debug_jiwa: debugAsal ? { title: debugAsal.title, slug: 'kesadaran-organik' } : null,
+    tracks: [
+      {
+        slug: TRACK_UTAMA,
+        nama: 'Main Quest',
+        tagline: 'Misi utama mingguan: dari fondasi web sampai integrasi backend.',
+        ikon: 'compass',
+        pertemuan: silabus.map((g) => ({
+          pertemuan: g.pertemuan,
+          title: g.title,
+          description: g.description,
+          modules: (g.modules ?? []).map((m) => ({
+            id: m.id,
+            title: m.title,
+            file: `/content/materi/${TRACK_UTAMA}/${namaPertemuan(g.pertemuan)}/${namaModul(m.id)}.md`,
+          })),
+        })),
+      },
+      {
+        slug: TRACK_TAMBAHAN,
+        nama: 'Side Quest',
+        tagline: 'Misi sampingan di luar kurikulum: tooling, studi kasus, dan eksperimen bebas.',
+        ikon: 'flask',
+        pertemuan: [],
+      },
+    ],
   };
 
   const manifestTujuan = join(KONTEN, 'kurikulum.json');
