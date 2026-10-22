@@ -56,7 +56,7 @@ npm run dev
 ```
 
 ## Struktur Folder Project
-```
+```text
 nama-project/
 ├── node_modules/
 ├── public/

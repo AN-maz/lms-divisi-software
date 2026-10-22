@@ -6,6 +6,8 @@
 //     id soal unik, dan key-nya cocok dengan modul di kurikulum
 //   - modul yang punya kuis vs yang tidak (dilaporkan, bukan error)
 //   - tidak ada file kuis yatim (modul-NN.json tanpa modul NN di kurikulum)
+//   - blok kode berpagar di materi: wajib punya bahasa, dan blok ```mermaid
+//     harus sintaks yang valid (di-parse dengan mermaid yang sama seperti render)
 //
 // Jalankan: npm run validate
 

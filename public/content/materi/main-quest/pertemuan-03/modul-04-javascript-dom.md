@@ -80,7 +80,7 @@ Bayangkan file HTML seperti ini:
 
 Browser akan mengubahnya menjadi struktur pohon:
 
-```
+```text
 document (Akar)
   └── html
       └── body
@@ -669,7 +669,7 @@ Mari praktik membuat aplikasi kecil yang menggabungkan semua konsep DOM!
 
 ### Struktur File
 
-```
+```text
 counter-app/
 ├── index.html
 ├── style.css
@@ -832,7 +832,7 @@ btnReset.addEventListener("click", function() {
 
 ### Struktur File
 
-```
+```text
 todo-app/
 ├── index.html
 ├── style.css

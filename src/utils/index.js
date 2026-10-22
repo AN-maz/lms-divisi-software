@@ -10,6 +10,15 @@ export const shuffleArray = (array) => {
   return shuffled;
 };
 
+// Membuat id anchor dari teks heading (dipakai anchor-link h2/h3 di materi).
+export const slugify = (teks) =>
+  String(teks)
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+
 // Menghitung skor kuis dari daftar soal + jawaban yang dipilih pengguna
 export const calculateQuizScore = (questions, selectedAnswers) => {
   let correctCount = 0;

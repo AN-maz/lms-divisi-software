@@ -666,7 +666,7 @@ Di project ini, kita akan melihat implementasi CRUD lengkap pada halaman **Produ
 
 Project ini memiliki struktur halaman CRUD sebagai berikut:
 
-```
+```text
 src/
 ├── pages/
 │   └── products/
