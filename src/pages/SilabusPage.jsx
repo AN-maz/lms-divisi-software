@@ -4,6 +4,7 @@ import { FiChevronDown, FiChevronUp, FiCheckCircle, FiBookOpen, FiArrowLeft } fr
 import useProgressStore from '../store/useProgressStore';
 import useDataLoader from '../hooks/useDataLoader';
 import { getTrack, findModuleContext } from '../services/dataService';
+import ThemeToggle from '../components/ThemeToggle';
 
 const SilabusPage = () => {
   const { track: slugTrack } = useParams();
@@ -50,8 +51,8 @@ const SilabusPage = () => {
 
   if (belumDimuat) {
     return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-        <div className="animate-pulse text-[var(--color-software-bright)] font-bold">
+      <div className="min-h-screen bg-[var(--lms-bg)] flex items-center justify-center">
+        <div className="animate-pulse text-[var(--lms-accent-text)] font-bold">
           Memuat Peta Belajar...
         </div>
       </div>
@@ -65,46 +66,54 @@ const SilabusPage = () => {
     }
 
     return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-6">
-        <div className="max-w-md text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
-          <h1 className="text-2xl font-black text-red-400 mb-3">
-            {error ? 'Gagal Memuat Silabus' : 'Jalur Tidak Dikenal'}
-          </h1>
-          <p className="text-gray-400 text-sm mb-6">
-            {error ? error.message : `Tidak ada jalur dengan nama "${slugTrack}".`}
-          </p>
-          <Link
-            to="/materi"
-            className="inline-block w-full py-3 bg-[var(--color-software-bright)] text-black font-black rounded-xl"
-          >
-            Pilih Jalur Kelaz
-          </Link>
+      <div className="min-h-screen bg-[var(--lms-bg)] flex flex-col p-6">
+        <div className="mx-auto w-full max-w-md flex justify-end">
+          <ThemeToggle />
+        </div>
+        <div className="flex-grow flex items-center justify-center">
+          <div className="max-w-md text-center bg-[var(--lms-surface)] p-10 rounded-3xl border border-[var(--lms-border)]">
+            <h1 className="text-2xl font-black text-red-400 mb-3">
+              {error ? 'Gagal Memuat Silabus' : 'Jalur Tidak Dikenal'}
+            </h1>
+            <p className="text-[var(--lms-text-muted)] text-sm mb-6">
+              {error ? error.message : `Tidak ada jalur dengan nama "${slugTrack}".`}
+            </p>
+            <Link
+              to="/materi"
+              className="inline-block w-full py-3 bg-[var(--lms-accent-bg)] text-black font-black rounded-xl"
+            >
+              Pilih Jalur Kelaz
+            </Link>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] p-4 md:p-8 text-white font-sans flex flex-col">
+    <div className="min-h-screen bg-[var(--lms-bg)] p-4 md:p-8 text-[var(--lms-text)] font-sans flex flex-col">
       <div className="max-w-4xl mx-auto w-full flex-grow">
-        <Link
-          to="/materi"
-          className="inline-flex items-center gap-2 text-gray-400 hover:text-white font-bold mb-8 transition-colors text-sm"
-        >
-          <FiArrowLeft /> Pilih Jalur Kelaz
-        </Link>
+        <div className="flex items-center justify-between mb-8">
+          <Link
+            to="/materi"
+            className="inline-flex items-center gap-2 text-[var(--lms-text-muted)] hover:text-[var(--lms-text)] font-bold transition-colors text-sm"
+          >
+            <FiArrowLeft /> Pilih Jalur Kelaz
+          </Link>
+          <ThemeToggle />
+        </div>
 
-        <h1 className="text-4xl font-black mb-2 text-center text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-software-bright)] to-[var(--color-software-teal)]">
+        <h1 className="text-4xl font-black mb-2 text-center text-transparent bg-clip-text bg-gradient-to-r from-[var(--lms-accent-text)] to-[var(--lms-accent-2-text)]">
           {track.nama}
         </h1>
-        <p className="text-center mb-12 text-gray-400">{track.tagline}</p>
+        <p className="text-center mb-12 text-[var(--lms-text-muted)]">{track.tagline}</p>
 
         {silabus.length === 0 && (
-          <div className="max-w-md mx-auto text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
-            <h2 className="text-xl font-black text-[var(--color-software-tosca)] mb-3">
+          <div className="max-w-md mx-auto text-center bg-[var(--lms-surface)] p-10 rounded-3xl border border-[var(--lms-border)]">
+            <h2 className="text-xl font-black text-[var(--lms-accent-2-text)] mb-3">
               Belum Ada Materi
             </h2>
-            <p className="text-gray-400 text-sm">
+            <p className="text-[var(--lms-text-muted)] text-sm">
               Jalur ini sedang disiapkan. Pantau terus, ya!
             </p>
           </div>
@@ -122,50 +131,50 @@ const SilabusPage = () => {
             return (
               <div 
                 key={group.pertemuan}
-                className="rounded-2xl border border-gray-800 bg-[#121212] overflow-hidden shadow-xl transition-all"
+                className="rounded-2xl border border-[var(--lms-border)] bg-[var(--lms-surface)] overflow-hidden shadow-xl transition-all"
               >
                 {/* BAR BARIS UTAMA (HEADER PERTEMUAN) */}
                 <button
                   onClick={() => toggleSection(group.pertemuan)}
-                  className="w-full p-6 text-left flex justify-between items-center gap-4 bg-[#161616] hover:bg-[#1e1e1e] transition-colors"
+                  className="w-full p-6 text-left flex justify-between items-center gap-4 bg-[var(--lms-surface-2)] hover:bg-[var(--lms-surface-5)] transition-colors"
                 >
                   <div>
                     <div className="flex items-center gap-3 mb-1">
-                      <h2 className="text-xl md:text-2xl font-black text-white">
+                      <h2 className="text-xl md:text-2xl font-black text-[var(--lms-text)]">
                         {group.title}
                       </h2>
                       {isAllGroupCompleted && (
-                        <FiCheckCircle className="text-[var(--color-software-bright)] flex-shrink-0" size={20} />
+                        <FiCheckCircle className="text-[var(--lms-accent-text)] flex-shrink-0" size={20} />
                       )}
                     </div>
-                    <p className="text-sm text-gray-400 leading-relaxed max-w-2xl hidden sm:block">
+                    <p className="text-sm text-[var(--lms-text-muted)] leading-relaxed max-w-2xl hidden sm:block">
                       {group.description}
                     </p>
-                    <div className="text-xs font-bold text-[var(--color-software-tosca)] mt-2 tracking-wide uppercase">
+                    <div className="text-xs font-bold text-[var(--lms-accent-2-text)] mt-2 tracking-wide uppercase">
                       Progres: {completedCount} dari {group.modules.length} Modul Selesai
                     </div>
                   </div>
 
                   {/* Ikon Panah Dropdown */}
-                  <div className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 border border-gray-800">
+                  <div className="w-10 h-10 rounded-full bg-[var(--lms-surface-3)] flex items-center justify-center text-[var(--lms-text-muted)] border border-[var(--lms-border)]">
                     {isExpanded ? <FiChevronUp size={20} /> : <FiChevronDown size={20} />}
                   </div>
                 </button>
 
                 {/* ISI DROPDOWN (DAFTAR MODUL) */}
                 {isExpanded && (
-                  <div className="border-t border-gray-800/60 bg-[#0d0d0d] p-4 md:p-6 space-y-3">
+                  <div className="border-t border-[var(--lms-border)]/60 60 bg-[var(--lms-surface-4)] p-4 md:p-6 space-y-3">
                     {group.modules.map((materi) => {
                       const isCompleted = completedModules.includes(materi.id);
 
                       return (
                         <div 
                           key={materi.id}
-                          className="p-4 rounded-xl border border-gray-800 bg-[#121212] hover:border-[var(--color-software-teal)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all"
+                          className="p-4 rounded-xl border border-[var(--lms-border)] bg-[var(--lms-surface)] hover:border-[var(--color-software-teal)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all"
                         >
                           <div className="flex items-center gap-3">
-                            <FiBookOpen className={isCompleted ? "text-[var(--color-software-bright)]" : "text-gray-600"} size={18} />
-                            <span className={`font-semibold text-sm md:text-base ${isCompleted ? 'text-gray-400' : 'text-gray-200'}`}>
+                            <FiBookOpen className={isCompleted ? "text-[var(--lms-accent-text)]" : "text-[var(--lms-text-ghost)]"} size={18} />
+                            <span className={`font-semibold text-sm md:text-base ${isCompleted ? 'text-[var(--lms-text-muted)]' : 'text-[var(--lms-text-strong)]'}`}>
                               {materi.title}
                             </span>
                           </div>
@@ -174,8 +183,8 @@ const SilabusPage = () => {
                             to={`/materi/${track.slug}/${materi.id}`}
                             className={`px-5 py-2 text-xs font-bold rounded-lg transition-all w-full sm:w-auto text-center ${
                               isCompleted
-                                ? 'bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700'
-                                : 'bg-[var(--color-software-tosca)] text-black hover:bg-[var(--color-software-bright)]'
+                                ? 'bg-[var(--lms-surface-3)] text-[var(--lms-text-muted)] hover:bg-[var(--lms-surface-3)] border border-[var(--lms-border-strong)]'
+                                : 'bg-[var(--color-software-tosca)] text-black hover:bg-[var(--lms-accent-bg)]'
                             }`}
                           >
                             {isCompleted ? 'Baca Ulang' : 'Mulai Belajar'}
@@ -192,11 +201,11 @@ const SilabusPage = () => {
 
         {/* PAGINATION KONTROL */}
         {totalPages > 1 && (
-          <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="mt-12 pt-8 border-t border-[var(--lms-border)] flex flex-col sm:flex-row justify-between items-center gap-4">
             <button 
               onClick={() => paginate(currentPage - 1)}
               disabled={currentPage === 1}
-              className="px-6 py-2.5 bg-[#121212] text-white rounded-lg font-bold border border-gray-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-800 w-full sm:w-auto transition-colors"
+              className="px-6 py-2.5 bg-[var(--lms-surface)] text-[var(--lms-text)] rounded-lg font-bold border border-[var(--lms-border-strong)] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[var(--lms-surface-3)] w-full sm:w-auto transition-colors"
             >
               ← Sebelumnya
             </button>
@@ -209,7 +218,7 @@ const SilabusPage = () => {
                   className={`w-10 h-10 rounded-lg font-bold transition-colors ${
                     currentPage === i + 1
                       ? 'bg-[var(--color-software-tosca)] text-black'
-                      : 'bg-[#121212] text-gray-400 border border-gray-700 hover:bg-gray-800 hover:text-white'
+                      : 'bg-[var(--lms-surface)] text-[var(--lms-text-muted)] border border-[var(--lms-border-strong)] hover:bg-[var(--lms-surface-3)] hover:text-[var(--lms-text)]'
                   }`}
                 >
                   {i + 1}
@@ -220,7 +229,7 @@ const SilabusPage = () => {
             <button 
               onClick={() => paginate(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="px-6 py-2.5 bg-[#121212] text-white rounded-lg font-bold border border-gray-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-800 w-full sm:w-auto transition-colors"
+              className="px-6 py-2.5 bg-[var(--lms-surface)] text-[var(--lms-text)] rounded-lg font-bold border border-[var(--lms-border-strong)] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[var(--lms-surface-3)] w-full sm:w-auto transition-colors"
             >
               Selanjutnya →
             </button>

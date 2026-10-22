@@ -1,20 +1,98 @@
 @import "tailwindcss";
 
+/* Pilih varian `dark:` berdasarkan atribut data-theme di <html>, bukan media query.
+   Dengan begitu tombol tema mengontrol seluruh halaman. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @layer base {
   :root {
-    /* Tema Warna Divisi Software */
+    /* Tema Warna Divisi Software (tetap di kedua mode) */
     --color-software-bright: #39FF5A;
     --color-software-tosca: #20C997;
     --color-software-teal: #008080;
   }
+
+  /* ---------- MODE GELAP (default) ---------- */
+  [data-theme="dark"] {
+    color-scheme: dark;
+
+    --lms-bg: #0a0a0a;            /* latar halaman */
+    --lms-bg-deep: #050505;       /* latar overlay / paling gelap */
+    --lms-surface: #121212;       /* kartu */
+    --lms-surface-2: #161616;     /* header kartu / baris */
+    --lms-surface-3: #1a1a1a;     /* hover / tombol netral */
+    --lms-surface-4: #0d0d0d;     /* panel dalam */
+    --lms-surface-5: #1e1e1e;     /* hover terang */
+    --lms-section: #020b1f;       /* blok section berwarna */
+    --lms-card: #051330;          /* kartu berwarna */
+    --lms-card-2: #1a2b4c;        /* kartu berwarna (lebih terang) */
+
+    --lms-border: #1f2937;        /* border utama (gray-800) */
+    --lms-border-strong: #374151; /* border lebih tegas (gray-700) */
+    --lms-border-soft: #4b5563;   /* gray-600 */
+
+    --lms-text: #ffffff;          /* teks utama */
+    --lms-text-strong: #e5e7eb;   /* gray-200 */
+    --lms-text-body: #d1d5db;     /* gray-300 */
+    --lms-text-muted: #9ca3af;    /* gray-400 */
+    --lms-text-faint: #6b7280;    /* gray-500 */
+    --lms-text-ghost: #4b5563;    /* gray-600 */
+
+    /* Aksen untuk TEKS (background aksen tetap pakai --color-software-*). */
+    --lms-accent-text: #39FF5A;
+    --lms-accent-2-text: #2dd4bf;
+    /* Latar tombol aksen (di mode gelap tetap neon). */
+    --lms-accent-bg: #39FF5A;
+    --lms-accent-bg-hover: #2de54c;
+  }
+
+  /* ---------- MODE TERANG ---------- */
+  [data-theme="light"] {
+    color-scheme: light;
+
+    --lms-bg: #f6f8f9;
+    --lms-bg-deep: #eef2f4;
+    --lms-surface: #ffffff;
+    --lms-surface-2: #f3f6f8;
+    --lms-surface-3: #eaeff2;
+    --lms-surface-4: #f7fafb;
+    --lms-surface-5: #e3e9ed;
+    --lms-section: #eaf6f3;
+    --lms-card: #ffffff;
+    --lms-card-2: #e8f5f1;
+
+    --lms-border: #d7e0e5;
+    --lms-border-strong: #bcccd4;
+    --lms-border-soft: #a8bcc7;
+
+    --lms-text: #0f1f26;
+    --lms-text-strong: #1b2f38;
+    --lms-text-body: #24383f;
+    --lms-text-muted: #566a73;
+    --lms-text-faint: #6f848d;
+    --lms-text-ghost: #8ea2aa;
+
+    /* Hijau terang tidak terbaca di latar terang -> versi lebih pekat. */
+    --lms-accent-text: #067a45;
+    --lms-accent-2-text: #0f766e;
+    --lms-accent-bg: #10a86b;
+    --lms-accent-bg-hover: #0d8b58;
+  }
 }
 
-/* Opsional: Styling scrollbar agar lebih rapi saat membaca materi */
+/* Latar viewport ikut bertema (termasuk area overscroll di mobile). */
+html,
+body {
+  background-color: var(--lms-bg);
+  color: var(--lms-text);
+}
+
+/* Styling scrollbar agar lebih rapi saat membaca materi */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--lms-surface-2);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-software-tosca);
@@ -22,4 +100,21 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-software-teal);
+}
+
+/* Transisi halus saat tema diganti */
+html,
+body,
+body * {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  body * {
+    transition: none;
+  }
 }

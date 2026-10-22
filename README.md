@@ -107,6 +107,8 @@ lms-app/
 │   ├── components/        <-- Komponen yang bisa dipakai berulang
 │   │   ├── FloatTimeIndicator.jsx <-- Timer Pomodoro & indikator status
 │   │   ├── GerbangSanksi.jsx      <-- Anti-tab switch quiz
+│   │   ├── LayarPenuh.jsx         <-- Pembungkus layar loading/kosong/error/hasil
+│   │   ├── ThemeToggle.jsx        <-- Tombol ganti mode terang/gelap
 │   │   └── MarkdownViewer.jsx     <-- Jantung aplikasinya (Render MD to HTML)
 │   │
 │   ├── hooks/             <-- Custom React Hook
@@ -125,7 +127,8 @@ lms-app/
 │   │   └── dataService.js        <-- fetchData + cache + dataSources + helper jalur
 │   │
 │   ├── store/           <-- State Management (Zustand)
-│   │   └── useProgressStore.js   <-- Menyimpan state (materi terbuka/terkunci)
+│   │   ├── useProgressStore.js   <-- Menyimpan state (materi terbuka/terkunci)
+│   │   └── useThemeStore.js      <-- Mode terang/gelap (persist di localStorage)
 │   │
 │   ├── utils/           <-- Utility functions
 │   │   └── index.js             <-- shuffleArray, calculateQuizScore
@@ -158,6 +161,38 @@ lms-app/
 | **Side Quest** | `side-quest` | Materi tambahan di luar kurikulum (modul id mulai 100) |
 
 ID modul Side Quest dimulai dari **100** supaya tidak bentrok dengan Main Quest. Ini penting karena rute `/eksplorasi/:id` dan `/kuis/:id` hanya memakai ID, tanpa slug jalur.
+
+## Mode Terang / Gelap
+
+Tema disimpan di `localStorage` (key `lms-tema`) dan diterapkan lewat atribut `data-theme="dark|light"` pada `<html>`. Bila belum pernah memilih, tema mengikuti preferensi sistem.
+
+Tombol ganti tema (`ThemeToggle`) tersedia di **semua** halaman:
+
+| Halaman | Posisi tombol |
+| --- | --- |
+| Beranda | kanan atas (navbar) + footer |
+| Pilih Jalur Kelaz | sebaris tombol "Kembali ke Beranda" |
+| Daftar pertemuan | sebaris tombol "Pilih Jalur Kelaz" |
+| Hub modul | sebaris tombol kembali jalur |
+| Baca materi | sidebar (desktop), bar atas & sidebar (mobile) |
+| Kuis | sidebar navigator; layar loading/kosong/error/hasil: pojok kanan atas |
+
+### Menambah warna baru
+
+Jangan pakai hex hardcoded. Pakai token di `src/index.css`:
+
+| Token | Kegunaan |
+| --- | --- |
+| `--lms-bg`, `--lms-bg-deep` | latar halaman |
+| `--lms-surface` … `--lms-surface-5` | kartu & panel (bertingkat) |
+| `--lms-border`, `--lms-border-strong`, `--lms-border-soft` | garis |
+| `--lms-text`, `--lms-text-strong`, `--lms-text-body`, `--lms-text-muted`, `--lms-text-faint`, `--lms-text-ghost` | teks (dari paling terang ke paling redup) |
+| `--lms-accent-text`, `--lms-accent-2-text` | teks beraksen (aman di dua mode) |
+| `--lms-accent-bg`, `--lms-accent-bg-hover` | latar tombol aksen |
+
+Contoh: `className="bg-[var(--lms-surface)] text-[var(--lms-text-muted)] border border-[var(--lms-border)]"`.
+
+Untuk latar/tombol utama boleh tetap memakai `--color-software-tosca` / `--color-software-bright` (warna brand, sama di kedua mode), tetapi **teks** di atas latar terang wajib memakai token `--lms-accent-*-text`.
 
 ---
 

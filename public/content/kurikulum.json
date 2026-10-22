@@ -194,6 +194,18 @@
               "file": "/content/materi/side-quest/bonus-lab/modul-100-git-dan-alur-kerja.md"
             }
           ]
+        },
+        {
+          "pertemuan": 102,
+          "title": "Pemograman Dart",
+          "description": "Belajar bahasa pemrograman Dart, dasar-dasar sintaks, dan konsep pemrograman berorientasi objek.",
+          "modules": [
+            {
+              "id": 103,
+              "title": "Fundamental Pemograman Dart",
+              "file": "/content/materi/side-quest/dart/fundamental.md"
+            }
+          ]
         }
       ]
     }

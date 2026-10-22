@@ -9,7 +9,7 @@ import QuizPage from './pages/QuizPage';
 function App() {
   return (
     <Router>
-      <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a' }}>
+      <div className="min-h-screen bg-[var(--lms-bg)]">
         <Routes>
           <Route path="/" element={<LandingPage />} />
 

@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link, useSearchParams } from 'react-router-dom'
 import MarkdownViewer from '../components/MarkdownViewer';
 import GerbangSanksi from '../components/GerbangSanksi';
 import FloatTimeIndicator from '../components/FloatTimeIndicator';
+import ThemeToggle from '../components/ThemeToggle';
 import useDataLoader from '../hooks/useDataLoader';
 import useTrackSlug from '../hooks/useTrackSlug';
 import { findModuleById } from '../services/dataService';
@@ -198,8 +199,11 @@ const EksplorasiPage = () => {
   // Render
   if (loadingKurikulum || materiSource.status === 'loading') {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-[#0a0a0a]">
-        <div className="animate-pulse text-2xl font-bold text-[var(--color-software-bright)]">
+      <div className="relative h-screen w-full flex items-center justify-center bg-[var(--lms-bg)]">
+        <div className="absolute top-4 right-4">
+          <ThemeToggle />
+        </div>
+        <div className="animate-pulse text-2xl font-bold text-[var(--lms-accent-text)]">
           Memuat Codex...
         </div>
       </div>
@@ -208,17 +212,20 @@ const EksplorasiPage = () => {
 
   if (materiSource.status === 'notfound') {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-[#0a0a0a] px-6">
-        <div className="max-w-md text-center bg-[#121212] p-10 rounded-3xl border border-gray-800">
-          <h1 className="text-2xl font-black text-[var(--color-software-tosca)] mb-3">
+      <div className="relative h-screen w-full flex items-center justify-center bg-[var(--lms-bg)] px-6">
+        <div className="absolute top-4 right-4">
+          <ThemeToggle />
+        </div>
+        <div className="max-w-md text-center bg-[var(--lms-surface)] p-10 rounded-3xl border border-[var(--lms-border)]">
+          <h1 className="text-2xl font-black text-[var(--lms-accent-2-text)] mb-3">
             Materi Tidak Ditemukan
           </h1>
-          <p className="text-gray-400 text-sm mb-6">
-            Modul dengan ID <span className="text-white font-bold">{id}</span> tidak tersedia.
+          <p className="text-[var(--lms-text-muted)] text-sm mb-6">
+            Modul dengan ID <span className="text-[var(--lms-text)] font-bold">{id}</span> tidak tersedia.
           </p>
           <Link
             to="/materi"
-            className="inline-block w-full py-3 bg-[var(--color-software-bright)] text-black font-black rounded-xl"
+            className="inline-block w-full py-3 bg-[var(--lms-accent-bg)] text-black font-black rounded-xl"
           >
             Kembali ke Peta Belajar
           </Link>
@@ -228,7 +235,7 @@ const EksplorasiPage = () => {
   }
 
   return (
-    <div className="h-screen w-full flex bg-[#0a0a0a] text-gray-200 overflow-hidden font-sans relative">
+    <div className="h-screen w-full flex bg-[var(--lms-bg)] text-[var(--lms-text-strong)] overflow-hidden font-sans relative">
       <GerbangSanksi isOpen={isTerkunci} onUnlock={() => setIsTerkunci(false)} />
 
       {/* Jeda Istirahat Pomodoro (Overlay) */}
@@ -237,10 +244,10 @@ const EksplorasiPage = () => {
           <h2 className="text-[#14b8a6] font-extrabold text-3xl mb-4 tracking-widest uppercase animate-pulse">
             Fase Istirahat
           </h2>
-          <div className="text-7xl font-mono font-bold text-white mb-6">
+          <div className="text-7xl font-mono font-bold text-[var(--lms-text)] mb-6">
             {formatWaktu(pomodoro.sisa)}
           </div>
-          <p className="text-gray-400 max-w-lg">
+          <p className="text-[var(--lms-text-muted)] max-w-lg">
             Layar ini terkunci otomatis untuk melindungi kapasitas kognitif Anda. Regangkan badan dan
             kembalikan atensi.
           </p>
@@ -248,19 +255,22 @@ const EksplorasiPage = () => {
       )}
 
       <div className="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar scroll-area relative">
-        <div className="md:hidden sticky top-0 z-40 bg-[#121212] border-b border-gray-800 p-4 flex justify-between items-center shadow-md">
+        <div className="md:hidden sticky top-0 z-40 bg-[var(--lms-surface)] border-b border-[var(--lms-border)] p-4 flex justify-between items-center shadow-md">
           <Link
             to={backTo}
-            className="text-[var(--color-software-tosca)] font-bold text-sm"
+            className="text-[var(--lms-accent-2-text)] font-bold text-sm"
           >
             ← Kembali ke Hub
           </Link>
-          <button
-            onClick={() => setIsSidebarOpen(true)}
-            className="text-white flex items-center gap-2 text-sm font-bold bg-gray-800 px-3 py-1.5 rounded-md"
-          >
-            Daftar Isi ☰
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle variant="pill" />
+            <button
+              onClick={() => setIsSidebarOpen(true)}
+              className="text-[var(--lms-text)] flex items-center gap-2 text-sm font-bold bg-[var(--lms-surface-3)] px-3 py-1.5 rounded-md"
+            >
+              Daftar Isi ☰
+            </button>
+          </div>
         </div>
 
         <FloatTimeIndicator
@@ -279,17 +289,17 @@ const EksplorasiPage = () => {
           )}
 
           <div className="flex-grow">
-            <div className="text-[var(--color-software-teal)] font-bold text-sm tracking-wider uppercase mb-2">
+            <div className="text-[var(--lms-accent-2-text)] font-bold text-sm tracking-wider uppercase mb-2">
               {materiTitle}
             </div>
             <MarkdownViewer content={sections[currentIndex]?.content || ''} />
           </div>
 
-          <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="mt-16 pt-8 border-t border-[var(--lms-border)] flex flex-col sm:flex-row justify-between items-center gap-4">
             <button
               onClick={() => gotoSection(Math.max(0, currentIndex - 1))}
               disabled={currentIndex === 0}
-              className="px-6 py-3 bg-[#1a1a1a] text-white rounded-lg font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-800 border border-gray-700 w-full sm:w-auto transition-colors"
+              className="px-6 py-3 bg-[var(--lms-surface-3)] text-[var(--lms-text)] rounded-lg font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[var(--lms-surface-3)] border border-[var(--lms-border-strong)] w-full sm:w-auto transition-colors"
             >
               ← Sebelumnya
             </button>
@@ -297,14 +307,14 @@ const EksplorasiPage = () => {
             {isLastPage ? (
               <button
                 onClick={() => navigate(backTo)}
-                className="px-8 py-3 bg-[var(--color-software-bright)] text-black font-extrabold rounded-lg hover:bg-[#2de54c] shadow-[0_0_15px_rgba(57,255,90,0.3)] w-full sm:w-auto transition-all"
+                className="px-8 py-3 bg-[var(--lms-accent-bg)] text-black font-extrabold rounded-lg hover:bg-[var(--lms-accent-bg-hover)] shadow-[0_0_15px_rgba(57,255,90,0.3)] w-full sm:w-auto transition-all"
               >
                 Selesai Membaca & Kembali
               </button>
             ) : (
               <button
                 onClick={() => gotoSection(Math.min(sections.length - 1, currentIndex + 1))}
-                className="px-8 py-3 bg-[var(--color-software-tosca)] text-black font-bold rounded-lg hover:bg-[#1db88a] shadow-[0_0_15px_rgba(32,201,151,0.2)] w-full sm:w-auto transition-colors"
+                className="px-8 py-3 bg-[var(--color-software-tosca)] text-black font-bold rounded-lg hover:bg-[var(--lms-accent-bg-hover)] shadow-[0_0_15px_rgba(32,201,151,0.2)] w-full sm:w-auto transition-colors"
               >
                 Selanjutnya →
               </button>
@@ -315,30 +325,33 @@ const EksplorasiPage = () => {
 
       {/* --- SIDEBAR KANAN --- */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-80 bg-[#121212] border-l border-gray-800 flex flex-col transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0 right-0 z-50 w-80 bg-[var(--lms-surface)] border-l border-[var(--lms-border)] flex flex-col transform transition-transform duration-300 ease-in-out ${
           isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
         } md:relative md:translate-x-0 flex-shrink-0`}
       >
-        <div className="p-4 border-b border-gray-800 flex justify-between items-center bg-[#0a0a0a]">
+        <div className="p-4 border-b border-[var(--lms-border)] flex justify-between items-center bg-[var(--lms-bg)]">
           <Link
             to={backTo}
-            className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors"
+            className="text-[var(--lms-text-muted)] hover:text-[var(--lms-text)] flex items-center gap-2 text-sm font-medium transition-colors"
           >
-            <span className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center text-xs">
+            <span className="w-6 h-6 rounded-full bg-[var(--lms-surface-3)] flex items-center justify-center text-xs">
               ←
             </span>
             Module Hub
           </Link>
-          <button
-            onClick={() => setIsSidebarOpen(false)}
-            className="md:hidden text-gray-400 hover:text-white text-xl"
-          >
-            ✕
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle variant="pill" />
+            <button
+              onClick={() => setIsSidebarOpen(false)}
+              className="md:hidden text-[var(--lms-text-muted)] hover:text-[var(--lms-text)] text-xl"
+            >
+              ✕
+            </button>
+          </div>
         </div>
 
         {/* PANEL KENDALI ATENSI */}
-        <div className="p-4 border-b border-gray-800">
+        <div className="p-4 border-b border-[var(--lms-border)]">
           <div className="mb-3 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2.5 w-2.5">
@@ -352,7 +365,7 @@ const EksplorasiPage = () => {
             <span
               className={`text-[9px] px-1.5 py-0.5 rounded font-bold border ${
                 mode === MODE_BIASA
-                  ? 'bg-gray-800/50 text-gray-400 border-gray-700'
+                  ? 'bg-[var(--lms-surface-3)]/50 text-[var(--lms-text-muted)] border-[var(--lms-border-strong)]'
                   : mode === MODE_POMODORO
                     ? 'bg-[#14b8a6]/10 text-[#14b8a6] border-[#14b8a6]/30'
                     : 'bg-red-900/20 text-red-400 border-red-900/50'
@@ -362,14 +375,14 @@ const EksplorasiPage = () => {
             </span>
           </div>
 
-          <div className="flex bg-[#0a0a0a] p-1 rounded border border-gray-800">
+          <div className="flex bg-[var(--lms-bg)] p-1 rounded border border-[var(--lms-border)]">
             <button
               onClick={() => gantiMode(MODE_BIASA)}
               title="Mode Standar"
               className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${
                 mode === MODE_BIASA
-                  ? 'bg-gray-700 text-white shadow-sm'
-                  : 'text-gray-500 hover:text-gray-300'
+                  ? 'bg-[var(--lms-surface-3)] text-[var(--lms-text)] shadow-sm'
+                  : 'text-[var(--lms-text-faint)] hover:text-[var(--lms-text-body)]'
               }`}
             >
               📖
@@ -380,7 +393,7 @@ const EksplorasiPage = () => {
               className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${
                 mode === MODE_POMODORO
                   ? 'bg-[#14b8a6] text-black shadow-[0_0_8px_rgba(20,184,166,0.4)]'
-                  : 'text-gray-500 hover:text-[#14b8a6]'
+                  : 'text-[var(--lms-text-faint)] hover:text-[#14b8a6]'
               }`}
             >
               ⏱️
@@ -390,8 +403,8 @@ const EksplorasiPage = () => {
               title="Mode Kunci Absolut"
               className={`flex-1 py-1.5 text-xs flex justify-center items-center rounded transition-all duration-200 ${
                 mode === MODE_ABSOLUT
-                  ? 'bg-red-600 text-white shadow-[0_0_8px_rgba(220,38,38,0.4)]'
-                  : 'text-gray-500 hover:text-red-400'
+                  ? 'bg-red-600 text-[var(--lms-text)] shadow-[0_0_8px_rgba(220,38,38,0.4)]'
+                  : 'text-[var(--lms-text-faint)] hover:text-red-400'
               }`}
             >
               ⚡
@@ -400,12 +413,12 @@ const EksplorasiPage = () => {
         </div>
 
         {/* PROGRES MEMBACA */}
-        <div className="p-5 border-b border-gray-800">
-          <div className="flex justify-between text-xs font-bold text-gray-400 mb-2">
+        <div className="p-5 border-b border-[var(--lms-border)]">
+          <div className="flex justify-between text-xs font-bold text-[var(--lms-text-muted)] mb-2">
             <span>PROGRES MEMBACA</span>
-            <span className="text-[var(--color-software-tosca)]">{progressPercentage}%</span>
+            <span className="text-[var(--lms-accent-2-text)]">{progressPercentage}%</span>
           </div>
-          <div className="h-1.5 w-full bg-gray-800 rounded-full overflow-hidden">
+          <div className="h-1.5 w-full bg-[var(--lms-surface-3)] rounded-full overflow-hidden">
             <div
               className="h-full bg-[var(--color-software-tosca)] transition-all duration-500 ease-out"
               style={{ width: `${progressPercentage}%` }}
@@ -425,12 +438,12 @@ const EksplorasiPage = () => {
                     onClick={() => gotoSection(idx)}
                     className={`w-full text-left px-5 py-4 text-sm transition-colors flex justify-between items-center ${
                       isActive
-                        ? 'bg-[#1a1a1a] border-l-4 border-[var(--color-software-bright)] text-white font-bold'
-                        : 'border-l-4 border-transparent text-gray-400 hover:bg-[#161616] hover:text-gray-200'
+                        ? 'bg-[var(--lms-surface-3)] border-l-4 border-[var(--color-software-bright)] text-[var(--lms-text)] font-bold'
+                        : 'border-l-4 border-transparent text-[var(--lms-text-muted)] hover:bg-[var(--lms-surface-2)] hover:text-[var(--lms-text-strong)]'
                     }`}
                   >
                     <span className="flex-grow pr-3 leading-snug">{sec.title}</span>
-                    {isPassed && <span className="text-[var(--color-software-teal)] font-bold">✓</span>}
+                    {isPassed && <span className="text-[var(--lms-accent-2-text)] font-bold">✓</span>}
                   </button>
                 </li>
               );
