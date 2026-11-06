@@ -1,15 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { FiChevronDown, FiChevronUp, FiCheckCircle, FiBookOpen, FiArrowLeft } from 'react-icons/fi';
 import useProgressStore from '../store/useProgressStore';
 import useDataLoader from '../hooks/useDataLoader';
-import { getTrack, findModuleContext } from '../services/dataService';
+import { getTrack, getTracks, findModuleContext } from '../services/dataService';
 import ThemeToggle from '../components/ThemeToggle';
 
 const SilabusPage = () => {
   const { track: slugTrack } = useParams();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3; // Menampilkan 3 kelompok pertemuan per halaman
+
+  // Reset pagination saat berpindah jalur
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [slugTrack]);
 
   // State untuk melacak pertemuan mana saja yang sedang terbuka dropdown-nya
   const [openSections, setOpenSections] = useState({});
@@ -106,7 +111,29 @@ const SilabusPage = () => {
         <h1 className="text-4xl font-black mb-2 text-center text-transparent bg-clip-text bg-gradient-to-r from-[var(--lms-accent-text)] to-[var(--lms-accent-2-text)]">
           {track.nama}
         </h1>
-        <p className="text-center mb-12 text-[var(--lms-text-muted)]">{track.tagline}</p>
+        <p className="text-center mb-8 text-[var(--lms-text-muted)]">{track.tagline}</p>
+
+        {/* Tab Switcher Antar Jalur Belajar (Main Quest & AI Quest) */}
+        <div className="flex justify-center items-center gap-3 mb-10 flex-wrap">
+          {getTracks(kurikulum)
+            .filter((t) => t.slug !== 'side-quest')
+            .map((t) => {
+              const isActive = t.slug === slugTrack;
+              return (
+                <Link
+                  key={t.slug}
+                  to={`/materi/${t.slug}`}
+                  className={`px-5 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all cursor-pointer ${
+                    isActive
+                      ? 'bg-[var(--lms-accent-bg)] text-black shadow-[0_0_15px_rgba(57,255,90,0.35)] scale-105'
+                      : 'bg-[var(--lms-surface)] text-[var(--lms-text-muted)] hover:text-[var(--lms-text)] border border-[var(--lms-border)] hover:border-[var(--lms-border-strong)]'
+                  }`}
+                >
+                  {t.nama}
+                </Link>
+              );
+            })}
+        </div>
 
         {silabus.length === 0 && (
           <div className="max-w-md mx-auto text-center bg-[var(--lms-surface)] p-10 rounded-3xl border border-[var(--lms-border)]">

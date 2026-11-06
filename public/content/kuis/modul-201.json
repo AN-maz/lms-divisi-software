@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "question": "Menurut materi, hal yang dilakukan AI hanyalah satu hal, yaitu...",
+    "options": [
+      "Mengenali pola dari data yang pernah dilihat, lalu menebak pola yang paling cocok untuk situasi baru",
+      "Menghafal semua data yang pernah diterimanya",
+      "Mengerti makna dari kata-kata yang dia baca",
+      "Berpikir dan menyadari seperti manusia"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 2,
+    "question": "Di kantin yang ramai, kamu langsung tahu suara teman yang teriak 'Hei!' tanpa melihat orangnya. Menurut materi, kenapa bisa begitu?",
+    "options": [
+      "Karena kamu hafal pita suara fisik temanmu",
+      "Karena suara temanmu selalu paling keras",
+      "Karena otakmu sudah mengenali pola ciri khas suaranya",
+      "Karena tebakanmu kebetulan benar"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "Dulu email spam dideteksi dengan aturan manual, misalnya 'IF mengandung kata GRATIS THEN tandai spam'. Kenapa aturan ini jadi buntu?",
+    "options": [
+      "Karena programmer malas menulis aturannya",
+      "Karena email spam tidak pernah memakai kata GRATIS",
+      "Karena komputer terlalu lambat membaca aturan tersebut",
+      "Karena spammer mengganti tulisannya menjadi 'GR4TIS' atau 'G.R.A.T.I.S', sehingga aturannya tidak cocok lagi"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 4,
+    "question": "Berpikir deduktif adalah cara berpikir yang...",
+    "options": [
+      "Dari banyak contoh, lalu mencari pola umumnya sendiri",
+      "Dari aturan/rumus yang sudah jelas, lalu diterapkan ke kasus spesifik",
+      "Dari hasil/gejala, lalu dicari penjelasan yang paling mungkin",
+      "Menebak hasil tanpa aturan sama sekali"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 5,
+    "question": "Kamu tahu rumus kecepatan = jarak/waktu. Mobil menempuh 100 km dalam 2 jam, kamu hitung kecepatannya 50 km/jam. Ini contoh berpikir...",
+    "options": [
+      "Deduktif",
+      "Induktif",
+      "Abduktif",
+      "Kreatif"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 6,
+    "question": "Menurut materi, cara berpikir yang menjadi dasar machine learning adalah...",
+    "options": [
+      "Deduktif",
+      "Induktif",
+      "Abduktif",
+      "Deterministik"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 7,
+    "question": "Dokter melihat pasien demam, batuk, dan sesak napas, lalu mendiagnosa kemungkinan pneumonia. Ini contoh berpikir...",
+    "options": [
+      "Deduktif",
+      "Induktif",
+      "Abduktif",
+      "Deterministik"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Kenapa AI modern paling sering menggunakan cara berpikir induktif?",
+    "options": [
+      "Karena induktif selalu 100% akurat",
+      "Karena dunia nyata terlalu kompleks untuk ditulis dalam aturan manual, jadi cukup kasih data contoh yang banyak dan biar AI cari polanya sendiri",
+      "Karena induktif tidak butuh data sama sekali",
+      "Karena deduktif sudah tidak didukung komputer modern"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 9,
+    "question": "Menurut materi, bagaimana cara machine learning mengenali kucing dari foto?",
+    "options": [
+      "Dikasih ribuan foto kucing dan bukan kucing, lalu AI mencari sendiri pola pembedanya",
+      "Ditulis aturan manual: IF ada 2 telinga segitiga AND ada kumis AND 4 kaki THEN kucing",
+      "Menghafal nama-nama ras kucing",
+      "Memeriksa warna bulu kucing saja"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 10,
+    "question": "Dalam materi, kata 'kucing' direpresentasikan sebagai deretan 768 angka. Apa peran setiap angka tersebut?",
+    "options": [
+      "Sebagai jumlah kata yang sering muncul bersama kata 'kucing'",
+      "Sebagai kode warna dari foto kucing",
+      "Sebagai nomor halaman kata 'kucing' di kamus",
+      "Sebagai koordinat kata tersebut di salah satu sumbu"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 11,
+    "question": "Dalam ruang koordinat AI, apa artinya dua kata yang koordinatnya berdekatan?",
+    "options": [
+      "Kedua kata berasal dari bahasa yang sama",
+      "Kedua kata memiliki makna yang mirip",
+      "Kedua kata sama-sama pendek",
+      "Kedua kata sering muncul di kalimat yang panjang"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 12,
+    "question": "Kenapa representasi kata di AI butuh ratusan dimensi (misalnya 768), tidak cuma 2-3 dimensi saja?",
+    "options": [
+      "Karena komputer hanya bisa menyimpan angka dalam jumlah yang sangat banyak",
+      "Karena 768 dimensi membuat perhitungan matematika jadi lebih cepat",
+      "Karena makna kata itu kompleks, dibutuhkan banyak dimensi untuk menangkap ratusan aspek makna (makhluk hidup?, berbulu?, berbahaya?, dll)",
+      "Karena jumlah kata dalam bahasa ada ratusan ribu"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 13,
+    "question": "Dalam proses belajar AI, kesalahan (error/loss) disebut materi sebagai...",
+    "options": [
+      "Tanda bahwa model harus dibuang dan diganti baru",
+      "Hambatan yang harus dihindari sejak percobaan pertama",
+      "Bukti bahwa data training-nya rusak",
+      "Bahan bakar utama untuk belajar, karena dari kesalahan AI jadi tahu apa yang harus diperbaiki"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 14,
+    "question": "Lengkapi kalimat dari materi: 'Kesalahan bukan musuh, kesalahan adalah...'",
+    "options": [
+      "Guru",
+      "Musuh",
+      "Kebanggaan",
+      "Kecemasan"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 15,
+    "question": "Bagaimana sikap yang benar terhadap kesalahan saat eksperimen dibandingkan saat produksi?",
+    "options": [
+      "Kedua fase sama-sama harus bebas dari kesalahan",
+      "Saat eksperimen harus hindari salah, saat produksi boleh trial and error",
+      "Saat eksperimen kesalahan itu wajar dan diharapkan, tapi saat produksi harus dihindari karena berdampak ke user nyata",
+      "Tidak ada perbedaan, keduanya sama saja"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 16,
+    "question": "Fenomena saat AI memberikan jawaban yang salah total tapi dengan nada yang sangat meyakinkan disebut...",
+    "options": [
+      "Intuisi",
+      "Halusinasi",
+      "Probabilitas",
+      "Deterministik"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 17,
+    "question": "Dalam materi, istilah 'ground truth' didefinisikan sebagai...",
+    "options": [
+      "Jawaban AI yang paling meyakinkan",
+      "Perkiraan terbaik yang diberikan AI",
+      "Aturan manual yang ditulis programmer di dalam AI",
+      "Fakta atau data kebenaran nyata yang bisa diverifikasi"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 18,
+    "question": "Menurut materi, mana yang termasuk 'red flag' (tanda) jawaban AI sedang halusinasi?",
+    "options": [
+      "Jawaban terlalu spesifik tanpa sumber yang bisa diverifikasi, misalnya nama orang dan angka persis seperti '34%'",
+      "AI menjawab pertanyaan dengan terlalu cepat",
+      "AI meminta maaf lebih dulu sebelum menjawab",
+      "Jawaban AI disusun dalam bentuk daftar bernomor"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 19,
+    "question": "Apa yang dimaksud dengan sikap 'Trust, but verify' terhadap AI?",
+    "options": [
+      "Percaya sepenuhnya pada AI, dan verifikasi hanya kalau hasilnya terlihat aneh",
+      "Tidak menggunakan AI sama sekali karena terlalu berisiko",
+      "Gunakan AI sebagai starting point, tapi jawaban yang penting tetap dicek ke ground truth atau sumber terpercaya",
+      "Percaya pada AI hanya untuk pertanyaan teknis"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 20,
+    "question": "Menurut materi, skill yang paling penting di era AI (information literacy) adalah...",
+    "options": [
+      "Mengingat sebanyak mungkin fakta",
+      "Menulis kode secepat mungkin",
+      "Menggunakan AI untuk mengambil semua keputusan",
+      "Mengevaluasi kredibilitas informasi"
+    ],
+    "correctAnswer": 3
+  }
+]
