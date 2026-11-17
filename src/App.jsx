@@ -1,10 +1,16 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import TrackPickerPage from './pages/TrackPickerPage';
 import SilabusPage from './pages/SilabusPage';
 import ModuleHubPage from './pages/ModuleHubPage';
 import EksplorasiPage from './pages/EksplorasiPage';
 import QuizPage from './pages/QuizPage';
+
+function SilabusRoute() {
+  const { track } = useParams();
+
+  return <SilabusPage key={track} />;
+}
 
 function App() {
   return (
@@ -15,7 +21,7 @@ function App() {
 
           {/* Pemilih jalur -> daftar pertemuan -> hub modul */}
           <Route path="/materi" element={<TrackPickerPage />} />
-          <Route path="/materi/:track" element={<SilabusPage />} />
+          <Route path="/materi/:track" element={<SilabusRoute />} />
           <Route path="/materi/:track/:id" element={<ModuleHubPage />} />
 
           {/* Rute flat agar aset tidak pecah */}

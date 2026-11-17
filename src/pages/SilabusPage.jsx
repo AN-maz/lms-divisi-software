@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { FiChevronDown, FiChevronUp, FiCheckCircle, FiBookOpen, FiArrowLeft } from 'react-icons/fi';
 import useProgressStore from '../store/useProgressStore';
@@ -10,11 +10,6 @@ const SilabusPage = () => {
   const { track: slugTrack } = useParams();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3; // Menampilkan 3 kelompok pertemuan per halaman
-
-  // Reset pagination saat berpindah jalur
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [slugTrack]);
 
   // State untuk melacak pertemuan mana saja yang sedang terbuka dropdown-nya
   const [openSections, setOpenSections] = useState({});
