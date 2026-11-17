@@ -208,6 +208,58 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "ai-quest",
+      "nama": "AI Quest",
+      "tagline": "Fondasi AI: pola pikir probabilistik, vektor embedding, dan implementasi modern.",
+      "ikon": "cpu",
+      "pertemuan": [
+        {
+          "pertemuan": 1,
+          "title": "Pertemuan 1: Mengenal AI",
+          "description": "Membedah spektrum AI modern, konsep deterministik vs probabilistik, dan arsitektur eksekusi AI di aplikasi nyata.",
+          "modules": [
+            {
+              "id": 201,
+              "title": "AI Modul 1 Pengenalan: Cara Berpikir Belajar AI",
+              "file": "/content/materi/ai-quest/pertemuan-01/modul-201-cara-berpikir-belajar-ai.md",
+              "debug_jiwa": {
+                "title": "Refleksi Jiwa: Menjadi Tuan bagi Mesin Cerdas",
+                "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+                "slug": "kesadaran-organik"
+              }
+            },
+            {
+              "id": 202,
+              "title": "AI Modul 1 Pengenalan: Membongkar Mesin Pintar Tanpa Boncos dan Tanpa Pusing Matematika",
+              "file": "/content/materi/ai-quest/pertemuan-01/modul-202-membongkar-mesin-pintar.md",
+              "debug_jiwa": {
+                "title": "Refleksi Jiwa: Menjadi Tuan bagi Mesin Cerdas",
+                "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+                "slug": "kesadaran-organik"
+              }
+            }
+          ]
+        },
+        {
+          "pertemuan": 2,
+          "title": "Pertemuan 2: Bahasa Rahasia AI (Membedah Vektor, Dimensi, dan Jarak Makna)",
+          "description": "Membedah spektrum AI modern, konsep deterministik vs probabilistik, dan arsitektur eksekusi AI di aplikasi nyata.",
+          "modules": [
+            {
+              "id": 203,
+              "title": "Pertemuan 2: Bahasa Rahasia AI (Membedah Vektor, Dimensi, dan Jarak Makna)",
+              "file": "/content/materi/ai-quest/pertemuan-02/modul-203-bahasa-rahasia-ai.md",
+              "debug_jiwa": {
+                "title": "Refleksi Jiwa: Menjadi Tuan bagi Mesin Cerdas",
+                "tagline": "Tentang Janji yang Pernah Kamu Ucapin ke Diri Sendiri.",
+                "slug": "kesadaran-organik"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

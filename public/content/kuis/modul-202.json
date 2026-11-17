@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "question": "Kenapa bank bisa langsung mendeteksi kalau ada transaksi mencurigakan di kartu debitmu?",
+    "options": [
+      "Karena setiap transaksi dicek satu per satu oleh petugas bank",
+      "Karena AI mempelajari pola transaksi normal kamu, sehingga transaksi yang menyimpang langsung diblokir",
+      "Karena bank melarang semua transaksi ke luar negeri",
+      "Karena kartu debit tidak bisa dipakai untuk belanja online"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 2,
+    "question": "Menurut materi, bagaimana aplikasi ojek online memprediksi kemacetan?",
+    "options": [
+      "Dengan bertanya ke tiap pengguna yang sedang di jalan",
+      "Dengan mengikuti lalu lintas radio setiap jam",
+      "Dari data real-time ribuan pengemudi lain",
+      "Dengan menebak berdasarkan jadwal kantor"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 3,
+    "question": "Pernyataan mana yang benar tentang chatbot menurut materi?",
+    "options": [
+      "Chatbot adalah satu-satunya bentuk AI yang ada",
+      "AI tidak bisa bekerja tanpa mengobrol dulu dengan pengguna",
+      "AI selalu terlihat jelas oleh pengguna saat bekerja",
+      "Chatbot hanyalah salah satu antarmuka AI; banyak AI bekerja diam-diam di background"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 4,
+    "question": "Satu-satunya hal yang dimengerti oleh mesin adalah...",
+    "options": [
+      "Huruf dan kata",
+      "Warna dan gambar",
+      "Suara dan musik",
+      "Angka"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 5,
+    "question": "Dalam materi, deretan angka yang merepresentasikan sesuatu (misalnya kata 'kucing') disebut...",
+    "options": [
+      "Skalar",
+      "Vektor atau embedding",
+      "Matriks",
+      "Tensor"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 6,
+    "question": "Dalam hierarki dimensi data, contoh seperti 'Suhu: 30', 'Umur: 18', 'Harga: 50000' termasuk...",
+    "options": [
+      "Skalar",
+      "Vektor",
+      "Matriks",
+      "Tensor"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 7,
+    "question": "Foto hitam-putih ukuran 3x3 pixel direpresentasikan dalam mesin sebagai...",
+    "options": [
+      "Skalar",
+      "Vektor",
+      "Matriks",
+      "Tensor"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 8,
+    "question": "Dalam analogi ruangan 3D, apel ada di [1,2,3], jeruk di [1,2,4], dan laptop di [10,-5,8]. Kesimpulan yang benar adalah...",
+    "options": [
+      "Apel dan jeruk kemungkinan sejenis karena koordinatnya berdekatan, sedangkan laptop beda kategori karena koordinatnya jauh",
+      "Laptop dan jeruk pasti sejenis karena keduanya ada angka 5",
+      "Koordinat tidak bisa dipakai untuk membandingkan benda",
+      "Semua benda satu kategori karena sama-sama berada di ruang 3D"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 9,
+    "question": "Mengukur jarak lurus antara dua titik, seperti mengukur jarak dengan penggaris, adalah cara kerja dari...",
+    "options": [
+      "Cosine Similarity",
+      "Softmax",
+      "Gradient Descent",
+      "Euclidean Distance"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 10,
+    "question": "Dalam Cosine Similarity, hasil angka 1 berarti...",
+    "options": [
+      "Berlawanan total (sudut 180°)",
+      "Tidak ada hubungan (sudut 90°)",
+      "Sangat mirip (searah penuh, sudut 0°)",
+      "Jaraknya sangat jauh"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 11,
+    "question": "Pencarian cerdas di Google, rekomendasi lagu Spotify, dan saran konten TikTok bekerja dengan dasar...",
+    "options": [
+      "Membaca pikiran pengguna",
+      "Mencari konten yang vektornya paling mirip dengan yang sedang dicari atau dinikmati pengguna",
+      "Membayar kreator konten untuk promosi",
+      "Mengurutkan konten berdasarkan tanggal upload saja"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 12,
+    "question": "Menurut materi, cara AI belajar agar semakin pintar adalah dengan...",
+    "options": [
+      "Mencoba, salah, lalu memperbaiki diri secara bertahap",
+      "Diajari langkah demi langkah oleh programmer",
+      "Menghafal jawaban dari buku panduan",
+      "Menunggu instruksi dari pengguna"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 13,
+    "question": "Model AI memprediksi harga rumah Rp 500 juta, sedangkan harga aslinya Rp 600 juta. Berapa loss (kesalahannya)?",
+    "options": [
+      "Rp 500 juta",
+      "Rp 600 juta",
+      "Rp 100 juta",
+      "Rp 1,1 miliar"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 14,
+    "question": "Istilah untuk metode 'menuruni gunung kesalahan dengan melangkah ke arah lereng yang paling menurun' adalah...",
+    "options": [
+      "Loss Function",
+      "Gradient Descent",
+      "Softmax",
+      "Inference"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 15,
+    "question": "Saat kamu memakai ChatGPT, filter Instagram, atau rekomendasi Netflix, fase yang sedang terjadi adalah...",
+    "options": [
+      "Training",
+      "Gradient Descent",
+      "Loss Function",
+      "Inference"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 16,
+    "question": "Kenapa developer web tidak perlu melakukan training model AI sendiri?",
+    "options": [
+      "Karena bisa langsung memakai model yang sudah jadi lewat API atau library",
+      "Karena training dilarang untuk developer web",
+      "Karena training hanya bisa dilakukan di laptop gaming",
+      "Karena model AI sama sekali tidak butuh training"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 17,
+    "question": "Sifat program biasa (deterministik) adalah...",
+    "options": [
+      "Input yang sama bisa menghasilkan output yang berbeda-beda",
+      "Selalu memberikan tebakan terbaik",
+      "Input yang sama selalu menghasilkan output yang sama",
+      "Menjawab berdasarkan peluang"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Saat ditanya 'Apa ibukota Prancis?', AI menjawab 'Paris'. Kenapa AI memilih jawaban itu?",
+    "options": [
+      "Karena AI membaca jawabannya dari buku ensiklopedia",
+      "Karena peluang kata 'Paris' paling tinggi berdasarkan pola yang dipelajari dari data training",
+      "Karena AI mencari jawabannya di Google saat itu juga",
+      "Karena jawabannya sudah ditulis oleh programmer"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 19,
+    "question": "Fungsi yang mengubah skor mentah (logits) menjadi distribusi probabilitas yang totalnya tepat 100% disebut...",
+    "options": [
+      "Softmax",
+      "Loss Function",
+      "Cosine Similarity",
+      "Temperature"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 20,
+    "question": "Kenapa AI menjawab dengan percaya diri bahwa presiden Indonesia tahun 2090 adalah Joko Widodo, padahal tahun 2090 belum terjadi?",
+    "options": [
+      "Karena AI punya akses ke data masa depan",
+      "Karena programmer sudah memprogram jawaban tersebut",
+      "Karena tahun 2090 sudah ditentukan dalam undang-undang",
+      "Karena kata 'Joko Widodo' dan 'presiden Indonesia' sering muncul berdekatan di data training, jadi AI mengikuti pola itu meskipun faktanya salah"
+    ],
+    "correctAnswer": 3
+  }
+]

@@ -13,8 +13,9 @@
 
 import { readFile, readdir, access } from 'node:fs/promises';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = new URL('..', import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const PUBLIC = join(ROOT, 'public');
 const KONTEN = join(PUBLIC, 'content');
 const KUIS = join(KONTEN, 'kuis');

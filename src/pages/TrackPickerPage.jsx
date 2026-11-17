@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FiCompass, FiFeather, FiArrowLeft } from 'react-icons/fi';
+import { FiCompass, FiFeather, FiCpu, FiArrowLeft } from 'react-icons/fi';
 import useProgressStore from '../store/useProgressStore';
 import useDataLoader from '../hooks/useDataLoader';
 import { getTracks, countCompleted, countModules } from '../services/dataService';
@@ -9,6 +9,7 @@ import ThemeToggle from '../components/ThemeToggle';
 const IKON = {
   compass: FiCompass,
   flask: FiFeather,
+  cpu: FiCpu,
 };
 
 const TrackPickerPage = () => {
@@ -23,7 +24,7 @@ const TrackPickerPage = () => {
 
   return (
     <div className="min-h-screen bg-[var(--lms-bg)] p-4 md:p-8 text-[var(--lms-text)] font-sans flex flex-col">
-      <div className="max-w-4xl mx-auto w-full flex-grow">
+      <div className="max-w-5xl mx-auto w-full flex-grow">
         <div className="flex items-center justify-between mb-8">
           <Link
             to="/"
@@ -38,8 +39,7 @@ const TrackPickerPage = () => {
           Pilih Jalur Kelaz
         </h1>
         <p className="text-center mb-12 text-[var(--lms-text-muted)]">
-          Dua jalur belajar. Mulai dari Main Quest untuk fondasi, atau lompat ke Side Quest buat
-          eksplorasi bebas.
+          Pilih jalur belajar: Main Quest untuk fondasi web, Side Quest untuk eksplorasi tools, atau AI Quest untuk kecerdasan buatan.
         </p>
 
         {loading && (
@@ -58,7 +58,7 @@ const TrackPickerPage = () => {
         )}
 
         {!loading && !error && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {daftar.map(({ track, total, selesai }) => {
               const Ikon = IKON[track.ikon] ?? FiCompass;
               const persen = total > 0 ? Math.round((selesai / total) * 100) : 0;
